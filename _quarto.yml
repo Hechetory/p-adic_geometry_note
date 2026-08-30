@@ -1,6 +1,9 @@
 project:
   type: website
 
+filters:
+  - etale.lua
+
 website:
   title: "p-adic geometry notes"
   site-url: "https://hechetory.github.io/p-adic_geometry_note/"
@@ -49,4 +52,3 @@ format:
 
 execute:
   freeze: auto
-
