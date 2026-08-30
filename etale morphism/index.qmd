@@ -1,16 +1,13 @@
 ---
 title: "Étale Morphisms"
-subtitle: "A first mental picture"
+subtitle: ""
 toc: false
 ---
 
 Étale morphisms are the algebro-geometric analogue of local isomorphisms.
 They preserve local dimension, introduce no infinitesimal ramification, and
-often behave like covering maps.
+often behave like covering maps (especially for finite \etale morphisms).
 
-::: {.callout-tip title="Guiding slogan"}
-**Étale = smooth of relative dimension \(0\).**
-:::
 
 For a first pass, continue to
 [Definitions and Intuitions](definitions-and-intuitions.qmd).

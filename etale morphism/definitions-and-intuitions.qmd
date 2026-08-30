@@ -5,16 +5,14 @@ subtitle: "Étale morphisms through small examples"
 
 ## Definition
 
-A morphism \(f:X\to Y\) is **étale** if it is
+A morphism $f\colon X\to Y$ between schemes is **étale** if it is
 
 1. locally of finite presentation,
 2. flat, and
 3. unramified.
 
 ::: {.callout-tip title="Intuition"}
-Think of an étale map as a map that is locally an isomorphism, although several
-points upstairs may lie over one point downstairs. There is no new tangent
-direction and no branching.
+We could think of an étale map as a map that is locally an isomorphism. It can be rigorously proven for varieties.
 :::
 
 ## Example: an open immersion
@@ -43,6 +41,4 @@ longer étale there: the branches collide.
 
 - Open immersions are the simplest étale maps.
 - Étale maps may have several sheets, but they have no infinitesimal branching.
-- The slogan “smooth of relative dimension \(0\)” is usually the right first
-  picture.
 
