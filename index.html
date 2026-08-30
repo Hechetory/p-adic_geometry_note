@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>p-adic geometry notes</title>
+<title>p-adic geometry notes – p-adic geometry notes</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -78,6 +78,35 @@ ul.task-list li input[type="checkbox"] {
   }
 }</script>
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-chtml.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 <link rel="stylesheet" href="styles.css">
 </head>
@@ -347,8 +376,7 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">p-adic geometry notes</h1>
-<p class="subtitle lead">Definitions, examples, and the pictures behind them</p>
+<h1 class="title"><span class="math inline">\(p\)</span>-adic geometry notes</h1>
 </div>
 
 
@@ -366,14 +394,16 @@ ul.task-list li input[type="checkbox"] {
 
 
 <div class="hero-note">
-<p>These are informal, intuition-first notes on p-adic and algebraic geometry. The aim is not to replace a textbook, but to record the examples and mental pictures that make the definitions easier to remember.</p>
+<p>My purpose is to write some informal, intuition-first notes on topics related to <span class="math inline">\(p\)</span>-adic geometry.<br>
+Even so, there may be some proofs of results that interest me.<br>
+The aim is not to replace a textbook, but to record my study experiences in <span class="math inline">\(p\)</span>-adic geometry.</p>
 </div>
 <section id="notes" class="level2">
 <h2 class="anchored" data-anchor-id="notes">Notes</h2>
 <div class="note-grid">
 <section id="étale-morphisms" class="level3 note-card">
 <h3 class="anchored" data-anchor-id="étale-morphisms"><a href="./etale morphism/index.html">Étale Morphisms</a></h3>
-<p>Why étale morphisms behave like local isomorphisms, with a few small examples.</p>
+<p>The aim for this note is to figure out lots of equivalent definitions of étale morphisms and give some intuitions.</p>
 <p><a href="./etale morphism/definitions-and-intuitions.html">Start reading →</a></p>
 </section>
 <section id="more-notes-will-live-here" class="level3 note-card coming-soon">
@@ -391,7 +421,7 @@ ul.task-list li input[type="checkbox"] {
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>This is a living notebook. Explanations may be heuristic, abbreviated, or revised as the surrounding picture becomes clearer.</p>
+<p>This is a living notebook. Explanations may be heuristic, abbreviated, or revised as the surrounding picture becomes clearer. Also, some parts may simply be forgotten by the author, who is a lazy man.</p>
 </div>
 </div>
 

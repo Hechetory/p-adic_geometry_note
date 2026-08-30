@@ -2,9 +2,9 @@
   {
     "objectID": "index.html",
     "href": "index.html",
-    "title": "p-adic geometry notes",
+    "title": "\\(p\\)-adic geometry notes",
     "section": "",
-    "text": "These are informal, intuition-first notes on p-adic and algebraic geometry. The aim is not to replace a textbook, but to record the examples and mental pictures that make the definitions easier to remember.",
+    "text": "My purpose is to write some informal, intuition-first notes on topics related to \\(p\\)-adic geometry.\nEven so, there may be some proofs of results that interest me.\nThe aim is not to replace a textbook, but to record my study experiences in \\(p\\)-adic geometry.",
     "crumbs": [
       "Home"
     ]
@@ -12,9 +12,9 @@
   {
     "objectID": "index.html#notes",
     "href": "index.html#notes",
-    "title": "p-adic geometry notes",
+    "title": "\\(p\\)-adic geometry notes",
     "section": "Notes",
-    "text": "Notes\n\n\nÉtale Morphisms\nWhy étale morphisms behave like local isomorphisms, with a few small examples.\nStart reading →\n\n\nMore notes will live here\nEach future topic can have its own folder, pages, and place in the sidebar.\n\n\n\n\n\n\n\n\nNoteStatus\n\n\n\nThis is a living notebook. Explanations may be heuristic, abbreviated, or revised as the surrounding picture becomes clearer.",
+    "text": "Notes\n\n\nÉtale Morphisms\nThe aim for this note is to figure out lots of equivalent definitions of étale morphisms and give some intuitions.\nStart reading →\n\n\nMore notes will live here\nEach future topic can have its own folder, pages, and place in the sidebar.\n\n\n\n\n\n\n\n\nNoteStatus\n\n\n\nThis is a living notebook. Explanations may be heuristic, abbreviated, or revised as the surrounding picture becomes clearer. Also, some parts may simply be forgotten by the author, who is a lazy man.",
     "crumbs": [
       "Home"
     ]
@@ -24,7 +24,7 @@
     "href": "etale morphism/definitions-and-intuitions.html",
     "title": "Definitions and Intuitions",
     "section": "",
-    "text": "A morphism (f:XY) is étale if it is\n\nlocally of finite presentation,\nflat, and\nunramified.\n\n\n\n\n\n\n\nTipIntuition\n\n\n\nThink of an étale map as a map that is locally an isomorphism, although several points upstairs may lie over one point downstairs. There is no new tangent direction and no branching.",
+    "text": "A morphism \\(f\\colon X\\to Y\\) between schemes is étale if it is\n\nlocally of finite presentation,\nflat, and\nunramified.\n\n\n\n\n\n\n\nTipIntuition\n\n\n\nWe could think of an étale map as a map that is locally an isomorphism. It can be rigorously proven for varieties.",
     "crumbs": [
       "Étale Morphisms",
       "Definitions and Intuitions"
@@ -35,7 +35,7 @@
     "href": "etale morphism/definitions-and-intuitions.html#definition",
     "title": "Definitions and Intuitions",
     "section": "",
-    "text": "A morphism (f:XY) is étale if it is\n\nlocally of finite presentation,\nflat, and\nunramified.\n\n\n\n\n\n\n\nTipIntuition\n\n\n\nThink of an étale map as a map that is locally an isomorphism, although several points upstairs may lie over one point downstairs. There is no new tangent direction and no branching.",
+    "text": "A morphism \\(f\\colon X\\to Y\\) between schemes is étale if it is\n\nlocally of finite presentation,\nflat, and\nunramified.\n\n\n\n\n\n\n\nTipIntuition\n\n\n\nWe could think of an étale map as a map that is locally an isomorphism. It can be rigorously proven for varieties.",
     "crumbs": [
       "Étale Morphisms",
       "Definitions and Intuitions"
@@ -68,7 +68,7 @@
     "href": "etale morphism/definitions-and-intuitions.html#what-to-remember",
     "title": "Definitions and Intuitions",
     "section": "What to remember",
-    "text": "What to remember\n\nOpen immersions are the simplest étale maps.\nÉtale maps may have several sheets, but they have no infinitesimal branching.\nThe slogan “smooth of relative dimension (0)” is usually the right first picture.",
+    "text": "What to remember\n\nOpen immersions are the simplest étale maps.\nÉtale maps may have several sheets, but they have no infinitesimal branching.",
     "crumbs": [
       "Étale Morphisms",
       "Definitions and Intuitions"
@@ -115,11 +115,21 @@
     ]
   },
   {
+    "objectID": "editing.html#本地预览",
+    "href": "editing.html#本地预览",
+    "title": "How to edit these notes",
+    "section": "本地预览",
+    "text": "本地预览\n在英文路径的工作目录 C:\\notes\\p-adic-geometry-note 中打开 VS Code，然后在终端运行：\n.\\preview-local.ps1\n终端会显示一个 http://localhost:... 地址。保持这个终端运行，保存 .qmd 文件后网页会自动刷新；结束预览时按 Ctrl+C。",
+    "crumbs": [
+      "How to edit these notes"
+    ]
+  },
+  {
     "objectID": "etale morphism/index.html",
     "href": "etale morphism/index.html",
     "title": "Étale Morphisms",
     "section": "",
-    "text": "Étale morphisms are the algebro-geometric analogue of local isomorphisms. They preserve local dimension, introduce no infinitesimal ramification, and often behave like covering maps.\n\n\n\n\n\n\nTipGuiding slogan\n\n\n\nÉtale = smooth of relative dimension (0).\n\n\nFor a first pass, continue to Definitions and Intuitions.",
+    "text": "Étale morphisms are the algebro-geometric analogue of local isomorphisms. They preserve local dimension, introduce no infinitesimal ramification, and often behave like covering maps (especially for finite étale morphisms).\nFor a first pass, continue to Definitions and Intuitions.",
     "crumbs": [
       "Étale Morphisms",
       "Overview"
