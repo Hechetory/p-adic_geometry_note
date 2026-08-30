@@ -1,0 +1,52 @@
+project:
+  type: website
+
+website:
+  title: "p-adic geometry notes"
+  site-url: "https://hechetory.github.io/p-adic_geometry_note/"
+  description: "Intuition-first notes on p-adic and algebraic geometry."
+  page-navigation: true
+  reader-mode: true
+  search:
+    location: sidebar
+    type: overlay
+  repo-url: "https://github.com/Hechetory/p-adic_geometry_note"
+  repo-actions: [edit, source, issue]
+  navbar:
+    background: primary
+    right:
+      - icon: github
+        href: "https://github.com/Hechetory/p-adic_geometry_note"
+        aria-label: GitHub
+  sidebar:
+    style: docked
+    collapse-level: 2
+    contents:
+      - href: index.qmd
+        text: Home
+      - section: "Étale Morphisms"
+        contents:
+          - href: "etale morphism/index.qmd"
+            text: Overview
+          - href: "etale morphism/definitions-and-intuitions.qmd"
+            text: Definitions and Intuitions
+      - href: editing.qmd
+        text: How to edit these notes
+  page-footer:
+    left: "An evolving notebook on p-adic geometry."
+    right: "Built with Quarto and GitHub Pages."
+
+format:
+  html:
+    theme:
+      light: cosmo
+      dark: darkly
+    css: styles.css
+    toc: true
+    toc-depth: 3
+    code-copy: true
+    link-external-newwindow: true
+
+execute:
+  freeze: auto
+

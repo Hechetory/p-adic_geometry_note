@@ -1,0 +1,48 @@
+---
+title: "Definitions and Intuitions"
+subtitle: "Étale morphisms through small examples"
+---
+
+## Definition
+
+A morphism \(f:X\to Y\) is **étale** if it is
+
+1. locally of finite presentation,
+2. flat, and
+3. unramified.
+
+::: {.callout-tip title="Intuition"}
+Think of an étale map as a map that is locally an isomorphism, although several
+points upstairs may lie over one point downstairs. There is no new tangent
+direction and no branching.
+:::
+
+## Example: an open immersion
+
+Every open immersion \(U\hookrightarrow X\) is étale. Nothing changes near a
+point of \(U\): we have only restricted our attention to a smaller open set.
+
+## Example: the power map
+
+Assume that \(n\) is invertible in the base field. On the punctured affine
+line, the map
+
+$$
+\mathbb G_m \longrightarrow \mathbb G_m, \qquad t\longmapsto t^n
+$$
+
+is étale. Infinitesimally its derivative is \(nt^{n-1}\), which never vanishes
+on \(\mathbb G_m\).
+
+::: {.callout-warning title="Where the picture breaks"}
+On the whole affine line, \(t\mapsto t^n\) ramifies at \(t=0\). The map is no
+longer étale there: the branches collide.
+:::
+
+## What to remember
+
+- Open immersions are the simplest étale maps.
+- Étale maps may have several sheets, but they have no infinitesimal branching.
+- The slogan “smooth of relative dimension \(0\)” is usually the right first
+  picture.
+

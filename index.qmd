@@ -1,0 +1,35 @@
+---
+title: "p-adic geometry notes"
+subtitle: "Definitions, examples, and the pictures behind them"
+page-layout: full
+toc: false
+---
+
+::: {.hero-note}
+These are informal, intuition-first notes on p-adic and algebraic geometry.
+The aim is not to replace a textbook, but to record the examples and mental
+pictures that make the definitions easier to remember.
+:::
+
+## Notes
+
+::: {.note-grid}
+::: {.note-card}
+### [Étale Morphisms](<etale morphism/index.qmd>)
+
+Why étale morphisms behave like local isomorphisms, with a few small examples.
+
+[Start reading →](<etale morphism/definitions-and-intuitions.qmd>)
+:::
+
+::: {.note-card .coming-soon}
+### More notes will live here
+
+Each future topic can have its own folder, pages, and place in the sidebar.
+:::
+:::
+
+::: {.callout-note title="Status"}
+This is a living notebook. Explanations may be heuristic, abbreviated, or
+revised as the surrounding picture becomes clearer.
+:::
