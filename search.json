@@ -1,80 +1,5 @@
 [
   {
-    "objectID": "index.html",
-    "href": "index.html",
-    "title": "\\(p\\)-adic geometry notes",
-    "section": "",
-    "text": "My purpose is to write some informal, intuition-first notes on topics related to \\(p\\)-adic geometry.\nEven so, there may be some proofs of results that interest me.\nThe aim is not to replace a textbook, but to record my study experiences in \\(p\\)-adic geometry.",
-    "crumbs": [
-      "Home"
-    ]
-  },
-  {
-    "objectID": "index.html#notes",
-    "href": "index.html#notes",
-    "title": "\\(p\\)-adic geometry notes",
-    "section": "Notes",
-    "text": "Notes\n\n\nÉtale Morphisms\nThe aim for this note is to figure out lots of equivalent definitions of étale morphisms and give some intuitions.\nStart reading →\n\n\nMore notes will live here\nEach future topic can have its own folder, pages, and place in the sidebar.\n\n\n\n\n\n\n\n\nNoteStatus\n\n\n\nThis is a living notebook. Explanations may be heuristic, abbreviated, or revised as the surrounding picture becomes clearer. Also, some parts may simply be forgotten by the author, who is a lazy man.",
-    "crumbs": [
-      "Home"
-    ]
-  },
-  {
-    "objectID": "etale morphism/definitions-and-intuitions.html",
-    "href": "etale morphism/definitions-and-intuitions.html",
-    "title": "Definitions and Intuitions",
-    "section": "",
-    "text": "A morphism \\(f\\colon X\\to Y\\) between schemes is étale if it is\n\nlocally of finite presentation,\nflat, and\nunramified.\n\n\n\n\n\n\n\nTipIntuition\n\n\n\nWe could think of an étale map as a map that is locally an isomorphism. It can be rigorously proven for varieties.",
-    "crumbs": [
-      "Étale Morphisms",
-      "Definitions and Intuitions"
-    ]
-  },
-  {
-    "objectID": "etale morphism/definitions-and-intuitions.html#definition",
-    "href": "etale morphism/definitions-and-intuitions.html#definition",
-    "title": "Definitions and Intuitions",
-    "section": "",
-    "text": "A morphism \\(f\\colon X\\to Y\\) between schemes is étale if it is\n\nlocally of finite presentation,\nflat, and\nunramified.\n\n\n\n\n\n\n\nTipIntuition\n\n\n\nWe could think of an étale map as a map that is locally an isomorphism. It can be rigorously proven for varieties.",
-    "crumbs": [
-      "Étale Morphisms",
-      "Definitions and Intuitions"
-    ]
-  },
-  {
-    "objectID": "etale morphism/definitions-and-intuitions.html#example-an-open-immersion",
-    "href": "etale morphism/definitions-and-intuitions.html#example-an-open-immersion",
-    "title": "Definitions and Intuitions",
-    "section": "Example: an open immersion",
-    "text": "Example: an open immersion\nEvery open immersion (UX) is étale. Nothing changes near a point of (U): we have only restricted our attention to a smaller open set.",
-    "crumbs": [
-      "Étale Morphisms",
-      "Definitions and Intuitions"
-    ]
-  },
-  {
-    "objectID": "etale morphism/definitions-and-intuitions.html#example-the-power-map",
-    "href": "etale morphism/definitions-and-intuitions.html#example-the-power-map",
-    "title": "Definitions and Intuitions",
-    "section": "Example: the power map",
-    "text": "Example: the power map\nAssume that (n) is invertible in the base field. On the punctured affine line, the map\n\\[\n\\mathbb G_m \\longrightarrow \\mathbb G_m, \\qquad t\\longmapsto t^n\n\\]\nis étale. Infinitesimally its derivative is (nt^{n-1}), which never vanishes on (G_m).\n\n\n\n\n\n\nWarningWhere the picture breaks\n\n\n\nOn the whole affine line, (tt^n) ramifies at (t=0). The map is no longer étale there: the branches collide.",
-    "crumbs": [
-      "Étale Morphisms",
-      "Definitions and Intuitions"
-    ]
-  },
-  {
-    "objectID": "etale morphism/definitions-and-intuitions.html#what-to-remember",
-    "href": "etale morphism/definitions-and-intuitions.html#what-to-remember",
-    "title": "Definitions and Intuitions",
-    "section": "What to remember",
-    "text": "What to remember\n\nOpen immersions are the simplest étale maps.\nÉtale maps may have several sheets, but they have no infinitesimal branching.",
-    "crumbs": [
-      "Étale Morphisms",
-      "Definitions and Intuitions"
-    ]
-  },
-  {
     "objectID": "editing.html",
     "href": "editing.html",
     "title": "How to edit these notes",
@@ -133,6 +58,81 @@
     "crumbs": [
       "Étale Morphisms",
       "Overview"
+    ]
+  },
+  {
+    "objectID": "etale morphism/definitions-and-intuitions.html",
+    "href": "etale morphism/definitions-and-intuitions.html",
+    "title": "Definitions and Intuitions",
+    "section": "",
+    "text": "A morphism \\(f\\colon X\\to Y\\) between schemes is étale if it is\n\nlocally of finite presentation,\nflat, and\nunramified.\n\n\n\n\n\n\n\nTipIntuition\n\n\n\nWe could think of an étale map as a map that is locally an isomorphism. It can be rigorously proven for varieties.",
+    "crumbs": [
+      "Étale Morphisms",
+      "Definitions and Intuitions"
+    ]
+  },
+  {
+    "objectID": "etale morphism/definitions-and-intuitions.html#definition",
+    "href": "etale morphism/definitions-and-intuitions.html#definition",
+    "title": "Definitions and Intuitions",
+    "section": "",
+    "text": "A morphism \\(f\\colon X\\to Y\\) between schemes is étale if it is\n\nlocally of finite presentation,\nflat, and\nunramified.\n\n\n\n\n\n\n\nTipIntuition\n\n\n\nWe could think of an étale map as a map that is locally an isomorphism. It can be rigorously proven for varieties.",
+    "crumbs": [
+      "Étale Morphisms",
+      "Definitions and Intuitions"
+    ]
+  },
+  {
+    "objectID": "etale morphism/definitions-and-intuitions.html#example-an-open-immersion",
+    "href": "etale morphism/definitions-and-intuitions.html#example-an-open-immersion",
+    "title": "Definitions and Intuitions",
+    "section": "Example: an open immersion",
+    "text": "Example: an open immersion\nEvery open immersion (UX) is étale. Nothing changes near a point of (U): we have only restricted our attention to a smaller open set.",
+    "crumbs": [
+      "Étale Morphisms",
+      "Definitions and Intuitions"
+    ]
+  },
+  {
+    "objectID": "etale morphism/definitions-and-intuitions.html#example-the-power-map",
+    "href": "etale morphism/definitions-and-intuitions.html#example-the-power-map",
+    "title": "Definitions and Intuitions",
+    "section": "Example: the power map",
+    "text": "Example: the power map\nAssume that (n) is invertible in the base field. On the punctured affine line, the map\n\\[\n\\mathbb G_m \\longrightarrow \\mathbb G_m, \\qquad t\\longmapsto t^n\n\\]\nis étale. Infinitesimally its derivative is (nt^{n-1}), which never vanishes on (G_m).\n\n\n\n\n\n\nWarningWhere the picture breaks\n\n\n\nOn the whole affine line, (tt^n) ramifies at (t=0). The map is no longer étale there: the branches collide.",
+    "crumbs": [
+      "Étale Morphisms",
+      "Definitions and Intuitions"
+    ]
+  },
+  {
+    "objectID": "etale morphism/definitions-and-intuitions.html#what-to-remember",
+    "href": "etale morphism/definitions-and-intuitions.html#what-to-remember",
+    "title": "Definitions and Intuitions",
+    "section": "What to remember",
+    "text": "What to remember\n\nOpen immersions are the simplest étale maps.\nÉtale maps may have several sheets, but they have no infinitesimal branching.",
+    "crumbs": [
+      "Étale Morphisms",
+      "Definitions and Intuitions"
+    ]
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "\\(p\\)-adic geometry notes",
+    "section": "",
+    "text": "My purpose is to write some informal, intuition-first notes on topics related to \\(p\\)-adic geometry.\nEven so, there may be some proofs of results that interest me.\nThe aim is not to replace a textbook, but to record my study experiences in \\(p\\)-adic geometry.",
+    "crumbs": [
+      "Home"
+    ]
+  },
+  {
+    "objectID": "index.html#notes",
+    "href": "index.html#notes",
+    "title": "\\(p\\)-adic geometry notes",
+    "section": "Notes",
+    "text": "Notes\n\n\nÉtale Morphisms\nThe aim for this note is to figure out lots of equivalent definitions of étale morphisms and give some intuitions.\nStart reading →\n\n\nMore notes will live here\nEach future topic can have its own folder, pages, and place in the sidebar.\n\n\n\n\n\n\n\n\nNoteStatus\n\n\n\nThis is a living notebook. Explanations may be heuristic, abbreviated, or revised as the surrounding picture becomes clearer. Also, some parts may simply be forgotten by the author, who is a lazy man.",
+    "crumbs": [
+      "Home"
     ]
   }
 ]
