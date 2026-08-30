@@ -1,0 +1,128 @@
+[
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "p-adic geometry notes",
+    "section": "",
+    "text": "These are informal, intuition-first notes on p-adic and algebraic geometry. The aim is not to replace a textbook, but to record the examples and mental pictures that make the definitions easier to remember.",
+    "crumbs": [
+      "Home"
+    ]
+  },
+  {
+    "objectID": "index.html#notes",
+    "href": "index.html#notes",
+    "title": "p-adic geometry notes",
+    "section": "Notes",
+    "text": "Notes\n\n\nÉtale Morphisms\nWhy étale morphisms behave like local isomorphisms, with a few small examples.\nStart reading →\n\n\nMore notes will live here\nEach future topic can have its own folder, pages, and place in the sidebar.\n\n\n\n\n\n\n\n\nNoteStatus\n\n\n\nThis is a living notebook. Explanations may be heuristic, abbreviated, or revised as the surrounding picture becomes clearer.",
+    "crumbs": [
+      "Home"
+    ]
+  },
+  {
+    "objectID": "etale morphism/definitions-and-intuitions.html",
+    "href": "etale morphism/definitions-and-intuitions.html",
+    "title": "Definitions and Intuitions",
+    "section": "",
+    "text": "A morphism (f:XY) is étale if it is\n\nlocally of finite presentation,\nflat, and\nunramified.\n\n\n\n\n\n\n\nTipIntuition\n\n\n\nThink of an étale map as a map that is locally an isomorphism, although several points upstairs may lie over one point downstairs. There is no new tangent direction and no branching.",
+    "crumbs": [
+      "Étale Morphisms",
+      "Definitions and Intuitions"
+    ]
+  },
+  {
+    "objectID": "etale morphism/definitions-and-intuitions.html#definition",
+    "href": "etale morphism/definitions-and-intuitions.html#definition",
+    "title": "Definitions and Intuitions",
+    "section": "",
+    "text": "A morphism (f:XY) is étale if it is\n\nlocally of finite presentation,\nflat, and\nunramified.\n\n\n\n\n\n\n\nTipIntuition\n\n\n\nThink of an étale map as a map that is locally an isomorphism, although several points upstairs may lie over one point downstairs. There is no new tangent direction and no branching.",
+    "crumbs": [
+      "Étale Morphisms",
+      "Definitions and Intuitions"
+    ]
+  },
+  {
+    "objectID": "etale morphism/definitions-and-intuitions.html#example-an-open-immersion",
+    "href": "etale morphism/definitions-and-intuitions.html#example-an-open-immersion",
+    "title": "Definitions and Intuitions",
+    "section": "Example: an open immersion",
+    "text": "Example: an open immersion\nEvery open immersion (UX) is étale. Nothing changes near a point of (U): we have only restricted our attention to a smaller open set.",
+    "crumbs": [
+      "Étale Morphisms",
+      "Definitions and Intuitions"
+    ]
+  },
+  {
+    "objectID": "etale morphism/definitions-and-intuitions.html#example-the-power-map",
+    "href": "etale morphism/definitions-and-intuitions.html#example-the-power-map",
+    "title": "Definitions and Intuitions",
+    "section": "Example: the power map",
+    "text": "Example: the power map\nAssume that (n) is invertible in the base field. On the punctured affine line, the map\n\\[\n\\mathbb G_m \\longrightarrow \\mathbb G_m, \\qquad t\\longmapsto t^n\n\\]\nis étale. Infinitesimally its derivative is (nt^{n-1}), which never vanishes on (G_m).\n\n\n\n\n\n\nWarningWhere the picture breaks\n\n\n\nOn the whole affine line, (tt^n) ramifies at (t=0). The map is no longer étale there: the branches collide.",
+    "crumbs": [
+      "Étale Morphisms",
+      "Definitions and Intuitions"
+    ]
+  },
+  {
+    "objectID": "etale morphism/definitions-and-intuitions.html#what-to-remember",
+    "href": "etale morphism/definitions-and-intuitions.html#what-to-remember",
+    "title": "Definitions and Intuitions",
+    "section": "What to remember",
+    "text": "What to remember\n\nOpen immersions are the simplest étale maps.\nÉtale maps may have several sheets, but they have no infinitesimal branching.\nThe slogan “smooth of relative dimension (0)” is usually the right first picture.",
+    "crumbs": [
+      "Étale Morphisms",
+      "Definitions and Intuitions"
+    ]
+  },
+  {
+    "objectID": "editing.html",
+    "href": "editing.html",
+    "title": "How to edit these notes",
+    "section": "",
+    "text": "你平时主要需要编辑扩展名为 .qmd 的文件。它和 Markdown 几乎一样，但对数学公式、目录和提示框支持得更好。",
+    "crumbs": [
+      "How to edit these notes"
+    ]
+  },
+  {
+    "objectID": "editing.html#修改一篇笔记",
+    "href": "editing.html#修改一篇笔记",
+    "title": "How to edit these notes",
+    "section": "修改一篇笔记",
+    "text": "修改一篇笔记\n在 VS Code 左侧文件列表中打开对应的 .qmd 文件，直接修改文字并保存即可：\n## A new section\n\n普通文字写在这里，行内公式写成 $X \\to Y$。\n\n$$\n\\Omega_{X/Y}=0\n$$\n以 --- 包围的文件开头是页面信息。通常只需要修改其中的 title 和 subtitle。",
+    "crumbs": [
+      "How to edit these notes"
+    ]
+  },
+  {
+    "objectID": "editing.html#删除一篇笔记",
+    "href": "editing.html#删除一篇笔记",
+    "title": "How to edit these notes",
+    "section": "删除一篇笔记",
+    "text": "删除一篇笔记\n\n删除对应的 .qmd 文件。\n打开项目根目录的 _quarto.yml。\n在 sidebar 的 contents 中删掉指向该文件的两行，例如：\n\n- href: \"etale morphism/definitions-and-intuitions.qmd\"\n  text: Definitions and Intuitions\n如果只删除文件而不修改 _quarto.yml，网站构建时会提示找不到页面。",
+    "crumbs": [
+      "How to edit these notes"
+    ]
+  },
+  {
+    "objectID": "editing.html#新增一篇笔记",
+    "href": "editing.html#新增一篇笔记",
+    "title": "How to edit these notes",
+    "section": "新增一篇笔记",
+    "text": "新增一篇笔记\n最简单的方法是复制一篇现有的 .qmd 文件，改名并修改内容，然后在 _quarto.yml 的对应章节加入：\n- href: \"etale morphism/examples.qmd\"\n  text: Examples\n以后添加新的大主题时，可以新建一个文件夹，再在 _quarto.yml 中增加一个 section。文件夹名称最好使用小写英文和连字符，例如 perfectoid-spaces。\n\n\n\n\n\n\nTip最省事的工作方式\n\n\n\n你也可以只负责写内容，然后告诉我“把这篇笔记放到某个章节并发布”。目录、链接、渲染和推送都可以交给我处理。",
+    "crumbs": [
+      "How to edit these notes"
+    ]
+  },
+  {
+    "objectID": "etale morphism/index.html",
+    "href": "etale morphism/index.html",
+    "title": "Étale Morphisms",
+    "section": "",
+    "text": "Étale morphisms are the algebro-geometric analogue of local isomorphisms. They preserve local dimension, introduce no infinitesimal ramification, and often behave like covering maps.\n\n\n\n\n\n\nTipGuiding slogan\n\n\n\nÉtale = smooth of relative dimension (0).\n\n\nFor a first pass, continue to Definitions and Intuitions.",
+    "crumbs": [
+      "Étale Morphisms",
+      "Overview"
+    ]
+  }
+]

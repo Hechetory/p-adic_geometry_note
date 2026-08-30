@@ -1,0 +1,68 @@
+:root {
+  --note-muted: #5d6975;
+  --note-accent: #315b7d;
+  --note-paper: #fbfaf7;
+  --note-border: #dce2e7;
+}
+
+body {
+  letter-spacing: 0.005em;
+}
+
+.content {
+  line-height: 1.72;
+}
+
+h1, h2, h3 {
+  letter-spacing: -0.018em;
+}
+
+h1.title {
+  font-weight: 650;
+}
+
+.hero-note {
+  max-width: 52rem;
+  margin: 1.5rem 0 2.5rem;
+  padding-left: 1.25rem;
+  border-left: 4px solid var(--note-accent);
+  color: var(--note-muted);
+  font-size: 1.15rem;
+  line-height: 1.7;
+}
+
+.note-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(17rem, 1fr));
+  gap: 1rem;
+  margin: 1rem 0 2rem;
+}
+
+.note-card {
+  padding: 1.25rem 1.35rem;
+  border: 1px solid var(--note-border);
+  border-radius: 0.6rem;
+  background: color-mix(in srgb, var(--note-paper) 92%, transparent);
+  box-shadow: 0 0.25rem 1rem rgba(26, 44, 61, 0.045);
+}
+
+.note-card h3 {
+  margin-top: 0;
+}
+
+.note-card.coming-soon {
+  opacity: 0.78;
+}
+
+.callout {
+  border-radius: 0.45rem;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --note-muted: #b9c3cc;
+    --note-paper: #20262d;
+    --note-border: #3a4650;
+  }
+}
+
