@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Étale Morphisms – p-adic geometry notes</title>
+<title>Smooth Morphisms – p-adic geometry notes</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -36,8 +36,8 @@ ul.task-list li input[type="checkbox"] {
 <script src="../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../">
-<link href="../etale morphism/definitions-and-intuitions.html" rel="next">
-<link href="../index.html" rel="prev">
+<link href="../etale morphism/unramified-morphisms.html" rel="next">
+<link href="../etale morphism/definitions-and-intuitions.html" rel="prev">
 <script src="../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
@@ -79,11 +79,40 @@ ul.task-list li input[type="checkbox"] {
   }
 }</script>
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-chtml.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 <link rel="stylesheet" href="../styles.css">
 </head>
 
-<body class="nav-sidebar docked nav-fixed fullcontent quarto-light"><script id="quarto-html-before-body" type="application/javascript">
+<body class="nav-sidebar docked nav-fixed quarto-light"><script id="quarto-html-before-body" type="application/javascript">
     const toggleBodyColorMode = (bsSheetEl) => {
       const mode = bsSheetEl.getAttribute("data-mode");
       const bodyEl = window.document.querySelector("body");
@@ -283,7 +312,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../etale morphism/index.html">Étale Morphisms</a></li><li class="breadcrumb-item"><a href="../etale morphism/index.html">Overview</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../etale morphism/index.html">Étale Morphisms</a></li><li class="breadcrumb-item"><a href="../etale morphism/smooth-morphisms.html">Smooth Morphisms</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -318,7 +347,7 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../etale morphism/index.html" class="sidebar-item-text sidebar-link active">
+  <a href="../etale morphism/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Overview</span></a>
   </div>
 </li>
@@ -330,7 +359,7 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../etale morphism/smooth-morphisms.html" class="sidebar-item-text sidebar-link">
+  <a href="../etale morphism/smooth-morphisms.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">Smooth Morphisms</span></a>
   </div>
 </li>
@@ -353,14 +382,26 @@ ul.task-list li input[type="checkbox"] {
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#a-model-example" id="toc-a-model-example" class="nav-link active" data-scroll-target="#a-model-example">A model example</a></li>
+  <li><a href="#definition" id="toc-definition" class="nav-link" data-scroll-target="#definition">Definition</a></li>
+  <li><a href="#definition-1" id="toc-definition-1" class="nav-link" data-scroll-target="#definition-1">Definition</a></li>
+  <li><a href="#proposition" id="toc-proposition" class="nav-link" data-scroll-target="#proposition">Proposition</a></li>
+  </ul>
+<div class="toc-actions"><ul><li><a href="https://github.com/Hechetory/p-adic_geometry_note/edit/main/etale morphism/smooth-morphisms.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/Hechetory/p-adic_geometry_note/blob/main/etale morphism/smooth-morphisms.qmd" class="toc-action"><i class="bi empty"></i>View source</a></li><li><a href="https://github.com/Hechetory/p-adic_geometry_note/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
+    </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../etale morphism/index.html">Étale Morphisms</a></li><li class="breadcrumb-item"><a href="../etale morphism/index.html">Overview</a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../etale morphism/index.html">Étale Morphisms</a></li><li class="breadcrumb-item"><a href="../etale morphism/smooth-morphisms.html">Smooth Morphisms</a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title">Étale Morphisms</h1>
+<h1 class="title">Smooth Morphisms</h1>
+<p class="subtitle lead">Families that vary without singular jumps</p>
 </div>
 
 
@@ -377,24 +418,72 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<div class="callout callout-style-default callout-note callout-titled" title="Site">
+<p>A smooth morphism is the relative version of a nonsingular variety. Roughly, its fibers are smooth and fit together uniformly over the base.</p>
+<div class="callout callout-style-default callout-tip callout-titled" title="Mental picture">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Note</span>Site
+<span class="screen-reader-only">Tip</span>Mental picture
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>``An etale morphism is the analogue in algebraic geometry of a local isomorphism of manifolds in differential geometry, a covering of Riemann surfaces with no branch points in complex analysis, and an unramiﬁed extension in algebraic number theory.’’–Milne.</p>
+<p>Think of a smooth morphism as a family of manifolds whose dimension stays constant and whose members do not suddenly acquire singularities.</p>
 </div>
 </div>
-<p>Since the author, I, hasn’t learned flat morphisms and unramified morphisms seriously yet, but already has a basic understanding of the étale site and étale cohomology, which means that the author is familiar to some basic properties of étale morphisms and use it. Our main goal in this chapter is to understand the various equivalent definitions of étale morphisms and to get some intuition for what they are analog to. One of the purpose of this chapter is to figure out which property of étale morphisms comes from the flatness and which property comes from the unramifiedness. The author will try to understand the definition of étale morphisms in a more intuitive way, and then try to understand the properties of étale morphisms from the perspective of flatness and unramifiedness.</p>
-<p>For a first pass, continue to <a href="../etale morphism/definitions-and-intuitions.html">Definitions and Intuitions</a>.</p>
-<p>For a more detailed discussion, see <a href="../etale morphism/smooth-morphisms.html">Smooth Morphisms</a> and <a href="../etale morphism/unramified-morphisms.html">Unramified Morphisms</a> …(TBA)</p>
+<section id="a-model-example" class="level2">
+<h2 class="anchored" data-anchor-id="a-model-example">A model example</h2>
+<p>The projection</p>
+<p><span class="math display">\[
+\operatorname{Spec}(R[x_1,\cdot, \cdot, x_{n+r}]/(f_1,\cdot, f_r)) \longrightarrow \operatorname{Spec}(R)
+\]</span></p>
+<p>is called the standard smooth morphism of relative dimension <span class="math inline">\(n\)</span> if the determinant of the matrix</p>
+<p><span class="math display">\[
+\left(\frac{\partial f_i}{\partial x_j}\right)_{1\leq i,j\leq r}
+\]</span></p>
+<p>is invertible in the ring <span class="math inline">\(R[x_1,\cdot, \cdot, x_{n+r}]/(f_1,\cdot, f_r)\)</span>.</p>
+<div class="callout callout-style-default callout-note callout-titled" title="Remark">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Remark
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>The fibers of this morphism are smooth varieties of dimension <span class="math inline">\(n\)</span> by the Jacobian criterion. The condition on the determinant is a relative version of the Jacobian criterion.</p>
+</div>
+</div>
+</section>
+<section id="definition" class="level2">
+<h2 class="anchored" data-anchor-id="definition">Definition</h2>
+<p>A morphism <span class="math inline">\(f\colon X\to Y\)</span> between schemes is <strong>smooth</strong> of relative dimension <span class="math inline">\(n\)</span> if there exist open coverings <span class="math inline">\(\{U_i\}\)</span> of <span class="math inline">\(X\)</span> and <span class="math inline">\(\{V_i\}\)</span> of <span class="math inline">\(Y\)</span> such that <span class="math inline">\(f(U_i)\subseteq V_i\)</span> and for each <span class="math inline">\(i\)</span>, the restriction <span class="math inline">\(f|_{U_i}\colon U_i\to V_i\)</span> is a standard smooth morphism of relative dimension <span class="math inline">\(n\)</span>.</p>
+</section>
+<section id="definition-1" class="level1">
+<h1>Definition</h1>
+<p>A variety <span class="math inline">\(X\)</span> over a field <span class="math inline">\(k\)</span> is <strong>smooth</strong> if the structure morphism <span class="math inline">\(X\to \operatorname{Spec}(k)\)</span> is smooth.</p>
+<div class="callout callout-style-default callout-note callout-titled" title="Remark">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Remark
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Such definition for smooth variety is a little bit indirect, but it is convenient for our discussion since we will not spend much time on smooth varieties.</p>
+</div>
+</div>
+</section>
+<section id="proposition" class="level1">
+<h1>Proposition</h1>
+<p>We can use the differential to characterize smooth varieties. A variety <span class="math inline">\(X\)</span> over a field <span class="math inline">\(k\)</span> is smooth if and only if the sheaf of differentials <span class="math inline">\(\Omega_{X/k}\)</span> is locally free of rank <span class="math inline">\(\dim(X)\)</span>.</p>
 
 
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -817,13 +906,13 @@ ul.task-list li input[type="checkbox"] {
   </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="../index.html" class="pagination-link" aria-label="Home">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Home</span>
+      <a href="../etale morphism/definitions-and-intuitions.html" class="pagination-link" aria-label="Definitions and Intuitions">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Definitions and Intuitions</span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../etale morphism/definitions-and-intuitions.html" class="pagination-link" aria-label="Definitions and Intuitions">
-        <span class="nav-page-text">Definitions and Intuitions</span> <i class="bi bi-arrow-right-short"></i>
+      <a href="../etale morphism/unramified-morphisms.html" class="pagination-link" aria-label="Unramified Morphisms">
+        <span class="nav-page-text">Unramified Morphisms</span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
@@ -835,7 +924,7 @@ ul.task-list li input[type="checkbox"] {
 </div>   
     <div class="nav-footer-center">
       &nbsp;
-    <div class="toc-actions"><ul><li><a href="https://github.com/Hechetory/p-adic_geometry_note/edit/main/etale morphism/index.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/Hechetory/p-adic_geometry_note/blob/main/etale morphism/index.qmd" class="toc-action"><i class="bi empty"></i>View source</a></li><li><a href="https://github.com/Hechetory/p-adic_geometry_note/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div>
+    <div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/Hechetory/p-adic_geometry_note/edit/main/etale morphism/smooth-morphisms.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/Hechetory/p-adic_geometry_note/blob/main/etale morphism/smooth-morphisms.qmd" class="toc-action"><i class="bi empty"></i>View source</a></li><li><a href="https://github.com/Hechetory/p-adic_geometry_note/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div>
     <div class="nav-footer-right">
 <p>Built with Quarto and GitHub Pages.</p>
 </div>

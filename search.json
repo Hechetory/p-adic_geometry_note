@@ -54,7 +54,7 @@
     "href": "etale morphism/index.html",
     "title": "Étale Morphisms",
     "section": "",
-    "text": "Étale morphisms are the algebro-geometric analogue of local isomorphisms. They preserve local dimension, introduce no infinitesimal ramification, and often behave like covering maps (especially for finite étale morphisms).\nFor a first pass, continue to Definitions and Intuitions.",
+    "text": "NoteSite\n\n\n\n``An etale morphism is the analogue in algebraic geometry of a local isomorphism of manifolds in differential geometry, a covering of Riemann surfaces with no branch points in complex analysis, and an unramiﬁed extension in algebraic number theory.’’–Milne.\n\n\nSince the author, I, hasn’t learned flat morphisms and unramified morphisms seriously yet, but already has a basic understanding of the étale site and étale cohomology, which means that the author is familiar to some basic properties of étale morphisms and use it. Our main goal in this chapter is to understand the various equivalent definitions of étale morphisms and to get some intuition for what they are analog to. One of the purpose of this chapter is to figure out which property of étale morphisms comes from the flatness and which property comes from the unramifiedness. The author will try to understand the definition of étale morphisms in a more intuitive way, and then try to understand the properties of étale morphisms from the perspective of flatness and unramifiedness.\nFor a first pass, continue to Definitions and Intuitions.\nFor a more detailed discussion, see Smooth Morphisms and Unramified Morphisms …(TBA)",
     "crumbs": [
       "Étale Morphisms",
       "Overview"
@@ -63,9 +63,9 @@
   {
     "objectID": "etale morphism/definitions-and-intuitions.html",
     "href": "etale morphism/definitions-and-intuitions.html",
-    "title": "Definitions and Intuitions",
+    "title": "Definitions",
     "section": "",
-    "text": "A morphism \\(f\\colon X\\to Y\\) between schemes is étale if it is\n\nlocally of finite presentation,\nflat, and\nunramified.\n\n\n\n\n\n\n\nTipIntuition\n\n\n\nWe could think of an étale map as a map that is locally an isomorphism. It can be rigorously proven for varieties.",
+    "text": "NoteNote\n\n\n\nWe will list some important equivalent definitions of étale morphisms and leave the discussion of their equivalence for later.",
     "crumbs": [
       "Étale Morphisms",
       "Definitions and Intuitions"
@@ -74,9 +74,31 @@
   {
     "objectID": "etale morphism/definitions-and-intuitions.html#definition",
     "href": "etale morphism/definitions-and-intuitions.html#definition",
-    "title": "Definitions and Intuitions",
-    "section": "",
-    "text": "A morphism \\(f\\colon X\\to Y\\) between schemes is étale if it is\n\nlocally of finite presentation,\nflat, and\nunramified.\n\n\n\n\n\n\n\nTipIntuition\n\n\n\nWe could think of an étale map as a map that is locally an isomorphism. It can be rigorously proven for varieties.",
+    "title": "Definitions",
+    "section": "Definition",
+    "text": "Definition\nA morphism \\(f\\colon X\\to Y\\) between schemes is étale if it is\n\nlocally of finite presentation,\nflat, and\nunramified.",
+    "crumbs": [
+      "Étale Morphisms",
+      "Definitions and Intuitions"
+    ]
+  },
+  {
+    "objectID": "etale morphism/definitions-and-intuitions.html#definition-equivalent",
+    "href": "etale morphism/definitions-and-intuitions.html#definition-equivalent",
+    "title": "Definitions",
+    "section": "Definition (equivalent)",
+    "text": "Definition (equivalent)\nA morphism \\(f\\colon X\\to Y\\) between varieties over \\(k\\) is étale if it induces isomorphisms on the tangent spaces at all points of \\(X\\).",
+    "crumbs": [
+      "Étale Morphisms",
+      "Definitions and Intuitions"
+    ]
+  },
+  {
+    "objectID": "etale morphism/definitions-and-intuitions.html#definition-equivalent-1",
+    "href": "etale morphism/definitions-and-intuitions.html#definition-equivalent-1",
+    "title": "Definitions",
+    "section": "Definition (equivalent)",
+    "text": "Definition (equivalent)\nA morphism \\(f\\colon X\\to Y\\) between schemes is étale if it is smooth of relative dimension \\(0\\).\n\n\n\n\n\n\nTipIntuition\n\n\n\nThe second definition tells us that we can think of an étale map as a map that is locally an isomorphism. And for the definitions of the flat, unramified and smooth morphisms, see later.",
     "crumbs": [
       "Étale Morphisms",
       "Definitions and Intuitions"
@@ -85,9 +107,9 @@
   {
     "objectID": "etale morphism/definitions-and-intuitions.html#example-an-open-immersion",
     "href": "etale morphism/definitions-and-intuitions.html#example-an-open-immersion",
-    "title": "Definitions and Intuitions",
+    "title": "Definitions",
     "section": "Example: an open immersion",
-    "text": "Example: an open immersion\nEvery open immersion \\(U\\hookrightarrow X\\) is étale. Nothing changes near a point of \\(U\\): we have only restricted our attention to a smaller open set.",
+    "text": "Example: an open immersion\nEvery open immersion \\(U\\hookrightarrow X\\) is étale. Nothing changes near a point of \\(U\\): we have only restricted our attention to a smaller open subset.",
     "crumbs": [
       "Étale Morphisms",
       "Definitions and Intuitions"
@@ -96,23 +118,111 @@
   {
     "objectID": "etale morphism/definitions-and-intuitions.html#example-the-power-map",
     "href": "etale morphism/definitions-and-intuitions.html#example-the-power-map",
-    "title": "Definitions and Intuitions",
+    "title": "Definitions",
     "section": "Example: the power map",
-    "text": "Example: the power map\nAssume that \\(n\\) is invertible in the base field. On the punctured affine line, the map\n\\[\n\\mathbb G_m \\longrightarrow \\mathbb G_m, \\qquad t\\longmapsto t^n\n\\]\nis étale. Infinitesimally its derivative is \\(nt^{n-1}\\), which never vanishes on \\(\\mathbb G_m\\).\n\n\n\n\n\n\nWarningWhere the picture breaks\n\n\n\nOn the whole affine line, \\(t\\mapsto t^n\\) ramifies at \\(t=0\\). The map is no longer étale there: the branches collide.",
+    "text": "Example: the power map\nAssume that \\(n\\) is invertible in the base field. On the punctured affine line, the map\n\\[\n\\mathbb G_m \\longrightarrow \\mathbb G_m, \\qquad t\\longmapsto t^n\n\\]\nis étale. Infinitesimally, its derivative is \\(nt^{n-1}\\), which never vanishes on \\(\\mathbb G_m\\).\n\n\n\n\n\n\nWarningWhere the picture breaks\n\n\n\nOn the whole affine line, \\(t\\mapsto t^n\\) ramifies at \\(t=0\\). The map is no longer étale there: the branches collide.",
     "crumbs": [
       "Étale Morphisms",
       "Definitions and Intuitions"
     ]
   },
   {
-    "objectID": "etale morphism/definitions-and-intuitions.html#what-to-remember",
-    "href": "etale morphism/definitions-and-intuitions.html#what-to-remember",
-    "title": "Definitions and Intuitions",
-    "section": "What to remember",
-    "text": "What to remember\n\nOpen immersions are the simplest étale maps.\nÉtale maps may have several sheets, but they have no infinitesimal branching.",
+    "objectID": "etale morphism/unramified-morphisms.html",
+    "href": "etale morphism/unramified-morphisms.html",
+    "title": "Unramified Morphisms",
+    "section": "",
+    "text": "To study unramified morphisms, we need to understand the sheaf of differentials.",
     "crumbs": [
       "Étale Morphisms",
-      "Definitions and Intuitions"
+      "Unramified Morphisms"
+    ]
+  },
+  {
+    "objectID": "etale morphism/unramified-morphisms.html#definition",
+    "href": "etale morphism/unramified-morphisms.html#definition",
+    "title": "Unramified Morphisms",
+    "section": "Definition",
+    "text": "Definition\nFor schemes \\(X\\) over \\(Y\\), there is a sheaf of differentials \\(\\Omega_{X/Y}\\), which is a quasicoherent sheaf on \\(X\\).\nThe sheaf \\(\\Omega_{X/Y}\\) is globally defined as the quotient \\(\\mathscr I/\\mathscr I^2\\), where the ideal sheaf \\(\\mathscr I\\) is the sheaf of ideals defining the diagonal embedding \\(X\\to X\\times_Y X\\). One can check that \\(\\Omega_{X/Y}\\) is indeed a sheaf on \\(X\\). We define a map \\(d\\colon \\mathscr O_X\\to \\Omega_{X/Y}\\) by \\(d(f)=\\operatorname{pr}_1^*f-\\operatorname{pr}_2^*f\\) for \\(f\\in \\mathscr O_X\\).\nAffine locally, if \\(X=\\operatorname{Spec}(A)\\) and \\(Y=\\operatorname{Spec}(B)\\), then \\(\\Omega_{X/Y}\\) is the sheaf associated to the \\(A\\)-module \\(\\Omega_{A/B}\\), which is generated by symbols \\(da\\) for \\(a\\in A\\) subject to the relations: 1. \\(d(a+a')=da+da'\\) for all \\(a,a'\\in A\\), 2. \\(d(aa')=a\\,da'+a'\\,da\\) for all \\(a,a'\\in A\\), and 3. \\(db=0\\) for all \\(b\\in B\\).\nIt is not so obvious, but one can reference to any standard textbook on algebraic geometry to see this and also the universal property of \\(\\Omega_{A/B}\\). The module \\(\\Omega_{A/B}\\) is universal for \\(B\\)-derivations from \\(A\\) to an \\(A\\)-module \\(M\\).",
+    "crumbs": [
+      "Étale Morphisms",
+      "Unramified Morphisms"
+    ]
+  },
+  {
+    "objectID": "etale morphism/unramified-morphisms.html#definition-1",
+    "href": "etale morphism/unramified-morphisms.html#definition-1",
+    "title": "Unramified Morphisms",
+    "section": "Definition",
+    "text": "Definition\nA morphism \\(f\\colon X\\to Y\\) between schemes is unramified if it is locally of finite type and \\(\\Omega_{X/Y}=0\\).\nBy the transitivity sequence, unramified morphisms are stable under composition. By the base change property, unramified morphisms are stable under base change. One checks that unramified morphisms are also local on the target, so they are ``reasonable’’ in the sense of the textbook the rising sea.",
+    "crumbs": [
+      "Étale Morphisms",
+      "Unramified Morphisms"
+    ]
+  },
+  {
+    "objectID": "etale morphism/unramified-morphisms.html#examples",
+    "href": "etale morphism/unramified-morphisms.html#examples",
+    "title": "Unramified Morphisms",
+    "section": "Examples",
+    "text": "Examples\nTBA\nAn unramified morphism has discrete infinitesimal fibers: points upstairs do not carry tangent directions relative to the base.\n\n\n\n\n\n\nImportantInfinitesimal test\n\n\n\nFor a morphism locally of finite type, the condition \\(\\Omega_{X/Y}=0\\) is the algebraic signal that no relative first-order motion is present.",
+    "crumbs": [
+      "Étale Morphisms",
+      "Unramified Morphisms"
+    ]
+  },
+  {
+    "objectID": "etale morphism/unramified-morphisms.html#a-basic-example",
+    "href": "etale morphism/unramified-morphisms.html#a-basic-example",
+    "title": "Unramified Morphisms",
+    "section": "A basic example",
+    "text": "A basic example\nIf \\(L/K\\) is a finite separable field extension, then\n\\[\n\\operatorname{Spec}(L) \\longrightarrow \\operatorname{Spec}(K)\n\\]\nis unramified. Separability is exactly what prevents infinitesimal ramification in this example.\n\n\n\n\n\n\nWarningDo not confuse the conditions\n\n\n\nUnramified does not by itself imply flat. Étaleness combines the unramified condition with flatness and finite presentation.",
+    "crumbs": [
+      "Étale Morphisms",
+      "Unramified Morphisms"
+    ]
+  },
+  {
+    "objectID": "etale morphism/unramified-morphisms.html#a-geometric-criterion",
+    "href": "etale morphism/unramified-morphisms.html#a-geometric-criterion",
+    "title": "Unramified Morphisms",
+    "section": "A geometric criterion",
+    "text": "A geometric criterion\nAnother useful slogan is that \\(f\\colon X\\to Y\\) is unramified when its diagonal \\(X\\to X\\times_Y X\\) behaves like an open immersion.",
+    "crumbs": [
+      "Étale Morphisms",
+      "Unramified Morphisms"
+    ]
+  },
+  {
+    "objectID": "etale morphism/smooth-morphisms.html",
+    "href": "etale morphism/smooth-morphisms.html",
+    "title": "Smooth Morphisms",
+    "section": "",
+    "text": "A smooth morphism is the relative version of a nonsingular variety. Roughly, its fibers are smooth and fit together uniformly over the base.",
+    "crumbs": [
+      "Étale Morphisms",
+      "Smooth Morphisms"
+    ]
+  },
+  {
+    "objectID": "etale morphism/smooth-morphisms.html#a-model-example",
+    "href": "etale morphism/smooth-morphisms.html#a-model-example",
+    "title": "Smooth Morphisms",
+    "section": "A model example",
+    "text": "A model example\nThe projection\n\\[\n\\operatorname{Spec}(R[x_1,\\cdot, \\cdot, x_{n+r}]/(f_1,\\cdot, f_r)) \\longrightarrow \\operatorname{Spec}(R)\n\\]\nis called the standard smooth morphism of relative dimension \\(n\\) if the determinant of the matrix\n\\[\n\\left(\\frac{\\partial f_i}{\\partial x_j}\\right)_{1\\leq i,j\\leq r}\n\\]\nis invertible in the ring \\(R[x_1,\\cdot, \\cdot, x_{n+r}]/(f_1,\\cdot, f_r)\\).\n\n\n\n\n\n\nNoteRemark\n\n\n\nThe fibers of this morphism are smooth varieties of dimension \\(n\\) by the Jacobian criterion. The condition on the determinant is a relative version of the Jacobian criterion.",
+    "crumbs": [
+      "Étale Morphisms",
+      "Smooth Morphisms"
+    ]
+  },
+  {
+    "objectID": "etale morphism/smooth-morphisms.html#definition",
+    "href": "etale morphism/smooth-morphisms.html#definition",
+    "title": "Smooth Morphisms",
+    "section": "Definition",
+    "text": "Definition\nA morphism \\(f\\colon X\\to Y\\) between schemes is smooth of relative dimension \\(n\\) if there exist open coverings \\(\\{U_i\\}\\) of \\(X\\) and \\(\\{V_i\\}\\) of \\(Y\\) such that \\(f(U_i)\\subseteq V_i\\) and for each \\(i\\), the restriction \\(f|_{U_i}\\colon U_i\\to V_i\\) is a standard smooth morphism of relative dimension \\(n\\).",
+    "crumbs": [
+      "Étale Morphisms",
+      "Smooth Morphisms"
     ]
   },
   {

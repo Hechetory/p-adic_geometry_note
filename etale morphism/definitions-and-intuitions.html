@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Definitions and Intuitions – p-adic geometry notes</title>
+<title>Definitions – p-adic geometry notes</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -36,7 +36,7 @@ ul.task-list li input[type="checkbox"] {
 <script src="../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../">
-<link href="../editing.html" rel="next">
+<link href="../etale morphism/smooth-morphisms.html" rel="next">
 <link href="../etale morphism/index.html" rel="prev">
 <script src="../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
@@ -357,6 +357,18 @@ window.Quarto = {
  <span class="menu-text">Definitions and Intuitions</span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../etale morphism/smooth-morphisms.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Smooth Morphisms</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../etale morphism/unramified-morphisms.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Unramified Morphisms</span></a>
+  </div>
+</li>
       </ul>
   </li>
         <li class="sidebar-item">
@@ -376,9 +388,10 @@ window.Quarto = {
    
   <ul>
   <li><a href="#definition" id="toc-definition" class="nav-link active" data-scroll-target="#definition">Definition</a></li>
+  <li><a href="#definition-equivalent" id="toc-definition-equivalent" class="nav-link" data-scroll-target="#definition-equivalent">Definition (equivalent)</a></li>
+  <li><a href="#definition-equivalent-1" id="toc-definition-equivalent-1" class="nav-link" data-scroll-target="#definition-equivalent-1">Definition (equivalent)</a></li>
   <li><a href="#example-an-open-immersion" id="toc-example-an-open-immersion" class="nav-link" data-scroll-target="#example-an-open-immersion">Example: an open immersion</a></li>
   <li><a href="#example-the-power-map" id="toc-example-the-power-map" class="nav-link" data-scroll-target="#example-the-power-map">Example: the power map</a></li>
-  <li><a href="#what-to-remember" id="toc-what-to-remember" class="nav-link" data-scroll-target="#what-to-remember">What to remember</a></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/Hechetory/p-adic_geometry_note/edit/main/etale morphism/definitions-and-intuitions.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/Hechetory/p-adic_geometry_note/blob/main/etale morphism/definitions-and-intuitions.qmd" class="toc-action"><i class="bi empty"></i>View source</a></li><li><a href="https://github.com/Hechetory/p-adic_geometry_note/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
     </div>
@@ -388,8 +401,8 @@ window.Quarto = {
 
 <header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../etale morphism/index.html">Étale Morphisms</a></li><li class="breadcrumb-item"><a href="../etale morphism/definitions-and-intuitions.html">Definitions and Intuitions</a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title">Definitions and Intuitions</h1>
-<p class="subtitle lead">Étale morphisms through small examples</p>
+<h1 class="title">Definitions</h1>
+<p class="subtitle lead">The three faces of tale morphisms</p>
 </div>
 
 
@@ -406,6 +419,19 @@ window.Quarto = {
 </header>
 
 
+<div class="callout callout-style-default callout-note callout-titled" title="Note">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>We will list some important equivalent definitions of étale morphisms and leave the discussion of their equivalence for later.</p>
+</div>
+</div>
 <section id="definition" class="level2">
 <h2 class="anchored" data-anchor-id="definition">Definition</h2>
 <p>A morphism <span class="math inline">\(f\colon X\to Y\)</span> between schemes is <strong>étale</strong> if it is</p>
@@ -414,6 +440,14 @@ window.Quarto = {
 <li>flat, and</li>
 <li>unramified.</li>
 </ol>
+</section>
+<section id="definition-equivalent" class="level2">
+<h2 class="anchored" data-anchor-id="definition-equivalent">Definition (equivalent)</h2>
+<p>A morphism <span class="math inline">\(f\colon X\to Y\)</span> between varieties over <span class="math inline">\(k\)</span> is <strong>étale</strong> if it induces isomorphisms on the tangent spaces at all points of <span class="math inline">\(X\)</span>.</p>
+</section>
+<section id="definition-equivalent-1" class="level2">
+<h2 class="anchored" data-anchor-id="definition-equivalent-1">Definition (equivalent)</h2>
+<p>A morphism <span class="math inline">\(f\colon X\to Y\)</span> between schemes is <strong>étale</strong> if it is smooth of relative dimension <span class="math inline">\(0\)</span>.</p>
 <div class="callout callout-style-default callout-tip callout-titled" title="Intuition">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -424,13 +458,13 @@ window.Quarto = {
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>We could think of an étale map as a map that is locally an isomorphism. It can be rigorously proven for varieties.</p>
+<p>The second definition tells us that we can think of an étale map as a map that is locally an isomorphism. And for the definitions of the flat, unramified and smooth morphisms, see later.</p>
 </div>
 </div>
 </section>
 <section id="example-an-open-immersion" class="level2">
 <h2 class="anchored" data-anchor-id="example-an-open-immersion">Example: an open immersion</h2>
-<p>Every open immersion <span class="math inline">\(U\hookrightarrow X\)</span> is étale. Nothing changes near a point of <span class="math inline">\(U\)</span>: we have only restricted our attention to a smaller open set.</p>
+<p>Every open immersion <span class="math inline">\(U\hookrightarrow X\)</span> is étale. Nothing changes near a point of <span class="math inline">\(U\)</span>: we have only restricted our attention to a smaller open subset.</p>
 </section>
 <section id="example-the-power-map" class="level2">
 <h2 class="anchored" data-anchor-id="example-the-power-map">Example: the power map</h2>
@@ -438,7 +472,7 @@ window.Quarto = {
 <p><span class="math display">\[
 \mathbb G_m \longrightarrow \mathbb G_m, \qquad t\longmapsto t^n
 \]</span></p>
-<p>is étale. Infinitesimally its derivative is <span class="math inline">\(nt^{n-1}\)</span>, which never vanishes on <span class="math inline">\(\mathbb G_m\)</span>.</p>
+<p>is étale. Infinitesimally, its derivative is <span class="math inline">\(nt^{n-1}\)</span>, which never vanishes on <span class="math inline">\(\mathbb G_m\)</span>.</p>
 <div class="callout callout-style-default callout-warning callout-titled" title="Where the picture breaks">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -452,13 +486,6 @@ window.Quarto = {
 <p>On the whole affine line, <span class="math inline">\(t\mapsto t^n\)</span> ramifies at <span class="math inline">\(t=0\)</span>. The map is no longer étale there: the branches collide.</p>
 </div>
 </div>
-</section>
-<section id="what-to-remember" class="level2">
-<h2 class="anchored" data-anchor-id="what-to-remember">What to remember</h2>
-<ul>
-<li>Open immersions are the simplest étale maps.</li>
-<li>Étale maps may have several sheets, but they have no infinitesimal branching.</li>
-</ul>
 
 
 </section>
@@ -889,8 +916,8 @@ window.Quarto = {
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../editing.html" class="pagination-link" aria-label="How to edit these notes">
-        <span class="nav-page-text">How to edit these notes</span> <i class="bi bi-arrow-right-short"></i>
+      <a href="../etale morphism/smooth-morphisms.html" class="pagination-link" aria-label="Smooth Morphisms">
+        <span class="nav-page-text">Smooth Morphisms</span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
