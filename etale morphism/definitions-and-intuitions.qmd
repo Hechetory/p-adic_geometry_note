@@ -17,23 +17,23 @@ We could think of an étale map as a map that is locally an isomorphism. It can 
 
 ## Example: an open immersion
 
-Every open immersion \(U\hookrightarrow X\) is étale. Nothing changes near a
-point of \(U\): we have only restricted our attention to a smaller open set.
+Every open immersion $U\hookrightarrow X$ is étale. Nothing changes near a
+point of $U$: we have only restricted our attention to a smaller open set.
 
 ## Example: the power map
 
-Assume that \(n\) is invertible in the base field. On the punctured affine
+Assume that $n$ is invertible in the base field. On the punctured affine
 line, the map
 
 $$
 \mathbb G_m \longrightarrow \mathbb G_m, \qquad t\longmapsto t^n
 $$
 
-is étale. Infinitesimally its derivative is \(nt^{n-1}\), which never vanishes
-on \(\mathbb G_m\).
+is étale. Infinitesimally its derivative is $nt^{n-1}$, which never vanishes
+on $\mathbb G_m$.
 
 ::: {.callout-warning title="Where the picture breaks"}
-On the whole affine line, \(t\mapsto t^n\) ramifies at \(t=0\). The map is no
+On the whole affine line, $t\mapsto t^n$ ramifies at $t=0$. The map is no
 longer étale there: the branches collide.
 :::
 
