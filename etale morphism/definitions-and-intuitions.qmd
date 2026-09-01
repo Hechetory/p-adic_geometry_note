@@ -1,7 +1,10 @@
 ---
-title: "Definitions and Intuitions"
-subtitle: "Étale morphisms through small examples"
+title: "Definitions"
+subtitle: "The three faces of \etale morphisms"
 ---
+:::{ .callout-note title="Note"}
+We will list some important equivalent definitions of étale morphisms and leave the discussion of their equivalence for later.
+:::
 
 ## Definition
 
@@ -11,14 +14,19 @@ A morphism $f\colon X\to Y$ between schemes is **étale** if it is
 2. flat, and
 3. unramified.
 
+## Definition (equivalent)
+A morphism $f\colon X\to Y$ between varieties over $k$ is **étale** if it induces isomorphisms on the tangent spaces at all points of $X$.
+
+## Definition (equivalent)
+A morphism $f\colon X\to Y$ between schemes is **étale** if it is smooth of relative dimension $0$.
+
 ::: {.callout-tip title="Intuition"}
-We could think of an étale map as a map that is locally an isomorphism. It can be rigorously proven for varieties.
+The second definition tells us that we can think of an étale map as a map that is locally an isomorphism. And for the definitions of the flat, unramified and smooth morphisms, see later.
 :::
 
 ## Example: an open immersion
 
-Every open immersion $U\hookrightarrow X$ is étale. Nothing changes near a
-point of $U$: we have only restricted our attention to a smaller open set.
+Every open immersion $U\hookrightarrow X$ is étale. Nothing changes near a point of $U$: we have only restricted our attention to a smaller open subset.
 
 ## Example: the power map
 
@@ -29,16 +37,11 @@ $$
 \mathbb G_m \longrightarrow \mathbb G_m, \qquad t\longmapsto t^n
 $$
 
-is étale. Infinitesimally its derivative is $nt^{n-1}$, which never vanishes
+is étale. Infinitesimally, its derivative is $nt^{n-1}$, which never vanishes
 on $\mathbb G_m$.
 
 ::: {.callout-warning title="Where the picture breaks"}
 On the whole affine line, $t\mapsto t^n$ ramifies at $t=0$. The map is no
 longer étale there: the branches collide.
 :::
-
-## What to remember
-
-- Open immersions are the simplest étale maps.
-- Étale maps may have several sheets, but they have no infinitesimal branching.
 

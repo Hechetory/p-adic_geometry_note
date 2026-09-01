@@ -1,0 +1,46 @@
+---
+title: "Smooth Morphisms"
+subtitle: "Families that vary without singular jumps"
+---
+
+A smooth morphism is the relative version of a nonsingular variety. Roughly, its fibers are smooth and fit together uniformly over the base.
+
+::: {.callout-tip title="Mental picture"}
+Think of a smooth morphism as a family of manifolds whose dimension stays constant and whose members do not suddenly acquire singularities.
+:::
+
+## A model example
+
+The projection
+
+$$
+\operatorname{Spec}(R[x_1,\cdot, \cdot, x_{n+r}]/(f_1,\cdot, f_r)) \longrightarrow \operatorname{Spec}(R)
+$$
+
+is called the standard smooth morphism of relative dimension $n$ if the determinant of the matrix 
+
+$$
+\left(\frac{\partial f_i}{\partial x_j}\right)_{1\leq i,j\leq r}
+$$
+
+is invertible in the ring $R[x_1,\cdot, \cdot, x_{n+r}]/(f_1,\cdot, f_r)$. 
+
+:::{.callout-note title="Remark"}
+The fibers of this morphism are smooth varieties of dimension $n$ by the Jacobian criterion. The condition on the determinant is a relative version of the Jacobian criterion.
+:::
+
+## Definition
+
+A morphism $f\colon X\to Y$ between schemes is **smooth** of relative dimension $n$ if there exist open coverings $\{U_i\}$ of $X$ and $\{V_i\}$ of $Y$ such that $f(U_i)\subseteq V_i$ and for each $i$, the restriction $f|_{U_i}\colon U_i\to V_i$ is a standard smooth morphism of relative dimension $n$.
+
+# Definition
+
+A variety $X$ over a field $k$ is **smooth** if the structure morphism $X\to \operatorname{Spec}(k)$ is smooth. 
+
+:::{.callout-note title="Remark"}
+Such definition for smooth variety is a little bit indirect, but it is convenient for our discussion since we will not spend much time on smooth varieties.
+:::
+
+# Proposition
+
+We can use the differential to characterize smooth varieties. A variety $X$ over a field $k$ is smooth if and only if the sheaf of differentials $\Omega_{X/k}$ is locally free of rank $\dim(X)$.

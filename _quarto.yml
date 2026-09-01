@@ -33,6 +33,10 @@ website:
             text: Overview
           - href: "etale morphism/definitions-and-intuitions.qmd"
             text: Definitions and Intuitions
+          - href: "etale morphism/smooth-morphisms.qmd"
+            text: Smooth Morphisms
+          - href: "etale morphism/unramified-morphisms.qmd"
+            text: Unramified Morphisms
       - href: editing.qmd
         text: How to edit these notes
   page-footer:

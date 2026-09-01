@@ -3,12 +3,15 @@ title: "Étale Morphisms"
 subtitle: ""
 toc: false
 ---
+::: {.callout-note title="Site"}
+``An etale morphism is the analogue in algebraic geometry of a local isomorphism of manifolds in differential geometry, a covering of Riemann surfaces with no branch points in complex analysis, and an unramiﬁed extension in algebraic number theory.''--Milne.
+:::
 
-Étale morphisms are the algebro-geometric analogue of local isomorphisms.
-They preserve local dimension, introduce no infinitesimal ramification, and
-often behave like covering maps (especially for finite \etale morphisms).
-
+Since the author, I, hasn't learned flat morphisms and unramified morphisms seriously yet, but already has a basic understanding of the \etale site and \etale cohomology, which means that the author is familiar to some basic properties of \etale morphisms and use it. Our main goal in this chapter is to understand the various equivalent definitions of étale morphisms and to get some intuition for what they are analog to. One of the purpose of this chapter is to figure out which property of \etale morphisms comes from the flatness and which property comes from the unramifiedness. The author will try to understand the definition of étale morphisms in a more intuitive way, and then try to understand the properties of étale morphisms from the perspective of flatness and unramifiedness.
 
 For a first pass, continue to
 [Definitions and Intuitions](definitions-and-intuitions.qmd).
 
+For a more detailed discussion, see
+[Smooth Morphisms](smooth-morphisms.qmd) and
+[Unramified Morphisms](unramified-morphisms.qmd) ...(TBA)
