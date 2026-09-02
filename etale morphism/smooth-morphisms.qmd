@@ -1,6 +1,6 @@
 ---
 title: "Smooth Morphisms"
-subtitle: "Families that vary without singular jumps"
+subtitle: ""
 ---
 
 A smooth morphism is the relative version of a nonsingular variety. Roughly, its fibers are smooth and fit together uniformly over the base.
@@ -9,7 +9,8 @@ A smooth morphism is the relative version of a nonsingular variety. Roughly, its
 Think of a smooth morphism as a family of manifolds whose dimension stays constant and whose members do not suddenly acquire singularities.
 :::
 
-## A model example
+## Defitions
+:::{#def-standard-smooth-morphism name="standard smooth morphism"}
 
 The projection
 
@@ -24,23 +25,56 @@ $$
 $$
 
 is invertible in the ring $R[x_1,\cdot, \cdot, x_{n+r}]/(f_1,\cdot, f_r)$. 
+:::
 
-:::{.callout-note title="Remark"}
+:::{#rem-jacobson name=""}
 The fibers of this morphism are smooth varieties of dimension $n$ by the Jacobian criterion. The condition on the determinant is a relative version of the Jacobian criterion.
 :::
 
-## Definition
-
+:::{#def-smooth-morphism name="smooth morphism"}
 A morphism $f\colon X\to Y$ between schemes is **smooth** of relative dimension $n$ if there exist open coverings $\{U_i\}$ of $X$ and $\{V_i\}$ of $Y$ such that $f(U_i)\subseteq V_i$ and for each $i$, the restriction $f|_{U_i}\colon U_i\to V_i$ is a standard smooth morphism of relative dimension $n$.
+:::
 
-# Definition
-
+:::{#def-smooth-variety name="smooth variety"}
 A variety $X$ over a field $k$ is **smooth** if the structure morphism $X\to \operatorname{Spec}(k)$ is smooth. 
+:::
 
-:::{.callout-note title="Remark"}
+:::{.callout-tip title=""}
 Such definition for smooth variety is a little bit indirect, but it is convenient for our discussion since we will not spend much time on smooth varieties.
 :::
 
-# Proposition
+## Basic properties
+:::{#prp-smooth-morphism-composition name=""}
+If $f\colon X\to Y$ and $g\colon Y\to Z$ are smooth morphisms of relative dimension $n$ and $m$ respectively, then the composition $g\circ f\colon X\to Z$ is also smooth of relative dimension $n+m$.
+:::
+:::{.proof}
+This is a local property, so we can assume that $f$ and $g$ are standard smooth morphisms of relative dimension $n$ and $m$ respectively. Then, by the chain rule, the corresponding Jacobian matrix of the composition $g\circ f$ is a block-upper-triangular matrix with the Jacobian matrices of $f$ and $g$ on the diagonal. Therefore, the determinant of the corresponding square matrix of $g\circ f$ is the product of determinants of the square matrices of $f$ and $g$, which are both invertible. So $g\circ f$ is a standard smooth morphism of relative dimension $n+m$.
+:::
 
-We can use the differential to characterize smooth varieties. A variety $X$ over a field $k$ is smooth if and only if the sheaf of differentials $\Omega_{X/k}$ is locally free of rank $\dim(X)$.
+### Relation to differentials
+We recall the definition and properties of the sheaf of differentials in [Unramified Morphisms](unramified-morphisms.qmd). The sheaf of differentials can be used to characterize smooth morphisms and smooth varieties.
+
+:::{#prp-differentials-of-smooth-varieties name=""}
+A variety $X$ over $k$ is smooth if and only if the sheaf of differentials $\Omega_{X/k}$ is locally free of rank $\dim(X)$.
+:::
+
+:::{.proof}
+When $\Omega_{X/k}$ is locally free of rank $\dim(X)$, we know that the Jacobian matrix has full rank at every point, which implies that $X$ is smooth. Conversely, assume $X$ is smooth. Then, by the relation between smoothness and regualrness, one can show that $X$ is reduced. Since $X$ is of finite type, the sheaf of differentials $\Omega_{X/k}$ is of finite type. By the relation between the cotangent space and the fibre of the sheaf of differentials, we have $\dim_{k(x)}(\Omega_{X/k}\otimes k(x))=\dim(X)$ for all closed points $x\in X$. Therefore, we conclude that $\Omega_{X/k}$ is locally free of rank $\dim(X)$.
+:::
+
+:::{.callout-caution title="Caution"}
+It is not easy to show that a smooth variety is reduced. The proof is not included here, but it can be found in the textbook "The Rising Sea". And the last statement in the proof above is a corollary of Nakayama's lemma, which is a fundamental result in alegbraic geometry, and both reducedness, finiteness and the constantness of the dimension of fibre matter. See 14.3.J in "The Rising Sea" for details.
+:::
+
+:::{#prp-smooth-and transitive-exact-sequence name=""}
+Let $f\colon X\to Y$ and $g\colon Y\to Z$ be morphisms of schemes. If $f$ and $g$ are smooth, then the transitive exact sequence is exact on the left, too, which means that the sequence
+$$
+0\to f^*\Omega_{Y/Z}\to \Omega_{X/Z}\to \Omega_{X/Y}\to 0
+$$
+
+is exact.
+:::
+
+:::{.proof}
+This is a local property, so we can assume that $f$ and $g$ are standard smooth morphisms of relative dimension $n$ and $m$ respectively. Then, by @lem-derivation-of-polynomial-ring, we know the module of differentials is the cokernel of the Jacobian matrix. The injectivity of the left follows from the fact that the Jacobian matrix of $g\circ f$ is a block-upper-triangular matrix with the Jacobian matrices of $f$ and $g$ on the diagonal.
+:::

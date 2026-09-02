@@ -31,7 +31,7 @@ website:
         contents:
           - href: "etale morphism/index.qmd"
             text: Overview
-          - href: "etale morphism/definitions-and-intuitions.qmd"
+          - href: "etale morphism/definitions.qmd"
             text: Definitions and Intuitions
           - href: "etale morphism/smooth-morphisms.qmd"
             text: Smooth Morphisms
