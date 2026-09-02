@@ -312,7 +312,7 @@ window.Quarto = {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../etale morphism/index.html">Étale Morphisms</a></li><li class="breadcrumb-item"><a href="../etale morphism/definitions-and-intuitions.html">Definitions and Intuitions</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../etale morphism/index.html">Étale Morphisms</a></li><li class="breadcrumb-item"><a href="../etale morphism/definitions.html">Definitions and Intuitions</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -353,7 +353,7 @@ window.Quarto = {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../etale morphism/definitions-and-intuitions.html" class="sidebar-item-text sidebar-link active">
+  <a href="../etale morphism/definitions.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">Definitions and Intuitions</span></a>
   </div>
 </li>
@@ -387,22 +387,19 @@ window.Quarto = {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#definition" id="toc-definition" class="nav-link active" data-scroll-target="#definition">Definition</a></li>
-  <li><a href="#definition-equivalent" id="toc-definition-equivalent" class="nav-link" data-scroll-target="#definition-equivalent">Definition (equivalent)</a></li>
-  <li><a href="#definition-equivalent-1" id="toc-definition-equivalent-1" class="nav-link" data-scroll-target="#definition-equivalent-1">Definition (equivalent)</a></li>
-  <li><a href="#example-an-open-immersion" id="toc-example-an-open-immersion" class="nav-link" data-scroll-target="#example-an-open-immersion">Example: an open immersion</a></li>
-  <li><a href="#example-the-power-map" id="toc-example-the-power-map" class="nav-link" data-scroll-target="#example-the-power-map">Example: the power map</a></li>
+  <li><a href="#equivalent-definitions" id="toc-equivalent-definitions" class="nav-link active" data-scroll-target="#equivalent-definitions">Equivalent definitions</a></li>
+  <li><a href="#examples" id="toc-examples" class="nav-link" data-scroll-target="#examples">Examples</a></li>
   </ul>
-<div class="toc-actions"><ul><li><a href="https://github.com/Hechetory/p-adic_geometry_note/edit/main/etale morphism/definitions-and-intuitions.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/Hechetory/p-adic_geometry_note/blob/main/etale morphism/definitions-and-intuitions.qmd" class="toc-action"><i class="bi empty"></i>View source</a></li><li><a href="https://github.com/Hechetory/p-adic_geometry_note/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
+<div class="toc-actions"><ul><li><a href="https://github.com/Hechetory/p-adic_geometry_note/edit/main/etale morphism/definitions.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/Hechetory/p-adic_geometry_note/blob/main/etale morphism/definitions.qmd" class="toc-action"><i class="bi empty"></i>View source</a></li><li><a href="https://github.com/Hechetory/p-adic_geometry_note/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../etale morphism/index.html">Étale Morphisms</a></li><li class="breadcrumb-item"><a href="../etale morphism/definitions-and-intuitions.html">Definitions and Intuitions</a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../etale morphism/index.html">Étale Morphisms</a></li><li class="breadcrumb-item"><a href="../etale morphism/definitions.html">Definitions and Intuitions</a></li></ol></nav>
 <div class="quarto-title">
 <h1 class="title">Definitions</h1>
-<p class="subtitle lead">The three faces of tale morphisms</p>
+<p class="subtitle lead">The three faces of étale morphisms</p>
 </div>
 
 
@@ -432,47 +429,38 @@ window.Quarto = {
 <p>We will list some important equivalent definitions of étale morphisms and leave the discussion of their equivalence for later.</p>
 </div>
 </div>
-<section id="definition" class="level2">
-<h2 class="anchored" data-anchor-id="definition">Definition</h2>
-<p>A morphism <span class="math inline">\(f\colon X\to Y\)</span> between schemes is <strong>étale</strong> if it is</p>
+<section id="equivalent-definitions" class="level2">
+<h2 class="anchored" data-anchor-id="equivalent-definitions">Equivalent definitions</h2>
+<div id="def-étale" class="theorem definition">
+<p><span class="theorem-title"><strong>Definition 1</strong></span> A morphism <span class="math inline">\(f\colon X\to Y\)</span> between schemes is <strong>étale</strong> if it is</p>
 <ol type="1">
 <li>locally of finite presentation,</li>
 <li>flat, and</li>
 <li>unramified.</li>
 </ol>
-</section>
-<section id="definition-equivalent" class="level2">
-<h2 class="anchored" data-anchor-id="definition-equivalent">Definition (equivalent)</h2>
-<p>A morphism <span class="math inline">\(f\colon X\to Y\)</span> between varieties over <span class="math inline">\(k\)</span> is <strong>étale</strong> if it induces isomorphisms on the tangent spaces at all points of <span class="math inline">\(X\)</span>.</p>
-</section>
-<section id="definition-equivalent-1" class="level2">
-<h2 class="anchored" data-anchor-id="definition-equivalent-1">Definition (equivalent)</h2>
-<p>A morphism <span class="math inline">\(f\colon X\to Y\)</span> between schemes is <strong>étale</strong> if it is smooth of relative dimension <span class="math inline">\(0\)</span>.</p>
-<div class="callout callout-style-default callout-tip callout-titled" title="Intuition">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
 </div>
-<div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Tip</span>Intuition
+<div id="def-étale" class="theorem definition">
+<p><span class="theorem-title"><strong>Definition 2</strong></span> A morphism <span class="math inline">\(f\colon X\to Y\)</span> between varieties over <span class="math inline">\(k\)</span> is <strong>étale</strong> if it induces isomorphisms on the tangent spaces at all points of <span class="math inline">\(X\)</span>.</p>
 </div>
+<div id="def-étale" class="theorem definition">
+<p><span class="theorem-title"><strong>Definition 3</strong></span> A morphism <span class="math inline">\(f\colon X\to Y\)</span> between schemes is <strong>étale</strong> if it is smooth of relative dimension <span class="math inline">\(0\)</span>.</p>
 </div>
-<div class="callout-body-container callout-body">
-<p>The second definition tells us that we can think of an étale map as a map that is locally an isomorphism. And for the definitions of the flat, unramified and smooth morphisms, see later.</p>
-</div>
+<div id="rem-intuition" class="proof remark">
+<p><span class="proof-title"><em>Remark 1</em>. </span>The second definition tells us that we can think of an étale map as a map that is locally an isomorphism. And for the definitions of the flat, unramified and smooth morphisms, see later.</p>
 </div>
 </section>
-<section id="example-an-open-immersion" class="level2">
-<h2 class="anchored" data-anchor-id="example-an-open-immersion">Example: an open immersion</h2>
-<p>Every open immersion <span class="math inline">\(U\hookrightarrow X\)</span> is étale. Nothing changes near a point of <span class="math inline">\(U\)</span>: we have only restricted our attention to a smaller open subset.</p>
-</section>
-<section id="example-the-power-map" class="level2">
-<h2 class="anchored" data-anchor-id="example-the-power-map">Example: the power map</h2>
-<p>Assume that <span class="math inline">\(n\)</span> is invertible in the base field. On the punctured affine line, the map</p>
+<section id="examples" class="level2">
+<h2 class="anchored" data-anchor-id="examples">Examples</h2>
+<div id="exm-open-imm-is-etale" class="theorem example">
+<p><span class="theorem-title"><strong>Example 1 (open immersion)</strong></span> Every open immersion <span class="math inline">\(U\hookrightarrow X\)</span> is étale. Nothing changes near a point of <span class="math inline">\(U\)</span>: we have only restricted our attention to a smaller open subset.</p>
+</div>
+<div id="exm-etale-cover-of-affine-line" class="theorem example">
+<p><span class="theorem-title"><strong>Example 2</strong></span> Assume that <span class="math inline">\(n\)</span> is invertible in the base field. On the punctured affine line, the map</p>
 <p><span class="math display">\[
 \mathbb G_m \longrightarrow \mathbb G_m, \qquad t\longmapsto t^n
 \]</span></p>
 <p>is étale. Infinitesimally, its derivative is <span class="math inline">\(nt^{n-1}\)</span>, which never vanishes on <span class="math inline">\(\mathbb G_m\)</span>.</p>
+</div>
 <div class="callout callout-style-default callout-warning callout-titled" title="Where the picture breaks">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -929,7 +917,7 @@ window.Quarto = {
 </div>   
     <div class="nav-footer-center">
       &nbsp;
-    <div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/Hechetory/p-adic_geometry_note/edit/main/etale morphism/definitions-and-intuitions.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/Hechetory/p-adic_geometry_note/blob/main/etale morphism/definitions-and-intuitions.qmd" class="toc-action"><i class="bi empty"></i>View source</a></li><li><a href="https://github.com/Hechetory/p-adic_geometry_note/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div>
+    <div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/Hechetory/p-adic_geometry_note/edit/main/etale morphism/definitions.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/Hechetory/p-adic_geometry_note/blob/main/etale morphism/definitions.qmd" class="toc-action"><i class="bi empty"></i>View source</a></li><li><a href="https://github.com/Hechetory/p-adic_geometry_note/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div>
     <div class="nav-footer-right">
 <p>Built with Quarto and GitHub Pages.</p>
 </div>

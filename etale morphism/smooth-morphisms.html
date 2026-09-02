@@ -37,7 +37,7 @@ ul.task-list li input[type="checkbox"] {
 <script src="../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../">
 <link href="../etale morphism/unramified-morphisms.html" rel="next">
-<link href="../etale morphism/definitions-and-intuitions.html" rel="prev">
+<link href="../etale morphism/definitions.html" rel="prev">
 <script src="../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
@@ -353,7 +353,7 @@ window.Quarto = {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../etale morphism/definitions-and-intuitions.html" class="sidebar-item-text sidebar-link">
+  <a href="../etale morphism/definitions.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Definitions and Intuitions</span></a>
   </div>
 </li>
@@ -387,10 +387,11 @@ window.Quarto = {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#a-model-example" id="toc-a-model-example" class="nav-link active" data-scroll-target="#a-model-example">A model example</a></li>
-  <li><a href="#definition" id="toc-definition" class="nav-link" data-scroll-target="#definition">Definition</a></li>
-  <li><a href="#definition-1" id="toc-definition-1" class="nav-link" data-scroll-target="#definition-1">Definition</a></li>
-  <li><a href="#proposition" id="toc-proposition" class="nav-link" data-scroll-target="#proposition">Proposition</a></li>
+  <li><a href="#defitions" id="toc-defitions" class="nav-link active" data-scroll-target="#defitions">Defitions</a></li>
+  <li><a href="#basic-properties" id="toc-basic-properties" class="nav-link" data-scroll-target="#basic-properties">Basic properties</a>
+  <ul class="collapse">
+  <li><a href="#relation-to-differentials" id="toc-relation-to-differentials" class="nav-link" data-scroll-target="#relation-to-differentials">Relation to differentials</a></li>
+  </ul></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/Hechetory/p-adic_geometry_note/edit/main/etale morphism/smooth-morphisms.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/Hechetory/p-adic_geometry_note/blob/main/etale morphism/smooth-morphisms.qmd" class="toc-action"><i class="bi empty"></i>View source</a></li><li><a href="https://github.com/Hechetory/p-adic_geometry_note/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
     </div>
@@ -401,7 +402,6 @@ window.Quarto = {
 <header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../etale morphism/index.html">Étale Morphisms</a></li><li class="breadcrumb-item"><a href="../etale morphism/smooth-morphisms.html">Smooth Morphisms</a></li></ol></nav>
 <div class="quarto-title">
 <h1 class="title">Smooth Morphisms</h1>
-<p class="subtitle lead">Families that vary without singular jumps</p>
 </div>
 
 
@@ -432,9 +432,10 @@ window.Quarto = {
 <p>Think of a smooth morphism as a family of manifolds whose dimension stays constant and whose members do not suddenly acquire singularities.</p>
 </div>
 </div>
-<section id="a-model-example" class="level2">
-<h2 class="anchored" data-anchor-id="a-model-example">A model example</h2>
-<p>The projection</p>
+<section id="defitions" class="level2">
+<h2 class="anchored" data-anchor-id="defitions">Defitions</h2>
+<div id="def-standard-smooth-morphism" class="theorem definition">
+<p><span class="theorem-title"><strong>Definition 1 (standard smooth morphism)</strong></span> The projection</p>
 <p><span class="math display">\[
 \operatorname{Spec}(R[x_1,\cdot, \cdot, x_{n+r}]/(f_1,\cdot, f_r)) \longrightarrow \operatorname{Spec}(R)
 \]</span></p>
@@ -443,34 +444,23 @@ window.Quarto = {
 \left(\frac{\partial f_i}{\partial x_j}\right)_{1\leq i,j\leq r}
 \]</span></p>
 <p>is invertible in the ring <span class="math inline">\(R[x_1,\cdot, \cdot, x_{n+r}]/(f_1,\cdot, f_r)\)</span>.</p>
-<div class="callout callout-style-default callout-note callout-titled" title="Remark">
+</div>
+<div id="rem-jacobson" class="proof remark">
+<p><span class="proof-title"><em>Remark 1</em>. </span>The fibers of this morphism are smooth varieties of dimension <span class="math inline">\(n\)</span> by the Jacobian criterion. The condition on the determinant is a relative version of the Jacobian criterion.</p>
+</div>
+<div id="def-smooth-morphism" class="theorem definition">
+<p><span class="theorem-title"><strong>Definition 2 (smooth morphism)</strong></span> A morphism <span class="math inline">\(f\colon X\to Y\)</span> between schemes is <strong>smooth</strong> of relative dimension <span class="math inline">\(n\)</span> if there exist open coverings <span class="math inline">\(\{U_i\}\)</span> of <span class="math inline">\(X\)</span> and <span class="math inline">\(\{V_i\}\)</span> of <span class="math inline">\(Y\)</span> such that <span class="math inline">\(f(U_i)\subseteq V_i\)</span> and for each <span class="math inline">\(i\)</span>, the restriction <span class="math inline">\(f|_{U_i}\colon U_i\to V_i\)</span> is a standard smooth morphism of relative dimension <span class="math inline">\(n\)</span>.</p>
+</div>
+<div id="def-smooth-variety" class="theorem definition">
+<p><span class="theorem-title"><strong>Definition 3 (smooth variety)</strong></span> A variety <span class="math inline">\(X\)</span> over a field <span class="math inline">\(k\)</span> is <strong>smooth</strong> if the structure morphism <span class="math inline">\(X\to \operatorname{Spec}(k)\)</span> is smooth.</p>
+</div>
+<div class="callout callout-style-default callout-tip callout-titled" title="">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Note</span>Remark
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>The fibers of this morphism are smooth varieties of dimension <span class="math inline">\(n\)</span> by the Jacobian criterion. The condition on the determinant is a relative version of the Jacobian criterion.</p>
-</div>
-</div>
-</section>
-<section id="definition" class="level2">
-<h2 class="anchored" data-anchor-id="definition">Definition</h2>
-<p>A morphism <span class="math inline">\(f\colon X\to Y\)</span> between schemes is <strong>smooth</strong> of relative dimension <span class="math inline">\(n\)</span> if there exist open coverings <span class="math inline">\(\{U_i\}\)</span> of <span class="math inline">\(X\)</span> and <span class="math inline">\(\{V_i\}\)</span> of <span class="math inline">\(Y\)</span> such that <span class="math inline">\(f(U_i)\subseteq V_i\)</span> and for each <span class="math inline">\(i\)</span>, the restriction <span class="math inline">\(f|_{U_i}\colon U_i\to V_i\)</span> is a standard smooth morphism of relative dimension <span class="math inline">\(n\)</span>.</p>
-</section>
-<section id="definition-1" class="level1">
-<h1>Definition</h1>
-<p>A variety <span class="math inline">\(X\)</span> over a field <span class="math inline">\(k\)</span> is <strong>smooth</strong> if the structure morphism <span class="math inline">\(X\to \operatorname{Spec}(k)\)</span> is smooth.</p>
-<div class="callout callout-style-default callout-note callout-titled" title="Remark">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Note</span>Remark
+Tip
 </div>
 </div>
 <div class="callout-body-container callout-body">
@@ -478,11 +468,46 @@ window.Quarto = {
 </div>
 </div>
 </section>
-<section id="proposition" class="level1">
-<h1>Proposition</h1>
-<p>We can use the differential to characterize smooth varieties. A variety <span class="math inline">\(X\)</span> over a field <span class="math inline">\(k\)</span> is smooth if and only if the sheaf of differentials <span class="math inline">\(\Omega_{X/k}\)</span> is locally free of rank <span class="math inline">\(\dim(X)\)</span>.</p>
+<section id="basic-properties" class="level2">
+<h2 class="anchored" data-anchor-id="basic-properties">Basic properties</h2>
+<div id="prp-smooth-morphism-composition" class="theorem proposition">
+<p><span class="theorem-title"><strong>Proposition 1</strong></span> If <span class="math inline">\(f\colon X\to Y\)</span> and <span class="math inline">\(g\colon Y\to Z\)</span> are smooth morphisms of relative dimension <span class="math inline">\(n\)</span> and <span class="math inline">\(m\)</span> respectively, then the composition <span class="math inline">\(g\circ f\colon X\to Z\)</span> is also smooth of relative dimension <span class="math inline">\(n+m\)</span>.</p>
+</div>
+<div class="proof">
+<p><span class="proof-title"><em>Proof</em>. </span>This is a local property, so we can assume that <span class="math inline">\(f\)</span> and <span class="math inline">\(g\)</span> are standard smooth morphisms of relative dimension <span class="math inline">\(n\)</span> and <span class="math inline">\(m\)</span> respectively. Then, by the chain rule, the corresponding Jacobian matrix of the composition <span class="math inline">\(g\circ f\)</span> is a block-upper-triangular matrix with the Jacobian matrices of <span class="math inline">\(f\)</span> and <span class="math inline">\(g\)</span> on the diagonal. Therefore, the determinant of the corresponding square matrix of <span class="math inline">\(g\circ f\)</span> is the product of determinants of the square matrices of <span class="math inline">\(f\)</span> and <span class="math inline">\(g\)</span>, which are both invertible. So <span class="math inline">\(g\circ f\)</span> is a standard smooth morphism of relative dimension <span class="math inline">\(n+m\)</span>.</p>
+</div>
+<section id="relation-to-differentials" class="level3">
+<h3 class="anchored" data-anchor-id="relation-to-differentials">Relation to differentials</h3>
+<p>We recall the definition and properties of the sheaf of differentials in <a href="../etale morphism/unramified-morphisms.html">Unramified Morphisms</a>. The sheaf of differentials can be used to characterize smooth morphisms and smooth varieties.</p>
+<div id="prp-differentials-of-smooth-varieties" class="theorem proposition">
+<p><span class="theorem-title"><strong>Proposition 2</strong></span> A variety <span class="math inline">\(X\)</span> over <span class="math inline">\(k\)</span> is smooth if and only if the sheaf of differentials <span class="math inline">\(\Omega_{X/k}\)</span> is locally free of rank <span class="math inline">\(\dim(X)\)</span>.</p>
+</div>
+<div class="proof">
+<p><span class="proof-title"><em>Proof</em>. </span>When <span class="math inline">\(\Omega_{X/k}\)</span> is locally free of rank <span class="math inline">\(\dim(X)\)</span>, we know that the Jacobian matrix has full rank at every point, which implies that <span class="math inline">\(X\)</span> is smooth. Conversely, assume <span class="math inline">\(X\)</span> is smooth. Then, by the relation between smoothness and regualrness, one can show that <span class="math inline">\(X\)</span> is reduced. Since <span class="math inline">\(X\)</span> is of finite type, the sheaf of differentials <span class="math inline">\(\Omega_{X/k}\)</span> is of finite type. By the relation between the cotangent space and the fibre of the sheaf of differentials, we have <span class="math inline">\(\dim_{k(x)}(\Omega_{X/k}\otimes k(x))=\dim(X)\)</span> for all closed points <span class="math inline">\(x\in X\)</span>. Therefore, we conclude that <span class="math inline">\(\Omega_{X/k}\)</span> is locally free of rank <span class="math inline">\(\dim(X)\)</span>.</p>
+</div>
+<div class="callout callout-style-default callout-caution callout-titled" title="Caution">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Caution</span>Caution
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>It is not easy to show that a smooth variety is reduced. The proof is not included here, but it can be found in the textbook “The Rising Sea”. And the last statement in the proof above is a corollary of Nakayama’s lemma, which is a fundamental result in alegbraic geometry, and both reducedness, finiteness and the constantness of the dimension of fibre matter. See 14.3.J in “The Rising Sea” for details.</p>
+</div>
+</div>
+<p>:::{#prp-smooth-and transitive-exact-sequence name=““} Let <span class="math inline">\(f\colon X\to Y\)</span> and <span class="math inline">\(g\colon Y\to Z\)</span> be morphisms of schemes. If <span class="math inline">\(f\)</span> and <span class="math inline">\(g\)</span> are smooth, then the transitive exact sequence is exact on the left, too, which means that the sequence <span class="math display">\[
+0\to f^*\Omega_{Y/Z}\to \Omega_{X/Z}\to \Omega_{X/Y}\to 0
+\]</span></p>
+<p>is exact. :::</p>
+<div class="proof">
+<p><span class="proof-title"><em>Proof</em>. </span>This is a local property, so we can assume that <span class="math inline">\(f\)</span> and <span class="math inline">\(g\)</span> are standard smooth morphisms of relative dimension <span class="math inline">\(n\)</span> and <span class="math inline">\(m\)</span> respectively. Then, by <strong>?@lem-derivation-of-polynomial-ring</strong>, we know the module of differentials is the cokernel of the Jacobian matrix. The injectivity of the left follows from the fact that the Jacobian matrix of <span class="math inline">\(g\circ f\)</span> is a block-upper-triangular matrix with the Jacobian matrices of <span class="math inline">\(f\)</span> and <span class="math inline">\(g\)</span> on the diagonal.</p>
+</div>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->
@@ -906,7 +931,7 @@ window.Quarto = {
   </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="../etale morphism/definitions-and-intuitions.html" class="pagination-link" aria-label="Definitions and Intuitions">
+      <a href="../etale morphism/definitions.html" class="pagination-link" aria-label="Definitions and Intuitions">
         <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Definitions and Intuitions</span>
       </a>          
   </div>
