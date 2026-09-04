@@ -19,7 +19,7 @@ The aim is not to replace a textbook, but to record my study experiences in $p$-
 
 The aim for this note is to figure out lots of equivalent definitions of \etale morphisms and give some intuitions.
 
-[Start reading →](<etale morphism/definitions-and-intuitions.qmd>)
+[Start reading →](<etale morphism/definitions.qmd>)
 :::
 
 ::: {.note-card .coming-soon}

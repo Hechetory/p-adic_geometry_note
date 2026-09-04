@@ -35,6 +35,29 @@ The fibers of this morphism are smooth varieties of dimension $n$ by the Jacobia
 A morphism $f\colon X\to Y$ between schemes is **smooth** of relative dimension $n$ if there exist open coverings $\{U_i\}$ of $X$ and $\{V_i\}$ of $Y$ such that $f(U_i)\subseteq V_i$ and for each $i$, the restriction $f|_{U_i}\colon U_i\to V_i$ is a standard smooth morphism of relative dimension $n$.
 :::
 
+:::{#rem-definition-of-smooth-morphism-slight-different name=""}
+There are several equivalent variants of the definition of a standard smooth morphism that lead to the same notion of a smooth morphism.
+
+1. We may allow a morphism which factors as
+$$
+U \hookrightarrow
+\operatorname{Spec}\bigl(R[x_1,\ldots,x_{n+r}]/(f_1,\ldots,f_r)\bigr)
+\longrightarrow
+\operatorname{Spec}(R),
+$$
+where the first morphism is an open immersion and the second morphism is standard smooth in the sense above.
+
+2. We may replace the prescribed square Jacobian matrix by the full Jacobian matrix
+$$
+\left(\frac{\partial f_i}{\partial x_j}\right)_
+{\substack{1\leq i\leq r\\1\leq j\leq n+r}},
+$$
+and require that some $r\times r$ minor be invertible.
+
+These variants give the same notion of a smooth morphism.
+:::
+
+
 :::{#def-smooth-variety name="smooth variety"}
 A variety $X$ over a field $k$ is **smooth** if the structure morphism $X\to \operatorname{Spec}(k)$ is smooth. 
 :::
@@ -66,8 +89,8 @@ When $\Omega_{X/k}$ is locally free of rank $\dim(X)$, we know that the Jacobian
 It is not easy to show that a smooth variety is reduced. The proof is not included here, but it can be found in the textbook "The Rising Sea". And the last statement in the proof above is a corollary of Nakayama's lemma, which is a fundamental result in alegbraic geometry, and both reducedness, finiteness and the constantness of the dimension of fibre matter. See 14.3.J in "The Rising Sea" for details.
 :::
 
-:::{#prp-smooth-and transitive-exact-sequence name=""}
-Let $f\colon X\to Y$ and $g\colon Y\to Z$ be morphisms of schemes. If $f$ and $g$ are smooth, then the transitive exact sequence is exact on the left, too, which means that the sequence
+::: {#prp-smooth-and-transitive-exact-sequence name=""}
+Let $f\colon X\to Y$ and $g\colon Y\to Z$ be morphisms of schemes. If $f$ and $g$ are smooth, then the transitive exact sequence is also exact on the left, which means that the sequence
 $$
 0\to f^*\Omega_{Y/Z}\to \Omega_{X/Z}\to \Omega_{X/Y}\to 0
 $$
@@ -76,5 +99,5 @@ is exact.
 :::
 
 :::{.proof}
-This is a local property, so we can assume that $f$ and $g$ are standard smooth morphisms of relative dimension $n$ and $m$ respectively. Then, by @lem-derivation-of-polynomial-ring, we know the module of differentials is the cokernel of the Jacobian matrix. The injectivity of the left follows from the fact that the Jacobian matrix of $g\circ f$ is a block-upper-triangular matrix with the Jacobian matrices of $f$ and $g$ on the diagonal.
+This is a local property, so we can assume that $f$ and $g$ are standard smooth morphisms of relative dimension $n$ and $m$ respectively. In [Unramified Morphisms](unramified-morphisms.qmd), we know the module of differentials is the cokernel of the Jacobian matrix. The injectivity of the left follows from the fact that the Jacobian matrix of $g\circ f$ is a block-upper-triangular matrix with the Jacobian matrices of $f$ and $g$ on the diagonal.
 :::

@@ -13,5 +13,6 @@ For a first pass, continue to
 [Definitions](definitions.qmd).
 
 For a more detailed discussion, see
-[Smooth Morphisms](smooth-morphisms.qmd) and
+[Flat Morphisms](flat-morphisms.qmd),
+[Smooth Morphisms](smooth-morphisms.qmd), and
 [Unramified Morphisms](unramified-morphisms.qmd) ...(TBA)

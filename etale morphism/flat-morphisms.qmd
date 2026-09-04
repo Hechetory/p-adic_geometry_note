@@ -1,0 +1,164 @@
+---
+title: "Flat Morphisms"
+subtitle: ""
+---
+
+Here we study the properties of flat morphisms that we will need as background for étale morphisms.
+
+## Definitions and basic properties
+
+::: {#def-flat-sheaf name="flat quasi-coherent sheaf over a base"}
+Let $\pi\colon X\to Y$ be a morphism of schemes and let $\mathcal F$ be a
+quasi-coherent $\mathcal O_X$-module. We say that $\mathcal F$ is **flat over
+$Y$ at $x\in X$** if the stalk $\mathcal F_x$ is flat as an
+$\mathcal O_{Y,\pi(x)}$-module. It is **flat over $Y$** if this holds at every
+point of $X$.
+:::
+
+On affine opens, this reduces to the familiar algebraic notion: if
+$X=\operatorname{Spec}(A)$, $Y=\operatorname{Spec}(B)$, and
+$\mathcal F=\widetilde M$, then flatness is controlled by the $B$-module $M$ coming from $B\to A$.
+
+::: {#lem-flat-is-local name=""}
+With the notation above, $\mathcal F$ is flat over $Y$ if and only if $M$ is flat as a $B$-module.
+:::
+
+:::{.proof}
+It is an easy commutative algebra exercise.
+:::
+
+::: {#cor-pushforward-flat-sheaf name=""}
+If $\pi:X\to Y$ is an affine morphism, and $\mathcal F$ is a quasicoherent sheaf on $X$, then $\mathcal F$ is flat over $Y$ if and only if $\pi_*\mathcal F$ is flat over $Y$.
+:::
+
+**::: {.callout-warning name="nonexample"}**
+The statement may fail even when $\pi$ is quasi-compact and quasi-separated.
+
+Consider the composite
+$$
+\pi\colon \mathbb P^1_k\hookrightarrow \mathbb P^1_{k[x]} \to \operatorname{Spec}k[x],
+\text{ and set }
+\mathcal F=\mathcal O_{\mathbb P^1_k}(-1).
+$$
+Then $\mathcal F$ is a line bundle and hence flat over $\mathbb P^1_{k}.
+
+On the other hand, the global section of $ \pi_*\mathcal F $ is $H^0(\mathbf P^1_k,\mathcal O_{\mathbf P^1_k}(-1))=0$, which implies that $\pi_*\mathcal F$ is not flat.
+:::
+
+::: {#def-flat-morphism name="flat morphism"}
+A morphism $\pi\colon X\to Y$ is **flat at $x\in X$** if the local ring
+$\mathcal O_{X,x}$ is flat over $\mathcal O_{Y,\pi(x)}$. It is **flat** if it
+is flat at every point, i.e. $\mathcal O_X$ is flat over $Y$.
+
+Equivalently, by @lem-flat-is-local, $\pi\colon X\to Y$ is flat if there exist affine open coverings $X=\bigcup_i X_i$ and $Y=\bigcup_i Y_i$ such that $\pi(X_i)\subseteq Y_i$ for each $i$, and $A_i$ is flat over $B_i$ whenever $X_i=\operatorname{Spec}A_i$ and $Y_i=\operatorname{Spec}B_i$.
+:::
+
+::: {#prp-flat-morphisms-reasonable name="flat morphisms form a reasonable class"}
+Flat morphisms satisfy the following properties one expects from a geometric
+class of morphisms:
+
+1. isomorphisms and open immersions are flat;
+2. the composite $\phi\circ\pi\colon X\to Z$ is flat whenever both $\pi$ and
+   $\phi$ are flat;
+3. flatness is preserved by base change: if $\pi\colon X\to Y$ is flat and
+   $\psi\colon Y'\to Y$ is any morphism, then
+   $X\times_Y Y'\to Y'$ is flat;
+4. flatness is local on both the source and the target.
+:::
+
+::: {.proof}
+The assersions 1 and 4 follow immediately by the definition. Assersion 2,3 follow from the corresponding properties for flat quasicoherent sheaves, see @lem-composite and @lem-base-change.
+:::
+
+::: {#lem-composite name=""}
+Let $\pi\colon X\to Y$ be a morphism, and let $\mathcal F$ be a quasicoherent sheaf on $X$ that is flat over $Y$. Let $\phi\colon Y\to Z$ be a flat morphism. Then $\mathcal F$ is flat over $Z$.
+:::
+
+:::{.proof}
+By definition, it suffices to check on stalks.
+:::
+
+::: {#lem-base-change name=""}
+Let $X\to Y$ and $Y'\to Y$ be morphisms. Let $\mu\clon X'=X\times_Y Y_'\to X$ be the projection, and $\mathcal F$ a quasicoherent sheaf on $X$ flat over $Y$. Then $\mu^*\mathcal F$ is flat over $Y'$.
+:::
+
+:::{.proof}
+By definition, it suffices to check on stalks. Let $x'\in X'$. Assume that $x'$ maps to $x\in X$, $y'\in Y'$ and $y\in Y$ respectively. Then $\mathcal O_{X',x'}\cong (\mathcal O_{X,x}\otimes_{\mathcal O_{Y,y}} \mathcal O_{Y',y'})_{\mathfrak p}$ for some prime ideal $\mathfrak p$. Then 
+$$
+(\mu^*\mathcal F)_{x'}\cong (\mathcal O_{X,x}\otimes_{\mathcal O_{Y,y}} \mathcal O_{Y',y'})_{\mathfrak p}\otimes_{\mathcal O_{X,x}\mathcal F_x}.
+$$
+The rest is a commutative algebra exercise.
+:::
+
+## Criteria of flatness
+
+::: {#prp-tor-criterion name="Tor criterion"}
+A $B$-module $M$ is flat if and only if
+
+$$
+\operatorname{Tor}_1^B(M,N)=0
+$$
+
+for every $B$-module $N$.
+:::
+
+::: {#prp-ideal-criterion name="ideal criterion"}
+A $B$-module $M$ is flat if and only if, for every finitely generated ideal
+$I\subseteq B$, the natural map
+
+$$
+I\otimes_B M\longrightarrow M
+$$
+
+is injective. The map sends $a\otimes m$ to $am$. Equivalently, we can only check $N$ for finitely generated ideals of $B$ in @prp-tor-criterion.
+:::
+
+::: {#prp-local-rings name=""}
+Let $(B,\mathfrak n)$ be a local ring and $M$ a finitely generated $B$-module. If $\operatorname{Tor}(M,B/\mathfrak n)=0$, then $M$ is free.
+:::
+
+::: {#prp-local-criterion name="local criterion"}
+Let $(B,\mathfrak n)\to (A,\mathfrak m)$ be a local morphism of Noetherian local rings, and $M$ a finitely generated $A$ module. Then $M$ is $B$-flat if and only if $\operatorname {Tor}^B_1(M,B/\mathfrak n)=0$.
+:::
+
+::: {#prp-slicing-flatness name="slicing criterion for flatness"}
+Let $(B,\mathfrak n)\to (A,\mathfrak m)$ be a local morphism of Noetherian local rings, $M$ a finitely generated $A$-module, and $t\in \mathfrak n$ a non-zerodivisor on $B$. Then $M$ is flat over $B$ if and only if
+
+1. $t$ is not a zerodivisor on $M$, and
+2. $M/tM$ is flat over $B/(t)$.
+:::
+
+## Examples
+
+::: {#exm-coordinate-axes name=""}
+Let $k$ be a field and consider
+
+$$
+\pi\colon\mathbb A_k^2\longrightarrow\mathbb A_k^1,
+\qquad (x,y)\longmapsto xy.
+$$
+
+Algebraically, $\pi$ is induced by
+
+$$
+B=k[t]\longrightarrow A=k[x,y],
+\qquad t\longmapsto xy.
+$$
+
+The $B$-module $A$ is torsion-free, hence flat because $B=k[t]$ is a PID. For
+$a\ne0$, the fiber $xy=a$ is a smooth hyperbola, while the fiber over $0$ is
+
+$$
+V(xy)=V(x)\cup V(y),
+$$
+
+the union of the two coordinate axes. Moreover, the inclusion
+$V(xy)\hookrightarrow\mathbb A_k^2$ is a codimension-one regular embedding,
+since $xy$ is a non-zero-divisor in $k[x,y]$.
+:::
+
+::: {.callout-warning title="Flat does not mean smooth"}
+The special fiber in @exm-coordinate-axes is singular at the origin even
+though the family is flat. Flatness controls how fibers vary; it does not say
+that every fiber is nonsingular.
+:::
