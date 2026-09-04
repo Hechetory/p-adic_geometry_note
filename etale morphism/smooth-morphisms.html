@@ -37,7 +37,7 @@ ul.task-list li input[type="checkbox"] {
 <script src="../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../">
 <link href="../etale morphism/unramified-morphisms.html" rel="next">
-<link href="../etale morphism/definitions.html" rel="prev">
+<link href="../etale morphism/flat-morphisms.html" rel="prev">
 <script src="../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
@@ -49,9 +49,9 @@ ul.task-list li input[type="checkbox"] {
 <link href="../site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-9455279e62c741a8d1cc366eda4dd835.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="../site_libs/bootstrap/bootstrap-dark-9d87261df18c190d23ed32c704e49d54.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
-<link href="../site_libs/bootstrap/bootstrap-9455279e62c741a8d1cc366eda4dd835.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-4135fc327bf2835b2ef38f6e520f46b7.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-dark-072fe720cdfc8dbd8d45003ad61e038e.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../site_libs/bootstrap/bootstrap-4135fc327bf2835b2ef38f6e520f46b7.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -359,6 +359,12 @@ window.Quarto = {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="../etale morphism/flat-morphisms.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Flat Morphisms</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="../etale morphism/smooth-morphisms.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">Smooth Morphisms</span></a>
   </div>
@@ -451,6 +457,22 @@ window.Quarto = {
 <div id="def-smooth-morphism" class="theorem definition">
 <p><span class="theorem-title"><strong>Definition 2 (smooth morphism)</strong></span> A morphism <span class="math inline">\(f\colon X\to Y\)</span> between schemes is <strong>smooth</strong> of relative dimension <span class="math inline">\(n\)</span> if there exist open coverings <span class="math inline">\(\{U_i\}\)</span> of <span class="math inline">\(X\)</span> and <span class="math inline">\(\{V_i\}\)</span> of <span class="math inline">\(Y\)</span> such that <span class="math inline">\(f(U_i)\subseteq V_i\)</span> and for each <span class="math inline">\(i\)</span>, the restriction <span class="math inline">\(f|_{U_i}\colon U_i\to V_i\)</span> is a standard smooth morphism of relative dimension <span class="math inline">\(n\)</span>.</p>
 </div>
+<div id="rem-definition-of-smooth-morphism-slight-different" class="proof remark">
+<p><span class="proof-title"><em>Remark 2</em>. </span>There are several equivalent variants of the definition of a standard smooth morphism that lead to the same notion of a smooth morphism.</p>
+<ol type="1">
+<li><p>We may allow a morphism which factors as <span class="math display">\[
+U \hookrightarrow
+\operatorname{Spec}\bigl(R[x_1,\ldots,x_{n+r}]/(f_1,\ldots,f_r)\bigr)
+\longrightarrow
+\operatorname{Spec}(R),
+\]</span> where the first morphism is an open immersion and the second morphism is standard smooth in the sense above.</p></li>
+<li><p>We may replace the prescribed square Jacobian matrix by the full Jacobian matrix <span class="math display">\[
+\left(\frac{\partial f_i}{\partial x_j}\right)_
+{\substack{1\leq i\leq r\\1\leq j\leq n+r}},
+\]</span> and require that some <span class="math inline">\(r\times r\)</span> minor be invertible.</p></li>
+</ol>
+<p>These variants give the same notion of a smooth morphism.</p>
+</div>
 <div id="def-smooth-variety" class="theorem definition">
 <p><span class="theorem-title"><strong>Definition 3 (smooth variety)</strong></span> A variety <span class="math inline">\(X\)</span> over a field <span class="math inline">\(k\)</span> is <strong>smooth</strong> if the structure morphism <span class="math inline">\(X\to \operatorname{Spec}(k)\)</span> is smooth.</p>
 </div>
@@ -498,12 +520,14 @@ Tip
 <p>It is not easy to show that a smooth variety is reduced. The proof is not included here, but it can be found in the textbook “The Rising Sea”. And the last statement in the proof above is a corollary of Nakayama’s lemma, which is a fundamental result in alegbraic geometry, and both reducedness, finiteness and the constantness of the dimension of fibre matter. See 14.3.J in “The Rising Sea” for details.</p>
 </div>
 </div>
-<p>:::{#prp-smooth-and transitive-exact-sequence name=““} Let <span class="math inline">\(f\colon X\to Y\)</span> and <span class="math inline">\(g\colon Y\to Z\)</span> be morphisms of schemes. If <span class="math inline">\(f\)</span> and <span class="math inline">\(g\)</span> are smooth, then the transitive exact sequence is exact on the left, too, which means that the sequence <span class="math display">\[
+<div id="prp-smooth-and-transitive-exact-sequence" class="theorem proposition">
+<p><span class="theorem-title"><strong>Proposition 3</strong></span> Let <span class="math inline">\(f\colon X\to Y\)</span> and <span class="math inline">\(g\colon Y\to Z\)</span> be morphisms of schemes. If <span class="math inline">\(f\)</span> and <span class="math inline">\(g\)</span> are smooth, then the transitive exact sequence is also exact on the left, which means that the sequence <span class="math display">\[
 0\to f^*\Omega_{Y/Z}\to \Omega_{X/Z}\to \Omega_{X/Y}\to 0
 \]</span></p>
-<p>is exact. :::</p>
+<p>is exact.</p>
+</div>
 <div class="proof">
-<p><span class="proof-title"><em>Proof</em>. </span>This is a local property, so we can assume that <span class="math inline">\(f\)</span> and <span class="math inline">\(g\)</span> are standard smooth morphisms of relative dimension <span class="math inline">\(n\)</span> and <span class="math inline">\(m\)</span> respectively. Then, by <strong>?@lem-derivation-of-polynomial-ring</strong>, we know the module of differentials is the cokernel of the Jacobian matrix. The injectivity of the left follows from the fact that the Jacobian matrix of <span class="math inline">\(g\circ f\)</span> is a block-upper-triangular matrix with the Jacobian matrices of <span class="math inline">\(f\)</span> and <span class="math inline">\(g\)</span> on the diagonal.</p>
+<p><span class="proof-title"><em>Proof</em>. </span>This is a local property, so we can assume that <span class="math inline">\(f\)</span> and <span class="math inline">\(g\)</span> are standard smooth morphisms of relative dimension <span class="math inline">\(n\)</span> and <span class="math inline">\(m\)</span> respectively. In <a href="../etale morphism/unramified-morphisms.html">Unramified Morphisms</a>, we know the module of differentials is the cokernel of the Jacobian matrix. The injectivity of the left follows from the fact that the Jacobian matrix of <span class="math inline">\(g\circ f\)</span> is a block-upper-triangular matrix with the Jacobian matrices of <span class="math inline">\(f\)</span> and <span class="math inline">\(g\)</span> on the diagonal.</p>
 </div>
 
 
@@ -931,8 +955,8 @@ Tip
   </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="../etale morphism/definitions.html" class="pagination-link" aria-label="Definitions and Intuitions">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Definitions and Intuitions</span>
+      <a href="../etale morphism/flat-morphisms.html" class="pagination-link" aria-label="Flat Morphisms">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Flat Morphisms</span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">

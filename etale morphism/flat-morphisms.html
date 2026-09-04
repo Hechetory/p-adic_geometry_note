@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>How to edit these notes – p-adic geometry notes</title>
+<title>Flat Morphisms – p-adic geometry notes</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -26,66 +26,32 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-/* CSS for syntax highlighting */
-html { -webkit-text-size-adjust: 100%; }
-pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
-pre > code.sourceCode > span:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-div.sourceCode { margin: 1em 0; }
-pre.sourceCode { margin: 0; }
-@media screen {
-div.sourceCode { overflow: auto; }
-}
-@media print {
-pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
-}
-pre.numberSource code
-  { counter-reset: source-line 0; }
-pre.numberSource code > span
-  { position: relative; left: -4em; counter-increment: source-line; }
-pre.numberSource code > span > a:first-child::before
-  { content: counter(source-line);
-    position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; display: inline-block;
-    -webkit-touch-callout: none; -webkit-user-select: none;
-    -khtml-user-select: none; -moz-user-select: none;
-    -ms-user-select: none; user-select: none;
-    padding: 0 4px; width: 4em;
-  }
-pre.numberSource { margin-left: 3em;  padding-left: 4px; }
-div.sourceCode
-  {   }
-@media screen {
-pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
-}
 </style>
 
 
-<script src="site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="site_libs/quarto-nav/headroom.min.js"></script>
-<script src="site_libs/clipboard/clipboard.min.js"></script>
-<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="site_libs/quarto-search/fuse.min.js"></script>
-<script src="site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="./">
-<link href="./etale morphism/unramified-morphisms.html" rel="prev">
-<script src="site_libs/quarto-html/quarto.js" type="module"></script>
-<script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
-<script src="site_libs/quarto-html/popper.min.js"></script>
-<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="site_libs/quarto-html/anchor.min.js"></script>
-<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark-b85bc7c33db8c58e0ec93c3465666fed.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
-<script src="site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-4135fc327bf2835b2ef38f6e520f46b7.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="site_libs/bootstrap/bootstrap-dark-072fe720cdfc8dbd8d45003ad61e038e.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
-<link href="site_libs/bootstrap/bootstrap-4135fc327bf2835b2ef38f6e520f46b7.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<link href="../etale morphism/smooth-morphisms.html" rel="next">
+<link href="../etale morphism/definitions.html" rel="prev">
+<script src="../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark-b85bc7c33db8c58e0ec93c3465666fed.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap-4135fc327bf2835b2ef38f6e520f46b7.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-dark-072fe720cdfc8dbd8d45003ad61e038e.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../site_libs/bootstrap/bootstrap-4135fc327bf2835b2ef38f6e520f46b7.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -113,8 +79,37 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   }
 }</script>
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-chtml.js" type="text/javascript"></script>
 
-<link rel="stylesheet" href="styles.css">
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+<link rel="stylesheet" href="../styles.css">
 </head>
 
 <body class="nav-sidebar docked nav-fixed quarto-light"><script id="quarto-html-before-body" type="application/javascript">
@@ -286,7 +281,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
-    <a class="navbar-brand" href="./index.html">
+    <a class="navbar-brand" href="../index.html">
     <span class="navbar-title">p-adic geometry notes</span>
     </a>
   </div>
@@ -317,7 +312,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./editing.html">How to edit these notes</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../etale morphism/index.html">Étale Morphisms</a></li><li class="breadcrumb-item"><a href="../etale morphism/flat-morphisms.html">Flat Morphisms</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -337,7 +332,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./index.html" class="sidebar-item-text sidebar-link">
+  <a href="../index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Home</span></a>
   </div>
 </li>
@@ -352,31 +347,31 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./etale morphism/index.html" class="sidebar-item-text sidebar-link">
+  <a href="../etale morphism/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Overview</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./etale morphism/definitions.html" class="sidebar-item-text sidebar-link">
+  <a href="../etale morphism/definitions.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Definitions and Intuitions</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./etale morphism/flat-morphisms.html" class="sidebar-item-text sidebar-link">
+  <a href="../etale morphism/flat-morphisms.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">Flat Morphisms</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./etale morphism/smooth-morphisms.html" class="sidebar-item-text sidebar-link">
+  <a href="../etale morphism/smooth-morphisms.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Smooth Morphisms</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./etale morphism/unramified-morphisms.html" class="sidebar-item-text sidebar-link">
+  <a href="../etale morphism/unramified-morphisms.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Unramified Morphisms</span></a>
   </div>
 </li>
@@ -384,7 +379,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./editing.html" class="sidebar-item-text sidebar-link active">
+  <a href="../editing.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">How to edit these notes</span></a>
   </div>
 </li>
@@ -398,21 +393,19 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#修改一篇笔记" id="toc-修改一篇笔记" class="nav-link active" data-scroll-target="#修改一篇笔记">修改一篇笔记</a></li>
-  <li><a href="#删除一篇笔记" id="toc-删除一篇笔记" class="nav-link" data-scroll-target="#删除一篇笔记">删除一篇笔记</a></li>
-  <li><a href="#新增一篇笔记" id="toc-新增一篇笔记" class="nav-link" data-scroll-target="#新增一篇笔记">新增一篇笔记</a></li>
-  <li><a href="#本地预览" id="toc-本地预览" class="nav-link" data-scroll-target="#本地预览">本地预览</a></li>
+  <li><a href="#definitions-and-basic-properties" id="toc-definitions-and-basic-properties" class="nav-link active" data-scroll-target="#definitions-and-basic-properties">Definitions and basic properties</a></li>
+  <li><a href="#criteria-of-flatness" id="toc-criteria-of-flatness" class="nav-link" data-scroll-target="#criteria-of-flatness">Criteria of flatness</a></li>
+  <li><a href="#examples" id="toc-examples" class="nav-link" data-scroll-target="#examples">Examples</a></li>
   </ul>
-<div class="toc-actions"><ul><li><a href="https://github.com/Hechetory/p-adic_geometry_note/edit/main/editing.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/Hechetory/p-adic_geometry_note/blob/main/editing.qmd" class="toc-action"><i class="bi empty"></i>View source</a></li><li><a href="https://github.com/Hechetory/p-adic_geometry_note/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
+<div class="toc-actions"><ul><li><a href="https://github.com/Hechetory/p-adic_geometry_note/edit/main/etale morphism/flat-morphisms.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/Hechetory/p-adic_geometry_note/blob/main/etale morphism/flat-morphisms.qmd" class="toc-action"><i class="bi empty"></i>View source</a></li><li><a href="https://github.com/Hechetory/p-adic_geometry_note/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 
-<header id="title-block-header" class="quarto-title-block default">
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../etale morphism/index.html">Étale Morphisms</a></li><li class="breadcrumb-item"><a href="../etale morphism/flat-morphisms.html">Flat Morphisms</a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title">How to edit these notes</h1>
-<p class="subtitle lead">A minimal guide</p>
+<h1 class="title">Flat Morphisms</h1>
 </div>
 
 
@@ -429,55 +422,122 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<p>你平时主要需要编辑扩展名为 <code>.qmd</code> 的文件。它和 Markdown 几乎一样，但对数学公式、目录和提示框支持得更好。</p>
-<section id="修改一篇笔记" class="level2">
-<h2 class="anchored" data-anchor-id="修改一篇笔记">修改一篇笔记</h2>
-<p>在 VS Code 左侧文件列表中打开对应的 <code>.qmd</code> 文件，直接修改文字并保存即可：</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">## A new section</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>普通文字写在这里，行内公式写成 $X \to Y$。</span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>\Omega_{X/Y}=0</span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>$$</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p>以 <code>---</code> 包围的文件开头是页面信息。通常只需要修改其中的 <code>title</code> 和 <code>subtitle</code>。</p>
-</section>
-<section id="删除一篇笔记" class="level2">
-<h2 class="anchored" data-anchor-id="删除一篇笔记">删除一篇笔记</h2>
+<p>Here we study the properties of flat morphisms that we will need as background for étale morphisms.</p>
+<section id="definitions-and-basic-properties" class="level2">
+<h2 class="anchored" data-anchor-id="definitions-and-basic-properties">Definitions and basic properties</h2>
+<div id="def-flat-sheaf" class="theorem definition">
+<p><span class="theorem-title"><strong>Definition 1 (flat quasi-coherent sheaf over a base)</strong></span> Let <span class="math inline">\(\pi\colon X\to Y\)</span> be a morphism of schemes and let <span class="math inline">\(\mathcal F\)</span> be a quasi-coherent <span class="math inline">\(\mathcal O_X\)</span>-module. We say that <span class="math inline">\(\mathcal F\)</span> is <strong>flat over <span class="math inline">\(Y\)</span> at <span class="math inline">\(x\in X\)</span></strong> if the stalk <span class="math inline">\(\mathcal F_x\)</span> is flat as an <span class="math inline">\(\mathcal O_{Y,\pi(x)}\)</span>-module. It is <strong>flat over <span class="math inline">\(Y\)</span></strong> if this holds at every point of <span class="math inline">\(X\)</span>.</p>
+</div>
+<p>On affine opens, this reduces to the familiar algebraic notion: if <span class="math inline">\(X=\operatorname{Spec}(A)\)</span>, <span class="math inline">\(Y=\operatorname{Spec}(B)\)</span>, and <span class="math inline">\(\mathcal F=\widetilde M\)</span>, then flatness is controlled by the <span class="math inline">\(B\)</span>-module <span class="math inline">\(M\)</span> coming from <span class="math inline">\(B\to A\)</span>.</p>
+<div id="lem-flat-is-local" class="theorem lemma">
+<p><span class="theorem-title"><strong>Lemma 1</strong></span> With the notation above, <span class="math inline">\(\mathcal F\)</span> is flat over <span class="math inline">\(Y\)</span> if and only if <span class="math inline">\(M\)</span> is flat as a <span class="math inline">\(B\)</span>-module.</p>
+</div>
+<div class="proof">
+<p><span class="proof-title"><em>Proof</em>. </span>It is an easy commutative algebra exercise.</p>
+</div>
+<div id="cor-pushforward-flat-sheaf" class="theorem corollary">
+<p><span class="theorem-title"><strong>Corollary 1</strong></span> If <span class="math inline">\(\pi:X\to Y\)</span> is an affine morphism, and <span class="math inline">\(\mathcal F\)</span> is a quasicoherent sheaf on <span class="math inline">\(X\)</span>, then <span class="math inline">\(\mathcal F\)</span> is flat over <span class="math inline">\(Y\)</span> if and only if <span class="math inline">\(\pi_*\mathcal F\)</span> is flat over <span class="math inline">\(Y\)</span>.</p>
+</div>
+<p><strong>::: {.callout-warning name=“nonexample”}</strong> The statement may fail even when <span class="math inline">\(\pi\)</span> is quasi-compact and quasi-separated.</p>
+<p>Consider the composite <span class="math display">\[
+\pi\colon \mathbb P^1_k\hookrightarrow \mathbb P^1_{k[x]} \to \operatorname{Spec}k[x],
+\text{ and set }
+\mathcal F=\mathcal O_{\mathbb P^1_k}(-1).
+\]</span> Then <span class="math inline">\(\mathcal F\)</span> is a line bundle and hence flat over $P^1_{k}.</p>
+<p>On the other hand, the global section of $ _*F $ is <span class="math inline">\(H^0(\mathbf P^1_k,\mathcal O_{\mathbf P^1_k}(-1))=0\)</span>, which implies that <span class="math inline">\(\pi_*\mathcal F\)</span> is not flat. :::</p>
+<div id="def-flat-morphism" class="theorem definition">
+<p><span class="theorem-title"><strong>Definition 2 (flat morphism)</strong></span> A morphism <span class="math inline">\(\pi\colon X\to Y\)</span> is <strong>flat at <span class="math inline">\(x\in X\)</span></strong> if the local ring <span class="math inline">\(\mathcal O_{X,x}\)</span> is flat over <span class="math inline">\(\mathcal O_{Y,\pi(x)}\)</span>. It is <strong>flat</strong> if it is flat at every point, i.e.&nbsp;<span class="math inline">\(\mathcal O_X\)</span> is flat over <span class="math inline">\(Y\)</span>.</p>
+<p>Equivalently, by <a href="#lem-flat-is-local" class="quarto-xref">Lemma&nbsp;1</a>, <span class="math inline">\(\pi\colon X\to Y\)</span> is flat if there exist affine open coverings <span class="math inline">\(X=\bigcup_i X_i\)</span> and <span class="math inline">\(Y=\bigcup_i Y_i\)</span> such that <span class="math inline">\(\pi(X_i)\subseteq Y_i\)</span> for each <span class="math inline">\(i\)</span>, and <span class="math inline">\(A_i\)</span> is flat over <span class="math inline">\(B_i\)</span> whenever <span class="math inline">\(X_i=\operatorname{Spec}A_i\)</span> and <span class="math inline">\(Y_i=\operatorname{Spec}B_i\)</span>.</p>
+</div>
+<div id="prp-flat-morphisms-reasonable" class="theorem proposition">
+<p><span class="theorem-title"><strong>Proposition 1 (flat morphisms form a reasonable class)</strong></span> Flat morphisms satisfy the following properties one expects from a geometric class of morphisms:</p>
 <ol type="1">
-<li>删除对应的 <code>.qmd</code> 文件。</li>
-<li>打开项目根目录的 <code>_quarto.yml</code>。</li>
-<li>在 <code>sidebar</code> 的 <code>contents</code> 中删掉指向该文件的两行，例如：</li>
+<li>isomorphisms and open immersions are flat;</li>
+<li>the composite <span class="math inline">\(\phi\circ\pi\colon X\to Z\)</span> is flat whenever both <span class="math inline">\(\pi\)</span> and <span class="math inline">\(\phi\)</span> are flat;</li>
+<li>flatness is preserved by base change: if <span class="math inline">\(\pi\colon X\to Y\)</span> is flat and <span class="math inline">\(\psi\colon Y'\to Y\)</span> is any morphism, then <span class="math inline">\(X\times_Y Y'\to Y'\)</span> is flat;</li>
+<li>flatness is local on both the source and the target.</li>
 </ol>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="kw">-</span><span class="at"> </span><span class="fu">href</span><span class="kw">:</span><span class="at"> </span><span class="st">"etale morphism/definitions-and-intuitions.qmd"</span></span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">text</span><span class="kw">:</span><span class="at"> Definitions and Intuitions</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p>如果只删除文件而不修改 <code>_quarto.yml</code>，网站构建时会提示找不到页面。</p>
+</div>
+<div class="proof">
+<p><span class="proof-title"><em>Proof</em>. </span>The assersions 1 and 4 follow immediately by the definition. Assersion 2,3 follow from the corresponding properties for flat quasicoherent sheaves, see <a href="#lem-composite" class="quarto-xref">Lemma&nbsp;2</a> and <a href="#lem-base-change" class="quarto-xref">Lemma&nbsp;3</a>.</p>
+</div>
+<div id="lem-composite" class="theorem lemma">
+<p><span class="theorem-title"><strong>Lemma 2</strong></span> Let <span class="math inline">\(\pi\colon X\to Y\)</span> be a morphism, and let <span class="math inline">\(\mathcal F\)</span> be a quasicoherent sheaf on <span class="math inline">\(X\)</span> that is flat over <span class="math inline">\(Y\)</span>. Let <span class="math inline">\(\phi\colon Y\to Z\)</span> be a flat morphism. Then <span class="math inline">\(\mathcal F\)</span> is flat over <span class="math inline">\(Z\)</span>.</p>
+</div>
+<div class="proof">
+<p><span class="proof-title"><em>Proof</em>. </span>By definition, it suffices to check on stalks.</p>
+</div>
+<div id="lem-base-change" class="theorem lemma">
+<p><span class="theorem-title"><strong>Lemma 3</strong></span> Let <span class="math inline">\(X\to Y\)</span> and <span class="math inline">\(Y'\to Y\)</span> be morphisms. Let <span class="math inline">\(\mu\clon X'=X\times_Y Y_'\to X\)</span> be the projection, and <span class="math inline">\(\mathcal F\)</span> a quasicoherent sheaf on <span class="math inline">\(X\)</span> flat over <span class="math inline">\(Y\)</span>. Then <span class="math inline">\(\mu^*\mathcal F\)</span> is flat over <span class="math inline">\(Y'\)</span>.</p>
+</div>
+<div class="proof">
+<p><span class="proof-title"><em>Proof</em>. </span>By definition, it suffices to check on stalks. Let <span class="math inline">\(x'\in X'\)</span>. Assume that <span class="math inline">\(x'\)</span> maps to <span class="math inline">\(x\in X\)</span>, <span class="math inline">\(y'\in Y'\)</span> and <span class="math inline">\(y\in Y\)</span> respectively. Then <span class="math inline">\(\mathcal O_{X',x'}\cong (\mathcal O_{X,x}\otimes_{\mathcal O_{Y,y}} \mathcal O_{Y',y'})_{\mathfrak p}\)</span> for some prime ideal <span class="math inline">\(\mathfrak p\)</span>. Then <span class="math display">\[
+(\mu^*\mathcal F)_{x'}\cong (\mathcal O_{X,x}\otimes_{\mathcal O_{Y,y}} \mathcal O_{Y',y'})_{\mathfrak p}\otimes_{\mathcal O_{X,x}\mathcal F_x}.
+\]</span> The rest is a commutative algebra exercise.</p>
+</div>
 </section>
-<section id="新增一篇笔记" class="level2">
-<h2 class="anchored" data-anchor-id="新增一篇笔记">新增一篇笔记</h2>
-<p>最简单的方法是复制一篇现有的 <code>.qmd</code> 文件，改名并修改内容，然后在 <code>_quarto.yml</code> 的对应章节加入：</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="kw">-</span><span class="at"> </span><span class="fu">href</span><span class="kw">:</span><span class="at"> </span><span class="st">"etale morphism/examples.qmd"</span></span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">text</span><span class="kw">:</span><span class="at"> Examples</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p>以后添加新的大主题时，可以新建一个文件夹，再在 <code>_quarto.yml</code> 中增加一个 <code>section</code>。文件夹名称最好使用小写英文和连字符，例如 <code>perfectoid-spaces</code>。</p>
-<div class="callout callout-style-default callout-tip callout-titled" title="最省事的工作方式">
+<section id="criteria-of-flatness" class="level2">
+<h2 class="anchored" data-anchor-id="criteria-of-flatness">Criteria of flatness</h2>
+<div id="prp-tor-criterion" class="theorem proposition">
+<p><span class="theorem-title"><strong>Proposition 2 (Tor criterion)</strong></span> A <span class="math inline">\(B\)</span>-module <span class="math inline">\(M\)</span> is flat if and only if</p>
+<p><span class="math display">\[
+\operatorname{Tor}_1^B(M,N)=0
+\]</span></p>
+<p>for every <span class="math inline">\(B\)</span>-module <span class="math inline">\(N\)</span>.</p>
+</div>
+<div id="prp-ideal-criterion" class="theorem proposition">
+<p><span class="theorem-title"><strong>Proposition 3 (ideal criterion)</strong></span> A <span class="math inline">\(B\)</span>-module <span class="math inline">\(M\)</span> is flat if and only if, for every finitely generated ideal <span class="math inline">\(I\subseteq B\)</span>, the natural map</p>
+<p><span class="math display">\[
+I\otimes_B M\longrightarrow M
+\]</span></p>
+<p>is injective. The map sends <span class="math inline">\(a\otimes m\)</span> to <span class="math inline">\(am\)</span>. Equivalently, we can only check <span class="math inline">\(N\)</span> for finitely generated ideals of <span class="math inline">\(B\)</span> in <a href="#prp-tor-criterion" class="quarto-xref">Proposition&nbsp;2</a>.</p>
+</div>
+<div id="prp-local-rings" class="theorem proposition">
+<p><span class="theorem-title"><strong>Proposition 4</strong></span> Let <span class="math inline">\((B,\mathfrak n)\)</span> be a local ring and <span class="math inline">\(M\)</span> a finitely generated <span class="math inline">\(B\)</span>-module. If <span class="math inline">\(\operatorname{Tor}(M,B/\mathfrak n)=0\)</span>, then <span class="math inline">\(M\)</span> is free.</p>
+</div>
+<div id="prp-local-criterion" class="theorem proposition">
+<p><span class="theorem-title"><strong>Proposition 5 (local criterion)</strong></span> Let <span class="math inline">\((B,\mathfrak n)\to (A,\mathfrak m)\)</span> be a local morphism of Noetherian local rings, and <span class="math inline">\(M\)</span> a finitely generated <span class="math inline">\(A\)</span> module. Then <span class="math inline">\(M\)</span> is <span class="math inline">\(B\)</span>-flat if and only if <span class="math inline">\(\operatorname {Tor}^B_1(M,B/\mathfrak n)=0\)</span>.</p>
+</div>
+<div id="prp-slicing-flatness" class="theorem proposition">
+<p><span class="theorem-title"><strong>Proposition 6 (slicing criterion for flatness)</strong></span> Let <span class="math inline">\((B,\mathfrak n)\to (A,\mathfrak m)\)</span> be a local morphism of Noetherian local rings, <span class="math inline">\(M\)</span> a finitely generated <span class="math inline">\(A\)</span>-module, and <span class="math inline">\(t\in \mathfrak n\)</span> a non-zerodivisor on <span class="math inline">\(B\)</span>. Then <span class="math inline">\(M\)</span> is flat over <span class="math inline">\(B\)</span> if and only if</p>
+<ol type="1">
+<li><span class="math inline">\(t\)</span> is not a zerodivisor on <span class="math inline">\(M\)</span>, and</li>
+<li><span class="math inline">\(M/tM\)</span> is flat over <span class="math inline">\(B/(t)\)</span>.</li>
+</ol>
+</div>
+</section>
+<section id="examples" class="level2">
+<h2 class="anchored" data-anchor-id="examples">Examples</h2>
+<div id="exm-coordinate-axes" class="theorem example">
+<p><span class="theorem-title"><strong>Example 1</strong></span> Let <span class="math inline">\(k\)</span> be a field and consider</p>
+<p><span class="math display">\[
+\pi\colon\mathbb A_k^2\longrightarrow\mathbb A_k^1,
+\qquad (x,y)\longmapsto xy.
+\]</span></p>
+<p>Algebraically, <span class="math inline">\(\pi\)</span> is induced by</p>
+<p><span class="math display">\[
+B=k[t]\longrightarrow A=k[x,y],
+\qquad t\longmapsto xy.
+\]</span></p>
+<p>The <span class="math inline">\(B\)</span>-module <span class="math inline">\(A\)</span> is torsion-free, hence flat because <span class="math inline">\(B=k[t]\)</span> is a PID. For <span class="math inline">\(a\ne0\)</span>, the fiber <span class="math inline">\(xy=a\)</span> is a smooth hyperbola, while the fiber over <span class="math inline">\(0\)</span> is</p>
+<p><span class="math display">\[
+V(xy)=V(x)\cup V(y),
+\]</span></p>
+<p>the union of the two coordinate axes. Moreover, the inclusion <span class="math inline">\(V(xy)\hookrightarrow\mathbb A_k^2\)</span> is a codimension-one regular embedding, since <span class="math inline">\(xy\)</span> is a non-zero-divisor in <span class="math inline">\(k[x,y]\)</span>.</p>
+</div>
+<div class="callout callout-style-default callout-warning callout-titled" title="Flat does not mean smooth">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Tip</span>最省事的工作方式
+<span class="screen-reader-only">Warning</span>Flat does not mean smooth
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>你也可以只负责写内容，然后告诉我“把这篇笔记放到某个章节并发布”。目录、链接、渲染和推送都可以交给我处理。</p>
+<p>The special fiber in <a href="#exm-coordinate-axes" class="quarto-xref">Example&nbsp;1</a> is singular at the origin even though the family is flat. Flatness controls how fibers vary; it does not say that every fiber is nonsingular.</p>
 </div>
 </div>
-</section>
-<section id="本地预览" class="level2">
-<h2 class="anchored" data-anchor-id="本地预览">本地预览</h2>
-<p>在英文路径的工作目录 <code>C:\notes\p-adic-geometry-note</code> 中打开 VS Code，然后在终端运行：</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode powershell code-with-copy"><code class="sourceCode powershell"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="op">.</span>\preview-local<span class="op">.</span><span class="fu">ps1</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p>终端会显示一个 <code>http://localhost:...</code> 地址。保持这个终端运行，保存 <code>.qmd</code> 文件后网页会自动刷新；结束预览时按 <code>Ctrl+C</code>。</p>
 
 
 </section>
@@ -903,11 +963,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./etale morphism/unramified-morphisms.html" class="pagination-link" aria-label="Unramified Morphisms">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Unramified Morphisms</span>
+      <a href="../etale morphism/definitions.html" class="pagination-link" aria-label="Definitions and Intuitions">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Definitions and Intuitions</span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
+      <a href="../etale morphism/smooth-morphisms.html" class="pagination-link" aria-label="Smooth Morphisms">
+        <span class="nav-page-text">Smooth Morphisms</span> <i class="bi bi-arrow-right-short"></i>
+      </a>
   </div>
 </nav>
 </div> <!-- /content -->
@@ -918,7 +981,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>   
     <div class="nav-footer-center">
       &nbsp;
-    <div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/Hechetory/p-adic_geometry_note/edit/main/editing.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/Hechetory/p-adic_geometry_note/blob/main/editing.qmd" class="toc-action"><i class="bi empty"></i>View source</a></li><li><a href="https://github.com/Hechetory/p-adic_geometry_note/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div>
+    <div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/Hechetory/p-adic_geometry_note/edit/main/etale morphism/flat-morphisms.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/Hechetory/p-adic_geometry_note/blob/main/etale morphism/flat-morphisms.qmd" class="toc-action"><i class="bi empty"></i>View source</a></li><li><a href="https://github.com/Hechetory/p-adic_geometry_note/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div>
     <div class="nav-footer-right">
 <p>Built with Quarto and GitHub Pages.</p>
 </div>
