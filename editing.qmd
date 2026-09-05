@@ -30,7 +30,7 @@ $$
 
 ```yaml
 - href: "etale morphism/definitions-and-intuitions.qmd"
-  text: Definitions and Intuitions
+  text: Definitions
 ```
 
 如果只删除文件而不修改 `_quarto.yml`，网站构建时会提示找不到页面。

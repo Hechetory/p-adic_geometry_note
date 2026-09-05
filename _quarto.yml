@@ -32,13 +32,13 @@ website:
           - href: "etale morphism/index.qmd"
             text: Overview
           - href: "etale morphism/definitions.qmd"
-            text: Definitions and Intuitions
+            text: Definitions
           - href: "etale morphism/flat-morphisms.qmd"
             text: Flat Morphisms
+          - href: "etale morphism/unramified-morphisms.qmd"
+            text: The Sheaf of Differentials and Unramified Morphisms
           - href: "etale morphism/smooth-morphisms.qmd"
             text: Smooth Morphisms
-          - href: "etale morphism/unramified-morphisms.qmd"
-            text: Unramified Morphisms
       - href: editing.qmd
         text: How to edit these notes
   page-footer:

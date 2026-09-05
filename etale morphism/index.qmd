@@ -14,5 +14,5 @@ For a first pass, continue to
 
 For a more detailed discussion, see
 [Flat Morphisms](flat-morphisms.qmd),
-[Smooth Morphisms](smooth-morphisms.qmd), and
-[Unramified Morphisms](unramified-morphisms.qmd) ...(TBA)
+[The Sheaf of Differentials and Unramified Morphisms](unramified-morphisms.qmd), and
+[Smooth Morphisms](smooth-morphisms.qmd) ...(TBA)

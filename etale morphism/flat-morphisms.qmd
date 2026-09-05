@@ -31,7 +31,7 @@ It is an easy commutative algebra exercise.
 If $\pi:X\to Y$ is an affine morphism, and $\mathcal F$ is a quasicoherent sheaf on $X$, then $\mathcal F$ is flat over $Y$ if and only if $\pi_*\mathcal F$ is flat over $Y$.
 :::
 
-**::: {.callout-warning name="nonexample"}**
+::: {.callout-warning title="nonexample"}
 The statement may fail even when $\pi$ is quasi-compact and quasi-separated.
 
 Consider the composite
@@ -40,9 +40,9 @@ $$
 \text{ and set }
 \mathcal F=\mathcal O_{\mathbb P^1_k}(-1).
 $$
-Then $\mathcal F$ is a line bundle and hence flat over $\mathbb P^1_{k}.
+Then $\mathcal F$ is a line bundle and hence flat over $\mathbb P^1_{k}$.
 
-On the other hand, the global section of $ \pi_*\mathcal F $ is $H^0(\mathbf P^1_k,\mathcal O_{\mathbf P^1_k}(-1))=0$, which implies that $\pi_*\mathcal F$ is not flat.
+On the other hand, the global section of $\pi_*\mathcal F$ is $H^0(\mathbf P^1_k,\mathcal O_{\mathbf P^1_k}(-1))=0$, which implies that $\pi_*\mathcal F$ is not flat.
 :::
 
 ::: {#def-flat-morphism name="flat morphism"}
@@ -79,13 +79,13 @@ By definition, it suffices to check on stalks.
 :::
 
 ::: {#lem-base-change name=""}
-Let $X\to Y$ and $Y'\to Y$ be morphisms. Let $\mu\clon X'=X\times_Y Y_'\to X$ be the projection, and $\mathcal F$ a quasicoherent sheaf on $X$ flat over $Y$. Then $\mu^*\mathcal F$ is flat over $Y'$.
+Let $X\to Y$ and $Y'\to Y$ be morphisms. Let $\mu\colon X'=X\times_Y Y'\to X$ be the projection, and $\mathcal F$ a quasicoherent sheaf on $X$ flat over $Y$. Then $\mu^*\mathcal F$ is flat over $Y'$.
 :::
 
 :::{.proof}
 By definition, it suffices to check on stalks. Let $x'\in X'$. Assume that $x'$ maps to $x\in X$, $y'\in Y'$ and $y\in Y$ respectively. Then $\mathcal O_{X',x'}\cong (\mathcal O_{X,x}\otimes_{\mathcal O_{Y,y}} \mathcal O_{Y',y'})_{\mathfrak p}$ for some prime ideal $\mathfrak p$. Then 
 $$
-(\mu^*\mathcal F)_{x'}\cong (\mathcal O_{X,x}\otimes_{\mathcal O_{Y,y}} \mathcal O_{Y',y'})_{\mathfrak p}\otimes_{\mathcal O_{X,x}\mathcal F_x}.
+(\mu^*\mathcal F)_{x'}\cong (\mathcal O_{X,x}\otimes_{\mathcal O_{Y,y}} \mathcal O_{Y',y'})_{\mathfrak p}\otimes_{\mathcal O_{X,x}}\mathcal F_x.
 $$
 The rest is a commutative algebra exercise.
 :::

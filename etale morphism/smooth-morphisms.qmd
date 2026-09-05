@@ -75,7 +75,7 @@ This is a local property, so we can assume that $f$ and $g$ are standard smooth 
 :::
 
 ### Relation to differentials
-We recall the definition and properties of the sheaf of differentials in [Unramified Morphisms](unramified-morphisms.qmd). The sheaf of differentials can be used to characterize smooth morphisms and smooth varieties.
+We recall the definition and properties of the sheaf of differentials in [The Sheaf of Differentials and Unramified Morphisms](unramified-morphisms.qmd). The sheaf of differentials can be used to characterize smooth morphisms and smooth varieties.
 
 :::{#prp-differentials-of-smooth-varieties name=""}
 A variety $X$ over $k$ is smooth if and only if the sheaf of differentials $\Omega_{X/k}$ is locally free of rank $\dim(X)$.
@@ -99,7 +99,7 @@ is exact.
 :::
 
 :::{.proof}
-This is a local property, so we can assume that $f$ and $g$ are standard smooth morphisms of relative dimension $n$ and $m$ respectively. In [Unramified Morphisms](unramified-morphisms.qmd), we know the module of differentials is the cokernel of the Jacobian matrix. The injectivity of the left follows from the fact that the Jacobian matrix of $g\circ f$ is a block-upper-triangular matrix with the Jacobian matrices of $f$ and $g$ on the diagonal.
+This is a local property, so we can assume that $f$ and $g$ are standard smooth morphisms of relative dimension $n$ and $m$ respectively. In [The Sheaf of Differentials and Unramified Morphisms](unramified-morphisms.qmd), we know the module of differentials is the cokernel of the Jacobian matrix. The injectivity of the left follows from the fact that the Jacobian matrix of $g\circ f$ is a block-upper-triangular matrix with the Jacobian matrices of $f$ and $g$ on the diagonal.
 :::
 
 In the following, we will discuss the conormal exact sequence.
