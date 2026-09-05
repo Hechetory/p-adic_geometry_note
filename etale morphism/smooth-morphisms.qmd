@@ -101,3 +101,95 @@ is exact.
 :::{.proof}
 This is a local property, so we can assume that $f$ and $g$ are standard smooth morphisms of relative dimension $n$ and $m$ respectively. In [Unramified Morphisms](unramified-morphisms.qmd), we know the module of differentials is the cokernel of the Jacobian matrix. The injectivity of the left follows from the fact that the Jacobian matrix of $g\circ f$ is a block-upper-triangular matrix with the Jacobian matrices of $f$ and $g$ on the diagonal.
 :::
+
+In the following, we will discuss the conormal exact sequence.
+
+::: {#thm-conormal name=""}
+Let $i:X\hookrightarrow Y$ be a closed immersion of smooth varieties over a field $k$, with ideal sheaf $\mathcal I$. Then the conormal sheaf
+$$
+\mathcal N^\vee_{X/Y}:=\mathcal I/\mathcal I^2
+$$
+is locally free, and the conormal sequence is a locally split short exact sequence
+$$
+0\longrightarrow \mathcal N^\vee_{X/Y}
+\xrightarrow{\delta}i^*\Omega_{Y/k}
+\longrightarrow\Omega_{X/k}
+\longrightarrow 0,
+$$
+where $\delta(\overline f)=df|_X$.
+
+Dualizing gives the normal exact sequence
+$$
+0\longrightarrow\mathcal T_{X/k}
+\longrightarrow i^*\mathcal T_{Y/k}
+\longrightarrow\mathcal N_{X/Y}
+\longrightarrow 0,
+$$
+where $\mathcal N_{X/Y}:=(\mathcal N^\vee_{X/Y})^\vee$.
+:::
+
+::: {.proof}
+Differentials and the conormal sheaf commute with field extension, while exactness and finite local freeness descend under faithfully flat base change. We may therefore assume that $k$ is algebraically closed.
+
+Since $X$ and $Y$ are smooth over $k$, they are regular, and the closed immersion $i$ is a regular immersion. Thus $\mathcal I/\mathcal I^2$ is locally free of rank equal to the codimension of $X$ in $Y$.
+
+The conormal sequence is always right exact:
+$$
+\mathcal I/\mathcal I^2
+\xrightarrow{\delta}i^*\Omega_{Y/k}
+\longrightarrow\Omega_{X/k}
+\longrightarrow 0.
+$$
+Set $\mathcal K=\ker\delta$. Since $\mathcal K$ is a subsheaf of the locally free sheaf $\mathcal I/\mathcal I^2$, we have
+$$
+\operatorname{Ass}(\mathcal K)
+\subseteq\operatorname{Ass}(\mathcal I/\mathcal I^2)
+\subseteq\operatorname{Ass}(\mathcal O_X).
+$$
+As $X$ is reduced, its associated points are precisely the generic points of its irreducible components. Moreover, every nonzero coherent sheaf has an associated point. Hence it suffices to show that $\mathcal K_\eta=0$ at every generic point $\eta$ of $X$.
+
+Fix such a point $\eta$, and work locally where $X$ and $Y$ have dimensions $m$ and $n$, respectively. Since $X$ is reduced, $\mathcal O_{X,\eta}=\kappa(\eta)$ is a field. Taking stalks gives a right-exact sequence of vector spaces
+$$
+(\mathcal I/\mathcal I^2)_\eta
+\xrightarrow{\delta_\eta}(i^*\Omega_{Y/k})_\eta
+\longrightarrow(\Omega_{X/k})_\eta
+\longrightarrow 0.
+$$
+The dimensions of these three vector spaces are $n-m$, $n$, and $m$, respectively. Right exactness therefore gives
+$$
+\dim_{\kappa(\eta)}\operatorname{im}\delta_\eta=n-m
+=\dim_{\kappa(\eta)}(\mathcal I/\mathcal I^2)_\eta.
+$$
+Thus $\delta_\eta$ is injective. It follows that $\mathcal K=0$, proving left exactness.
+
+Since $\Omega_{X/k}$ is locally free, the resulting short exact sequence splits locally. Dualizing a locally split short exact sequence preserves exactness, giving the normal sequence.
+:::
+
+::: {#cor-cotangent-separable-closed-point name=""}
+Let $Y$ be a smooth variety over a field $k$, and let $q\in Y$ be a closed point such that $\kappa(q)/k$ is separable. Write $\mathfrak m_q$ for the maximal ideal of $\mathcal O_{Y,q}$. Then the map
+$$
+\mathfrak m_q/\mathfrak m_q^2
+\xrightarrow{\sim}
+\Omega_{Y/k}\otimes_{\mathcal O_Y}\kappa(q),
+\qquad
+\overline f\longmapsto df\otimes 1,
+$$
+is a canonical isomorphism.
+:::
+
+::: {.proof}
+The extension $\kappa(q)/k$ is finite separable, so $\operatorname{Spec}\kappa(q)$ is smooth over $k$ and $\Omega_{\kappa(q)/k}=0$.
+Applying the preceding theorem to the closed immersion
+$\operatorname{Spec}\kappa(q)\hookrightarrow Y$ gives
+$$
+0\longrightarrow\mathfrak m_q/\mathfrak m_q^2
+\longrightarrow\Omega_{Y/k}\otimes_{\mathcal O_Y}\kappa(q)
+\longrightarrow\Omega_{\kappa(q)/k}
+\longrightarrow 0.
+$$
+The last term vanishes, proving the first assertion.
+:::
+
+::: {.callout-note name=""}
+The separability hypothesis is automatic when $k$ is perfect, in particular when $\operatorname{char}k=0$ or $k$ is finite. And the statement still holds when we do not require the smoothness of $Y$.
+:::
