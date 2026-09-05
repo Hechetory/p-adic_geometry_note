@@ -502,6 +502,28 @@ Y' &amp; \longrightarrow &amp; Y
 <p>Here is a property for <span class="math inline">\(\Omega_{A/B}\)</span>. For a localization <span class="math inline">\(S^{-1}A\)</span> of <span class="math inline">\(A\)</span>, we have a canonical isomorphism <span class="math display">\[
 \Omega_{S^{-1}A/B}\cong S^{-1}\Omega_{A/B}.
 \]</span> One can check this using the universal properties of the module of differentials and localization, or using the explicit description of <span class="math inline">\(\Omega_{A/B}\)</span> in <a href="#prp-local-characterization-of-sheaf-of-differentials" class="quarto-xref">Proposition&nbsp;1</a>.</p>
+<p>There is a proposition characterizing the sheaf of differntials for the fibre product. ::: {#prp-fibre-prd name=““} Let <span class="math inline">\(\alpha:X\to Z\)</span> and <span class="math inline">\(\beta:Y\to Z\)</span> be morphisms of schemes, and let <span class="math inline">\(W=X\times_ZY\)</span>, with projections <span class="math inline">\(p:W\to X\)</span> and <span class="math inline">\(q:W\to Y\)</span>. There is a canonical isomorphism <span class="math display">\[
+p^*\Omega_{X/Z}\oplus q^*\Omega_{Y/Z}
+\xrightarrow{\sim}\Omega_{W/Z},
+\]</span> given by the sum of the natural maps on differentials. :::</p>
+<div class="proof">
+<p><span class="proof-title"><em>Proof</em>. </span>Write <span class="math display">\[
+u:p^*\Omega_{X/Z}\longrightarrow\Omega_{W/Z},
+\qquad
+v:q^*\Omega_{Y/Z}\longrightarrow\Omega_{W/Z}
+\]</span> for the natural maps. By transitivity and base change for differentials, we have an exact sequence <span class="math display">\[
+p^*\Omega_{X/Z}\xrightarrow{u}\Omega_{W/Z}
+\xrightarrow{s}q^*\Omega_{Y/Z}\longrightarrow 0,
+\]</span> where we identify <span class="math inline">\(\Omega_{W/X}\cong q^*\Omega_{Y/Z}\)</span>. Naturality gives <span class="math inline">\(s\circ v=\operatorname{id}\)</span>.</p>
+<p>Similarly, the natural quotient map <span class="math display">\[
+\Omega_{W/Z}\longrightarrow\Omega_{W/Y}
+\cong p^*\Omega_{X/Z}
+\]</span> is a left inverse to <span class="math inline">\(u\)</span>, so <span class="math inline">\(u\)</span> is injective. Thus the sequence above is short exact and split by <span class="math inline">\(v\)</span>. Consequently, <span class="math display">\[
+u\oplus v:
+p^*\Omega_{X/Z}\oplus q^*\Omega_{Y/Z}
+\xrightarrow{\sim}\Omega_{W/Z}
+\]</span> is the desired canonical isomorphism.</p>
+</div>
 </section>
 <section id="easy-calculations-of-some-omega_ab" class="level2">
 <h2 class="anchored" data-anchor-id="easy-calculations-of-some-omega_ab">Easy calculations of some <span class="math inline">\(\Omega_{A/B}\)</span></h2>
@@ -539,10 +561,33 @@ Y' &amp; \longrightarrow &amp; Y
 <section id="differentials-for-normalization" class="level3">
 <h3 class="anchored" data-anchor-id="differentials-for-normalization">Differentials for normalization</h3>
 <div id="exm" name="differentials for the normalization of a curve with a node">
-
+<p>Let <span class="math display">\[
+A=k[x,y]/(y^2-x^2(x+1)),\quad B=k[t],\quad \operatorname{char} k\neq 2,
+\]</span> with <span class="math inline">\(x\mapsto t^2-1\)</span> and <span class="math inline">\(y\mapsto t(t^2-1)\)</span>. The induced map on differentials is <span class="math display">\[
+dx\longmapsto 2t\,dt,\qquad
+dy\longmapsto (3t^2-1)\,dt.
+\]</span> Consequently, <span class="math display">\[
+\Omega_{B/A}
+\cong \frac{k[t]}{(2t,3t^2-1)}\,dt=0,
+\]</span> since <span class="math inline">\(\operatorname{char}k\neq 2\)</span> and <span class="math display">\[
+1=\frac{3}{2}t(2t)-(3t^2-1).
+\]</span> Hence the normalization morphism is unramified everywhere, including at <span class="math inline">\(t=\pm1\)</span>, the two points lying over the node.</p>
 </div>
 <div id="exm" name="differentials for the normalization of a curve with a cusp">
-
+<p>Let <span class="math display">\[
+A=k[x,y]/(y^2-x^3),\qquad B=k[t],
+\]</span> with normalization map <span class="math inline">\(x\mapsto t^2\)</span> and <span class="math inline">\(y\mapsto t^3\)</span>. The induced map on differentials is <span class="math display">\[
+dx\longmapsto 2t\,dt,\qquad
+dy\longmapsto 3t^2\,dt.
+\]</span> Therefore <span class="math display">\[
+\Omega_{B/A}
+\cong \frac{k[t]}{(2t,3t^2)}\,dt
+\cong
+\begin{cases}
+(k[t]/(t))\,dt, &amp; \operatorname{char}k\neq 2,\\
+(k[t]/(t^2))\,dt, &amp; \operatorname{char}k=2.
+\end{cases}
+\]</span> Thus the normalization morphism is unramified away from <span class="math inline">\(t=0\)</span>, but is not unramified at the point lying over the cusp.</p>
 </div>
 </section>
 <section id="relation-to-the-cotangent-space" class="level3">
@@ -567,7 +612,7 @@ Y' &amp; \longrightarrow &amp; Y
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>In variety case, by <a href="#lem-derivation-of-polynomial-ring" class="quarto-xref">Lemma&nbsp;1</a>, we could deduce that <span class="math inline">\(\mathfrak m_x/\mathfrak m_x^2\)</span> and <span class="math inline">\(\Omega_{X/k}\otimes \kappa(x)\)</span> both come from the cokernel of the Jacobian matrix. So they are isomorphic.</p>
+<p>In case when <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> are varieties and <span class="math inline">\(x\)</span> is a <span class="math inline">\(k\)</span>-point, by <a href="#lem-derivation-of-polynomial-ring" class="quarto-xref">Lemma&nbsp;1</a>, we could deduce that <span class="math inline">\(\mathfrak m_x/\mathfrak m_x^2\)</span> and <span class="math inline">\(\Omega_{X/k}\otimes k\)</span> both come from the cokernel of the Jacobian matrix. So they are isomorphic.</p>
 </div>
 </div>
 </section>
@@ -575,9 +620,10 @@ Y' &amp; \longrightarrow &amp; Y
 <section id="unramified-morphisms" class="level2">
 <h2 class="anchored" data-anchor-id="unramified-morphisms">Unramified morphisms</h2>
 <div id="def-unramified-morphism" class="theorem definition">
-<p><span class="theorem-title"><strong>Definition 2 (unramified morphism)</strong></span> A morphism <span class="math inline">\(f\colon X\to Y\)</span> between schemes is <strong>unramified</strong> if it is locally of finite type and <span class="math inline">\(\Omega_{X/Y}=0\)</span>.</p>
+<p><span class="theorem-title"><strong>Definition 2 (unramified morphism)</strong></span> A morphism <span class="math inline">\(\pi\colon X\to Y\)</span> between schemes is <strong>unramified</strong> if it is locally of finite type and <span class="math inline">\(\Omega_{X/Y}=0\)</span>.</p>
 </div>
 <p>By the transitivity sequence, unramified morphisms are stable under composition. By the base change property, unramified morphisms are stable under base change. One checks that unramified morphisms are also local on the target, so they are ``reasonable’’ in the sense of the textbook the rising sea.</p>
+<p>::: {prp-locus name=““} Let <span class="math inline">\(\pi:X\to Y\)</span> be a morphism locally of finite type, then the locus in <span class="math inline">\(X\)</span> where <span class="math inline">\(\pi\)</span> is unramified is open. ::: :::{.proof} The locus is the complement of <span class="math inline">\(\operatorname {supp}(\Omega_{X/Y})\)</span>, which is naturally open. :::</p>
 <section id="examples" class="level3">
 <h3 class="anchored" data-anchor-id="examples">Examples</h3>
 <p>By the above calculation of <span class="math inline">\(\Omega_{A/B}\)</span>, we have the following corollaries.</p>
@@ -589,7 +635,10 @@ Y' &amp; \longrightarrow &amp; Y
 <p>If <span class="math inline">\(L/K\)</span> is inseparable, then <span class="math inline">\(\Omega_{L/K}\neq 0\)</span> by the transitive exact sequence and <a href="#lem-differential-for-purely-inseparable-field-extensions" class="quarto-xref">Lemma&nbsp;3</a>. Thus, <span class="math inline">\(L/K\)</span> is separable. If <span class="math inline">\(L/K\)</span> is trancendental, then <span class="math inline">\(\Omega_{L/K}\neq 0\)</span> by <a href="#lem-differential-for-separable-trancendantal-extensions" class="quarto-xref">Lemma&nbsp;4</a>. Therefore, the extension <span class="math inline">\(L/K\)</span> must be algebraic separable, which impies that <span class="math inline">\(L/K\)</span> is finite since it is algebraic and of finite type.</p>
 </div>
 <div id="exm-unramifiedness-in-number-theory" class="theorem example">
-<p><span class="theorem-title"><strong>Example 1</strong></span> &nbsp;</p>
+<p><span class="theorem-title"><strong>Example 1 (coincidence in number theory)</strong></span> Let <span class="math inline">\(\phi:(A,\mathfrak m)\to (B,\mathfrak n)\)</span> is a local morphism of finite type between local rings. Then <span class="math inline">\(\phi\)</span> is unramifed if and only if <span class="math inline">\(B/\phi(\mathfrak m)B\)</span> is a finite separable extension of <span class="math inline">\(A/\mathfrak m\)</span>.</p>
+</div>
+<div class="proof">
+<p><span class="proof-title"><em>Proof</em>. </span>It is a immediate consequence of <a href="#prp-check-fibre-for-unramified" class="quarto-xref">Proposition&nbsp;4</a>.</p>
 </div>
 </section>
 <section id="criterions-of-unramifiedness" class="level3">
@@ -607,18 +656,27 @@ Y' &amp; \longrightarrow &amp; Y
 <p><span class="theorem-title"><strong>Proposition 4</strong></span> Let <span class="math inline">\(\pi:X\to Y\)</span> be a morphism locally of finite type. Then the following are equivalent.</p>
 <ol type="1">
 <li><span class="math inline">\(\pi\)</span> is unramifed,</li>
-<li>for each point <span class="math inline">\(y\in Y\)</span>, <span class="math inline">\(\pi^{-1}(y)\)</span> is the disjoint union of schemes of the form <span class="math inline">\(\operatorname {Spec} K\)</span> where <span class="math inline">\(K\)</span> is a finite seperable extension of <span class="math inline">\(\kappa(y)\)</span>, and</li>
+<li>for each point <span class="math inline">\(y\in Y\)</span>, <span class="math inline">\(\pi^{-1}(y)\)</span> is the disjoint union of schemes of the form <span class="math inline">\(\operatorname {Spec} K\)</span> where <span class="math inline">\(K\)</span> is a finite separable extension of <span class="math inline">\(\kappa(y)\)</span>, and</li>
 <li>for each geometric point <span class="math inline">\(\bar y\in Y\)</span>, <span class="math inline">\(\pi^{-1}(\bar y)\)</span> is the disjoint union of copies of <span class="math inline">\(\bar y\)</span>.</li>
 </ol>
 </div>
 <div class="proof">
-<p><span class="proof-title"><em>Proof</em>. </span>Assersion 1 implies 2 and 3 by <a href="#cor-unramified-field-extensions" class="quarto-xref">Corollary&nbsp;1</a> and base change. Assersion 2 (resp. 3) implies that <span class="math inline">\(\Omega_{X/Y}|_y=0\)</span> (resp. <span class="math inline">\(\Omega_{X/Y}|_{\bar y}=0\)</span>). Since <span class="math inline">\(\Omega_{X/Y}\)</span> is of finte type, assersion 1 follows from the fact that if a quasicoherent sheaf <span class="math inline">\(\mathcal F\)</span> of finite type on <span class="math inline">\(Y\)</span> and <span class="math inline">\(\mathcal F|_y=0\)</span> for all <span class="math inline">\(y\in Y\)</span>, then <span class="math inline">\(\mathcal F=0\)</span>. Note that <span class="math inline">\(\mathcal F|_y=0\)</span> implies that $<span class="math inline">\(\mathcal F_y=0\)</span> by Nakayama’s lemma.</p>
+<p><span class="proof-title"><em>Proof</em>. </span>Assersion 1 implies 2 and 3 by <a href="#cor-unramified-field-extensions" class="quarto-xref">Corollary&nbsp;1</a> and base change. Assersion 2 (resp. 3) implies that <span class="math inline">\(\Omega_{X/Y}|_y=0\)</span> (resp. <span class="math inline">\(\Omega_{X/Y}|_{\bar y}=0\)</span>). Since <span class="math inline">\(\Omega_{X/Y}\)</span> is of finte type, assersion 1 follows from the fact that if a quasicoherent sheaf <span class="math inline">\(\mathcal F\)</span> of finite type on <span class="math inline">\(Y\)</span> and <span class="math inline">\(\mathcal F|_y=0\)</span> for all <span class="math inline">\(y\in Y\)</span>, then <span class="math inline">\(\mathcal F=0\)</span>. Note that <span class="math inline">\(\mathcal F|_y=0\)</span> implies that <span class="math inline">\(\mathcal F_y=0\)</span> by Nakayama’s lemma.</p>
 </div>
 <div id="prp-check-tangent-vectors-for-unramified" class="theorem proposition">
-<p><span class="theorem-title"><strong>Proposition 5</strong></span> &nbsp;</p>
+<p><span class="theorem-title"><strong>Proposition 5</strong></span> Let <span class="math inline">\(\pi:X\to Y\)</span> be a morphism between finite type schemes over an algebraically closed field <span class="math inline">\(k\)</span>. Then <span class="math inline">\(\pi\)</span> is unramified if and only if <span class="math inline">\(\pi\)</span> is injective on tangent vectors at closed points.</p>
+</div>
+<div class="proof">
+<p><span class="proof-title"><em>Proof</em>. </span>For any closed point <span class="math inline">\(x\in X\)</span>, let <span class="math inline">\(y\)</span> be its image in <span class="math inline">\(Y\)</span>, then <span class="math inline">\(y\)</span> is also a closed point <span class="math inline">\(Y\)</span>. By the transitive sequence, we have <span class="math display">\[
+\pi^*\Omega_{Y/k}\to\Omega_{X/k}\to\Omega_{X/Y}\to 0.
+\]</span></p>
+<p>Pullback to <span class="math inline">\(x=\operatorname{Spec}k\)</span>, we have <span class="math display">\[
+\Omega_{Y/k}|_y\to\Omega_{X/k}|_x\to\Omega_{X/Y}|_x\to 0.
+\]</span></p>
+<p>By <a href="#prp-cotangent-space-is-fibre-of-differentials" class="quarto-xref">Proposition&nbsp;2</a> and the assumption, we know that <span class="math inline">\(\Omega_{Y/k}|_y\to\Omega_{X/k}|_x\)</span> is the morphism between the corresponding cotangent spaces and hence surjective. Therfore, <span class="math inline">\(\Omega_{X/Y}|_x=0\)</span>, which mimplies that <span class="math inline">\(\pi\)</span> is unramified at <span class="math inline">\(x\)</span>. Since the closed points are dense in <span class="math inline">\(X\)</span>, <span class="math inline">\(\pi\)</span> is unramifed by <strong>?@prp-locus</strong>.</p>
 </div>
 <div id="prp-check-diagonal-open-for-unramifed" class="theorem proposition">
-<p><span class="theorem-title"><strong>Proposition 6</strong></span> Let <span class="math inline">\(\pi:X\to Y\)</span> be a morphism locally of finite type. Then <span class="math inline">\(f\colon X\to Y\)</span> is unramified when its diagonal morphism <span class="math inline">\(X\to X\times_Y X\)</span> is an open immersion.</p>
+<p><span class="theorem-title"><strong>Proposition 6</strong></span> Let <span class="math inline">\(\pi:X\to Y\)</span> be a morphism locally of finite type. Then <span class="math inline">\(\pi\colon X\to Y\)</span> is unramified when its diagonal morphism <span class="math inline">\(X\to X\times_Y X\)</span> is an open immersion.</p>
 </div>
 <div class="proof">
 <p><span class="proof-title"><em>Proof</em>. </span>We first record a lemma. Let <span class="math inline">\(i:Z\hookrightarrow W\)</span> be a closed immersion whose ideal sheaf <span class="math inline">\(\mathcal I\)</span> is of finite type. If <span class="math inline">\(\mathcal I=\mathcal I^2\)</span>, then <span class="math inline">\(i\)</span> is also an open immersion.</p>
@@ -636,6 +694,24 @@ x_i\otimes1-1\otimes x_i,\qquad 1\leq i\leq n.
 \]</span> Thus the diagonal is, locally on its source and target, a closed immersion defined by an ideal sheaf <span class="math inline">\(\mathcal I\)</span> of finite type.</p>
 <p>Suppose first that <span class="math inline">\(\pi\)</span> is unramified. Then <span class="math inline">\(\Omega_{X/Y}=0\)</span>. Since <span class="math inline">\(\mathcal I/\mathcal I^2\cong\Omega_{X/Y}\)</span>, it follows that <span class="math inline">\(\mathcal I/\mathcal I^2=0\)</span>, and hence <span class="math inline">\(\mathcal I=\mathcal I^2\)</span>. The lemma therefore shows, locally around every point of <span class="math inline">\(\Delta_f(X)\)</span>, that the diagonal is an open immersion. Hence <span class="math inline">\(\Delta_\pi\)</span> is an open immersion.</p>
 <p>Conversely, suppose that <span class="math inline">\(\Delta_\pi\)</span> is an open immersion. An open immersion has zero conormal sheaf, so <span class="math inline">\(\mathcal I/\mathcal I^2=0\)</span>, which implies that <span class="math inline">\(\Omega_{X/Y}=0\)</span>. Since <span class="math inline">\(\pi\)</span> is locally of finite type, this is precisely the condition that <span class="math inline">\(\pi\)</span> be unramified.</p>
+</div>
+<p>::: {cor-cancellation name=““} Let <span class="math inline">\(\mathcal P\)</span> be a class of morphisms stable under base change and restriction to open subschemes of the source. Let <span class="math inline">\(\pi:X\to Y\)</span> and <span class="math inline">\(\rho:Y\to Z\)</span> be morphisms, and set <span class="math inline">\(\tau=\rho\circ\pi\)</span>. If <span class="math inline">\(\rho\)</span> is unramified and <span class="math inline">\(\tau\)</span> belongs to <span class="math inline">\(\mathcal P\)</span>, then <span class="math inline">\(\pi\)</span> belongs to <span class="math inline">\(\mathcal P\)</span>.</p>
+<p>In particular, if <span class="math inline">\(\tau\)</span> is smooth of relative dimension <span class="math inline">\(n\)</span> (resp.&nbsp;étale), then so is <span class="math inline">\(\pi\)</span>. :::</p>
+<div class="proof">
+<p><span class="proof-title"><em>Proof</em>. </span>Factor <span class="math inline">\(\pi\)</span> as <span class="math display">\[
+X\xrightarrow{\Gamma_\pi}X\times_ZY
+\xrightarrow{\operatorname{pr}_2}Y,
+\qquad
+\Gamma_\pi=(\operatorname{id}_X,\pi).
+\]</span> The square <span class="math display">\[
+\begin{array}{ccc}
+X &amp; \xrightarrow{\Gamma_\pi} &amp; X\times_ZY\\
+{\scriptstyle\pi}\downarrow &amp;&amp;
+\downarrow{\scriptstyle(\pi\circ\operatorname{pr}_1,\operatorname{pr}_2)}\\
+Y &amp; \xrightarrow{\Delta_\rho} &amp; Y\times_ZY
+\end{array}
+\]</span> is Cartesian. Since <span class="math inline">\(\rho\)</span> is unramified, <span class="math inline">\(\Delta_\rho\)</span> is an open immersion, and hence so is <span class="math inline">\(\Gamma_\pi\)</span>.</p>
+<p>Moreover, <span class="math inline">\(\operatorname{pr}_2\)</span> is the base change of <span class="math inline">\(\tau\)</span> along <span class="math inline">\(\rho\)</span>, so it belongs to <span class="math inline">\(\mathcal P\)</span>. Thus <span class="math inline">\(\pi=\operatorname{pr}_2\circ\Gamma_\pi\)</span> belongs to <span class="math inline">\(\mathcal P\)</span> by stability under restriction to open subschemes of the source.</p>
 </div>
 
 
