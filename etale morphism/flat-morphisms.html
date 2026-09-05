@@ -36,7 +36,7 @@ ul.task-list li input[type="checkbox"] {
 <script src="../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../">
-<link href="../etale morphism/smooth-morphisms.html" rel="next">
+<link href="../etale morphism/unramified-morphisms.html" rel="next">
 <link href="../etale morphism/definitions.html" rel="prev">
 <script src="../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
@@ -354,7 +354,7 @@ window.Quarto = {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../etale morphism/definitions.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Definitions and Intuitions</span></a>
+ <span class="menu-text">Definitions</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -365,14 +365,14 @@ window.Quarto = {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../etale morphism/smooth-morphisms.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Smooth Morphisms</span></a>
+  <a href="../etale morphism/unramified-morphisms.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">The Sheaf of Differentials and Unramified Morphisms</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../etale morphism/unramified-morphisms.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Unramified Morphisms</span></a>
+  <a href="../etale morphism/smooth-morphisms.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Smooth Morphisms</span></a>
   </div>
 </li>
       </ul>
@@ -438,13 +438,25 @@ window.Quarto = {
 <div id="cor-pushforward-flat-sheaf" class="theorem corollary">
 <p><span class="theorem-title"><strong>Corollary 1</strong></span> If <span class="math inline">\(\pi:X\to Y\)</span> is an affine morphism, and <span class="math inline">\(\mathcal F\)</span> is a quasicoherent sheaf on <span class="math inline">\(X\)</span>, then <span class="math inline">\(\mathcal F\)</span> is flat over <span class="math inline">\(Y\)</span> if and only if <span class="math inline">\(\pi_*\mathcal F\)</span> is flat over <span class="math inline">\(Y\)</span>.</p>
 </div>
-<p><strong>::: {.callout-warning name=“nonexample”}</strong> The statement may fail even when <span class="math inline">\(\pi\)</span> is quasi-compact and quasi-separated.</p>
+<div class="callout callout-style-default callout-warning callout-titled" title="nonexample">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Warning</span>nonexample
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>The statement may fail even when <span class="math inline">\(\pi\)</span> is quasi-compact and quasi-separated.</p>
 <p>Consider the composite <span class="math display">\[
 \pi\colon \mathbb P^1_k\hookrightarrow \mathbb P^1_{k[x]} \to \operatorname{Spec}k[x],
 \text{ and set }
 \mathcal F=\mathcal O_{\mathbb P^1_k}(-1).
-\]</span> Then <span class="math inline">\(\mathcal F\)</span> is a line bundle and hence flat over $P^1_{k}.</p>
-<p>On the other hand, the global section of $ _*F $ is <span class="math inline">\(H^0(\mathbf P^1_k,\mathcal O_{\mathbf P^1_k}(-1))=0\)</span>, which implies that <span class="math inline">\(\pi_*\mathcal F\)</span> is not flat. :::</p>
+\]</span> Then <span class="math inline">\(\mathcal F\)</span> is a line bundle and hence flat over <span class="math inline">\(\mathbb P^1_{k}\)</span>.</p>
+<p>On the other hand, the global section of <span class="math inline">\(\pi_*\mathcal F\)</span> is <span class="math inline">\(H^0(\mathbf P^1_k,\mathcal O_{\mathbf P^1_k}(-1))=0\)</span>, which implies that <span class="math inline">\(\pi_*\mathcal F\)</span> is not flat.</p>
+</div>
+</div>
 <div id="def-flat-morphism" class="theorem definition">
 <p><span class="theorem-title"><strong>Definition 2 (flat morphism)</strong></span> A morphism <span class="math inline">\(\pi\colon X\to Y\)</span> is <strong>flat at <span class="math inline">\(x\in X\)</span></strong> if the local ring <span class="math inline">\(\mathcal O_{X,x}\)</span> is flat over <span class="math inline">\(\mathcal O_{Y,\pi(x)}\)</span>. It is <strong>flat</strong> if it is flat at every point, i.e.&nbsp;<span class="math inline">\(\mathcal O_X\)</span> is flat over <span class="math inline">\(Y\)</span>.</p>
 <p>Equivalently, by <a href="#lem-flat-is-local" class="quarto-xref">Lemma&nbsp;1</a>, <span class="math inline">\(\pi\colon X\to Y\)</span> is flat if there exist affine open coverings <span class="math inline">\(X=\bigcup_i X_i\)</span> and <span class="math inline">\(Y=\bigcup_i Y_i\)</span> such that <span class="math inline">\(\pi(X_i)\subseteq Y_i\)</span> for each <span class="math inline">\(i\)</span>, and <span class="math inline">\(A_i\)</span> is flat over <span class="math inline">\(B_i\)</span> whenever <span class="math inline">\(X_i=\operatorname{Spec}A_i\)</span> and <span class="math inline">\(Y_i=\operatorname{Spec}B_i\)</span>.</p>
@@ -468,11 +480,11 @@ window.Quarto = {
 <p><span class="proof-title"><em>Proof</em>. </span>By definition, it suffices to check on stalks.</p>
 </div>
 <div id="lem-base-change" class="theorem lemma">
-<p><span class="theorem-title"><strong>Lemma 3</strong></span> Let <span class="math inline">\(X\to Y\)</span> and <span class="math inline">\(Y'\to Y\)</span> be morphisms. Let <span class="math inline">\(\mu\clon X'=X\times_Y Y_'\to X\)</span> be the projection, and <span class="math inline">\(\mathcal F\)</span> a quasicoherent sheaf on <span class="math inline">\(X\)</span> flat over <span class="math inline">\(Y\)</span>. Then <span class="math inline">\(\mu^*\mathcal F\)</span> is flat over <span class="math inline">\(Y'\)</span>.</p>
+<p><span class="theorem-title"><strong>Lemma 3</strong></span> Let <span class="math inline">\(X\to Y\)</span> and <span class="math inline">\(Y'\to Y\)</span> be morphisms. Let <span class="math inline">\(\mu\colon X'=X\times_Y Y'\to X\)</span> be the projection, and <span class="math inline">\(\mathcal F\)</span> a quasicoherent sheaf on <span class="math inline">\(X\)</span> flat over <span class="math inline">\(Y\)</span>. Then <span class="math inline">\(\mu^*\mathcal F\)</span> is flat over <span class="math inline">\(Y'\)</span>.</p>
 </div>
 <div class="proof">
 <p><span class="proof-title"><em>Proof</em>. </span>By definition, it suffices to check on stalks. Let <span class="math inline">\(x'\in X'\)</span>. Assume that <span class="math inline">\(x'\)</span> maps to <span class="math inline">\(x\in X\)</span>, <span class="math inline">\(y'\in Y'\)</span> and <span class="math inline">\(y\in Y\)</span> respectively. Then <span class="math inline">\(\mathcal O_{X',x'}\cong (\mathcal O_{X,x}\otimes_{\mathcal O_{Y,y}} \mathcal O_{Y',y'})_{\mathfrak p}\)</span> for some prime ideal <span class="math inline">\(\mathfrak p\)</span>. Then <span class="math display">\[
-(\mu^*\mathcal F)_{x'}\cong (\mathcal O_{X,x}\otimes_{\mathcal O_{Y,y}} \mathcal O_{Y',y'})_{\mathfrak p}\otimes_{\mathcal O_{X,x}\mathcal F_x}.
+(\mu^*\mathcal F)_{x'}\cong (\mathcal O_{X,x}\otimes_{\mathcal O_{Y,y}} \mathcal O_{Y',y'})_{\mathfrak p}\otimes_{\mathcal O_{X,x}}\mathcal F_x.
 \]</span> The rest is a commutative algebra exercise.</p>
 </div>
 </section>
@@ -963,13 +975,13 @@ V(xy)=V(x)\cup V(y),
   </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="../etale morphism/definitions.html" class="pagination-link" aria-label="Definitions and Intuitions">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Definitions and Intuitions</span>
+      <a href="../etale morphism/definitions.html" class="pagination-link" aria-label="Definitions">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Definitions</span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../etale morphism/smooth-morphisms.html" class="pagination-link" aria-label="Smooth Morphisms">
-        <span class="nav-page-text">Smooth Morphisms</span> <i class="bi bi-arrow-right-short"></i>
+      <a href="../etale morphism/unramified-morphisms.html" class="pagination-link" aria-label="The Sheaf of Differentials and Unramified Morphisms">
+        <span class="nav-page-text">The Sheaf of Differentials and Unramified Morphisms</span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
