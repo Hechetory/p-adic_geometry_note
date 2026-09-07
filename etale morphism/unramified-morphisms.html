@@ -37,7 +37,7 @@ ul.task-list li input[type="checkbox"] {
 <script src="../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../">
 <link href="../etale morphism/smooth-morphisms.html" rel="next">
-<link href="../etale morphism/flat-morphisms.html" rel="prev">
+<link href="../etale morphism/definitions.html" rel="prev">
 <script src="../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
@@ -359,12 +359,6 @@ window.Quarto = {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../etale morphism/flat-morphisms.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Flat Morphisms</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
   <a href="../etale morphism/unramified-morphisms.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">The Sheaf of Differentials and Unramified Morphisms</span></a>
   </div>
@@ -373,6 +367,12 @@ window.Quarto = {
   <div class="sidebar-item-container"> 
   <a href="../etale morphism/smooth-morphisms.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Smooth Morphisms</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../etale morphism/flat-morphisms.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Flat Morphisms</span></a>
   </div>
 </li>
       </ul>
@@ -731,6 +731,32 @@ Y &amp; \xrightarrow{\Delta_\rho} &amp; Y\times_ZY
 \end{array}
 \]</span> is Cartesian. Since <span class="math inline">\(\rho\)</span> is unramified, <span class="math inline">\(\Delta_\rho\)</span> is an open immersion, and hence so is <span class="math inline">\(\Gamma_\pi\)</span>.</p>
 <p>Moreover, <span class="math inline">\(\operatorname{pr}_2\)</span> is the base change of <span class="math inline">\(\tau\)</span> along <span class="math inline">\(\rho\)</span>, so it belongs to <span class="math inline">\(\mathcal P\)</span>. Thus <span class="math inline">\(\pi=\operatorname{pr}_2\circ\Gamma_\pi\)</span> belongs to <span class="math inline">\(\mathcal P\)</span> by stability under restriction to open subschemes of the source.</p>
+</div>
+<div id="prp-unramified-condition-b" class="theorem proposition">
+<p><span class="theorem-title"><strong>Proposition 9</strong></span> Let <span class="math inline">\(\pi:X\to S\)</span> be a morphism. Then <span class="math inline">\(\pi\)</span> is unramified if and only if for every <span class="math inline">\(x\in X\)</span> there exist an open neighborhood <span class="math inline">\(U\)</span> of <span class="math inline">\(x\)</span> and a locally closed immersion <span class="math inline">\(j:U\hookrightarrow \mathbb A_S^n\)</span> such that, if <span class="math inline">\(\mathcal J\)</span> is the ideal sheaf defining <span class="math inline">\(j(U)\)</span>, then the differentials <span class="math inline">\(dg\)</span>, <span class="math inline">\(g\in\mathcal J\)</span>, generate <span class="math inline">\(\Omega^1_{\mathbb A_S^n/S}\)</span> at <span class="math inline">\(j(x)\)</span>.</p>
+</div>
+<div class="proof">
+<p><span class="proof-title"><em>Proof</em>. </span>Assume first that <span class="math inline">\(\pi\)</span> is unramified. Since <span class="math inline">\(\pi\)</span> is locally of finite type, after shrinking around <span class="math inline">\(x\)</span> and <span class="math inline">\(\pi(x)\)</span> we may write <span class="math display">\[
+U=\operatorname{Spec}(A),\qquad
+V=\operatorname{Spec}(B)\subset S,
+\]</span> with <span class="math inline">\(A\)</span> a finitely generated <span class="math inline">\(B\)</span>-algebra and <span class="math inline">\(U\)</span> is the open neighborhood of <span class="math inline">\(x\)</span>. Choose a presentation <span class="math inline">\(A=B[T_1,\ldots,T_n]/I\)</span>. This gives a locally closed immersion <span class="math display">\[
+j:U\hookrightarrow \mathbb A_V^n\hookrightarrow \mathbb A_S^n.
+\]</span> The conormal sequence is <span class="math display">\[
+I/I^2
+\xrightarrow{d}
+\Omega^1_{B[T_1,\ldots,T_n]/B}\otimes_{B[T_1,\ldots,T_n]}A
+\rightarrow
+\Omega^1_{U/V}
+\rightarrow 0.
+\]</span> Since <span class="math inline">\(\Omega_{X/S}=0\)</span>, we have <span class="math inline">\(\Omega^1_{U/V}=0\)</span>, so the first map is surjective. Hence the differentials <span class="math inline">\(dg\)</span>, <span class="math inline">\(g\in\mathcal J\)</span>, generate <span class="math inline">\(\Omega^1_{\mathbb A_S^n/S}\)</span> at <span class="math inline">\(j(x)\)</span>.</p>
+<p>Conversely, suppose the condition holds at every <span class="math inline">\(x\in X\)</span>. For such a locally closed immersion <span class="math inline">\(j:U\hookrightarrow\mathbb A_S^n\)</span> with ideal sheaf <span class="math inline">\(\mathcal J\)</span>, the conormal sequence gives <span class="math display">\[
+\mathcal J/\mathcal J^2
+\xrightarrow{d}
+j^*\Omega^1_{\mathbb A_V^n/V}
+\longrightarrow
+\Omega^1_{U/V}
+\longrightarrow 0
+\]</span> where <span class="math inline">\(V\)</span> is an open of <span class="math inline">\(S\)</span> such that <span class="math inline">\(j:U\to V\)</span> is a closed immersion. Condition says that the first map is surjective at <span class="math inline">\(x\)</span>. Therefore <span class="math inline">\((\Omega^1_{U/S})_x=0\)</span>. Since this holds for every <span class="math inline">\(x\in X\)</span>, we conclude that <span class="math inline">\(\Omega_{X/S}\)</span> equals to <span class="math inline">\(0\)</span>. Thus, <span class="math inline">\(\pi\)</span> is unramified.</p>
 </div>
 <p>::: {prp-formally-unramified name=“formally unramified”}</p>
 <p>:::</p>
@@ -1163,8 +1189,8 @@ Y &amp; \xrightarrow{\Delta_\rho} &amp; Y\times_ZY
   </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="../etale morphism/flat-morphisms.html" class="pagination-link" aria-label="Flat Morphisms">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Flat Morphisms</span>
+      <a href="../etale morphism/definitions.html" class="pagination-link" aria-label="Definitions">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Definitions</span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">

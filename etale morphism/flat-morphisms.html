@@ -36,8 +36,8 @@ ul.task-list li input[type="checkbox"] {
 <script src="../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../">
-<link href="../etale morphism/unramified-morphisms.html" rel="next">
-<link href="../etale morphism/definitions.html" rel="prev">
+<link href="../editing.html" rel="next">
+<link href="../etale morphism/smooth-morphisms.html" rel="prev">
 <script src="../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
@@ -359,12 +359,6 @@ window.Quarto = {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../etale morphism/flat-morphisms.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text">Flat Morphisms</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
   <a href="../etale morphism/unramified-morphisms.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">The Sheaf of Differentials and Unramified Morphisms</span></a>
   </div>
@@ -373,6 +367,12 @@ window.Quarto = {
   <div class="sidebar-item-container"> 
   <a href="../etale morphism/smooth-morphisms.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Smooth Morphisms</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../etale morphism/flat-morphisms.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">Flat Morphisms</span></a>
   </div>
 </li>
       </ul>
@@ -393,9 +393,11 @@ window.Quarto = {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#definitions-and-basic-properties" id="toc-definitions-and-basic-properties" class="nav-link active" data-scroll-target="#definitions-and-basic-properties">Definitions and basic properties</a></li>
-  <li><a href="#criteria-of-flatness" id="toc-criteria-of-flatness" class="nav-link" data-scroll-target="#criteria-of-flatness">Criteria of flatness</a></li>
-  <li><a href="#examples" id="toc-examples" class="nav-link" data-scroll-target="#examples">Examples</a></li>
+  <li><a href="#flatness" id="toc-flatness" class="nav-link active" data-scroll-target="#flatness">Flatness</a></li>
+  <li><a href="#criteria-of-flatness" id="toc-criteria-of-flatness" class="nav-link" data-scroll-target="#criteria-of-flatness">Criteria of flatness</a>
+  <ul class="collapse">
+  <li><a href="#closed-immersion-is-well-behaved-under-the-condition-of-flatness" id="toc-closed-immersion-is-well-behaved-under-the-condition-of-flatness" class="nav-link" data-scroll-target="#closed-immersion-is-well-behaved-under-the-condition-of-flatness">Closed immersion is well-behaved under the condition of flatness</a></li>
+  </ul></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/Hechetory/p-adic_geometry_note/edit/main/etale morphism/flat-morphisms.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/Hechetory/p-adic_geometry_note/blob/main/etale morphism/flat-morphisms.qmd" class="toc-action"><i class="bi empty"></i>View source</a></li><li><a href="https://github.com/Hechetory/p-adic_geometry_note/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
     </div>
@@ -423,8 +425,8 @@ window.Quarto = {
 
 
 <p>Here we study the properties of flat morphisms that we will need as background for étale morphisms.</p>
-<section id="definitions-and-basic-properties" class="level2">
-<h2 class="anchored" data-anchor-id="definitions-and-basic-properties">Definitions and basic properties</h2>
+<section id="flatness" class="level2">
+<h2 class="anchored" data-anchor-id="flatness">Flatness</h2>
 <div id="def-flat-sheaf" class="theorem definition">
 <p><span class="theorem-title"><strong>Definition 1 (flat quasi-coherent sheaf over a base)</strong></span> Let <span class="math inline">\(\pi\colon X\to Y\)</span> be a morphism of schemes and let <span class="math inline">\(\mathcal F\)</span> be a quasi-coherent <span class="math inline">\(\mathcal O_X\)</span>-module. We say that <span class="math inline">\(\mathcal F\)</span> is <strong>flat over <span class="math inline">\(Y\)</span> at <span class="math inline">\(x\in X\)</span></strong> if the stalk <span class="math inline">\(\mathcal F_x\)</span> is flat as an <span class="math inline">\(\mathcal O_{Y,\pi(x)}\)</span>-module. It is <strong>flat over <span class="math inline">\(Y\)</span></strong> if this holds at every point of <span class="math inline">\(X\)</span>.</p>
 </div>
@@ -487,6 +489,9 @@ window.Quarto = {
 (\mu^*\mathcal F)_{x'}\cong (\mathcal O_{X,x}\otimes_{\mathcal O_{Y,y}} \mathcal O_{Y',y'})_{\mathfrak p}\otimes_{\mathcal O_{X,x}}\mathcal F_x.
 \]</span> The rest is a commutative algebra exercise.</p>
 </div>
+<p>::: {prp-flat-exact name=““} Let <span class="math inline">\(\pi:X\to Y\)</span> be a flat morphism, then the pullback <span class="math display">\[
+\pi^*:\operatorname{Qcoh}_Y\to\operatorname{Qcoh}_X
+\]</span> is an exact functor. :::</p>
 </section>
 <section id="criteria-of-flatness" class="level2">
 <h2 class="anchored" data-anchor-id="criteria-of-flatness">Criteria of flatness</h2>
@@ -510,48 +515,196 @@ I\otimes_B M\longrightarrow M
 <div id="prp-local-criterion" class="theorem proposition">
 <p><span class="theorem-title"><strong>Proposition 5 (local criterion)</strong></span> Let <span class="math inline">\((B,\mathfrak n)\to (A,\mathfrak m)\)</span> be a local morphism of Noetherian local rings, and <span class="math inline">\(M\)</span> a finitely generated <span class="math inline">\(A\)</span> module. Then <span class="math inline">\(M\)</span> is <span class="math inline">\(B\)</span>-flat if and only if <span class="math inline">\(\operatorname {Tor}^B_1(M,B/\mathfrak n)=0\)</span>.</p>
 </div>
-<div id="prp-slicing-flatness" class="theorem proposition">
-<p><span class="theorem-title"><strong>Proposition 6 (slicing criterion for flatness)</strong></span> Let <span class="math inline">\((B,\mathfrak n)\to (A,\mathfrak m)\)</span> be a local morphism of Noetherian local rings, <span class="math inline">\(M\)</span> a finitely generated <span class="math inline">\(A\)</span>-module, and <span class="math inline">\(t\in \mathfrak n\)</span> a non-zerodivisor on <span class="math inline">\(B\)</span>. Then <span class="math inline">\(M\)</span> is flat over <span class="math inline">\(B\)</span> if and only if</p>
+<div id="prp-slicing-flatness-target" class="theorem proposition">
+<p><span class="theorem-title"><strong>Proposition 6 (slicing criterion for flatness on the target)</strong></span> Let <span class="math inline">\((B,\mathfrak n)\to (A,\mathfrak m)\)</span> be a local morphism of Noetherian local rings, <span class="math inline">\(M\)</span> a finitely generated <span class="math inline">\(A\)</span>-module, and <span class="math inline">\(t\in \mathfrak n\)</span> a non-zerodivisor on <span class="math inline">\(B\)</span>. Then <span class="math inline">\(M\)</span> is flat over <span class="math inline">\(B\)</span> if and only if</p>
 <ol type="1">
 <li><span class="math inline">\(t\)</span> is not a zerodivisor on <span class="math inline">\(M\)</span>, and</li>
 <li><span class="math inline">\(M/tM\)</span> is flat over <span class="math inline">\(B/(t)\)</span>.</li>
 </ol>
 </div>
+<div id="prp-slicing-flatness-source" class="theorem proposition">
+<p><span class="theorem-title"><strong>Proposition 7</strong></span> Suppose <span class="math inline">\((B,\mathfrak n)\to(A,\mathfrak m)\)</span> is a local morphism of Noetherian local rings, <span class="math inline">\(M\)</span> is a finitely generated <span class="math inline">\(A\)</span>-module, and <span class="math inline">\(t\in\mathfrak m\subset A\)</span> is a non-zerodivisor on <span class="math inline">\(M/\mathfrak nM\)</span>. If <span class="math inline">\(M\)</span> is flat over <span class="math inline">\(B\)</span>, then <span class="math inline">\(M/tM\)</span> is flat over <span class="math inline">\(B\)</span></p>
+</div>
+<section id="closed-immersion-is-well-behaved-under-the-condition-of-flatness" class="level3">
+<h3 class="anchored">Closed immersion is well-behaved under the condition of flatness</h3>
+<div id="prp-pullback-qcoh" class="theorem proposition">
+<p><span class="theorem-title"><strong>Proposition 8 (Pullback of quasicoherent sheaves)</strong></span> Let <span class="math inline">\(0 \to \mathscr{F}' \to \mathscr{F} \to \mathscr{F}'' \to 0\)</span> be a short exact sequence of quasicoherent sheaves on a scheme <span class="math inline">\(Y\)</span>, and <span class="math inline">\(\mathscr{F}''\)</span> is flat. Let <span class="math inline">\(\pi\colon X \to Y\)</span> be any morphism of schemes. Then the pulled back sequence <span class="math inline">\(0 \to \pi^*\mathscr{F}' \to \pi^*\mathscr{F} \to \pi^*\mathscr{F}'' \to 0\)</span> remains exact.</p>
+</div>
+<div id="prp-flat-ideal-sheaf" class="theorem proposition">
+<p><span class="theorem-title"><strong>Proposition 10</strong></span> Let <span class="math inline">\(f\colon X\to Z\)</span> and <span class="math inline">\(\beta\colon Y\to Z\)</span> be morphisms of schemes, and let <span class="math inline">\(i\colon V\hookrightarrow X\)</span> be a closed immersion. Set <span class="math display">\[
+W=X\times_ZY,\qquad V_Y=V\times_ZY,
+\]</span> and denote the induced morphisms by <span class="math inline">\(\alpha\colon W\to X\)</span> and <span class="math inline">\(i'\colon V_Y\hookrightarrow W\)</span>. If either <span class="math inline">\(\beta\)</span> or the composite <span class="math inline">\(V\to X\to Z\)</span> is flat, then there is a canonical isomorphism <span class="math display">\[
+\alpha^*\mathcal I_{V/X}\cong\mathcal I_{V_Y/W}.
+\]</span> Equivalently, the pullback of the ideal sequence of <span class="math inline">\(V\)</span> remains exact: <span class="math display">\[
+0\longrightarrow\alpha^*\mathcal I_{V/X}
+\longrightarrow\mathcal O_W
+\longrightarrow i'_*\mathcal O_{V_Y}
+\longrightarrow0.
+\]</span></p>
+<div class="proof">
+<p><span class="proof-title"><em>Proof</em>. </span>Since <span class="math inline">\(i\)</span> is affine, affine base change gives a canonical isomorphism <span class="math display">\[
+\alpha^*i_*\mathcal O_V\cong i'_*\mathcal O_{V_Y}.
+\]</span> The ideal sequence of the closed immersion <span class="math inline">\(i\)</span> is <span class="math display">\[
+0\longrightarrow\mathcal I_{V/X}
+\longrightarrow\mathcal O_X
+\longrightarrow i_*\mathcal O_V
+\longrightarrow0.
+\]</span> If <span class="math inline">\(\beta\)</span> is flat, then its base change <span class="math inline">\(\alpha\)</span> is flat. Hence <span class="math inline">\(\alpha^*\)</span> is exact, so pulling back the ideal sequence gives <span class="math display">\[
+0\longrightarrow\alpha^*\mathcal I_{V/X}
+\longrightarrow\alpha^*\mathcal O_X
+\longrightarrow\alpha^*i_*\mathcal O_V
+\longrightarrow0.
+\]</span> Using <span class="math inline">\(\alpha^*\mathcal O_X\cong\mathcal O_W\)</span> and the affine base-change isomorphism above, this becomes the asserted exact sequence. Now suppose instead that <span class="math inline">\(V\to Z\)</span> is flat. Then <span class="math inline">\(i_*\mathcal O_V\)</span> is flat over <span class="math inline">\(Z\)</span>. By <a href="#prp-pullback-qcoh" class="quarto-xref">Proposition&nbsp;8</a>, we still have the exact sequence we desire.</p>
+</div>
+<section id="flatness-and-smoothness" class="level2">
+<h2 class="anchored" data-anchor-id="flatness-and-smoothness">Flatness and Smoothness</h2>
+<p>We will show that smooth morphisms are flat.</p>
+<div id="prp-smooth-is-flat" class="theorem proposition">
+<p><span class="theorem-title"><strong>Proposition 9</strong></span> Every smooth morphism of schemes is flat.</p>
+</div>
+<div class="proof">
+<p><span class="proof-title"><em>Proof</em>. </span>We first treat the case in which the schemes are locally Noetherian. Let <span class="math inline">\(\pi\colon X\to Y\)</span> be smooth, let <span class="math inline">\(p\in X\)</span>, and put <span class="math inline">\(q=\pi(p)\)</span>. After replacing <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> by suitable affine neighborhoods of <span class="math inline">\(p\)</span> and <span class="math inline">\(q\)</span>, respectively, we may write <span class="math inline">\(\pi\)</span> in the form</p>
+<p><span class="math display">\[
+\operatorname{Spec}\!\left(
+B[x_1,\ldots,x_{n+r}]/(f_1,\ldots,f_r)
+\right)
+\longrightarrow \operatorname{Spec}B,
+\]</span></p>
+<p>where the Jacobian matrix of <span class="math inline">\(f_1,\ldots,f_r\)</span> has rank <span class="math inline">\(r\)</span> at <span class="math inline">\(p\)</span>. Set</p>
+<p><span class="math display">\[
+S=B[x_1,\ldots,x_{n+r}],
+\qquad
+A_k=S/(f_1,\ldots,f_k)
+\quad (0\leq k\leq r),
+\]</span></p>
+<p>and let <span class="math inline">\(p_k\in\operatorname{Spec}A_k\)</span> be the image of <span class="math inline">\(p\)</span>. We prove inductively that <span class="math inline">\((A_k)_{p_k}\)</span> is flat over <span class="math inline">\(B_q\)</span>.</p>
+<p>For <span class="math inline">\(k=0\)</span>, the ring <span class="math inline">\((A_0)_{p_0}=S_{p_0}\)</span> is flat over <span class="math inline">\(B_q\)</span>, since a polynomial algebra is flat over its coefficient ring and localization preserves flatness.</p>
+<p>Suppose that <span class="math inline">\((A_{k-1})_{p_{k-1}}\)</span> is flat over <span class="math inline">\(B_q\)</span>. Let <span class="math inline">\(t\)</span> denote the image of <span class="math inline">\(f_k\)</span> in <span class="math inline">\((A_{k-1})_{p_{k-1}}\)</span>. Since <span class="math inline">\(p\)</span> lies on <span class="math inline">\(V(f_1,\ldots,f_r)\)</span>, we have <span class="math inline">\(t\in p_{k-1}(A_{k-1})_{p_{k-1}}\)</span>. We claim that <span class="math inline">\(t\)</span> is a non-zerodivisor on the fiber</p>
+<p><span class="math display">\[
+C_k
+=
+(A_{k-1})_{p_{k-1}}/q(A_{k-1})_{p_{k-1}}
+\cong
+\left(
+\kappa(q)[x_1,\ldots,x_{n+r}]/(f_1,\ldots,f_{k-1})
+\right)_{\bar p}.
+\]</span></p>
+<p>The first <span class="math inline">\(k\)</span> rows of the Jacobian matrix have rank <span class="math inline">\(k\)</span> at <span class="math inline">\(p\)</span>. Consequently, the morphism</p>
+<p><span class="math display">\[
+\operatorname{Spec}A_{k-1}\longrightarrow\operatorname{Spec}B
+\]</span></p>
+<p>is smooth at <span class="math inline">\(p_{k-1}\)</span>, so <span class="math inline">\(C_k\)</span> is reduced.</p>
+<p>Choose variables <span class="math inline">\(x_{j_1},\ldots,x_{j_k}\)</span> such that</p>
+<p><span class="math display">\[
+\Delta_k
+=
+\det\!\left(
+\frac{\partial f_a}{\partial x_{j_b}}
+\right)_{1\leq a,b\leq k}
+\]</span></p>
+<p>is a unit at <span class="math inline">\(\bar p\)</span>. On the localized polynomial ring over <span class="math inline">\(\kappa(q)\)</span>, define a derivation by</p>
+<p><span class="math display">\[
+D(h)
+=
+\det
+\begin{pmatrix}
+\dfrac{\partial f_1}{\partial x_{j_1}} &amp; \cdots &amp;
+\dfrac{\partial f_1}{\partial x_{j_k}}\\
+\vdots &amp; &amp; \vdots\\
+\dfrac{\partial f_{k-1}}{\partial x_{j_1}} &amp; \cdots &amp;
+\dfrac{\partial f_{k-1}}{\partial x_{j_k}}\\
+\dfrac{\partial h}{\partial x_{j_1}} &amp; \cdots &amp;
+\dfrac{\partial h}{\partial x_{j_k}}
+\end{pmatrix}.
+\]</span></p>
+<p>For <span class="math inline">\(a&lt;k\)</span>, two rows in the determinant defining <span class="math inline">\(D(f_a)\)</span> coincide, so <span class="math inline">\(D(f_a)=0\)</span>. Thus <span class="math inline">\(D\)</span> descends to a derivation of <span class="math inline">\(C_k\)</span>, and <span class="math inline">\(D(t)=\Delta_k\)</span> is a unit in <span class="math inline">\(C_k\)</span>.</p>
+<p>If <span class="math inline">\(g t=0\)</span> in <span class="math inline">\(C_k\)</span>, then</p>
+<p><span class="math display">\[
+0=D(gt)=D(g)t+gD(t).
+\]</span></p>
+<p>Multiplying by <span class="math inline">\(g\)</span> and using <span class="math inline">\(gt=0\)</span> gives <span class="math inline">\(g^2D(t)=0\)</span>. Since <span class="math inline">\(D(t)\)</span> is a unit, <span class="math inline">\(g^2=0\)</span>; since <span class="math inline">\(C_k\)</span> is reduced, <span class="math inline">\(g=0\)</span>. Hence <span class="math inline">\(t\)</span> is a non-zerodivisor on <span class="math inline">\(C_k\)</span>.</p>
+<p>We may therefore apply the slicing criterion for flatness on the source to the local morphism</p>
+<p><span class="math display">\[
+(B_q,qB_q)
+\longrightarrow
+\bigl((A_{k-1})_{p_{k-1}},p_{k-1}(A_{k-1})_{p_{k-1}}\bigr),
+\]</span></p>
+<p>with <span class="math inline">\(M=(A_{k-1})_{p_{k-1}}\)</span>. It follows that</p>
+<p><span class="math display">\[
+(A_k)_{p_k}
+\cong
+(A_{k-1})_{p_{k-1}}/t(A_{k-1})_{p_{k-1}}
+\]</span></p>
+<p>is flat over <span class="math inline">\(B_q\)</span>. Induction gives that <span class="math inline">\((A_r)_{p_r}=\mathcal O_{X,p}\)</span> is flat over <span class="math inline">\(B_q=\mathcal O_{Y,q}\)</span>. Thus <span class="math inline">\(\pi\)</span> is flat at <span class="math inline">\(p\)</span>, proving the proposition in the locally Noetherian case.</p>
+<p>We now remove the Noetherian hypothesis. Flatness is local on the source and target, so around any <span class="math inline">\(p\in X\)</span> we may choose a standard smooth presentation</p>
+<p><span class="math display">\[
+U
+=
+\operatorname{Spec}\!\left(
+\bigl(B[x_1,\ldots,x_{n+r}]/(f_1,\ldots,f_r)\bigr)_{\Delta}
+\right)
+\longrightarrow
+\operatorname{Spec}B,
+\]</span></p>
+<p>where, after reordering the variables,</p>
+<p><span class="math display">\[
+\Delta
+=
+\det\!\left(
+\frac{\partial f_i}{\partial x_j}
+\right)_{1\leq i,j\leq r}
+\]</span></p>
+<p>is invertible on <span class="math inline">\(U\)</span>.</p>
+<p>Only finitely many coefficients of <span class="math inline">\(B\)</span> occur in the polynomials <span class="math inline">\(f_1,\ldots,f_r\)</span>. Introduce an indeterminate <span class="math inline">\(c^i_{a_1,\ldots,a_{n+r}}\)</span> for each such coefficient and let</p>
+<p><span class="math display">\[
+P
+=
+\mathbb Z
+\left[
+c^i_{a_1,\ldots,a_{n+r}}
+\right].
+\]</span></p>
+<p>Define universal polynomials</p>
+<p><span class="math display">\[
+g_i
+=
+\sum_{a_1,\ldots,a_{n+r}}
+c^i_{a_1,\ldots,a_{n+r}}
+x_1^{a_1}\cdots x_{n+r}^{a_{n+r}}
+\in P[x_1,\ldots,x_{n+r}],
+\]</span></p>
+<p>where each sum is finite, and put</p>
+<p><span class="math display">\[
+\Delta_0
+=
+\det\!\left(
+\frac{\partial g_i}{\partial x_j}
+\right)_{1\leq i,j\leq r}.
+\]</span></p>
+<p>The morphism</p>
+<p><span class="math display">\[
+U_0
+=
+\operatorname{Spec}\!\left(
+\bigl(P[x_1,\ldots,x_{n+r}]/(g_1,\ldots,g_r)\bigr)_{\Delta_0}
+\right)
+\longrightarrow
+\operatorname{Spec}P
+\]</span></p>
+<p>is smooth. Since <span class="math inline">\(P\)</span> is Noetherian, the first part of the proof shows that <span class="math inline">\(U_0\to\operatorname{Spec}P\)</span> is flat.</p>
+<p>There is a ring homomorphism <span class="math inline">\(P\to B\)</span> sending each universal coefficient <span class="math inline">\(c^i_{a_1,\ldots,a_{n+r}}\)</span> to the corresponding coefficient of <span class="math inline">\(f_i\)</span>. Under this homomorphism, <span class="math inline">\(g_i\)</span> maps to <span class="math inline">\(f_i\)</span> and <span class="math inline">\(\Delta_0\)</span> maps to <span class="math inline">\(\Delta\)</span>. Hence</p>
+<p><span class="math display">\[
+U
+\cong
+U_0\times_{\operatorname{Spec}P}\operatorname{Spec}B.
+\]</span></p>
+<p>Thus <span class="math inline">\(\pi|_U\)</span> is obtained from the flat morphism <span class="math inline">\(U_0\to\operatorname{Spec}P\)</span> by base change. Since flatness is preserved under base change, <span class="math inline">\(\pi|_U\)</span> is flat. Such neighborhoods <span class="math inline">\(U\)</span> cover <span class="math inline">\(X\)</span>, so <span class="math inline">\(\pi\)</span> is flat.</p>
+
+
+</div>
 </section>
-<section id="examples" class="level2">
-<h2 class="anchored" data-anchor-id="examples">Examples</h2>
-<div id="exm-coordinate-axes" class="theorem example">
-<p><span class="theorem-title"><strong>Example 1</strong></span> Let <span class="math inline">\(k\)</span> be a field and consider</p>
-<p><span class="math display">\[
-\pi\colon\mathbb A_k^2\longrightarrow\mathbb A_k^1,
-\qquad (x,y)\longmapsto xy.
-\]</span></p>
-<p>Algebraically, <span class="math inline">\(\pi\)</span> is induced by</p>
-<p><span class="math display">\[
-B=k[t]\longrightarrow A=k[x,y],
-\qquad t\longmapsto xy.
-\]</span></p>
-<p>The <span class="math inline">\(B\)</span>-module <span class="math inline">\(A\)</span> is torsion-free, hence flat because <span class="math inline">\(B=k[t]\)</span> is a PID. For <span class="math inline">\(a\ne0\)</span>, the fiber <span class="math inline">\(xy=a\)</span> is a smooth hyperbola, while the fiber over <span class="math inline">\(0\)</span> is</p>
-<p><span class="math display">\[
-V(xy)=V(x)\cup V(y),
-\]</span></p>
-<p>the union of the two coordinate axes. Moreover, the inclusion <span class="math inline">\(V(xy)\hookrightarrow\mathbb A_k^2\)</span> is a codimension-one regular embedding, since <span class="math inline">\(xy\)</span> is a non-zero-divisor in <span class="math inline">\(k[x,y]\)</span>.</p>
 </div>
-<div class="callout callout-style-default callout-warning callout-titled" title="Flat does not mean smooth">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Warning</span>Flat does not mean smooth
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>The special fiber in <a href="#exm-coordinate-axes" class="quarto-xref">Example&nbsp;1</a> is singular at the origin even though the family is flat. Flatness controls how fibers vary; it does not say that every fiber is nonsingular.</p>
-</div>
-</div>
-
-
+</section>
 </section>
 
 </main> <!-- /main -->
@@ -975,13 +1128,13 @@ V(xy)=V(x)\cup V(y),
   </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="../etale morphism/definitions.html" class="pagination-link" aria-label="Definitions">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Definitions</span>
+      <a href="../etale morphism/smooth-morphisms.html" class="pagination-link" aria-label="Smooth Morphisms">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Smooth Morphisms</span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../etale morphism/unramified-morphisms.html" class="pagination-link" aria-label="The Sheaf of Differentials and Unramified Morphisms">
-        <span class="nav-page-text">The Sheaf of Differentials and Unramified Morphisms</span> <i class="bi bi-arrow-right-short"></i>
+      <a href="../editing.html" class="pagination-link" aria-label="How to edit these notes">
+        <span class="nav-page-text">How to edit these notes</span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
