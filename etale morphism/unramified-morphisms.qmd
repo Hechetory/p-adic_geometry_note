@@ -378,6 +378,47 @@ $\mathcal P$ by stability under restriction to open subschemes
 of the source.
 :::
 
+::: {#prp-unramified-condition-b name=""}
+Let $\pi:X\to S$ be a morphism. Then $\pi$ is unramified if and only if for every $x\in X$ there exist an open neighborhood $U$ of $x$ and a locally closed immersion $j:U\hookrightarrow \mathbb A_S^n$ such that, if $\mathcal J$ is the ideal sheaf defining $j(U)$, then the differentials $dg$, $g\in\mathcal J$, generate $\Omega^1_{\mathbb A_S^n/S}$ at $j(x)$.
+:::
+
+::: {.proof}
+Assume first that $\pi$ is unramified. Since $\pi$ is locally of finite type, after shrinking around $x$ and $\pi(x)$ we may write
+$$
+U=\operatorname{Spec}(A),\qquad
+V=\operatorname{Spec}(B)\subset S,
+$$
+with $A$ a finitely generated $B$-algebra and $U$ is the open neighborhood of $x$. Choose a presentation $A=B[T_1,\ldots,T_n]/I$.
+This gives a locally closed immersion
+$$
+j:U\hookrightarrow \mathbb A_V^n\hookrightarrow \mathbb A_S^n.
+$$
+The conormal sequence is
+$$
+I/I^2
+\xrightarrow{d}
+\Omega^1_{B[T_1,\ldots,T_n]/B}\otimes_{B[T_1,\ldots,T_n]}A
+\rightarrow
+\Omega^1_{U/V}
+\rightarrow 0.
+$$
+Since $\Omega_{X/S}=0$, we have $\Omega^1_{U/V}=0$, so the first map is surjective. Hence the differentials $dg$, $g\in\mathcal J$, generate $\Omega^1_{\mathbb A_S^n/S}$ at $j(x)$.
+
+Conversely, suppose the condition holds at every $x\in X$. For such a locally closed immersion $j:U\hookrightarrow\mathbb A_S^n$ with ideal sheaf $\mathcal J$, the conormal sequence gives
+$$
+\mathcal J/\mathcal J^2
+\xrightarrow{d}
+j^*\Omega^1_{\mathbb A_V^n/V}
+\longrightarrow
+\Omega^1_{U/V}
+\longrightarrow 0
+$$
+where $V$ is an open of $S$ such that $j:U\to V$ is a closed immersion. 
+Condition says that the first map is surjective at $x$. Therefore $(\Omega^1_{U/S})_x=0$.
+Since this holds for every $x\in X$, we conclude that $\Omega_{X/S}$ equals to $0$.
+Thus, $\pi$ is unramified.
+:::
+
 ::: {prp-formally-unramified name="formally unramified"}
 
 :::
@@ -398,5 +439,4 @@ $\iota_1(r)=r\otimes1$ and $\iota_2(r)=1\otimes r$.
 Their composites with the multiplication map to $A$ coincide, so
 $\iota_1=\iota_2$. Hence $r\otimes1-1\otimes r\in I^2$ for every $r\in A$.
 Thus $dr=0$ in $I/I^2$, and consequently $\Omega_{A/B}=0$.
-
 :::

@@ -13,6 +13,6 @@ For a first pass, continue to
 [Definitions](definitions.qmd).
 
 For a more detailed discussion, see
-[Flat Morphisms](flat-morphisms.qmd),
-[The Sheaf of Differentials and Unramified Morphisms](unramified-morphisms.qmd), and
-[Smooth Morphisms](smooth-morphisms.qmd) ...(TBA)
+[The Sheaf of Differentials and Unramified Morphisms](unramified-morphisms.qmd),
+[Smooth Morphisms](smooth-morphisms.qmd), and
+[Flat Morphisms](flat-morphisms.qmd) ...(TBA)

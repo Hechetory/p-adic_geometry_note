@@ -5,7 +5,7 @@ subtitle: ""
 
 Here we study the properties of flat morphisms that we will need as background for étale morphisms.
 
-## Definitions and basic properties
+## Flatness
 
 ::: {#def-flat-sheaf name="flat quasi-coherent sheaf over a base"}
 Let $\pi\colon X\to Y$ be a morphism of schemes and let $\mathcal F$ be a
@@ -90,6 +90,14 @@ $$
 The rest is a commutative algebra exercise.
 :::
 
+::: {prp-flat-exact name=""}
+Let $\pi:X\to Y$ be a flat morphism, then the pullback 
+$$
+\pi^*:\operatorname{Qcoh}_Y\to\operatorname{Qcoh}_X
+$$ 
+is an exact functor.
+:::
+
 ## Criteria of flatness
 
 ::: {#prp-tor-criterion name="Tor criterion"}
@@ -121,44 +129,246 @@ Let $(B,\mathfrak n)$ be a local ring and $M$ a finitely generated $B$-module. I
 Let $(B,\mathfrak n)\to (A,\mathfrak m)$ be a local morphism of Noetherian local rings, and $M$ a finitely generated $A$ module. Then $M$ is $B$-flat if and only if $\operatorname {Tor}^B_1(M,B/\mathfrak n)=0$.
 :::
 
-::: {#prp-slicing-flatness name="slicing criterion for flatness"}
+::: {#prp-slicing-flatness-target name="slicing criterion for flatness on the target"}
 Let $(B,\mathfrak n)\to (A,\mathfrak m)$ be a local morphism of Noetherian local rings, $M$ a finitely generated $A$-module, and $t\in \mathfrak n$ a non-zerodivisor on $B$. Then $M$ is flat over $B$ if and only if
 
 1. $t$ is not a zerodivisor on $M$, and
 2. $M/tM$ is flat over $B/(t)$.
 :::
 
-## Examples
-
-::: {#exm-coordinate-axes name=""}
-Let $k$ be a field and consider
-
-$$
-\pi\colon\mathbb A_k^2\longrightarrow\mathbb A_k^1,
-\qquad (x,y)\longmapsto xy.
-$$
-
-Algebraically, $\pi$ is induced by
-
-$$
-B=k[t]\longrightarrow A=k[x,y],
-\qquad t\longmapsto xy.
-$$
-
-The $B$-module $A$ is torsion-free, hence flat because $B=k[t]$ is a PID. For
-$a\ne0$, the fiber $xy=a$ is a smooth hyperbola, while the fiber over $0$ is
-
-$$
-V(xy)=V(x)\cup V(y),
-$$
-
-the union of the two coordinate axes. Moreover, the inclusion
-$V(xy)\hookrightarrow\mathbb A_k^2$ is a codimension-one regular embedding,
-since $xy$ is a non-zero-divisor in $k[x,y]$.
+::: {#prp-slicing-flatness-source name=""}
+Suppose $(B,\mathfrak n)\to(A,\mathfrak m)$ is a local morphism of Noetherian local rings, $M$ is a finitely generated $A$-module, and $t\in\mathfrak m\subset A$ is a non-zerodivisor on $M/\mathfrak nM$. If $M$ is flat over $B$, then $M/tM$ is flat over $B$
 :::
 
-::: {.callout-warning title="Flat does not mean smooth"}
-The special fiber in @exm-coordinate-axes is singular at the origin even
-though the family is flat. Flatness controls how fibers vary; it does not say
-that every fiber is nonsingular.
+
+### Closed immersion is well-behaved under the condition of flatness
+
+::: {#prp-pullback-qcoh name="Pullback of quasicoherent sheaves"}
+Let $0 \to \mathscr{F}' \to \mathscr{F} \to \mathscr{F}'' \to 0$ be a short exact sequence of quasicoherent sheaves on a scheme $Y$, and $\mathscr{F}''$ is flat. Let $\pi\colon X \to Y$ be any morphism of schemes. Then the pulled back sequence $0 \to \pi^*\mathscr{F}' \to \pi^*\mathscr{F} \to \pi^*\mathscr{F}'' \to 0$ remains exact.
 :::
+
+::: {#prp-flat-ideal-sheaf name=""}
+Let $f\colon X\to Z$ and $\beta\colon Y\to Z$ be morphisms of schemes, and let $i\colon V\hookrightarrow X$ be a closed immersion. Set
+$$
+W=X\times_ZY,\qquad V_Y=V\times_ZY,
+$$
+and denote the induced morphisms by $\alpha\colon W\to X$ and $i'\colon V_Y\hookrightarrow W$. If either $\beta$ or the composite $V\to X\to Z$ is flat, then there is a canonical isomorphism
+$$
+\alpha^*\mathcal I_{V/X}\cong\mathcal I_{V_Y/W}.
+$$
+Equivalently, the pullback of the ideal sequence of $V$ remains exact:
+$$
+0\longrightarrow\alpha^*\mathcal I_{V/X}
+\longrightarrow\mathcal O_W
+\longrightarrow i'_*\mathcal O_{V_Y}
+\longrightarrow0.
+$$
+
+::: {.proof}
+ Since $i$ is affine, affine base change gives a canonical isomorphism
+$$
+\alpha^*i_*\mathcal O_V\cong i'_*\mathcal O_{V_Y}.
+$$
+The ideal sequence of the closed immersion $i$ is
+$$
+0\longrightarrow\mathcal I_{V/X}
+\longrightarrow\mathcal O_X
+\longrightarrow i_*\mathcal O_V
+\longrightarrow0.
+$$
+If $\beta$ is flat, then its base change $\alpha$ is flat. Hence $\alpha^*$ is exact, so pulling back the ideal sequence gives
+$$
+0\longrightarrow\alpha^*\mathcal I_{V/X}
+\longrightarrow\alpha^*\mathcal O_X
+\longrightarrow\alpha^*i_*\mathcal O_V
+\longrightarrow0.
+$$
+Using $\alpha^*\mathcal O_X\cong\mathcal O_W$ and the affine base-change isomorphism above, this becomes the asserted exact sequence.
+Now suppose instead that $V\to Z$ is flat. Then $i_*\mathcal O_V$ is flat over $Z$. By @prp-pullback-qcoh, we still have the exact sequence we desire.
+:::
+
+## Flatness and Smoothness
+We will show that smooth morphisms are flat. 
+
+::: {#prp-smooth-is-flat name=""}
+Every smooth morphism of schemes is flat.
+:::
+
+::: {.proof}
+We first treat the case in which the schemes are locally Noetherian. Let $\pi\colon X\to Y$ be smooth, let $p\in X$, and put $q=\pi(p)$. After replacing $X$ and $Y$ by suitable affine neighborhoods of $p$ and $q$, respectively, we may write $\pi$ in the form
+
+$$
+\operatorname{Spec}\!\left(
+B[x_1,\ldots,x_{n+r}]/(f_1,\ldots,f_r)
+\right)
+\longrightarrow \operatorname{Spec}B,
+$$
+
+where the Jacobian matrix of $f_1,\ldots,f_r$ has rank $r$ at $p$. Set
+
+$$
+S=B[x_1,\ldots,x_{n+r}],
+\qquad
+A_k=S/(f_1,\ldots,f_k)
+\quad (0\leq k\leq r),
+$$
+
+and let $p_k\in\operatorname{Spec}A_k$ be the image of $p$. We prove inductively that $(A_k)_{p_k}$ is flat over $B_q$.
+
+For $k=0$, the ring $(A_0)_{p_0}=S_{p_0}$ is flat over $B_q$, since a polynomial algebra is flat over its coefficient ring and localization preserves flatness.
+
+Suppose that $(A_{k-1})_{p_{k-1}}$ is flat over $B_q$. Let $t$ denote the image of $f_k$ in $(A_{k-1})_{p_{k-1}}$. Since $p$ lies on $V(f_1,\ldots,f_r)$, we have $t\in p_{k-1}(A_{k-1})_{p_{k-1}}$. We claim that $t$ is a non-zerodivisor on the fiber
+
+$$
+C_k
+=
+(A_{k-1})_{p_{k-1}}/q(A_{k-1})_{p_{k-1}}
+\cong
+\left(
+\kappa(q)[x_1,\ldots,x_{n+r}]/(f_1,\ldots,f_{k-1})
+\right)_{\bar p}.
+$$
+
+The first $k$ rows of the Jacobian matrix have rank $k$ at $p$. Consequently, the morphism
+
+$$
+\operatorname{Spec}A_{k-1}\longrightarrow\operatorname{Spec}B
+$$
+
+is smooth at $p_{k-1}$, so $C_k$ is reduced.
+
+Choose variables $x_{j_1},\ldots,x_{j_k}$ such that
+
+$$
+\Delta_k
+=
+\det\!\left(
+\frac{\partial f_a}{\partial x_{j_b}}
+\right)_{1\leq a,b\leq k}
+$$
+
+is a unit at $\bar p$. On the localized polynomial ring over $\kappa(q)$, define a derivation by
+
+$$
+D(h)
+=
+\det
+\begin{pmatrix}
+\dfrac{\partial f_1}{\partial x_{j_1}} & \cdots &
+\dfrac{\partial f_1}{\partial x_{j_k}}\\
+\vdots & & \vdots\\
+\dfrac{\partial f_{k-1}}{\partial x_{j_1}} & \cdots &
+\dfrac{\partial f_{k-1}}{\partial x_{j_k}}\\
+\dfrac{\partial h}{\partial x_{j_1}} & \cdots &
+\dfrac{\partial h}{\partial x_{j_k}}
+\end{pmatrix}.
+$$
+
+For $a<k$, two rows in the determinant defining $D(f_a)$ coincide, so $D(f_a)=0$. Thus $D$ descends to a derivation of $C_k$, and $D(t)=\Delta_k$ is a unit in $C_k$.
+
+If $g t=0$ in $C_k$, then
+
+$$
+0=D(gt)=D(g)t+gD(t).
+$$
+
+Multiplying by $g$ and using $gt=0$ gives $g^2D(t)=0$. Since $D(t)$ is a unit, $g^2=0$; since $C_k$ is reduced, $g=0$. Hence $t$ is a non-zerodivisor on $C_k$.
+
+We may therefore apply the slicing criterion for flatness on the source to the local morphism
+
+$$
+(B_q,qB_q)
+\longrightarrow
+\bigl((A_{k-1})_{p_{k-1}},p_{k-1}(A_{k-1})_{p_{k-1}}\bigr),
+$$
+
+with $M=(A_{k-1})_{p_{k-1}}$. It follows that
+
+$$
+(A_k)_{p_k}
+\cong
+(A_{k-1})_{p_{k-1}}/t(A_{k-1})_{p_{k-1}}
+$$
+
+is flat over $B_q$. Induction gives that $(A_r)_{p_r}=\mathcal O_{X,p}$ is flat over $B_q=\mathcal O_{Y,q}$. Thus $\pi$ is flat at $p$, proving the proposition in the locally Noetherian case.
+
+We now remove the Noetherian hypothesis. Flatness is local on the source and target, so around any $p\in X$ we may choose a standard smooth presentation
+
+$$
+U
+=
+\operatorname{Spec}\!\left(
+\bigl(B[x_1,\ldots,x_{n+r}]/(f_1,\ldots,f_r)\bigr)_{\Delta}
+\right)
+\longrightarrow
+\operatorname{Spec}B,
+$$
+
+where, after reordering the variables,
+
+$$
+\Delta
+=
+\det\!\left(
+\frac{\partial f_i}{\partial x_j}
+\right)_{1\leq i,j\leq r}
+$$
+
+is invertible on $U$.
+
+Only finitely many coefficients of $B$ occur in the polynomials $f_1,\ldots,f_r$. Introduce an indeterminate $c^i_{a_1,\ldots,a_{n+r}}$ for each such coefficient and let
+
+$$
+P
+=
+\mathbb Z
+\left[
+c^i_{a_1,\ldots,a_{n+r}}
+\right].
+$$
+
+Define universal polynomials
+
+$$
+g_i
+=
+\sum_{a_1,\ldots,a_{n+r}}
+c^i_{a_1,\ldots,a_{n+r}}
+x_1^{a_1}\cdots x_{n+r}^{a_{n+r}}
+\in P[x_1,\ldots,x_{n+r}],
+$$
+
+where each sum is finite, and put
+
+$$
+\Delta_0
+=
+\det\!\left(
+\frac{\partial g_i}{\partial x_j}
+\right)_{1\leq i,j\leq r}.
+$$
+
+The morphism
+
+$$
+U_0
+=
+\operatorname{Spec}\!\left(
+\bigl(P[x_1,\ldots,x_{n+r}]/(g_1,\ldots,g_r)\bigr)_{\Delta_0}
+\right)
+\longrightarrow
+\operatorname{Spec}P
+$$
+
+is smooth. Since $P$ is Noetherian, the first part of the proof shows that $U_0\to\operatorname{Spec}P$ is flat.
+
+There is a ring homomorphism $P\to B$ sending each universal coefficient $c^i_{a_1,\ldots,a_{n+r}}$ to the corresponding coefficient of $f_i$. Under this homomorphism, $g_i$ maps to $f_i$ and $\Delta_0$ maps to $\Delta$. Hence
+
+$$
+U
+\cong
+U_0\times_{\operatorname{Spec}P}\operatorname{Spec}B.
+$$
+
+Thus $\pi|_U$ is obtained from the flat morphism $U_0\to\operatorname{Spec}P$ by base change. Since flatness is preserved under base change, $\pi|_U$ is flat. Such neighborhoods $U$ cover $X$, so $\pi$ is flat.
+
