@@ -455,7 +455,7 @@ window.Quarto = {
 <p><span class="proof-title"><em>Remark 1</em>. </span>The fibers of this morphism are smooth varieties of dimension <span class="math inline">\(n\)</span> by the Jacobian criterion. The condition on the determinant is a relative version of the Jacobian criterion.</p>
 </div>
 <div id="def-smooth-morphism" class="theorem definition">
-<p><span class="theorem-title"><strong>Definition 2 (smooth morphism)</strong></span> A morphism <span class="math inline">\(f\colon X\to Y\)</span> between schemes is <strong>smooth</strong> of relative dimension <span class="math inline">\(n\)</span> if there exist open coverings <span class="math inline">\(\{U_i\}\)</span> of <span class="math inline">\(X\)</span> and <span class="math inline">\(\{V_i\}\)</span> of <span class="math inline">\(Y\)</span> such that <span class="math inline">\(f(U_i)\subseteq V_i\)</span> and for each <span class="math inline">\(i\)</span>, the restriction <span class="math inline">\(f|_{U_i}\colon U_i\to V_i\)</span> is a standard smooth morphism of relative dimension <span class="math inline">\(n\)</span>.</p>
+<p><span class="theorem-title"><strong>Definition 2 (smooth morphism)</strong></span> A morphism <span class="math inline">\(f\colon X\to Y\)</span> between schemes is <strong>smooth</strong> of relative dimension <span class="math inline">\(n\)</span> if there exist open subsets <span class="math inline">\(\{U_i\}\)</span> of <span class="math inline">\(X\)</span> and <span class="math inline">\(\{V_i\}\)</span> of <span class="math inline">\(Y\)</span> such that <span class="math inline">\(\{U_i\}\)</span> covers <span class="math inline">\(X\)</span> and <span class="math inline">\(f(U_i)\subseteq V_i\)</span> for each <span class="math inline">\(i\)</span>, and the restriction <span class="math inline">\(f|_{U_i}\colon U_i\to V_i\)</span> is a standard smooth morphism of relative dimension <span class="math inline">\(n\)</span>.</p>
 </div>
 <div id="rem-definition-of-smooth-morphism-slight-different" class="proof remark">
 <p><span class="proof-title"><em>Remark 2</em>. </span>There are several equivalent variants of the definition of a standard smooth morphism that lead to the same notion of a smooth morphism.</p>
@@ -471,29 +471,19 @@ U \hookrightarrow
 {\substack{1\leq i\leq r\\1\leq j\leq n+r}},
 \]</span> and require that some <span class="math inline">\(r\times r\)</span> minor be invertible.</p></li>
 </ol>
-<p>These variants give the same notion of a smooth morphism.</p>
+<p>These variants give the same notion of a smooth morphism. If standard smoothness is defined as 1, we may assume <span class="math inline">\(\{Y_i\}\)</span> covers <span class="math inline">\(Y\)</span>. One can combine 1 and 2 to weaken the standard smoothness again.</p>
 </div>
-<div id="def-smooth-variety" class="theorem definition">
-<p><span class="theorem-title"><strong>Definition 3 (smooth variety)</strong></span> A variety <span class="math inline">\(X\)</span> over a field <span class="math inline">\(k\)</span> is <strong>smooth</strong> if the structure morphism <span class="math inline">\(X\to \operatorname{Spec}(k)\)</span> is smooth.</p>
-</div>
-<div class="callout callout-style-default callout-tip callout-titled" title="">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Tip
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>Such definition for smooth variety is a little bit indirect, but it is convenient for our discussion since we will not spend much time on smooth varieties.</p>
-</div>
+<div id="rem-euiv-def" class="proof remark">
+<p><span class="proof-title"><em>Remark 3</em>. </span>It is easy to show that we may define a smooth morphism by requiring that, for every <span class="math inline">\(x\in X\)</span>, there exist an open neighborhood <span class="math inline">\(U\)</span> of <span class="math inline">\(x\)</span> and an open neighborhood <span class="math inline">\(V\)</span> of <span class="math inline">\(f(x)\)</span> such that the induced morphism <span class="math inline">\(f\colon U\to V\)</span> is standard smooth. In this formulation, the full-rank condition may be weakened to the requirement that <span class="math inline">\(df_1,\ldots,df_r\)</span> be linearly independent in the fibre of <span class="math inline">\(\Omega_{R[x_1,\ldots,x_{n+r}]/R}\)</span> at <span class="math inline">\(x\)</span>.</p>
 </div>
 </section>
 <section id="basic-properties" class="level2">
 <h2 class="anchored" data-anchor-id="basic-properties">Basic properties</h2>
+<div id="prp-equivdef" class="theorem proposition">
+<p><span class="theorem-title"><strong>Proposition 1</strong></span> A <span class="math inline">\(k\)</span>-scheme is smooth of relative dimension <span class="math inline">\(d\)</span> over <span class="math inline">\(k\)</span>, if it is of pure dimension <span class="math inline">\(d\)</span>, and there exists a cover by affine open sets <span class="math inline">\(\operatorname{Spec} k[x_1,\ldots,x_n]/(f_1,\ldots,f_r)\)</span> where the Jacobian matrix has corank <span class="math inline">\(d\)</span> at all points (not just closed points).</p>
+</div>
 <div id="prp-smooth-morphism-composition" class="theorem proposition">
-<p><span class="theorem-title"><strong>Proposition 1</strong></span> If <span class="math inline">\(f\colon X\to Y\)</span> and <span class="math inline">\(g\colon Y\to Z\)</span> are smooth morphisms of relative dimension <span class="math inline">\(n\)</span> and <span class="math inline">\(m\)</span> respectively, then the composition <span class="math inline">\(g\circ f\colon X\to Z\)</span> is also smooth of relative dimension <span class="math inline">\(n+m\)</span>.</p>
+<p><span class="theorem-title"><strong>Proposition 2</strong></span> If <span class="math inline">\(f\colon X\to Y\)</span> and <span class="math inline">\(g\colon Y\to Z\)</span> are smooth morphisms of relative dimension <span class="math inline">\(n\)</span> and <span class="math inline">\(m\)</span> respectively, then the composition <span class="math inline">\(g\circ f\colon X\to Z\)</span> is also smooth of relative dimension <span class="math inline">\(n+m\)</span>.</p>
 </div>
 <div class="proof">
 <p><span class="proof-title"><em>Proof</em>. </span>This is a local property, so we can assume that <span class="math inline">\(f\)</span> and <span class="math inline">\(g\)</span> are standard smooth morphisms of relative dimension <span class="math inline">\(n\)</span> and <span class="math inline">\(m\)</span> respectively. Then, by the chain rule, the corresponding Jacobian matrix of the composition <span class="math inline">\(g\circ f\)</span> is a block-upper-triangular matrix with the Jacobian matrices of <span class="math inline">\(f\)</span> and <span class="math inline">\(g\)</span> on the diagonal. Therefore, the determinant of the corresponding square matrix of <span class="math inline">\(g\circ f\)</span> is the product of determinants of the square matrices of <span class="math inline">\(f\)</span> and <span class="math inline">\(g\)</span>, which are both invertible. So <span class="math inline">\(g\circ f\)</span> is a standard smooth morphism of relative dimension <span class="math inline">\(n+m\)</span>.</p>
@@ -502,10 +492,11 @@ Tip
 <h3 class="anchored" data-anchor-id="relation-to-differentials">Relation to differentials</h3>
 <p>We recall the definition and properties of the sheaf of differentials in <a href="../etale morphism/unramified-morphisms.html">The Sheaf of Differentials and Unramified Morphisms</a>. The sheaf of differentials can be used to characterize smooth morphisms and smooth varieties.</p>
 <div id="prp-differentials-of-smooth-varieties" class="theorem proposition">
-<p><span class="theorem-title"><strong>Proposition 2</strong></span> A variety <span class="math inline">\(X\)</span> over <span class="math inline">\(k\)</span> is smooth if and only if the sheaf of differentials <span class="math inline">\(\Omega_{X/k}\)</span> is locally free of rank <span class="math inline">\(\dim(X)\)</span>.</p>
+<p><span class="theorem-title"><strong>Proposition 3</strong></span> A scheme <span class="math inline">\(X\)</span> is smooth of relative dimension <span class="math inline">\(n\)</span> over <span class="math inline">\(k\)</span> if and only if the sheaf of differentials <span class="math inline">\(\Omega_{X/k}\)</span> is locally free of rank <span class="math inline">\(n\)</span> and <span class="math inline">\(X\)</span> is locally of finite type and of pure dimension <span class="math inline">\(n\)</span>.</p>
 </div>
 <div class="proof">
-<p><span class="proof-title"><em>Proof</em>. </span>When <span class="math inline">\(\Omega_{X/k}\)</span> is locally free of rank <span class="math inline">\(\dim(X)\)</span>, we know that the Jacobian matrix has full rank at every point, which implies that <span class="math inline">\(X\)</span> is smooth. Conversely, assume <span class="math inline">\(X\)</span> is smooth. Then, by the relation between smoothness and regualrness, one can show that <span class="math inline">\(X\)</span> is reduced. Since <span class="math inline">\(X\)</span> is of finite type, the sheaf of differentials <span class="math inline">\(\Omega_{X/k}\)</span> is of finite type. By the relation between the cotangent space and the fibre of the sheaf of differentials, we have <span class="math inline">\(\dim_{k(x)}(\Omega_{X/k}\otimes k(x))=\dim(X)\)</span> for all closed points <span class="math inline">\(x\in X\)</span>. Therefore, we conclude that <span class="math inline">\(\Omega_{X/k}\)</span> is locally free of rank <span class="math inline">\(\dim(X)\)</span>.</p>
+<p><span class="proof-title"><em>Proof</em>. </span>Assume <span class="math inline">\(X\)</span> is smooth of relative dimension <span class="math inline">\(n\)</span>. Then, by the relation between smoothness and regualrness, one can show that <span class="math inline">\(X\)</span> is reduced. Since <span class="math inline">\(X\)</span> is locally of finite type, the sheaf of differentials <span class="math inline">\(\Omega_{X/k}\)</span> is of finite type. By defineion, <span class="math inline">\(X\)</span> is locally standard smooth over <span class="math inline">\(k\)</span> of relative dimension <span class="math inline">\(n\)</span>, we conclude that <span class="math inline">\(\Omega_{X/k}|_x\)</span> is free of rank <span class="math inline">\(n\)</span> for all <span class="math inline">\(x\in X\)</span>. Thus, <span class="math inline">\(\Omega_{X/k}\)</span> is locally free of rank <span class="math inline">\(n\)</span>. The other two conditions follow immediately from the definition of the smoothness.</p>
+<p>Conversely, if <span class="math inline">\(X\)</span> satisfies the conditions, then since <span class="math inline">\(\Omega_{X/k}\)</span> is characterized by the cokernel of the Jacobian, the corank of the Jacobian must be <span class="math inline">\(n\)</span>, which implies that <span class="math inline">\(X\)</span> is smooth of relative dimension <span class="math inline">\(n\)</span> by <a href="#prp-equivdef" class="quarto-xref">Proposition&nbsp;1</a>.</p>
 </div>
 <div class="callout callout-style-default callout-caution callout-titled" title="Caution">
 <div class="callout-header d-flex align-content-center">
@@ -520,8 +511,11 @@ Tip
 <p>It is not easy to show that a smooth variety is reduced. The proof is not included here, but it can be found in the textbook “The Rising Sea”. And the last statement in the proof above is a corollary of Nakayama’s lemma, which is a fundamental result in alegbraic geometry, and both reducedness, finiteness and the constantness of the dimension of fibre matter. See 14.3.J in “The Rising Sea” for details.</p>
 </div>
 </div>
+<div id="rem-smooth-free-differentials" class="proof remark">
+<p><span class="proof-title"><em>Remark 4</em>. </span>When <span class="math inline">\(f:X\to Y\)</span> is a smooth morphism of relative dimension <span class="math inline">\(n\)</span>, <span class="math inline">\(\Omega_{X/Y}\)</span> is locally free of rank <span class="math inline">\(n\)</span>, since this is naturally true if <span class="math inline">\(f\)</span> is standard.</p>
+</div>
 <div id="prp-smooth-and-transitive-exact-sequence" class="theorem proposition">
-<p><span class="theorem-title"><strong>Proposition 3</strong></span> Let <span class="math inline">\(\pi\colon X\to Y\)</span> and <span class="math inline">\(\rho\colon Y\to Z\)</span> be morphisms of schemes. If <span class="math inline">\(\pi\)</span> and <span class="math inline">\(\rho\)</span> are smooth, then the transitive exact sequence is also exact on the left, which means that the sequence <span class="math display">\[
+<p><span class="theorem-title"><strong>Proposition 4</strong></span> Let <span class="math inline">\(\pi\colon X\to Y\)</span> and <span class="math inline">\(\rho\colon Y\to Z\)</span> be morphisms of schemes. If <span class="math inline">\(\pi\)</span> and <span class="math inline">\(\rho\)</span> are smooth, then the transitive exact sequence is also exact on the left, which means that the sequence <span class="math display">\[
 0\to \pi^*\Omega_{Y/Z}\to \Omega_{X/Z}\to \Omega_{X/Y}\to 0
 \]</span></p>
 <p>is exact.</p>
