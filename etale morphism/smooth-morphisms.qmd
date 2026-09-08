@@ -32,7 +32,7 @@ The fibers of this morphism are smooth varieties of dimension $n$ by the Jacobia
 :::
 
 :::{#def-smooth-morphism name="smooth morphism"}
-A morphism $f\colon X\to Y$ between schemes is **smooth** of relative dimension $n$ if there exist open coverings $\{U_i\}$ of $X$ and $\{V_i\}$ of $Y$ such that $f(U_i)\subseteq V_i$ and for each $i$, the restriction $f|_{U_i}\colon U_i\to V_i$ is a standard smooth morphism of relative dimension $n$.
+A morphism $f\colon X\to Y$ between schemes is **smooth** of relative dimension $n$ if there exist open subsets $\{U_i\}$ of $X$ and $\{V_i\}$ of $Y$ such that $\{U_i\}$ covers $X$ and $f(U_i)\subseteq V_i$ for each $i$, and the restriction $f|_{U_i}\colon U_i\to V_i$ is a standard smooth morphism of relative dimension $n$.
 :::
 
 :::{#rem-definition-of-smooth-morphism-slight-different name=""}
@@ -54,19 +54,18 @@ $$
 $$
 and require that some $r\times r$ minor be invertible.
 
-These variants give the same notion of a smooth morphism.
+These variants give the same notion of a smooth morphism. If standard smoothness is defined as 1, we may assume $\{Y_i\}$ covers $Y$. One can combine 1 and 2 to weaken the standard smoothness again.
 :::
 
-
-:::{#def-smooth-variety name="smooth variety"}
-A variety $X$ over a field $k$ is **smooth** if the structure morphism $X\to \operatorname{Spec}(k)$ is smooth. 
-:::
-
-:::{.callout-tip title=""}
-Such definition for smooth variety is a little bit indirect, but it is convenient for our discussion since we will not spend much time on smooth varieties.
+::: {#rem-euiv-def name=""}
+It is easy to show that we may define a smooth morphism by requiring that, for every $x\in X$, there exist an open neighborhood $U$ of $x$ and an open neighborhood $V$ of $f(x)$ such that the induced morphism $f\colon U\to V$ is standard smooth. In this formulation, the full-rank condition may be weakened to the requirement that $df_1,\ldots,df_r$ be linearly independent in the fibre of $\Omega_{R[x_1,\ldots,x_{n+r}]/R}$ at $x$.
 :::
 
 ## Basic properties
+::: {#prp-equivdef name=""}
+A $k$-scheme is smooth of relative dimension $d$ over $k$, if it is of pure dimension $d$, and there exists a cover by affine open sets $\operatorname{Spec} k[x_1,\ldots,x_n]/(f_1,\ldots,f_r)$ where the Jacobian matrix has corank $d$ at all points (not just closed points).
+:::
+
 :::{#prp-smooth-morphism-composition name=""}
 If $f\colon X\to Y$ and $g\colon Y\to Z$ are smooth morphisms of relative dimension $n$ and $m$ respectively, then the composition $g\circ f\colon X\to Z$ is also smooth of relative dimension $n+m$.
 :::
@@ -78,15 +77,21 @@ This is a local property, so we can assume that $f$ and $g$ are standard smooth 
 We recall the definition and properties of the sheaf of differentials in [The Sheaf of Differentials and Unramified Morphisms](unramified-morphisms.qmd). The sheaf of differentials can be used to characterize smooth morphisms and smooth varieties.
 
 :::{#prp-differentials-of-smooth-varieties name=""}
-A variety $X$ over $k$ is smooth if and only if the sheaf of differentials $\Omega_{X/k}$ is locally free of rank $\dim(X)$.
+A scheme $X$ is smooth of relative dimension $n$ over $k$ if and only if the sheaf of differentials $\Omega_{X/k}$ is locally free of rank $n$ and $X$ is locally of finite type and of pure dimension $n$.
 :::
 
 :::{.proof}
-When $\Omega_{X/k}$ is locally free of rank $\dim(X)$, we know that the Jacobian matrix has full rank at every point, which implies that $X$ is smooth. Conversely, assume $X$ is smooth. Then, by the relation between smoothness and regualrness, one can show that $X$ is reduced. Since $X$ is of finite type, the sheaf of differentials $\Omega_{X/k}$ is of finite type. By the relation between the cotangent space and the fibre of the sheaf of differentials, we have $\dim_{k(x)}(\Omega_{X/k}\otimes k(x))=\dim(X)$ for all closed points $x\in X$. Therefore, we conclude that $\Omega_{X/k}$ is locally free of rank $\dim(X)$.
+Assume $X$ is smooth of relative dimension $n$. Then, by the relation between smoothness and regualrness, one can show that $X$ is reduced. Since $X$ is locally of finite type, the sheaf of differentials $\Omega_{X/k}$ is of finite type. By defineion, $X$ is locally standard smooth over $k$ of relative dimension $n$, we conclude that $\Omega_{X/k}|_x$ is free of rank $n$ for all $x\in X$. Thus, $\Omega_{X/k}$ is locally free of rank $n$. The other two conditions follow immediately from the definition of the smoothness.
+
+Conversely, if $X$ satisfies the conditions, then since $\Omega_{X/k}$ is characterized by the cokernel of the Jacobian, the corank of the Jacobian must be $n$, which implies that $X$ is smooth of relative dimension $n$ by @prp-equivdef.
 :::
 
 :::{.callout-caution title="Caution"}
 It is not easy to show that a smooth variety is reduced. The proof is not included here, but it can be found in the textbook "The Rising Sea". And the last statement in the proof above is a corollary of Nakayama's lemma, which is a fundamental result in alegbraic geometry, and both reducedness, finiteness and the constantness of the dimension of fibre matter. See 14.3.J in "The Rising Sea" for details.
+:::
+
+::: {#rem-smooth-free-differentials name=""}
+When $f:X\to Y$ is a smooth morphism of relative dimension $n$, $\Omega_{X/Y}$ is locally free of rank $n$, since this is naturally true if $f$ is standard.
 :::
 
 ::: {#prp-smooth-and-transitive-exact-sequence name=""}
