@@ -17,7 +17,7 @@ A morphism $f\colon X\to Y$ between schemes is **étale** if it is
 :::
 
 :::{#def-étale name=""}
-A morphism $f\colon X\to Y$ between varieties over $k$ is **étale** if it induces isomorphisms on the tangent spaces at all points of $X$.
+A morphism $f\colon X\to Y$ between nonsingular varieties over $k$ is **étale** if it induces isomorphisms on the tangent spaces at all points of $X$.
 :::
 
 :::{#def-étale name=""}

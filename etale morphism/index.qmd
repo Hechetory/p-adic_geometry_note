@@ -3,7 +3,7 @@ title: "Étale Morphisms"
 subtitle: ""
 toc: false
 ---
-::: {.callout-note title="Site"}
+::: {.callout-note title="Cite"}
 "An étale morphism is the analogue in algebraic geometry of a local isomorphism of manifolds in differential geometry, a covering of Riemann surfaces with no branch points in complex analysis, and an unramiﬁed extension in algebraic number theory."--Milne.
 :::
 
@@ -15,4 +15,6 @@ For a first pass, continue to
 For a more detailed discussion, see
 [The Sheaf of Differentials and Unramified Morphisms](unramified-morphisms.qmd),
 [Smooth Morphisms](smooth-morphisms.qmd), and
-[Flat Morphisms](flat-morphisms.qmd) ...(TBA)
+[Flat Morphisms](flat-morphisms.qmd),
+[Smooth Morphisms Again](smooth-morphisms-again.qmd), and
+[Étale Morphisms](etale-morphisms.qmd) ...(TBA)

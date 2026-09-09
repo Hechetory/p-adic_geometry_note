@@ -39,6 +39,10 @@ website:
             text: Smooth Morphisms
           - href: "etale morphism/flat-morphisms.qmd"
             text: Flat Morphisms
+          - href: "etale morphism/smooth-morphisms-again.qmd"
+            text: Smooth Morphisms Again
+          - href: "etale morphism/etale-morphisms.qmd"
+            text: Étale Morphisms
       - href: editing.qmd
         text: How to edit these notes
   page-footer:
