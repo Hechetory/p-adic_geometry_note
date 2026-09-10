@@ -1,0 +1,1586 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.10.18">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>Haar Measure and Local Fields – p-adic geometry notes</title>
+<style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: 1.5em;}
+div.column{flex: auto;}
+@media screen {
+div.columns{gap: min(4vw, 1.5em);}
+div.column{overflow-x: auto;}
+}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<link href="../editing.html" rel="next">
+<link href="../jacquet-langlands correspondence/index.html" rel="prev">
+<script src="../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark-b85bc7c33db8c58e0ec93c3465666fed.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap-4135fc327bf2835b2ef38f6e520f46b7.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-dark-072fe720cdfc8dbd8d45003ad61e038e.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../site_libs/bootstrap/bootstrap-4135fc327bf2835b2ef38f6e520f46b7.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-chtml.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+<link rel="stylesheet" href="../styles.css">
+</head>
+
+<body class="nav-sidebar docked nav-fixed quarto-light"><script id="quarto-html-before-body" type="application/javascript">
+    const toggleBodyColorMode = (bsSheetEl) => {
+      const mode = bsSheetEl.getAttribute("data-mode");
+      const bodyEl = window.document.querySelector("body");
+      if (mode === "dark") {
+        bodyEl.classList.add("quarto-dark");
+        bodyEl.classList.remove("quarto-light");
+      } else {
+        bodyEl.classList.add("quarto-light");
+        bodyEl.classList.remove("quarto-dark");
+      }
+    }
+    const toggleBodyColorPrimary = () => {
+      const bsSheetEl = window.document.querySelector("link#quarto-bootstrap:not([rel=disabled-stylesheet])");
+      if (bsSheetEl) {
+        toggleBodyColorMode(bsSheetEl);
+      }
+    }
+    const setColorSchemeToggle = (alternate) => {
+      const toggles = window.document.querySelectorAll('.quarto-color-scheme-toggle');
+      for (let i=0; i < toggles.length; i++) {
+        const toggle = toggles[i];
+        if (toggle) {
+          if (alternate) {
+            toggle.classList.add("alternate");
+          } else {
+            toggle.classList.remove("alternate");
+          }
+        }
+      }
+    };
+    const toggleColorMode = (alternate) => {
+      // Switch the stylesheets
+      const primaryStylesheets = window.document.querySelectorAll('link.quarto-color-scheme:not(.quarto-color-alternate)');
+      const alternateStylesheets = window.document.querySelectorAll('link.quarto-color-scheme.quarto-color-alternate');
+      manageTransitions('#quarto-margin-sidebar .nav-link', false);
+      if (alternate) {
+        // note: dark is layered on light, we don't disable primary!
+        enableStylesheet(alternateStylesheets);
+        for (const sheetNode of alternateStylesheets) {
+          if (sheetNode.id === "quarto-bootstrap") {
+            toggleBodyColorMode(sheetNode);
+          }
+        }
+      } else {
+        disableStylesheet(alternateStylesheets);
+        enableStylesheet(primaryStylesheets)
+        toggleBodyColorPrimary();
+      }
+      manageTransitions('#quarto-margin-sidebar .nav-link', true);
+      // Switch the toggles
+      setColorSchemeToggle(alternate)
+      // Hack to workaround the fact that safari doesn't
+      // properly recolor the scrollbar when toggling (#1455)
+      if (navigator.userAgent.indexOf('Safari') > 0 && navigator.userAgent.indexOf('Chrome') == -1) {
+        manageTransitions("body", false);
+        window.scrollTo(0, 1);
+        setTimeout(() => {
+          window.scrollTo(0, 0);
+          manageTransitions("body", true);
+        }, 40);
+      }
+    }
+    const disableStylesheet = (stylesheets) => {
+      for (let i=0; i < stylesheets.length; i++) {
+        const stylesheet = stylesheets[i];
+        stylesheet.rel = 'disabled-stylesheet';
+      }
+    }
+    const enableStylesheet = (stylesheets) => {
+      for (let i=0; i < stylesheets.length; i++) {
+        const stylesheet = stylesheets[i];
+        if(stylesheet.rel !== 'stylesheet') { // for Chrome, which will still FOUC without this check
+          stylesheet.rel = 'stylesheet';
+        }
+      }
+    }
+    const manageTransitions = (selector, allowTransitions) => {
+      const els = window.document.querySelectorAll(selector);
+      for (let i=0; i < els.length; i++) {
+        const el = els[i];
+        if (allowTransitions) {
+          el.classList.remove('notransition');
+        } else {
+          el.classList.add('notransition');
+        }
+      }
+    }
+    const isFileUrl = () => {
+      return window.location.protocol === 'file:';
+    }
+    const hasAlternateSentinel = () => {
+      let styleSentinel = getColorSchemeSentinel();
+      if (styleSentinel !== null) {
+        return styleSentinel === "alternate";
+      } else {
+        return false;
+      }
+    }
+    const setStyleSentinel = (alternate) => {
+      const value = alternate ? "alternate" : "default";
+      if (!isFileUrl()) {
+        window.localStorage.setItem("quarto-color-scheme", value);
+      } else {
+        localAlternateSentinel = value;
+      }
+    }
+    const getColorSchemeSentinel = () => {
+      if (!isFileUrl()) {
+        const storageValue = window.localStorage.getItem("quarto-color-scheme");
+        return storageValue != null ? storageValue : localAlternateSentinel;
+      } else {
+        return localAlternateSentinel;
+      }
+    }
+    const toggleGiscusIfUsed = (isAlternate, darkModeDefault) => {
+      const baseTheme = document.querySelector('#giscus-base-theme')?.value ?? 'light';
+      const alternateTheme = document.querySelector('#giscus-alt-theme')?.value ?? 'dark';
+      let newTheme = '';
+      if(authorPrefersDark) {
+        newTheme = isAlternate ? baseTheme : alternateTheme;
+      } else {
+        newTheme = isAlternate ? alternateTheme : baseTheme;
+      }
+      const changeGiscusTheme = () => {
+        // From: https://github.com/giscus/giscus/issues/336
+        const sendMessage = (message) => {
+          const iframe = document.querySelector('iframe.giscus-frame');
+          if (!iframe) return;
+          iframe.contentWindow.postMessage({ giscus: message }, 'https://giscus.app');
+        }
+        sendMessage({
+          setConfig: {
+            theme: newTheme
+          }
+        });
+      }
+      const isGiscussLoaded = window.document.querySelector('iframe.giscus-frame') !== null;
+      if (isGiscussLoaded) {
+        changeGiscusTheme();
+      }
+    };
+    const authorPrefersDark = false;
+    const darkModeDefault = authorPrefersDark;
+      document.querySelector('link#quarto-text-highlighting-styles.quarto-color-scheme-extra').rel = 'disabled-stylesheet';
+      document.querySelector('link#quarto-bootstrap.quarto-color-scheme-extra').rel = 'disabled-stylesheet';
+    let localAlternateSentinel = darkModeDefault ? 'alternate' : 'default';
+    // Dark / light mode switch
+    window.quartoToggleColorScheme = () => {
+      // Read the current dark / light value
+      let toAlternate = !hasAlternateSentinel();
+      toggleColorMode(toAlternate);
+      setStyleSentinel(toAlternate);
+      toggleGiscusIfUsed(toAlternate, darkModeDefault);
+      window.dispatchEvent(new Event('resize'));
+    };
+    // Switch to dark mode if need be
+    if (hasAlternateSentinel()) {
+      toggleColorMode(true);
+    } else {
+      toggleColorMode(false);
+    }
+  </script>
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="../index.html">
+    <span class="navbar-title">p-adic geometry notes</span>
+    </a>
+  </div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://github.com/Hechetory/p-adic_geometry_note"> <i class="bi bi-github" role="img" aria-label="GitHub">
+</i> 
+<span class="menu-text"></span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+  <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
+  <a href="" class="quarto-reader-toggle quarto-navigation-tool px-1" onclick="window.quartoToggleReader(); return false;" title="Toggle reader mode">
+  <div class="quarto-reader-toggle-btn">
+  <i class="bi"></i>
+  </div>
+</a>
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../jacquet-langlands correspondence/index.html">The Jacquet–Langlands Correspondence</a></li><li class="breadcrumb-item"><a href="../jacquet-langlands correspondence/haar-local-fields.html">Haar Measure and Local Fields</a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
+        <div class="sidebar-tools-main">
+    <div id="quarto-search" class="quarto-navigation-tool px-1" title="Search"></div>
+</div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Home</span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
+ <span class="menu-text">Étale Morphisms</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../etale morphism/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Overview</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../etale morphism/definitions.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Definitions</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../etale morphism/unramified-morphisms.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">The Sheaf of Differentials and Unramified Morphisms</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../etale morphism/smooth-morphisms.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Smooth Morphisms</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../etale morphism/flat-morphisms.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Flat Morphisms</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../etale morphism/smooth-morphisms-again.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Smooth Morphisms Again</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../etale morphism/etale-morphisms.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Étale Morphisms</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true">
+ <span class="menu-text">The Jacquet–Langlands Correspondence</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../jacquet-langlands correspondence/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Overview</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../jacquet-langlands correspondence/haar-local-fields.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">Haar Measure and Local Fields</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../editing.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">How to edit these notes</span></a>
+  </div>
+</li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#haar-measure" id="toc-haar-measure" class="nav-link active" data-scroll-target="#haar-measure"><span class="header-section-number">1</span> Haar measure</a>
+  <ul class="collapse">
+  <li><a href="#radon-measures-and-positive-linear-functionals" id="toc-radon-measures-and-positive-linear-functionals" class="nav-link" data-scroll-target="#radon-measures-and-positive-linear-functionals"><span class="header-section-number">1.1</span> Radon measures and positive linear functionals</a></li>
+  <li><a href="#haar-measure-on-a-locally-compact-group" id="toc-haar-measure-on-a-locally-compact-group" class="nav-link" data-scroll-target="#haar-measure-on-a-locally-compact-group"><span class="header-section-number">1.2</span> Haar measure on a locally compact group</a>
+  <ul class="collapse">
+  <li><a href="#passing-between-left-and-right-haar-measures" id="toc-passing-between-left-and-right-haar-measures" class="nav-link" data-scroll-target="#passing-between-left-and-right-haar-measures"><span class="header-section-number">1.2.1</span> Passing between left and right Haar measures</a></li>
+  </ul></li>
+  <li><a href="#uniqueness-and-the-automorphism-modulus" id="toc-uniqueness-and-the-automorphism-modulus" class="nav-link" data-scroll-target="#uniqueness-and-the-automorphism-modulus"><span class="header-section-number">1.3</span> Uniqueness and the automorphism modulus</a>
+  <ul class="collapse">
+  <li><a href="#useful-formulas" id="toc-useful-formulas" class="nav-link" data-scroll-target="#useful-formulas"><span class="header-section-number">1.3.1</span> Useful formulas</a></li>
+  </ul></li>
+  <li><a href="#unimodularity-and-examples" id="toc-unimodularity-and-examples" class="nav-link" data-scroll-target="#unimodularity-and-examples"><span class="header-section-number">1.4</span> Unimodularity and examples</a></li>
+  </ul></li>
+  <li><a href="#local-fields-of-characteristic-zero" id="toc-local-fields-of-characteristic-zero" class="nav-link" data-scroll-target="#local-fields-of-characteristic-zero"><span class="header-section-number">2</span> Local fields of characteristic zero</a>
+  <ul class="collapse">
+  <li><a href="#the-normalized-absolute-value-from-haar-measure" id="toc-the-normalized-absolute-value-from-haar-measure" class="nav-link" data-scroll-target="#the-normalized-absolute-value-from-haar-measure"><span class="header-section-number">2.1</span> The normalized absolute value from Haar measure</a></li>
+  <li><a href="#classification-of-characteristic-zero-local-fields" id="toc-classification-of-characteristic-zero-local-fields" class="nav-link" data-scroll-target="#classification-of-characteristic-zero-local-fields"><span class="header-section-number">2.2</span> Classification of characteristic-zero local fields</a></li>
+  </ul></li>
+  <li><a href="#valuation-theory-in-the-nonarchimedean-case" id="toc-valuation-theory-in-the-nonarchimedean-case" class="nav-link" data-scroll-target="#valuation-theory-in-the-nonarchimedean-case"><span class="header-section-number">3</span> Valuation theory in the nonarchimedean case</a>
+  <ul class="collapse">
+  <li><a href="#the-valuation-ring-maximal-ideal-and-uniformizer" id="toc-the-valuation-ring-maximal-ideal-and-uniformizer" class="nav-link" data-scroll-target="#the-valuation-ring-maximal-ideal-and-uniformizer"><span class="header-section-number">3.1</span> The valuation ring, maximal ideal, and uniformizer</a></li>
+  <li><a href="#natural-filtrations" id="toc-natural-filtrations" class="nav-link" data-scroll-target="#natural-filtrations"><span class="header-section-number">3.2</span> Natural filtrations</a></li>
+  <li><a href="#hensels-lemma" id="toc-hensels-lemma" class="nav-link" data-scroll-target="#hensels-lemma"><span class="header-section-number">3.3</span> Hensel’s lemma</a></li>
+  </ul></li>
+  <li><a href="#linear-changes-of-variables-over-a-local-field" id="toc-linear-changes-of-variables-over-a-local-field" class="nav-link" data-scroll-target="#linear-changes-of-variables-over-a-local-field"><span class="header-section-number">4</span> Linear changes of variables over a local field</a></li>
+  <li><a href="#the-upper-triangular-group-in-mathrmgl_2f" id="toc-the-upper-triangular-group-in-mathrmgl_2f" class="nav-link" data-scroll-target="#the-upper-triangular-group-in-mathrmgl_2f"><span class="header-section-number">5</span> The upper-triangular group in <span class="math inline">\(\mathrm{GL}_2(F)\)</span></a></li>
+  </ul>
+<div class="toc-actions"><ul><li><a href="https://github.com/Hechetory/p-adic_geometry_note/edit/main/jacquet-langlands correspondence/haar-local-fields.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/Hechetory/p-adic_geometry_note/blob/main/jacquet-langlands correspondence/haar-local-fields.qmd" class="toc-action"><i class="bi empty"></i>View source</a></li><li><a href="https://github.com/Hechetory/p-adic_geometry_note/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../jacquet-langlands correspondence/index.html">The Jacquet–Langlands Correspondence</a></li><li class="breadcrumb-item"><a href="../jacquet-langlands correspondence/haar-local-fields.html">Haar Measure and Local Fields</a></li></ol></nav>
+<div class="quarto-title">
+<h1 class="title">Haar Measure and Local Fields</h1>
+<p class="subtitle lead">From Radon measures to characteristic-zero local fields</p>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<section id="haar-measure" class="level1" data-number="1">
+<h1 data-number="1"><span class="header-section-number">1</span> Haar measure</h1>
+<p>Let <span class="math inline">\(X\)</span> be a locally compact Hausdorff space, let <span class="math inline">\(\mathcal B(X)\)</span> denote its Borel <span class="math inline">\(\sigma\)</span>-algebra, and let</p>
+<p><span class="math display">\[
+C_c(X)=\{f:X\to\mathbb R : f \text{ is continuous and compactly supported}\}.
+\]</span></p>
+<section id="radon-measures-and-positive-linear-functionals" class="level2" data-number="1.1">
+<h2 data-number="1.1" class="anchored" data-anchor-id="radon-measures-and-positive-linear-functionals"><span class="header-section-number">1.1</span> Radon measures and positive linear functionals</h2>
+<div id="def-radon" class="theorem definition">
+<p><span class="theorem-title"><strong>Definition 1.1 (Radon measure)</strong></span> A <strong>Radon measure</strong> on <span class="math inline">\(X\)</span> is a positive Borel measure <span class="math inline">\(\mu\)</span> such that</p>
+<ol type="1">
+<li><span class="math inline">\(\mu(K)&lt;\infty\)</span> for every compact set <span class="math inline">\(K\subseteq X\)</span>;</li>
+<li><span class="math inline">\(\mu\)</span> is inner regular on open sets: <span class="math display">\[
+\mu(U)=\sup\{\mu(K):K\subseteq U,\ K\text{ compact}\};
+\]</span></li>
+<li><span class="math inline">\(\mu\)</span> is outer regular on Borel sets: <span class="math display">\[
+\mu(E)=\inf\{\mu(U):E\subseteq U,\ U\text{ open}\}.
+\]</span></li>
+</ol>
+<p>On a locally compact Hausdorff space, these regularity conditions make integration against <span class="math inline">\(\mu\)</span> compatible with the topology of <span class="math inline">\(X\)</span>.</p>
+</div>
+<div id="def-positive-functional" class="theorem definition">
+<p><span class="theorem-title"><strong>Definition 1.2 (Positive linear functional on C_c(X))</strong></span> A linear map</p>
+<p><span class="math display">\[
+\Lambda:C_c(X)\longrightarrow \mathbb R
+\]</span></p>
+<p>is <strong>positive</strong> if</p>
+<p><span class="math display">\[
+f\ge 0\quad\Longrightarrow\quad \Lambda(f)\ge 0.
+\]</span></p>
+<p>Positivity already implies the local boundedness needed in the Riesz representation theorem: for every compact <span class="math inline">\(K\subseteq X\)</span>, the restriction of <span class="math inline">\(\Lambda\)</span> to functions supported in <span class="math inline">\(K\)</span> is bounded in the uniform norm.</p>
+</div>
+<div id="thm-riesz" class="theorem">
+<p><span class="theorem-title"><strong>Theorem 1.1 (Riesz-Markov-Kakutani representation theorem)</strong></span> The assignment</p>
+<p><span class="math display">\[
+\mu\longmapsto \Lambda_\mu,
+\qquad
+\Lambda_\mu(f)=\int_X f(x)\,d\mu(x),
+\]</span></p>
+<p>is a bijection between Radon measures on <span class="math inline">\(X\)</span> and positive linear functionals on <span class="math inline">\(C_c(X)\)</span>.</p>
+<p>In particular, every positive linear functional <span class="math inline">\(\Lambda\)</span> has the form</p>
+<p><span class="math display">\[
+\Lambda(f)=\int_X f\,d\mu
+\]</span></p>
+<p>for a unique Radon measure <span class="math inline">\(\mu\)</span>.</p>
+</div>
+<p>The uniqueness is especially useful for invariant measures: if a positive functional is invariant under a group action on <span class="math inline">\(C_c(X)\)</span>, its representing Radon measure is invariant under the corresponding action on <span class="math inline">\(X\)</span>.</p>
+</section>
+<section id="haar-measure-on-a-locally-compact-group" class="level2" data-number="1.2">
+<h2 data-number="1.2" class="anchored" data-anchor-id="haar-measure-on-a-locally-compact-group"><span class="header-section-number">1.2</span> Haar measure on a locally compact group</h2>
+<p>From now on, let <span class="math inline">\(G\)</span> be a locally compact Hausdorff topological group.</p>
+<div id="def-haar" class="theorem definition">
+<p><span class="theorem-title"><strong>Definition 1.3 (Haar measure)</strong></span> A <strong>left Haar measure</strong> on <span class="math inline">\(G\)</span> is a nonzero Radon measure <span class="math inline">\(\mu_L\)</span> satisfying</p>
+<p><span class="math display">\[
+\mu_L(gE)=\mu_L(E)
+\]</span></p>
+<p>for every <span class="math inline">\(g\in G\)</span> and every Borel set <span class="math inline">\(E\subseteq G\)</span>.</p>
+<p>A <strong>right Haar measure</strong> on <span class="math inline">\(G\)</span> is a nonzero Radon measure <span class="math inline">\(\mu_R\)</span> satisfying</p>
+<p><span class="math display">\[
+\mu_R(Eg)=\mu_R(E).
+\]</span></p>
+</div>
+<div id="rem-two-actions" class="proof remark">
+<p><span class="proof-title"><em>Remark 1.1</em> (The two translation actions on C_c(G)). </span>There are two natural actions of <span class="math inline">\(G\)</span> on <span class="math inline">\(C_c(G)\)</span>:</p>
+<p><span class="math display">\[
+(L_gf)(x)=f(g^{-1}x),
+\qquad
+(R_gf)(x)=f(xg).
+\]</span></p>
+<p>A measure <span class="math inline">\(\mu_L\)</span> is left Haar exactly when</p>
+<p><span class="math display">\[
+\int_G L_gf\,d\mu_L=\int_G f\,d\mu_L
+\]</span></p>
+<p>for all <span class="math inline">\(g\in G\)</span> and <span class="math inline">\(f\in C_c(G)\)</span>. The analogous statement with <span class="math inline">\(R_g\)</span> characterizes right Haar measure.</p>
+</div>
+<div id="thm-haar-weil" class="theorem">
+<p><span class="theorem-title"><strong>Theorem 1.2 (Haar-Weil theorem: existence)</strong></span> Every locally compact Hausdorff group admits a left Haar measure and a right Haar measure.</p>
+</div>
+<p>The theorem is often proved by first constructing a nonzero positive translation-invariant functional on <span class="math inline">\(C_c(G)\)</span> and then applying <a href="#thm-riesz" class="quarto-xref">Theorem&nbsp;1.1</a>.</p>
+<section id="passing-between-left-and-right-haar-measures" class="level3" data-number="1.2.1">
+<h3 data-number="1.2.1" class="anchored" data-anchor-id="passing-between-left-and-right-haar-measures"><span class="header-section-number">1.2.1</span> Passing between left and right Haar measures</h3>
+<p>For a function <span class="math inline">\(f\in C_c(G)\)</span> and a Borel set <span class="math inline">\(E\subseteq G\)</span>, set</p>
+<p><span class="math display">\[
+\check f(g)=f(g^{-1}),
+\qquad
+E^{-1}=\{g^{-1}:g\in E\}.
+\]</span></p>
+<p>If <span class="math inline">\(\mu\)</span> is right Haar, define</p>
+<p><span class="math display">\[
+\check\mu(E)=\mu(E^{-1}).
+\]</span></p>
+<p>Then <span class="math inline">\(\check\mu\)</span> is left Haar. Conversely, inversion sends left Haar measure to right Haar measure. In integral form,</p>
+<p><span class="math display">\[
+\int_G f(g)\,d\check\mu(g)
+=
+\int_G \check f(g)\,d\mu(g)
+=
+\int_G f(g^{-1})\,d\mu(g).
+\]</span></p>
+</section>
+</section>
+<section id="uniqueness-and-the-automorphism-modulus" class="level2" data-number="1.3">
+<h2 data-number="1.3" class="anchored" data-anchor-id="uniqueness-and-the-automorphism-modulus"><span class="header-section-number">1.3</span> Uniqueness and the automorphism modulus</h2>
+<div id="thm-haar-uniqueness" class="theorem">
+<p><span class="theorem-title"><strong>Theorem 1.3 (Uniqueness of Haar measure)</strong></span> Any two left Haar measures on <span class="math inline">\(G\)</span> differ by multiplication by a positive scalar. The same is true of right Haar measures.</p>
+</div>
+<p>Fix a right Haar measure <span class="math inline">\(\mu\)</span> on <span class="math inline">\(G\)</span>, and let</p>
+<p><span class="math display">\[
+\operatorname{Aut}_{\mathrm{cts}}(G)
+\]</span></p>
+<p>be the group of continuous automorphisms of <span class="math inline">\(G\)</span>.</p>
+<div id="prp-automorphism-modulus" class="theorem proposition">
+<p><span class="theorem-title"><strong>Proposition 1.1 (Modulus of an automorphism)</strong></span> For each <span class="math inline">\(u\in\operatorname{Aut}_{\mathrm{cts}}(G)\)</span>, there is a unique number <span class="math inline">\(\delta(u)&gt;0\)</span> such that</p>
+<p><span class="math display">\[
+\mu(u(E))=\delta(u)\mu(E)
+\]</span></p>
+<p>for every Borel set <span class="math inline">\(E\subseteq G\)</span>.</p>
+<p>The number <span class="math inline">\(\delta(u)\)</span> is independent of the chosen right Haar measure, and</p>
+<p><span class="math display">\[
+\delta:\operatorname{Aut}_{\mathrm{cts}}(G)\longrightarrow\mathbb R_{&gt;0}
+\]</span></p>
+<p>is a group homomorphism. Equipped with the Braconnier topology, <span class="math inline">\(\operatorname{Aut}_{\mathrm{cts}}(G)\)</span> is a topological group and <span class="math inline">\(\delta\)</span> is continuous. Thus</p>
+<p><span class="math display">\[
+\delta(u_1u_2)=\delta(u_1)\delta(u_2).
+\]</span></p>
+<p>Equivalently, for every <span class="math inline">\(f\in C_c(G)\)</span>,</p>
+<p><span class="math display">\[
+\int_G f(u(x))\,d\mu(x)
+=
+\delta(u)^{-1}\int_G f(x)\,d\mu(x).
+\]</span></p>
+</div>
+<p>Indeed, the measure <span class="math inline">\(E\mapsto\mu(u(E))\)</span> is again right Haar, so <a href="#thm-haar-uniqueness" class="quarto-xref">Theorem&nbsp;1.3</a> supplies the scalar. Replacing <span class="math inline">\(\mu\)</span> by <span class="math inline">\(c\mu\)</span> does not change that scalar, and composition of automorphisms proves multiplicativity.</p>
+<div id="def-modular-character" class="theorem definition">
+<p><span class="theorem-title"><strong>Definition 1.4 (Modular character)</strong></span> The conjugation map is</p>
+<p><span class="math display">\[
+\operatorname{Ad}:G\longrightarrow\operatorname{Inn}(G)
+\subseteq\operatorname{Aut}_{\mathrm{cts}}(G),
+\qquad
+\operatorname{Ad}(g)(x)=gxg^{-1}.
+\]</span></p>
+<p>The <strong>modular character</strong> of <span class="math inline">\(G\)</span> is</p>
+<p><span class="math display">\[
+\delta_G:G\longrightarrow\mathbb R_{&gt;0},
+\qquad
+\delta_G(g)=\delta(\operatorname{Ad}(g)).
+\]</span></p>
+</div>
+<p>This convention is tied to the fixed right Haar measure: <span class="math inline">\(\mu(gE)=\delta_G(g)\mu(E)\)</span>. Authors who begin with a left Haar measure sometimes use the reciprocal function, so the defining change-of-variables identity should always be checked.</p>
+<section id="useful-formulas" class="level3" data-number="1.3.1">
+<h3 data-number="1.3.1" class="anchored" data-anchor-id="useful-formulas"><span class="header-section-number">1.3.1</span> Useful formulas</h3>
+<p>Let <span class="math inline">\(E\in\mathcal B(G)\)</span> and <span class="math inline">\(g\in G\)</span>. Since <span class="math inline">\(\mu\)</span> is right invariant,</p>
+<p><span class="math display">\[
+\mu(gE)
+=
+\mu(gEg^{-1})
+=
+\delta_G(g)\mu(E).
+\]</span></p>
+<p>Likewise, for <span class="math inline">\(f\in C_c(G)\)</span>,</p>
+<p><span class="math display">\[
+\begin{aligned}
+\int_G f(gx)\,d\mu(x)
+&amp;=\int_G f(gxg^{-1})\,d\mu(x)\\
+&amp;=\delta_G(g)^{-1}\int_G f(x)\,d\mu(x).
+\end{aligned}
+\]</span></p>
+<p>The first equality uses right invariance, while the second is the change-of-variables formula for <span class="math inline">\(\operatorname{Ad}(g)\)</span>.</p>
+</section>
+</section>
+<section id="unimodularity-and-examples" class="level2" data-number="1.4">
+<h2 data-number="1.4" class="anchored" data-anchor-id="unimodularity-and-examples"><span class="header-section-number">1.4</span> Unimodularity and examples</h2>
+<div id="def-unimodular" class="theorem definition">
+<p><span class="theorem-title"><strong>Definition 1.5 (Unimodular group)</strong></span> The group <span class="math inline">\(G\)</span> is <strong>unimodular</strong> if</p>
+<p><span class="math display">\[
+\delta_G\equiv 1.
+\]</span></p>
+<p>Equivalently, every right Haar measure is also left Haar.</p>
+</div>
+<div id="exm-unimodular" class="theorem example">
+<p><span class="theorem-title"><strong>Example 1.1 (Basic unimodular groups)</strong></span> Each of the following is unimodular:</p>
+<ul>
+<li>every abelian locally compact group, because every inner automorphism is the identity;</li>
+<li>every compact group, because the image of the continuous homomorphism <span class="math inline">\(\delta_G:G\to\mathbb R_{&gt;0}\)</span> is compact, and the only compact subgroup of <span class="math inline">\(\mathbb R_{&gt;0}\)</span> is <span class="math inline">\(\{1\}\)</span>;</li>
+<li>every discrete group, because counting measure is both left and right invariant.</li>
+</ul>
+</div>
+<div id="exm-euclidean-modulus" class="theorem example">
+<p><span class="theorem-title"><strong>Example 1.2 (Lebesgue measure on R^n)</strong></span> The additive group <span class="math inline">\(\mathbb R^n\)</span> is unimodular. Its automorphism group is <span class="math inline">\(\mathrm{GL}_n(\mathbb R)\)</span>, and Lebesgue measure satisfies</p>
+<p><span class="math display">\[
+\delta_{\mathbb R^n}(A)=|\det A|,
+\qquad A\in\mathrm{GL}_n(\mathbb R).
+\]</span></p>
+<p>Here <span class="math inline">\(\delta_{\mathbb R^n}(A)\)</span> is the automorphism modulus from <a href="#prp-automorphism-modulus" class="quarto-xref">Proposition&nbsp;1.1</a>, not the modular character of the abelian group <span class="math inline">\(\mathbb R^n\)</span>.</p>
+</div>
+<div id="exm-multiplicative-reals" class="theorem example">
+<p><span class="theorem-title"><strong>Example 1.3 (Haar measure on R^times)</strong></span> The measure</p>
+<p><span class="math display">\[
+d^\times x=\frac{dx}{|x|}
+\]</span></p>
+<p>is Haar measure on the multiplicative group <span class="math inline">\(\mathbb R^\times\)</span>. Indeed, the substitution <span class="math inline">\(x=ay\)</span> gives</p>
+<p><span class="math display">\[
+\frac{dx}{|x|}=\frac{|a|\,dy}{|a||y|}=\frac{dy}{|y|}.
+\]</span></p>
+</div>
+<div id="exm-borel-preview" class="theorem example">
+<p><span class="theorem-title"><strong>Example 1.4 (The upper-triangular subgroup)</strong></span> Let</p>
+<p><span class="math display">\[
+B=
+\left\{
+\begin{pmatrix}
+a&amp;b\\
+0&amp;c
+\end{pmatrix}
+:a,c\in\mathbb R^\times,\ b\in\mathbb R
+\right\}
+\subseteq\mathrm{GL}_2(\mathbb R).
+\]</span></p>
+<p>Then</p>
+<p><span class="math display">\[
+\delta_B\!\left(
+\begin{pmatrix}
+a&amp;b\\
+0&amp;c
+\end{pmatrix}
+\right)
+=
+\left|\frac{a}{c}\right|.
+\]</span></p>
+<p>The same formula holds over an arbitrary local field after replacing the ordinary absolute value by the normalized absolute value of that field. A direct calculation appears at the end of the note.</p>
+</div>
+</section>
+</section>
+<section id="local-fields-of-characteristic-zero" class="level1" data-number="2">
+<h1 data-number="2"><span class="header-section-number">2</span> Local fields of characteristic zero</h1>
+<p>Let <span class="math inline">\(F\)</span> be a locally compact Hausdorff topological field of characteristic zero. Its additive group <span class="math inline">\((F,+)\)</span> is locally compact and abelian.</p>
+<section id="the-normalized-absolute-value-from-haar-measure" class="level2" data-number="2.1">
+<h2 data-number="2.1" class="anchored" data-anchor-id="the-normalized-absolute-value-from-haar-measure"><span class="header-section-number">2.1</span> The normalized absolute value from Haar measure</h2>
+<p>For <span class="math inline">\(a\in F^\times\)</span>, multiplication by <span class="math inline">\(a\)</span> is a continuous automorphism</p>
+<p><span class="math display">\[
+m_a:(F,+)\longrightarrow(F,+),
+\qquad
+x\longmapsto ax.
+\]</span></p>
+<div id="def-module-of-field" class="theorem definition">
+<p><span class="theorem-title"><strong>Definition 2.1 (Module of multiplication)</strong></span> Define</p>
+<p><span class="math display">\[
+\lVert a\rVert_F=\delta_{(F,+)}(m_a)&gt;0
+\qquad(a\in F^\times),
+\]</span></p>
+<p>and set <span class="math inline">\(\lVert0\rVert_F=0\)</span>. We call <span class="math inline">\(\lVert\cdot\rVert_F\)</span> the <strong>Haar-normalized absolute value</strong>, or <strong>module</strong>, of <span class="math inline">\(F\)</span>.</p>
+<p>By construction,</p>
+<p><span class="math display">\[
+\lVert ab\rVert_F=\lVert a\rVert_F\lVert b\rVert_F.
+\]</span></p>
+</div>
+<p>If <span class="math inline">\(\mu_F\)</span> is additive Haar measure, the defining change-of-variables identities are</p>
+<p><span class="math display">\[
+\mu_F(aE)=\lVert a\rVert_F\mu_F(E)
+\]</span></p>
+<p>and</p>
+<p><span class="math display">\[
+\int_F f(ax)\,d\mu_F(x)
+=
+\lVert a\rVert_F^{-1}\int_F f(x)\,d\mu_F(x).
+\]</span></p>
+<div id="prp-associated-absolute-value" class="theorem proposition">
+<p><span class="theorem-title"><strong>Proposition 2.1 (Associated ordinary absolute value)</strong></span> With the standard local-field normalization, there is a number <span class="math inline">\(t_F&gt;0\)</span> such that</p>
+<p><span class="math display">\[
+|x|=\lVert x\rVert_F^{1/t_F}
+\]</span></p>
+<p>is an ordinary absolute value inducing the original topology on <span class="math inline">\(F\)</span>. In the classification below,</p>
+<p><span class="math display">\[
+t_F=
+\begin{cases}
+2,&amp;F\cong\mathbb C,\\
+1,&amp;\text{otherwise}.
+\end{cases}
+\]</span></p>
+<p>Thus the exceptional case is</p>
+<p><span class="math display">\[
+\lVert z\rVert_{\mathbb C}=z\overline z=|z|^2.
+\]</span></p>
+</div>
+<div id="rem-normalization" class="proof remark">
+<p><span class="proof-title"><em>Remark 2.1</em> (A normalization point). </span>Without fixing a convention, the exponent in <a href="#prp-associated-absolute-value" class="quarto-xref">Proposition&nbsp;2.1</a> is not unique: positive powers can define equivalent absolute values. The values of <span class="math inline">\(t_F\)</span> above are the standard choices compatible with Haar measure and the usual absolute value on <span class="math inline">\(\mathbb R\)</span> and <span class="math inline">\(\mathbb C\)</span>; in the nonarchimedean case, the module <span class="math inline">\(\lVert\cdot\rVert_F\)</span> itself is used.</p>
+</div>
+<p>The metric</p>
+<p><span class="math display">\[
+d(x,y)=|x-y|
+\]</span></p>
+<p>induces the original topology of <span class="math inline">\(F\)</span>. We exclude the discrete topology; in the discrete case the corresponding module is trivial:</p>
+<p><span class="math display">\[
+\lVert x\rVert_F=
+\begin{cases}
+1,&amp;x\ne0,\\
+0,&amp;x=0.
+\end{cases}
+\]</span></p>
+<div id="def-local-field" class="theorem definition">
+<p><span class="theorem-title"><strong>Definition 2.2 (Local field of characteristic zero)</strong></span> A <strong>local field of characteristic zero</strong> is a nondiscrete, locally compact Hausdorff topological field <span class="math inline">\(F\)</span> with <span class="math inline">\(\operatorname{char}F=0\)</span>.</p>
+</div>
+</section>
+<section id="classification-of-characteristic-zero-local-fields" class="level2" data-number="2.2">
+<h2 data-number="2.2" class="anchored" data-anchor-id="classification-of-characteristic-zero-local-fields"><span class="header-section-number">2.2</span> Classification of characteristic-zero local fields</h2>
+<p>The prime field gives an embedding</p>
+<p><span class="math display">\[
+\mathbb Q\hookrightarrow F.
+\]</span></p>
+<p>The restriction of <span class="math inline">\(|\cdot|\)</span> to <span class="math inline">\(\mathbb Q\)</span> is nontrivial. Indeed, choose a compact neighborhood <span class="math inline">\(K\)</span> of <span class="math inline">\(0\)</span> and a radius <span class="math inline">\(r&gt;0\)</span> such that <span class="math inline">\(\overline B(0,r)\subseteq K\)</span>. Using nondiscreteness, choose <span class="math inline">\(x\ne0\)</span> with <span class="math inline">\(|x|&lt;r\)</span>. If <span class="math inline">\(|n|=1\)</span> for every nonzero <span class="math inline">\(n\in\mathbb Z\)</span>, then all points <span class="math inline">\(nx\)</span> lie in the compact set <span class="math inline">\(\overline B(0,r)\)</span> and</p>
+<p><span class="math display">\[
+|nx-mx|=|n-m|\,|x|=|x|
+\]</span></p>
+<p>whenever <span class="math inline">\(n\ne m\)</span>. This would give an infinite <span class="math inline">\(|x|\)</span>-separated subset of a compact metric space, which is impossible.</p>
+<p>Restricting the associated absolute value to <span class="math inline">\(\mathbb Q\)</span> and applying Ostrowski’s theorem now shows that exactly one of the following occurs:</p>
+<p><span class="math display">\[
+|\cdot|\big|_{\mathbb Q}
+\sim
+|\cdot|_\infty
+\qquad\text{or}\qquad
+|\cdot|\big|_{\mathbb Q}
+\sim
+|\cdot|_p
+\]</span></p>
+<p>for a unique prime <span class="math inline">\(p\)</span>. Here <span class="math inline">\(\sim\)</span> means that one absolute value is a positive power of the other; equivalent absolute values determine the same topology.</p>
+<div id="prp-local-field-complete" class="theorem proposition">
+<p><span class="theorem-title"><strong>Proposition 2.2 (Completeness)</strong></span> The field <span class="math inline">\(F\)</span> is complete for the metric <span class="math inline">\(d(x,y)=|x-y|\)</span>.</p>
+</div>
+<p><strong>Proof.</strong> Translations act transitively on <span class="math inline">\(F\)</span> by isometries. Choose a compact neighborhood <span class="math inline">\(K\)</span> of <span class="math inline">\(0\)</span>. Since the metric topology is the given topology, some closed ball <span class="math inline">\(\overline B(0,r)\)</span> is contained in <span class="math inline">\(K\)</span> and is therefore compact. Translation then shows that every closed ball</p>
+<p><span class="math display">\[
+\overline B(x,r)=x+\overline B(0,r)
+\]</span></p>
+<p>is compact. If <span class="math inline">\((x_n)\)</span> is Cauchy, then some tail lies in one such compact ball. That tail has a convergent subsequence, and a Cauchy sequence with a convergent subsequence converges to the same limit. Hence <span class="math inline">\(F\)</span> is complete. <span class="math inline">\(\square\)</span></p>
+<p>Consequently, the closure of <span class="math inline">\(\mathbb Q\)</span> in <span class="math inline">\(F\)</span> is isomorphic either to <span class="math inline">\(\mathbb R\)</span> or to <span class="math inline">\(\mathbb Q_p\)</span>. Thus <span class="math inline">\(F\)</span> is a topological vector space over one of these two complete fields.</p>
+<div id="thm-weil-vector-space" class="theorem">
+<p><span class="theorem-title"><strong>Theorem 2.1 (Weil’s finite-dimensionality theorem)</strong></span> Let <span class="math inline">\(K\)</span> be a nondiscrete locally compact field. If <span class="math inline">\(V\)</span> is a Hausdorff topological <span class="math inline">\(K\)</span>-vector space that is locally compact, then</p>
+<p><span class="math display">\[
+\dim_KV&lt;\infty.
+\]</span></p>
+</div>
+<p>Applying <a href="#thm-weil-vector-space" class="quarto-xref">Theorem&nbsp;2.1</a> to <span class="math inline">\(V=F\)</span> gives</p>
+<p><span class="math display">\[
+[F:\mathbb R]&lt;\infty
+\qquad\text{or}\qquad
+[F:\mathbb Q_p]&lt;\infty.
+\]</span></p>
+<p>We arrive at the classification.</p>
+<div id="thm-local-field-classification" class="theorem">
+<p><span class="theorem-title"><strong>Theorem 2.2 (Classification)</strong></span> Every characteristic-zero local field is isomorphic, as a topological field, to exactly one of the following types:</p>
+<ol type="1">
+<li>an <strong>archimedean local field</strong>, namely <span class="math inline">\(\mathbb R\)</span> or <span class="math inline">\(\mathbb C\)</span>;</li>
+<li>a <strong>nonarchimedean local field</strong>, namely a finite extension of <span class="math inline">\(\mathbb Q_p\)</span> for a unique prime <span class="math inline">\(p\)</span>.</li>
+</ol>
+</div>
+<p>For <span class="math inline">\(F=\mathbb R\)</span>, one has <span class="math inline">\(t_F=1\)</span>. For <span class="math inline">\(F=\mathbb C\)</span>, one has <span class="math inline">\(t_F=2\)</span> because multiplication by <span class="math inline">\(z\)</span> on the real vector space <span class="math inline">\(\mathbb C\cong\mathbb R^2\)</span> has determinant <span class="math inline">\(z\overline z\)</span>. For a finite extension of <span class="math inline">\(\mathbb Q_p\)</span>, the module <span class="math inline">\(\lVert\cdot\rVert_F\)</span> is already nonarchimedean, so the standard choice is <span class="math inline">\(t_F=1\)</span>.</p>
+</section>
+</section>
+<section id="valuation-theory-in-the-nonarchimedean-case" class="level1" data-number="3">
+<h1 data-number="3"><span class="header-section-number">3</span> Valuation theory in the nonarchimedean case</h1>
+<p>Assume from now on that <span class="math inline">\(F\)</span> is a finite extension of <span class="math inline">\(\mathbb Q_p\)</span>. Write <span class="math inline">\(|\cdot|_F\)</span> for its Haar-normalized nonarchimedean absolute value; thus <span class="math inline">\(|\cdot|_F=\lVert\cdot\rVert_F\)</span>.</p>
+<section id="the-valuation-ring-maximal-ideal-and-uniformizer" class="level2" data-number="3.1">
+<h2 data-number="3.1" class="anchored" data-anchor-id="the-valuation-ring-maximal-ideal-and-uniformizer"><span class="header-section-number">3.1</span> The valuation ring, maximal ideal, and uniformizer</h2>
+<p>Define</p>
+<p><span class="math display">\[
+\mathcal O_F=\{x\in F:|x|_F\le1\},
+\qquad
+\mathfrak p_F=\{x\in F:|x|_F&lt;1\}.
+\]</span></p>
+<p>Then <span class="math inline">\(\mathcal O_F\)</span> is a compact open subring of <span class="math inline">\(F\)</span>, and</p>
+<p><span class="math display">\[
+\mathcal O_F^\times=\{x\in F:|x|_F=1\}.
+\]</span></p>
+<p>The ring <span class="math inline">\(\mathcal O_F\)</span> is a discrete valuation ring. Its unique maximal ideal is <span class="math inline">\(\mathfrak p_F\)</span>, and there is a <strong>uniformizer</strong> <span class="math inline">\(\varpi_F\in\mathfrak p_F\)</span> such that</p>
+<p><span class="math display">\[
+\mathfrak p_F=\varpi_F\mathcal O_F.
+\]</span></p>
+<p>Every <span class="math inline">\(x\in F^\times\)</span> admits a unique decomposition</p>
+<p><span class="math display">\[
+x=\varpi_F^{v_F(x)}u,
+\qquad
+v_F(x)\in\mathbb Z,
+\quad
+u\in\mathcal O_F^\times.
+\]</span></p>
+<p>Equivalently,</p>
+<p><span class="math display">\[
+F^\times=\varpi_F^{\mathbb Z}\times\mathcal O_F^\times,
+\]</span></p>
+<p>and the normalized valuation</p>
+<p><span class="math display">\[
+v_F:F^\times\longrightarrow\mathbb Z
+\]</span></p>
+<p>is characterized by <span class="math inline">\(v_F(\varpi_F)=1\)</span>.</p>
+<p>The residue field</p>
+<p><span class="math display">\[
+k_F=\mathcal O_F/\mathfrak p_F
+\]</span></p>
+<p>is finite. Put</p>
+<p><span class="math display">\[
+q=\#k_F.
+\]</span></p>
+<p>Because <span class="math inline">\([\mathcal O_F:\mathfrak p_F]=q\)</span>, additive Haar measure normalized by <span class="math inline">\(\mu_F(\mathcal O_F)=1\)</span> satisfies</p>
+<p><span class="math display">\[
+\mu_F(\mathfrak p_F)=q^{-1}.
+\]</span></p>
+<p>It follows that</p>
+<p><span class="math display">\[
+|x|_F=q^{-v_F(x)}.
+\]</span></p>
+</section>
+<section id="natural-filtrations" class="level2" data-number="3.2">
+<h2 data-number="3.2" class="anchored" data-anchor-id="natural-filtrations"><span class="header-section-number">3.2</span> Natural filtrations</h2>
+<p>The powers of the maximal ideal form a decreasing additive filtration</p>
+<p><span class="math display">\[
+\mathcal O_F\supset\mathfrak p_F\supset\mathfrak p_F^2\supset\cdots,
+\]</span></p>
+<p>and the <strong>higher unit groups</strong></p>
+<p><span class="math display">\[
+U_F^n=1+\mathfrak p_F^n,
+\qquad n\ge1,
+\]</span></p>
+<p>form a decreasing multiplicative filtration</p>
+<p><span class="math display">\[
+\mathcal O_F^\times\supset U_F^1\supset U_F^2\supset\cdots.
+\]</span></p>
+</section>
+<section id="hensels-lemma" class="level2" data-number="3.3">
+<h2 data-number="3.3" class="anchored" data-anchor-id="hensels-lemma"><span class="header-section-number">3.3</span> Hensel’s lemma</h2>
+<div id="lem-hensel-factorization" class="theorem lemma">
+<p><span class="theorem-title"><strong>Lemma 3.1 (Hensel’s lemma: factorization form)</strong></span> Let <span class="math inline">\(P\in\mathcal O_F[X]\)</span> be monic. Suppose that its reduction modulo <span class="math inline">\(\mathfrak p_F\)</span> factors as</p>
+<p><span class="math display">\[
+\overline P=\overline A\,\overline B
+\qquad\text{in }k_F[X],
+\]</span></p>
+<p>where <span class="math inline">\(\overline A\)</span> and <span class="math inline">\(\overline B\)</span> are monic and relatively prime. Then there are unique monic polynomials <span class="math inline">\(A,B\in\mathcal O_F[X]\)</span> satisfying</p>
+<p><span class="math display">\[
+A\bmod\mathfrak p_F=\overline A,
+\qquad
+B\bmod\mathfrak p_F=\overline B,
+\qquad
+P=AB.
+\]</span></p>
+</div>
+<div id="cor-hensel-root" class="theorem corollary">
+<p><span class="theorem-title"><strong>Corollary 3.1 (Simple roots lift)</strong></span> Let <span class="math inline">\(P\in\mathcal O_F[X]\)</span>. If <span class="math inline">\(\overline a\in k_F\)</span> is a simple root of <span class="math inline">\(\overline P\)</span>, then there is a unique <span class="math inline">\(a\in\mathcal O_F\)</span> reducing to <span class="math inline">\(\overline a\)</span> such that</p>
+<p><span class="math display">\[
+P(a)=0.
+\]</span></p>
+</div>
+<p>Apply <a href="#cor-hensel-root" class="quarto-xref">Corollary&nbsp;3.1</a> to <span class="math inline">\(P(X)=X^{q-1}-1\)</span>. Since <span class="math inline">\(p\nmid q-1\)</span>, every nonzero residue class is a simple root. Therefore reduction induces an isomorphism</p>
+<p><span class="math display">\[
+\mu_{q-1}(F)\xrightarrow{\sim}k_F^\times,
+\]</span></p>
+<p>where</p>
+<p><span class="math display">\[
+\mu_{q-1}(F)=\{x\in F^\times:x^{q-1}=1\}.
+\]</span></p>
+<p>The exact sequence</p>
+<p><span class="math display">\[
+1\longrightarrow U_F^1
+\longrightarrow\mathcal O_F^\times
+\longrightarrow k_F^\times
+\longrightarrow1
+\]</span></p>
+<p>therefore splits via the Teichmuller representatives <span class="math inline">\(\mu_{q-1}(F)\)</span>. Hence</p>
+<p><span class="math display">\[
+\mathcal O_F^\times
+\cong
+\mu_{q-1}(F)\times U_F^1
+\cong
+k_F^\times\times U_F^1.
+\]</span></p>
+<div id="exm-prime-to-p-torsion" class="theorem example">
+<p><span class="theorem-title"><strong>Example 3.1 (Prime-to-p roots of unity)</strong></span> For <span class="math inline">\(x\in F^\times\)</span>,</p>
+<p><span class="math display">\[
+x\in\mu_{q-1}(F)
+\quad\Longleftrightarrow\quad
+x\text{ has finite order relatively prime to }p.
+\]</span></p>
+<p>Indeed, reduction is injective on prime-to-<span class="math inline">\(p\)</span> torsion, while <span class="math inline">\(k_F^\times\)</span> is cyclic of order <span class="math inline">\(q-1\)</span>.</p>
+</div>
+</section>
+</section>
+<section id="linear-changes-of-variables-over-a-local-field" class="level1" data-number="4">
+<h1 data-number="4"><span class="header-section-number">4</span> Linear changes of variables over a local field</h1>
+<p>Let <span class="math inline">\(F\)</span> be any local field and give <span class="math inline">\(F^n\)</span> the product additive Haar measure</p>
+<p><span class="math display">\[
+\mu_{F^n}=\mu_F^{\otimes n}.
+\]</span></p>
+<div id="prp-linear-modulus" class="theorem proposition">
+<p><span class="theorem-title"><strong>Proposition 4.1 (Modulus of a linear automorphism)</strong></span> For every <span class="math inline">\(A\in\mathrm{GL}_n(F)\)</span>,</p>
+<p><span class="math display">\[
+\delta_{F^n}(A)=|\det A|_F,
+\]</span></p>
+<p>where <span class="math inline">\(|\cdot|_F\)</span> denotes the Haar-normalized absolute value of <span class="math inline">\(F\)</span>. Equivalently,</p>
+<p><span class="math display">\[
+\int_{F^n}f(Ax)\,d\mu_{F^n}(x)
+=
+|\det A|_F^{-1}
+\int_{F^n}f(x)\,d\mu_{F^n}(x).
+\]</span></p>
+</div>
+<p>For <span class="math inline">\(n=1\)</span>, this is exactly the definition of <span class="math inline">\(|\cdot|_F\)</span>. If</p>
+<p><span class="math display">\[
+A=P^{-1}DP
+\]</span></p>
+<p>with <span class="math inline">\(D=\operatorname{diag}(a_1,\ldots,a_n)\)</span>, then multiplicativity of the automorphism modulus gives</p>
+<p><span class="math display">\[
+\delta_{F^n}(A)=\delta_{F^n}(D).
+\]</span></p>
+<p>Using the product measure and changing one coordinate at a time,</p>
+<p><span class="math display">\[
+\delta_{F^n}(D)
+=
+\prod_{i=1}^n|a_i|_F
+=
+|\det D|_F
+=
+|\det A|_F.
+\]</span></p>
+<p>Thus <a href="#prp-linear-modulus" class="quarto-xref">Proposition&nbsp;4.1</a> holds whenever <span class="math inline">\(A\)</span> is diagonalizable over <span class="math inline">\(F\)</span>.</p>
+<div id="lem-extension-absolute-value" class="theorem lemma">
+<p><span class="theorem-title"><strong>Lemma 4.1 (Absolute values in finite extensions)</strong></span> If <span class="math inline">\(L/K\)</span> is a finite extension of local fields, then for every <span class="math inline">\(x\in K\)</span>,</p>
+<p><span class="math display">\[
+|x|_L=|x|_K^{[L:K]}.
+\]</span></p>
+</div>
+<p>To see this, regard the multiplication map <span class="math inline">\(m_x:L\to L\)</span> as the scalar linear map <span class="math inline">\(xI\)</span> on the <span class="math inline">\([L:K]\)</span>-dimensional <span class="math inline">\(K\)</span>-vector space <span class="math inline">\(L\)</span>. The diagonal case already proved above shows that its modulus is <span class="math inline">\(|x|_K^{[L:K]}\)</span>.</p>
+<p>Now suppose that <span class="math inline">\(A\)</span> is semisimple and choose a finite splitting field <span class="math inline">\(L/F\)</span>. Put <span class="math inline">\(d=[L:F]\)</span>. After choosing an <span class="math inline">\(F\)</span>-basis of <span class="math inline">\(L\)</span>, the action of <span class="math inline">\(A\)</span> on the additive group <span class="math inline">\(L^n\)</span> is the direct sum of <span class="math inline">\(d\)</span> copies of its action on <span class="math inline">\(F^n\)</span>. Since any two Haar measures differ by a scalar, this identification gives</p>
+<p><span class="math display">\[
+\delta_{L^n}(A)=\delta_{F^n}(A)^d.
+\]</span></p>
+<p>Over <span class="math inline">\(L\)</span>, the matrix <span class="math inline">\(A\)</span> is diagonalizable. The diagonalizable case and <a href="#lem-extension-absolute-value" class="quarto-xref">Lemma&nbsp;4.1</a> give</p>
+<p><span class="math display">\[
+\delta_{L^n}(A)
+=|\det A|_L
+=|\det A|_F^d.
+\]</span></p>
+<p>Taking positive <span class="math inline">\(d\)</span>th roots proves the desired identity over <span class="math inline">\(F\)</span> for every semisimple <span class="math inline">\(A\)</span>. Finally, regular semisimple matrices are dense in <span class="math inline">\(\mathrm{GL}_n(F)\)</span>: their complement is the zero set of the nonzero discriminant polynomial and has empty interior over a local field. Both</p>
+<p><span class="math display">\[
+A\longmapsto\delta_{F^n}(A)
+\qquad\text{and}\qquad
+A\longmapsto|\det A|_F
+\]</span></p>
+<p>are continuous. This proves <a href="#prp-linear-modulus" class="quarto-xref">Proposition&nbsp;4.1</a> for every <span class="math inline">\(A\in\mathrm{GL}_n(F)\)</span>.</p>
+</section>
+<section id="the-upper-triangular-group-in-mathrmgl_2f" class="level1" data-number="5">
+<h1 data-number="5"><span class="header-section-number">5</span> The upper-triangular group in <span class="math inline">\(\mathrm{GL}_2(F)\)</span></h1>
+<p>We now compute the formula announced in <a href="#exm-borel-preview" class="quarto-xref">Example&nbsp;1.4</a> over an arbitrary local field <span class="math inline">\(F\)</span>. Let</p>
+<p><span class="math display">\[
+B=
+\left\{
+\begin{pmatrix}
+a&amp;b\\
+0&amp;c
+\end{pmatrix}
+:a,c\in F^\times,\ b\in F
+\right\}.
+\]</span></p>
+<p>Write</p>
+<p><span class="math display">\[
+T=
+\left\{
+\begin{pmatrix}
+a&amp;0\\
+0&amp;c
+\end{pmatrix}
+:a,c\in F^\times
+\right\},
+\qquad
+U=
+\left\{
+\begin{pmatrix}
+1&amp;u\\
+0&amp;1
+\end{pmatrix}
+:u\in F
+\right\}.
+\]</span></p>
+<p>Then <span class="math inline">\(B=U\rtimes T\)</span>. Both <span class="math inline">\(T\cong F^\times\times F^\times\)</span> and <span class="math inline">\(U\cong(F,+)\)</span> are abelian and hence unimodular. Conjugation is given by</p>
+<p><span class="math display">\[
+\begin{pmatrix}
+a&amp;0\\
+0&amp;c
+\end{pmatrix}
+\begin{pmatrix}
+1&amp;u\\
+0&amp;1
+\end{pmatrix}
+\begin{pmatrix}
+a&amp;0\\
+0&amp;c
+\end{pmatrix}^{-1}
+=
+\begin{pmatrix}
+1&amp;\dfrac ac\,u\\
+0&amp;1
+\end{pmatrix}.
+\]</span></p>
+<p>Let <span class="math inline">\(d\mu_U(u)\)</span> be additive Haar measure on <span class="math inline">\(F\)</span>, and let <span class="math inline">\(d\mu_T(t)\)</span> be Haar measure on <span class="math inline">\(T\)</span>. A right Haar measure on <span class="math inline">\(B\)</span> is characterized by</p>
+<p><span class="math display">\[
+\int_B f(b)\,d\mu_B(b)
+=
+\int_T\int_U f(ut)\,d\mu_U(u)\,d\mu_T(t),
+\qquad f\in C_c(B).
+\]</span></p>
+<p>Indeed, right multiplication changes the <span class="math inline">\(U\)</span>-coordinate by a translation (for each fixed <span class="math inline">\(t\)</span>) and changes the <span class="math inline">\(T\)</span>-coordinate by a right translation. Both operations preserve the corresponding factors of the product measure.</p>
+<p>Take</p>
+<p><span class="math display">\[
+g=
+\begin{pmatrix}
+x&amp;y\\
+0&amp;z
+\end{pmatrix}
+=
+\begin{pmatrix}
+1&amp;y/z\\
+0&amp;1
+\end{pmatrix}
+\begin{pmatrix}
+x&amp;0\\
+0&amp;z
+\end{pmatrix}.
+\]</span></p>
+<p>Under left multiplication by <span class="math inline">\(g\)</span>, the <span class="math inline">\(U\)</span>-coordinate changes by</p>
+<p><span class="math display">\[
+u\longmapsto \frac yz+\frac xz\,u.
+\]</span></p>
+<p>Translation does not change additive Haar measure, while multiplication by <span class="math inline">\(x/z\)</span> scales it by <span class="math inline">\(|x/z|_F\)</span>. The <span class="math inline">\(T\)</span>-coordinate is left-translated by <span class="math inline">\(\operatorname{diag}(x,z)\)</span>, which preserves <span class="math inline">\(d\mu_T\)</span> because <span class="math inline">\(T\)</span> is unimodular. Therefore</p>
+<p><span class="math display">\[
+\begin{aligned}
+\int_B f(gb)\,d\mu_B(b)
+&amp;=\left|\frac{x}{z}\right|_F^{-1}
+  \int_B f(b)\,d\mu_B(b).
+\end{aligned}
+\]</span></p>
+<p>Comparing this with the defining formula for the modular character yields</p>
+<p><span class="math display">\[
+\boxed{
+\delta_B\!\left(
+\begin{pmatrix}
+x&amp;y\\
+0&amp;z
+\end{pmatrix}
+\right)
+=
+\left|\frac{x}{z}\right|_F
+}.
+\]</span></p>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    // Ensure there is a toggle, if there isn't float one in the top right
+    if (window.document.querySelector('.quarto-color-scheme-toggle') === null) {
+      const a = window.document.createElement('a');
+      a.classList.add('top-right');
+      a.classList.add('quarto-color-scheme-toggle');
+      a.href = "";
+      a.onclick = function() { try { window.quartoToggleColorScheme(); } catch {} return false; };
+      const i = window.document.createElement("i");
+      i.classList.add('bi');
+      a.appendChild(i);
+      window.document.body.appendChild(a);
+    }
+    setColorSchemeToggle(hasAlternateSentinel())
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp("https:\/\/hechetory\.github\.io\/p-adic_geometry_note\/");
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+            // target, if specified
+            link.setAttribute("target", "_blank");
+            if (link.getAttribute("rel") === null) {
+              link.setAttribute("rel", "noopener");
+            }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="../jacquet-langlands correspondence/index.html" class="pagination-link" aria-label="Overview">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Overview</span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="../editing.html" class="pagination-link" aria-label="How to edit these notes">
+        <span class="nav-page-text">How to edit these notes</span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+<p>An evolving notebook on p-adic geometry.</p>
+</div>   
+    <div class="nav-footer-center">
+      &nbsp;
+    <div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/Hechetory/p-adic_geometry_note/edit/main/jacquet-langlands correspondence/haar-local-fields.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/Hechetory/p-adic_geometry_note/blob/main/jacquet-langlands correspondence/haar-local-fields.qmd" class="toc-action"><i class="bi empty"></i>View source</a></li><li><a href="https://github.com/Hechetory/p-adic_geometry_note/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div>
+    <div class="nav-footer-right">
+<p>Built with Quarto and GitHub Pages.</p>
+</div>
+  </div>
+</footer>
+
+
+
+
+</body></html>

@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>How to edit these notes – p-adic geometry notes</title>
+<title>The Jacquet–Langlands Correspondence – p-adic geometry notes</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -26,66 +26,32 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-/* CSS for syntax highlighting */
-html { -webkit-text-size-adjust: 100%; }
-pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
-pre > code.sourceCode > span:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-div.sourceCode { margin: 1em 0; }
-pre.sourceCode { margin: 0; }
-@media screen {
-div.sourceCode { overflow: auto; }
-}
-@media print {
-pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
-}
-pre.numberSource code
-  { counter-reset: source-line 0; }
-pre.numberSource code > span
-  { position: relative; left: -4em; counter-increment: source-line; }
-pre.numberSource code > span > a:first-child::before
-  { content: counter(source-line);
-    position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; display: inline-block;
-    -webkit-touch-callout: none; -webkit-user-select: none;
-    -khtml-user-select: none; -moz-user-select: none;
-    -ms-user-select: none; user-select: none;
-    padding: 0 4px; width: 4em;
-  }
-pre.numberSource { margin-left: 3em;  padding-left: 4px; }
-div.sourceCode
-  {   }
-@media screen {
-pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
-}
 </style>
 
 
-<script src="site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="site_libs/quarto-nav/headroom.min.js"></script>
-<script src="site_libs/clipboard/clipboard.min.js"></script>
-<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="site_libs/quarto-search/fuse.min.js"></script>
-<script src="site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="./">
-<link href="./jacquet-langlands correspondence/haar-local-fields.html" rel="prev">
-<script src="site_libs/quarto-html/quarto.js" type="module"></script>
-<script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
-<script src="site_libs/quarto-html/popper.min.js"></script>
-<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="site_libs/quarto-html/anchor.min.js"></script>
-<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark-b85bc7c33db8c58e0ec93c3465666fed.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
-<script src="site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-4135fc327bf2835b2ef38f6e520f46b7.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="site_libs/bootstrap/bootstrap-dark-072fe720cdfc8dbd8d45003ad61e038e.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
-<link href="site_libs/bootstrap/bootstrap-4135fc327bf2835b2ef38f6e520f46b7.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<link href="../jacquet-langlands correspondence/haar-local-fields.html" rel="next">
+<link href="../etale morphism/etale-morphisms.html" rel="prev">
+<script src="../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark-b85bc7c33db8c58e0ec93c3465666fed.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap-4135fc327bf2835b2ef38f6e520f46b7.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-dark-072fe720cdfc8dbd8d45003ad61e038e.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../site_libs/bootstrap/bootstrap-4135fc327bf2835b2ef38f6e520f46b7.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -114,10 +80,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 }</script>
 
 
-<link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="../styles.css">
 </head>
 
-<body class="nav-sidebar docked nav-fixed quarto-light"><script id="quarto-html-before-body" type="application/javascript">
+<body class="nav-sidebar docked nav-fixed fullcontent quarto-light"><script id="quarto-html-before-body" type="application/javascript">
     const toggleBodyColorMode = (bsSheetEl) => {
       const mode = bsSheetEl.getAttribute("data-mode");
       const bodyEl = window.document.querySelector("body");
@@ -286,7 +252,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
-    <a class="navbar-brand" href="./index.html">
+    <a class="navbar-brand" href="../index.html">
     <span class="navbar-title">p-adic geometry notes</span>
     </a>
   </div>
@@ -317,7 +283,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./editing.html">How to edit these notes</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../jacquet-langlands correspondence/index.html">The Jacquet–Langlands Correspondence</a></li><li class="breadcrumb-item"><a href="../jacquet-langlands correspondence/index.html">Overview</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -337,7 +303,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./index.html" class="sidebar-item-text sidebar-link">
+  <a href="../index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Home</span></a>
   </div>
 </li>
@@ -352,43 +318,43 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./etale morphism/index.html" class="sidebar-item-text sidebar-link">
+  <a href="../etale morphism/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Overview</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./etale morphism/definitions.html" class="sidebar-item-text sidebar-link">
+  <a href="../etale morphism/definitions.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Definitions</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./etale morphism/unramified-morphisms.html" class="sidebar-item-text sidebar-link">
+  <a href="../etale morphism/unramified-morphisms.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">The Sheaf of Differentials and Unramified Morphisms</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./etale morphism/smooth-morphisms.html" class="sidebar-item-text sidebar-link">
+  <a href="../etale morphism/smooth-morphisms.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Smooth Morphisms</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./etale morphism/flat-morphisms.html" class="sidebar-item-text sidebar-link">
+  <a href="../etale morphism/flat-morphisms.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Flat Morphisms</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./etale morphism/smooth-morphisms-again.html" class="sidebar-item-text sidebar-link">
+  <a href="../etale morphism/smooth-morphisms-again.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Smooth Morphisms Again</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./etale morphism/etale-morphisms.html" class="sidebar-item-text sidebar-link">
+  <a href="../etale morphism/etale-morphisms.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Étale Morphisms</span></a>
   </div>
 </li>
@@ -405,13 +371,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./jacquet-langlands correspondence/index.html" class="sidebar-item-text sidebar-link">
+  <a href="../jacquet-langlands correspondence/index.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">Overview</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./jacquet-langlands correspondence/haar-local-fields.html" class="sidebar-item-text sidebar-link">
+  <a href="../jacquet-langlands correspondence/haar-local-fields.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Haar Measure and Local Fields</span></a>
   </div>
 </li>
@@ -419,7 +385,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./editing.html" class="sidebar-item-text sidebar-link active">
+  <a href="../editing.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">How to edit these notes</span></a>
   </div>
 </li>
@@ -428,26 +394,15 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">On this page</h2>
-   
-  <ul>
-  <li><a href="#修改一篇笔记" id="toc-修改一篇笔记" class="nav-link active" data-scroll-target="#修改一篇笔记">修改一篇笔记</a></li>
-  <li><a href="#删除一篇笔记" id="toc-删除一篇笔记" class="nav-link" data-scroll-target="#删除一篇笔记">删除一篇笔记</a></li>
-  <li><a href="#新增一篇笔记" id="toc-新增一篇笔记" class="nav-link" data-scroll-target="#新增一篇笔记">新增一篇笔记</a></li>
-  <li><a href="#本地预览" id="toc-本地预览" class="nav-link" data-scroll-target="#本地预览">本地预览</a></li>
-  </ul>
-<div class="toc-actions"><ul><li><a href="https://github.com/Hechetory/p-adic_geometry_note/edit/main/editing.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/Hechetory/p-adic_geometry_note/blob/main/editing.qmd" class="toc-action"><i class="bi empty"></i>View source</a></li><li><a href="https://github.com/Hechetory/p-adic_geometry_note/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
-    </div>
+    
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 
-<header id="title-block-header" class="quarto-title-block default">
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../jacquet-langlands correspondence/index.html">The Jacquet–Langlands Correspondence</a></li><li class="breadcrumb-item"><a href="../jacquet-langlands correspondence/index.html">Overview</a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title">How to edit these notes</h1>
-<p class="subtitle lead">A minimal guide</p>
+<h1 class="title">The Jacquet–Langlands Correspondence</h1>
+<p class="subtitle lead">SIMIS course notes</p>
 </div>
 
 
@@ -464,55 +419,25 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<p>你平时主要需要编辑扩展名为 <code>.qmd</code> 的文件。它和 Markdown 几乎一样，但对数学公式、目录和提示框支持得更好。</p>
-<section id="修改一篇笔记" class="level2">
-<h2 class="anchored" data-anchor-id="修改一篇笔记">修改一篇笔记</h2>
-<p>在 VS Code 左侧文件列表中打开对应的 <code>.qmd</code> 文件，直接修改文字并保存即可：</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">## A new section</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>普通文字写在这里，行内公式写成 $X \to Y$。</span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>\Omega_{X/Y}=0</span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>$$</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p>以 <code>---</code> 包围的文件开头是页面信息。通常只需要修改其中的 <code>title</code> 和 <code>subtitle</code>。</p>
-</section>
-<section id="删除一篇笔记" class="level2">
-<h2 class="anchored" data-anchor-id="删除一篇笔记">删除一篇笔记</h2>
-<ol type="1">
-<li>删除对应的 <code>.qmd</code> 文件。</li>
-<li>打开项目根目录的 <code>_quarto.yml</code>。</li>
-<li>在 <code>sidebar</code> 的 <code>contents</code> 中删掉指向该文件的两行，例如：</li>
-</ol>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="kw">-</span><span class="at"> </span><span class="fu">href</span><span class="kw">:</span><span class="at"> </span><span class="st">"etale morphism/definitions-and-intuitions.qmd"</span></span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">text</span><span class="kw">:</span><span class="at"> Definitions</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p>如果只删除文件而不修改 <code>_quarto.yml</code>，网站构建时会提示找不到页面。</p>
-</section>
-<section id="新增一篇笔记" class="level2">
-<h2 class="anchored" data-anchor-id="新增一篇笔记">新增一篇笔记</h2>
-<p>最简单的方法是复制一篇现有的 <code>.qmd</code> 文件，改名并修改内容，然后在 <code>_quarto.yml</code> 的对应章节加入：</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="kw">-</span><span class="at"> </span><span class="fu">href</span><span class="kw">:</span><span class="at"> </span><span class="st">"etale morphism/examples.qmd"</span></span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">text</span><span class="kw">:</span><span class="at"> Examples</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p>以后添加新的大主题时，可以新建一个文件夹，再在 <code>_quarto.yml</code> 中增加一个 <code>section</code>。文件夹名称最好使用小写英文和连字符，例如 <code>perfectoid-spaces</code>。</p>
-<div class="callout callout-style-default callout-tip callout-titled" title="最省事的工作方式">
+<div class="callout callout-style-default callout-note callout-titled" title="Course information">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Tip</span>最省事的工作方式
+<span class="screen-reader-only">Note</span>Course information
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>你也可以只负责写内容，然后告诉我“把这篇笔记放到某个章节并发布”。目录、链接、渲染和推送都可以交给我处理。</p>
+<p>These notes record the SIMIS course <strong>The Jacquet–Langlands Correspondence</strong>, taught by <strong>Nadir Matringe</strong>.</p>
 </div>
 </div>
-</section>
-<section id="本地预览" class="level2">
-<h2 class="anchored" data-anchor-id="本地预览">本地预览</h2>
-<p>在英文路径的工作目录 <code>C:\notes\p-adic-geometry-note</code> 中打开 VS Code，然后在终端运行：</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode powershell code-with-copy"><code class="sourceCode powershell"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="op">.</span>\preview-local<span class="op">.</span><span class="fu">ps1</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p>终端会显示一个 <code>http://localhost:...</code> 地址。保持这个终端运行，保存 <code>.qmd</code> 文件后网页会自动刷新；结束预览时按 <code>Ctrl+C</code>。</p>
+<section id="lectures" class="level2">
+<h2 class="anchored" data-anchor-id="lectures">Lectures</h2>
+<ol type="1">
+<li><a href="../jacquet-langlands correspondence/haar-local-fields.html">Haar Measure and Local Fields</a></li>
+</ol>
+<p>This is a living set of course notes. Further lectures will be added as the course develops.</p>
 
 
 </section>
@@ -938,11 +863,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./jacquet-langlands correspondence/haar-local-fields.html" class="pagination-link" aria-label="Haar Measure and Local Fields">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Haar Measure and Local Fields</span>
+      <a href="../etale morphism/etale-morphisms.html" class="pagination-link" aria-label="Étale Morphisms">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Étale Morphisms</span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
+      <a href="../jacquet-langlands correspondence/haar-local-fields.html" class="pagination-link" aria-label="Haar Measure and Local Fields">
+        <span class="nav-page-text">Haar Measure and Local Fields</span> <i class="bi bi-arrow-right-short"></i>
+      </a>
   </div>
 </nav>
 </div> <!-- /content -->
@@ -953,7 +881,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>   
     <div class="nav-footer-center">
       &nbsp;
-    <div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/Hechetory/p-adic_geometry_note/edit/main/editing.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/Hechetory/p-adic_geometry_note/blob/main/editing.qmd" class="toc-action"><i class="bi empty"></i>View source</a></li><li><a href="https://github.com/Hechetory/p-adic_geometry_note/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div>
+    <div class="toc-actions"><ul><li><a href="https://github.com/Hechetory/p-adic_geometry_note/edit/main/jacquet-langlands correspondence/index.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/Hechetory/p-adic_geometry_note/blob/main/jacquet-langlands correspondence/index.qmd" class="toc-action"><i class="bi empty"></i>View source</a></li><li><a href="https://github.com/Hechetory/p-adic_geometry_note/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div>
     <div class="nav-footer-right">
 <p>Built with Quarto and GitHub Pages.</p>
 </div>
