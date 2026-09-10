@@ -22,6 +22,14 @@ The aim for this note is to figure out lots of equivalent definitions of \etale 
 [Start reading →](<etale morphism/definitions.qmd>)
 :::
 
+::: {.note-card}
+### [The Jacquet–Langlands Correspondence](<jacquet-langlands correspondence/index.qmd>)
+
+Notes from the SIMIS course taught by Nadir Matringe.
+
+[Start reading →](<jacquet-langlands correspondence/haar-local-fields.qmd>)
+:::
+
 ::: {.note-card .coming-soon}
 ### More notes will live here
 

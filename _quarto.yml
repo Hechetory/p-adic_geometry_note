@@ -43,6 +43,12 @@ website:
             text: Smooth Morphisms Again
           - href: "etale morphism/etale-morphisms.qmd"
             text: Étale Morphisms
+      - section: "The Jacquet–Langlands Correspondence"
+        contents:
+          - href: "jacquet-langlands correspondence/index.qmd"
+            text: Overview
+          - href: "jacquet-langlands correspondence/haar-local-fields.qmd"
+            text: Haar Measure and Local Fields
       - href: editing.qmd
         text: How to edit these notes
   page-footer:

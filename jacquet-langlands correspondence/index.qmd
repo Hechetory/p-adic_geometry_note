@@ -1,0 +1,15 @@
+---
+title: "The Jacquet–Langlands Correspondence"
+subtitle: "SIMIS course notes"
+toc: false
+---
+
+::: {.callout-note title="Course information"}
+These notes record the SIMIS course **The Jacquet–Langlands Correspondence**, taught by **Nadir Matringe**.
+:::
+
+## Lectures
+
+1. [Haar Measure and Local Fields](haar-local-fields.qmd)
+
+This is a living set of course notes. Further lectures will be added as the course develops.
