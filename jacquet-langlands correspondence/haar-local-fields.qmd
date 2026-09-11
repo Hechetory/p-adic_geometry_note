@@ -358,7 +358,7 @@ $$
 $$
 :::
 
-If $\mu_F$ is additive Haar measure, the defining change-of-variables identities are
+If $\mu_F$ is an additive Haar measure, the defining change-of-variables identities are
 
 $$
 \mu_F(aE)=\lVert a\rVert_F\mu_F(E)
@@ -664,7 +664,11 @@ x\in\mu_{q-1}(F)
 x\text{ has finite order relatively prime to }p.
 $$
 
-Indeed, reduction is injective on prime-to-$p$ torsion, while $k_F^\times$ is cyclic of order $q-1$.
+We will use Hensel's lemma. It suffices to show that the RHS implies the LHS.
+
+Let $x\in F^\times$ satisfy $x^d=1$ for some $d$ prime to $p$. Then $x\in\mathcal O_F^\times$, and $\bar x^d=1$ in $k_F^\times$. Since $k_F^\times$ is cyclic of order $q-1$, the order of $\bar x$ divides $d'=\gcd(d,q-1)$. Hence $\bar x^{d'}=1$.
+
+Set $y=x^{d'}$. Then $\bar y=1$ and $y^{d/d'}=1$. Since $d/d'$ is prime to $p$, $1$ is a simple root of $X^{d/d'}-1$ modulo $\mathfrak p_F$. By the uniqueness part of Hensel's lemma, $1$ is the unique root congruent to $1$ modulo $\mathfrak p_F$. Therefore $y=1$, and hence $x^{d'}=1$.
 :::
 
 # Linear changes of variables over a local field
@@ -823,7 +827,11 @@ $$
 \qquad f\in C_c(B).
 $$
 
-Indeed, right multiplication changes the $U$-coordinate by a translation (for each fixed $t$) and changes the $T$-coordinate by a right translation. Both operations preserve the corresponding factors of the product measure.
+By the uniqueness of Haar measure, it suffices to show that $d\mu_U\otimes d\mu_T$ is right invariant. Indeed, for $u'\in U$ and $t'\in T$,
+$$
+(ut)(u't')=u(tu't^{-1})(tt').
+$$
+Writing $u''=tu't^{-1}\in U$, right translation by $u't'$ sends $(u,t)$ to $(uu'',tt')$. Since $d\mu_U$ is translation invariant and $d\mu_T$ is right invariant, the product measure $d\mu_U\otimes d\mu_T$ is right invariant.
 
 Take
 
