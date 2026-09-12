@@ -1,6 +1,8 @@
 ---
 title: "Definitions"
 subtitle: "The three faces of étale morphisms"
+description: "Three equivalent viewpoints on étale morphisms, with basic examples and geometric intuition."
+order: 20
 ---
 :::{ .callout-note title="Note"}
 We will list some important equivalent definitions of étale morphisms and leave the discussion of their equivalence for later.
@@ -50,4 +52,3 @@ on $\mathbb G_m$.
 On the whole affine line, $t\mapsto t^n$ ramifies at $t=0$. The map is no
 longer étale there: the branches collide.
 :::
-

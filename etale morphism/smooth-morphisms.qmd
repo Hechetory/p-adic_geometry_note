@@ -1,6 +1,8 @@
 ---
 title: "Smooth Morphisms"
 subtitle: ""
+description: "Local Jacobian models for smooth morphisms, their basic properties, and their relation to differentials."
+order: 40
 ---
 
 A smooth morphism is the relative version of a nonsingular variety. Roughly, its fibers are smooth and fit together uniformly over the base.

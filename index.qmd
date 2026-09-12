@@ -1,8 +1,18 @@
 ---
-title: "$p$-adic geometry notes"
+title: "$p$-adic Geometry Notes"
 subtitle: ""
+description: "Informal, intuition-first notes on topics related to $p$-adic and algebraic geometry."
+order: 0
 page-layout: full
 toc: false
+listing:
+  id: topic-listing
+  contents: "*/index.qmd"
+  template: "_templates/topic-cards.ejs.md"
+  fields: [title, description, order, start-page]
+  sort: "order asc"
+  sort-ui: false
+  filter-ui: false
 ---
 
 ::: {.hero-note}
@@ -13,28 +23,7 @@ The aim is not to replace a textbook, but to record my study experiences in $p$-
 
 ## Notes
 
-::: {.note-grid}
-::: {.note-card}
-### [Étale Morphisms](<etale morphism/index.qmd>)
-
-The aim for this note is to figure out lots of equivalent definitions of \etale morphisms and give some intuitions.
-
-[Start reading →](<etale morphism/definitions.qmd>)
-:::
-
-::: {.note-card}
-### [The Jacquet–Langlands Correspondence](<jacquet-langlands correspondence/index.qmd>)
-
-Notes from the SIMIS course taught by Nadir Matringe.
-
-[Start reading →](<jacquet-langlands correspondence/haar-local-fields.qmd>)
-:::
-
-::: {.note-card .coming-soon}
-### More notes will live here
-
-Each future topic can have its own folder, pages, and place in the sidebar.
-:::
+::: {#topic-listing}
 :::
 
 ::: {.callout-note title="Status"}

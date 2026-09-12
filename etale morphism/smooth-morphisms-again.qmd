@@ -1,6 +1,8 @@
 ---
 title: "Smooth Morphisms Again"
 subtitle: ""
+description: "A deeper study of local models, fiberwise criteria, formal smoothness, and relative differentials."
+order: 60
 ---
 
 ## Notation and local models

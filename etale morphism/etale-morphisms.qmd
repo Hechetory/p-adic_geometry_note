@@ -1,6 +1,8 @@
 ---
 title: "Étale Morphisms"
 subtitle: ""
+description: "Equivalent characterizations of étale morphisms through smoothness, flatness, unramifiedness, and tangent spaces."
+order: 70
 ---
 
 In this section, we want to explain the equivalent definitions of \etale morphsim.
@@ -16,5 +18,4 @@ For other famous propeties of \etale morphisms, from the flatness follows the op
 standard \etale and local model.
 
 finite \etale and covering space.
-
 

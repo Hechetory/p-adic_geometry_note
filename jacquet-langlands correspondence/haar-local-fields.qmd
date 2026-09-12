@@ -1,6 +1,8 @@
 ---
 title: "Haar Measure and Local Fields"
 subtitle: "From Radon measures to characteristic-zero local fields"
+description: 'Radon and Haar measures, characteristic-zero local fields, valuation theory, change of variables, and the upper-triangular group in $\mathrm{GL}_2$.'
+order: 30
 lang: en
 format:
   html:
@@ -882,4 +884,3 @@ x&y\\
 \left|\frac{x}{z}\right|_F
 }.
 $$
-

@@ -27,30 +27,7 @@ website:
     contents:
       - href: index.qmd
         text: Home
-      - section: "Étale Morphisms"
-        contents:
-          - href: "etale morphism/index.qmd"
-            text: Overview
-          - href: "etale morphism/definitions.qmd"
-            text: Definitions
-          - href: "etale morphism/unramified-morphisms.qmd"
-            text: The Sheaf of Differentials and Unramified Morphisms
-          - href: "etale morphism/smooth-morphisms.qmd"
-            text: Smooth Morphisms
-          - href: "etale morphism/flat-morphisms.qmd"
-            text: Flat Morphisms
-          - href: "etale morphism/smooth-morphisms-again.qmd"
-            text: Smooth Morphisms Again
-          - href: "etale morphism/etale-morphisms.qmd"
-            text: Étale Morphisms
-      - section: "The Jacquet–Langlands Correspondence"
-        contents:
-          - href: "jacquet-langlands correspondence/index.qmd"
-            text: Overview
-          - href: "jacquet-langlands correspondence/haar-local-fields.qmd"
-            text: Haar Measure and Local Fields
-      - href: editing.qmd
-        text: How to edit these notes
+      - auto: true
   page-footer:
     left: "An evolving notebook on p-adic geometry."
     right: "Built with Quarto and GitHub Pages."

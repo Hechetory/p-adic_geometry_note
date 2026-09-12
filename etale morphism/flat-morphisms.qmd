@@ -1,6 +1,8 @@
 ---
 title: "Flat Morphisms"
 subtitle: ""
+description: "Flat modules and morphisms, practical criteria for flatness, and their role in smooth and étale geometry."
+order: 50
 ---
 
 Here we study the properties of flat morphisms that we will need as background for étale morphisms.
@@ -371,4 +373,3 @@ U_0\times_{\operatorname{Spec}P}\operatorname{Spec}B.
 $$
 
 Thus $\pi|_U$ is obtained from the flat morphism $U_0\to\operatorname{Spec}P$ by base change. Since flatness is preserved under base change, $\pi|_U$ is flat. Such neighborhoods $U$ cover $X$, so $\pi$ is flat.
-

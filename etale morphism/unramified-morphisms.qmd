@@ -1,6 +1,8 @@
 ---
 title: "The Sheaf of Differentials and Unramified Morphisms"
 subtitle: ""
+description: "Kähler differentials, their basic exact sequences and calculations, and criteria for unramified morphisms."
+order: 30
 ---
 
 To study unramified morphisms, we need to understand the sheaf of differentials first. 
