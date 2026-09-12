@@ -1,0 +1,26 @@
+[
+  {
+    "listing": "/etale morphism/index.html",
+    "items": [
+      "/etale morphism/definitions.html",
+      "/etale morphism/unramified-morphisms.html",
+      "/etale morphism/smooth-morphisms.html",
+      "/etale morphism/flat-morphisms.html",
+      "/etale morphism/smooth-morphisms-again.html",
+      "/etale morphism/etale-morphisms.html"
+    ]
+  },
+  {
+    "listing": "/index.html",
+    "items": [
+      "/etale morphism/index.html",
+      "/jacquet-langlands correspondence/index.html"
+    ]
+  },
+  {
+    "listing": "/jacquet-langlands correspondence/index.html",
+    "items": [
+      "/jacquet-langlands correspondence/haar-local-fields.html"
+    ]
+  }
+]

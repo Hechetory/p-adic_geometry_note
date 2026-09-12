@@ -59,7 +59,7 @@
     "href": "jacquet-langlands correspondence/haar-local-fields.html#the-normalized-absolute-value-from-haar-measure",
     "title": "Haar Measure and Local Fields",
     "section": "2.1 The normalized absolute value from Haar measure",
-    "text": "2.1 The normalized absolute value from Haar measure\nFor \\(a\\in F^\\times\\), multiplication by \\(a\\) is a continuous automorphism\n\\[\nm_a:(F,+)\\longrightarrow(F,+),\n\\qquad\nx\\longmapsto ax.\n\\]\n\nDefinition 2.1 (Module of multiplication) Define\n\\[\n\\lVert a\\rVert_F=\\delta_{(F,+)}(m_a)&gt;0\n\\qquad(a\\in F^\\times),\n\\]\nand set \\(\\lVert0\\rVert_F=0\\). We call \\(\\lVert\\cdot\\rVert_F\\) the Haar-normalized absolute value, or module, of \\(F\\).\nBy construction,\n\\[\n\\lVert ab\\rVert_F=\\lVert a\\rVert_F\\lVert b\\rVert_F.\n\\]\n\nIf \\(\\mu_F\\) is additive Haar measure, the defining change-of-variables identities are\n\\[\n\\mu_F(aE)=\\lVert a\\rVert_F\\mu_F(E)\n\\]\nand\n\\[\n\\int_F f(ax)\\,d\\mu_F(x)\n=\n\\lVert a\\rVert_F^{-1}\\int_F f(x)\\,d\\mu_F(x).\n\\]\n\nProposition 2.1 (Associated ordinary absolute value) With the standard local-field normalization, there is a number \\(t_F&gt;0\\) such that\n\\[\n|x|=\\lVert x\\rVert_F^{1/t_F}\n\\]\nis an ordinary absolute value inducing the original topology on \\(F\\). In the classification below,\n\\[\nt_F=\n\\begin{cases}\n2,&F\\cong\\mathbb C,\\\\\n1,&\\text{otherwise}.\n\\end{cases}\n\\]\nThus the exceptional case is\n\\[\n\\lVert z\\rVert_{\\mathbb C}=z\\overline z=|z|^2.\n\\]\n\n\nRemark 2.1 (A normalization point). Without fixing a convention, the exponent in Proposition 2.1 is not unique: positive powers can define equivalent absolute values. The values of \\(t_F\\) above are the standard choices compatible with Haar measure and the usual absolute value on \\(\\mathbb R\\) and \\(\\mathbb C\\); in the nonarchimedean case, the module \\(\\lVert\\cdot\\rVert_F\\) itself is used.\n\nThe metric\n\\[\nd(x,y)=|x-y|\n\\]\ninduces the original topology of \\(F\\). We exclude the discrete topology; in the discrete case the corresponding module is trivial:\n\\[\n\\lVert x\\rVert_F=\n\\begin{cases}\n1,&x\\ne0,\\\\\n0,&x=0.\n\\end{cases}\n\\]\n\nDefinition 2.2 (Local field of characteristic zero) A local field of characteristic zero is a nondiscrete, locally compact Hausdorff topological field \\(F\\) with \\(\\operatorname{char}F=0\\).",
+    "text": "2.1 The normalized absolute value from Haar measure\nFor \\(a\\in F^\\times\\), multiplication by \\(a\\) is a continuous automorphism\n\\[\nm_a:(F,+)\\longrightarrow(F,+),\n\\qquad\nx\\longmapsto ax.\n\\]\n\nDefinition 2.1 (Module of multiplication) Define\n\\[\n\\lVert a\\rVert_F=\\delta_{(F,+)}(m_a)&gt;0\n\\qquad(a\\in F^\\times),\n\\]\nand set \\(\\lVert0\\rVert_F=0\\). We call \\(\\lVert\\cdot\\rVert_F\\) the Haar-normalized absolute value, or module, of \\(F\\).\nBy construction,\n\\[\n\\lVert ab\\rVert_F=\\lVert a\\rVert_F\\lVert b\\rVert_F.\n\\]\n\nIf \\(\\mu_F\\) is an additive Haar measure, the defining change-of-variables identities are\n\\[\n\\mu_F(aE)=\\lVert a\\rVert_F\\mu_F(E)\n\\]\nand\n\\[\n\\int_F f(ax)\\,d\\mu_F(x)\n=\n\\lVert a\\rVert_F^{-1}\\int_F f(x)\\,d\\mu_F(x).\n\\]\n\nProposition 2.1 (Associated ordinary absolute value) With the standard local-field normalization, there is a number \\(t_F&gt;0\\) such that\n\\[\n|x|=\\lVert x\\rVert_F^{1/t_F}\n\\]\nis an ordinary absolute value inducing the original topology on \\(F\\). In the classification below,\n\\[\nt_F=\n\\begin{cases}\n2,&F\\cong\\mathbb C,\\\\\n1,&\\text{otherwise}.\n\\end{cases}\n\\]\nThus the exceptional case is\n\\[\n\\lVert z\\rVert_{\\mathbb C}=z\\overline z=|z|^2.\n\\]\n\n\nRemark 2.1 (A normalization point). Without fixing a convention, the exponent in Proposition 2.1 is not unique: positive powers can define equivalent absolute values. The values of \\(t_F\\) above are the standard choices compatible with Haar measure and the usual absolute value on \\(\\mathbb R\\) and \\(\\mathbb C\\); in the nonarchimedean case, the module \\(\\lVert\\cdot\\rVert_F\\) itself is used.\n\nThe metric\n\\[\nd(x,y)=|x-y|\n\\]\ninduces the original topology of \\(F\\). We exclude the discrete topology; in the discrete case the corresponding module is trivial:\n\\[\n\\lVert x\\rVert_F=\n\\begin{cases}\n1,&x\\ne0,\\\\\n0,&x=0.\n\\end{cases}\n\\]\n\nDefinition 2.2 (Local field of characteristic zero) A local field of characteristic zero is a nondiscrete, locally compact Hausdorff topological field \\(F\\) with \\(\\operatorname{char}F=0\\).",
     "crumbs": [
       "The Jacquet–Langlands Correspondence",
       "Haar Measure and Local Fields"
@@ -103,7 +103,7 @@
     "href": "jacquet-langlands correspondence/haar-local-fields.html#hensels-lemma",
     "title": "Haar Measure and Local Fields",
     "section": "3.3 Hensel’s lemma",
-    "text": "3.3 Hensel’s lemma\n\nLemma 3.1 (Hensel’s lemma: factorization form) Let \\(P\\in\\mathcal O_F[X]\\) be monic. Suppose that its reduction modulo \\(\\mathfrak p_F\\) factors as\n\\[\n\\overline P=\\overline A\\,\\overline B\n\\qquad\\text{in }k_F[X],\n\\]\nwhere \\(\\overline A\\) and \\(\\overline B\\) are monic and relatively prime. Then there are unique monic polynomials \\(A,B\\in\\mathcal O_F[X]\\) satisfying\n\\[\nA\\bmod\\mathfrak p_F=\\overline A,\n\\qquad\nB\\bmod\\mathfrak p_F=\\overline B,\n\\qquad\nP=AB.\n\\]\n\n\nCorollary 3.1 (Simple roots lift) Let \\(P\\in\\mathcal O_F[X]\\). If \\(\\overline a\\in k_F\\) is a simple root of \\(\\overline P\\), then there is a unique \\(a\\in\\mathcal O_F\\) reducing to \\(\\overline a\\) such that\n\\[\nP(a)=0.\n\\]\n\nApply Corollary 3.1 to \\(P(X)=X^{q-1}-1\\). Since \\(p\\nmid q-1\\), every nonzero residue class is a simple root. Therefore reduction induces an isomorphism\n\\[\n\\mu_{q-1}(F)\\xrightarrow{\\sim}k_F^\\times,\n\\]\nwhere\n\\[\n\\mu_{q-1}(F)=\\{x\\in F^\\times:x^{q-1}=1\\}.\n\\]\nThe exact sequence\n\\[\n1\\longrightarrow U_F^1\n\\longrightarrow\\mathcal O_F^\\times\n\\longrightarrow k_F^\\times\n\\longrightarrow1\n\\]\ntherefore splits via the Teichmuller representatives \\(\\mu_{q-1}(F)\\). Hence\n\\[\n\\mathcal O_F^\\times\n\\cong\n\\mu_{q-1}(F)\\times U_F^1\n\\cong\nk_F^\\times\\times U_F^1.\n\\]\n\nExample 3.1 (Prime-to-p roots of unity) For \\(x\\in F^\\times\\),\n\\[\nx\\in\\mu_{q-1}(F)\n\\quad\\Longleftrightarrow\\quad\nx\\text{ has finite order relatively prime to }p.\n\\]\nIndeed, reduction is injective on prime-to-\\(p\\) torsion, while \\(k_F^\\times\\) is cyclic of order \\(q-1\\).",
+    "text": "3.3 Hensel’s lemma\n\nLemma 3.1 (Hensel’s lemma: factorization form) Let \\(P\\in\\mathcal O_F[X]\\) be monic. Suppose that its reduction modulo \\(\\mathfrak p_F\\) factors as\n\\[\n\\overline P=\\overline A\\,\\overline B\n\\qquad\\text{in }k_F[X],\n\\]\nwhere \\(\\overline A\\) and \\(\\overline B\\) are monic and relatively prime. Then there are unique monic polynomials \\(A,B\\in\\mathcal O_F[X]\\) satisfying\n\\[\nA\\bmod\\mathfrak p_F=\\overline A,\n\\qquad\nB\\bmod\\mathfrak p_F=\\overline B,\n\\qquad\nP=AB.\n\\]\n\n\nCorollary 3.1 (Simple roots lift) Let \\(P\\in\\mathcal O_F[X]\\). If \\(\\overline a\\in k_F\\) is a simple root of \\(\\overline P\\), then there is a unique \\(a\\in\\mathcal O_F\\) reducing to \\(\\overline a\\) such that\n\\[\nP(a)=0.\n\\]\n\nApply Corollary 3.1 to \\(P(X)=X^{q-1}-1\\). Since \\(p\\nmid q-1\\), every nonzero residue class is a simple root. Therefore reduction induces an isomorphism\n\\[\n\\mu_{q-1}(F)\\xrightarrow{\\sim}k_F^\\times,\n\\]\nwhere\n\\[\n\\mu_{q-1}(F)=\\{x\\in F^\\times:x^{q-1}=1\\}.\n\\]\nThe exact sequence\n\\[\n1\\longrightarrow U_F^1\n\\longrightarrow\\mathcal O_F^\\times\n\\longrightarrow k_F^\\times\n\\longrightarrow1\n\\]\ntherefore splits via the Teichmuller representatives \\(\\mu_{q-1}(F)\\). Hence\n\\[\n\\mathcal O_F^\\times\n\\cong\n\\mu_{q-1}(F)\\times U_F^1\n\\cong\nk_F^\\times\\times U_F^1.\n\\]\n\nExample 3.1 (Prime-to-p roots of unity) For \\(x\\in F^\\times\\),\n\\[\nx\\in\\mu_{q-1}(F)\n\\quad\\Longleftrightarrow\\quad\nx\\text{ has finite order relatively prime to }p.\n\\]\nWe will use Hensel’s lemma. It suffices to show that the RHS implies the LHS.\nLet \\(x\\in F^\\times\\) satisfy \\(x^d=1\\) for some \\(d\\) prime to \\(p\\). Then \\(x\\in\\mathcal O_F^\\times\\), and \\(\\bar x^d=1\\) in \\(k_F^\\times\\). Since \\(k_F^\\times\\) is cyclic of order \\(q-1\\), the order of \\(\\bar x\\) divides \\(d'=\\gcd(d,q-1)\\). Hence \\(\\bar x^{d'}=1\\).\nSet \\(y=x^{d'}\\). Then \\(\\bar y=1\\) and \\(y^{d/d'}=1\\). Since \\(d/d'\\) is prime to \\(p\\), \\(1\\) is a simple root of \\(X^{d/d'}-1\\) modulo \\(\\mathfrak p_F\\). By the uniqueness part of Hensel’s lemma, \\(1\\) is the unique root congruent to \\(1\\) modulo \\(\\mathfrak p_F\\). Therefore \\(y=1\\), and hence \\(x^{d'}=1\\).",
     "crumbs": [
       "The Jacquet–Langlands Correspondence",
       "Haar Measure and Local Fields"
@@ -257,16 +257,25 @@
     "href": "etale morphism/index.html",
     "title": "Étale Morphisms",
     "section": "",
-    "text": "NoteCite\n\n\n\n“An étale morphism is the analogue in algebraic geometry of a local isomorphism of manifolds in differential geometry, a covering of Riemann surfaces with no branch points in complex analysis, and an unramiﬁed extension in algebraic number theory.”–Milne.\n\n\nSince the author, I, hasn’t learned flat morphisms and unramified morphisms seriously yet, but already has a basic understanding of the étale site and étale cohomology, which means that the author is familiar to some basic properties of étale morphisms and use it. Our main goal in this chapter is to understand the various equivalent definitions of étale morphisms and to get some intuition for what they are analog to. One of the purpose of this chapter is to figure out which property of étale morphisms comes from the flatness and which property comes from the unramifiedness. The author will try to understand the definition of étale morphisms in a more intuitive way, and then try to understand the properties of étale morphisms from the perspective of flatness and unramifiedness.\nFor a first pass, continue to Definitions.\nFor a more detailed discussion, see The Sheaf of Differentials and Unramified Morphisms, Smooth Morphisms, and Flat Morphisms, Smooth Morphisms Again, and Étale Morphisms …(TBA)",
+    "text": "NoteCite\n\n\n\n“An étale morphism is the analogue in algebraic geometry of a local isomorphism of manifolds in differential geometry, a covering of Riemann surfaces with no branch points in complex analysis, and an unramiﬁed extension in algebraic number theory.”–Milne.\nSince the author, I, hasn’t learned flat morphisms and unramified morphisms seriously yet, but already has a basic understanding of the étale site and étale cohomology, which means that the author is familiar to some basic properties of étale morphisms and use it. Our main goal in this chapter is to understand the various equivalent definitions of étale morphisms and to get some intuition for what they are analog to. One of the purpose of this chapter is to figure out which property of étale morphisms comes from the flatness and which property comes from the unramifiedness. The author will try to understand the definition of étale morphisms in a more intuitive way, and then try to understand the properties of étale morphisms from the perspective of flatness and unramifiedness.",
     "crumbs": [
-      "Étale Morphisms",
-      "Overview"
+      "Étale Morphisms"
+    ]
+  },
+  {
+    "objectID": "etale morphism/index.html#contents",
+    "href": "etale morphism/index.html#contents",
+    "title": "Étale Morphisms",
+    "section": "Contents",
+    "text": "Contents\n\n\n\nDefinitions\nThree equivalent viewpoints on étale morphisms, with basic examples and geometric intuition.\n\n\nThe Sheaf of Differentials and Unramified Morphisms\nKähler differentials, their basic exact sequences and calculations, and criteria for unramified morphisms.\n\n\nSmooth Morphisms\nLocal Jacobian models for smooth morphisms, their basic properties, and their relation to differentials.\n\n\nFlat Morphisms\nFlat modules and morphisms, practical criteria for flatness, and their role in smooth and étale geometry.\n\n\nSmooth Morphisms Again\nA deeper study of local models, fiberwise criteria, formal smoothness, and relative differentials.\n\n\nÉtale Morphisms\nEquivalent characterizations of étale morphisms through smoothness, flatness, unramifiedness, and tangent spaces.\n\n\nNo matching items",
+    "crumbs": [
+      "Étale Morphisms"
     ]
   },
   {
     "objectID": "index.html",
     "href": "index.html",
-    "title": "\\(p\\)-adic geometry notes",
+    "title": "\\(p\\)-adic Geometry Notes",
     "section": "",
     "text": "My purpose is to write some informal, intuition-first notes on topics related to \\(p\\)-adic geometry.\nEven so, there may be some proofs of results that interest me.\nThe aim is not to replace a textbook, but to record my study experiences in \\(p\\)-adic geometry.",
     "crumbs": [
@@ -276,9 +285,9 @@
   {
     "objectID": "index.html#notes",
     "href": "index.html#notes",
-    "title": "\\(p\\)-adic geometry notes",
+    "title": "\\(p\\)-adic Geometry Notes",
     "section": "Notes",
-    "text": "Notes\n\n\nÉtale Morphisms\nThe aim for this note is to figure out lots of equivalent definitions of étale morphisms and give some intuitions.\nStart reading →\n\n\nThe Jacquet–Langlands Correspondence\nNotes from the SIMIS course taught by Nadir Matringe.\nStart reading →\n\n\nMore notes will live here\nEach future topic can have its own folder, pages, and place in the sidebar.\n\n\n\n\n\n\n\n\nNoteStatus\n\n\n\nThis is a living notebook. Explanations may be heuristic, abbreviated, or revised as the surrounding picture becomes clearer. Also, some parts may simply be forgotten by the author, who is a lazy man.",
+    "text": "Notes\n\n\n\nÉtale Morphisms\nEquivalent definitions of étale morphisms and intuition for the roles of flatness and unramifiedness.\nStart reading →\n\n\nThe Jacquet–Langlands Correspondence\nNotes from Nadir Matringe’s SIMIS course on the Jacquet–Langlands correspondence.\nStart reading →\n\n\nMore notes will live here\nEach future topic can have its own folder, pages, and place in the sidebar.\n\n\nNo matching items\n\n\n\n\n\n\n\nNoteStatus\n\n\n\nThis is a living notebook. Explanations may be heuristic, abbreviated, or revised as the surrounding picture becomes clearer. Also, some parts may simply be forgotten by the author, who is a lazy man.",
     "crumbs": [
       "Home"
     ]
@@ -286,51 +295,61 @@
   {
     "objectID": "editing.html",
     "href": "editing.html",
-    "title": "How to edit these notes",
+    "title": "How to Edit These Notes",
     "section": "",
-    "text": "你平时主要需要编辑扩展名为 .qmd 的文件。它和 Markdown 几乎一样，但对数学公式、目录和提示框支持得更好。",
+    "text": "你平时只需要编辑扩展名为 .qmd 的源文件。它和 Markdown 几乎一样，但对数学公式、目录和提示框支持得更好。侧边栏、首页卡片、主题目录和 HTML 都由 Quarto 根据这些源文件自动生成。",
     "crumbs": [
-      "How to edit these notes"
+      "How to Edit These Notes"
     ]
   },
   {
     "objectID": "editing.html#修改一篇笔记",
     "href": "editing.html#修改一篇笔记",
-    "title": "How to edit these notes",
+    "title": "How to Edit These Notes",
     "section": "修改一篇笔记",
-    "text": "修改一篇笔记\n在 VS Code 左侧文件列表中打开对应的 .qmd 文件，直接修改文字并保存即可：\n## A new section\n\n普通文字写在这里，行内公式写成 $X \\to Y$。\n\n$$\n\\Omega_{X/Y}=0\n$$\n以 --- 包围的文件开头是页面信息。通常只需要修改其中的 title 和 subtitle。",
+    "text": "修改一篇笔记\n在 VS Code 左侧文件列表中打开对应的 .qmd 文件，直接修改文字并保存即可：\n## A new section\n\n普通文字写在这里，行内公式写成 $X \\to Y$。\n\n$$\n\\Omega_{X/Y}=0\n$$\n以 --- 包围的文件开头是页面信息。每篇正式笔记都需要填写：\n---\ntitle: \"A New Note\"\nsubtitle: \"\"\ndescription: \"A short description shown on the topic page.\"\norder: 80\n---\n\ntitle 是页面标题以及侧边栏中的名称。\ndescription 是主题目录中显示的一句话简介。\norder 是阅读顺序，必须写成数字。现有页面以 10 为间隔排列，因此可以把新页面插入中间，例如在 40 和 50 之间使用 45。\nsubtitle 可以留空。\n\n修改并保存后，本地预览会自动重新生成相应的 HTML。",
     "crumbs": [
-      "How to edit these notes"
+      "How to Edit These Notes"
     ]
   },
   {
     "objectID": "editing.html#删除一篇笔记",
     "href": "editing.html#删除一篇笔记",
-    "title": "How to edit these notes",
+    "title": "How to Edit These Notes",
     "section": "删除一篇笔记",
-    "text": "删除一篇笔记\n\n删除对应的 .qmd 文件。\n打开项目根目录的 _quarto.yml。\n在 sidebar 的 contents 中删掉指向该文件的两行，例如：\n\n- href: \"etale morphism/definitions-and-intuitions.qmd\"\n  text: Definitions\n如果只删除文件而不修改 _quarto.yml，网站构建时会提示找不到页面。",
+    "text": "删除一篇笔记\n删除对应的 .qmd 文件即可。下一次预览或构建时，Quarto 会自动把它从侧边栏和主题目录移除。\n如果其他笔记的正文中手动链接了被删除的页面，那些正文链接仍需自行修改。",
     "crumbs": [
-      "How to edit these notes"
+      "How to Edit These Notes"
     ]
   },
   {
     "objectID": "editing.html#新增一篇笔记",
     "href": "editing.html#新增一篇笔记",
-    "title": "How to edit these notes",
+    "title": "How to Edit These Notes",
     "section": "新增一篇笔记",
-    "text": "新增一篇笔记\n最简单的方法是复制一篇现有的 .qmd 文件，改名并修改内容，然后在 _quarto.yml 的对应章节加入：\n- href: \"etale morphism/examples.qmd\"\n  text: Examples\n以后添加新的大主题时，可以新建一个文件夹，再在 _quarto.yml 中增加一个 section。文件夹名称最好使用小写英文和连字符，例如 perfectoid-spaces。\n\n\n\n\n\n\nTip最省事的工作方式\n\n\n\n你也可以只负责写内容，然后告诉我“把这篇笔记放到某个章节并发布”。目录、链接、渲染和推送都可以交给我处理。",
+    "text": "新增一篇笔记\n在已有主题的文件夹中，新建一个 .qmd 文件并填写 title、description 和 order。例如：\n---\ntitle: \"Examples\"\ndescription: \"Examples illustrating the main definitions and geometric intuition.\"\norder: 45\n---\n文件保存后，不需要修改 _quarto.yml 或主题的 index.qmd：新页面会自动出现在侧边栏、主题目录和生成的网站中。",
     "crumbs": [
-      "How to edit these notes"
+      "How to Edit These Notes"
+    ]
+  },
+  {
+    "objectID": "editing.html#新增一个大主题",
+    "href": "editing.html#新增一个大主题",
+    "title": "How to Edit These Notes",
+    "section": "新增一个大主题",
+    "text": "新增一个大主题\n新建一个主题文件夹，并在其中创建 index.qmd。文件夹名称最好使用小写英文和连字符，例如 perfectoid-spaces。主题首页可以使用下面的模板：\n---\ntitle: \"Perfectoid Spaces\"\nsubtitle: \"\"\ndescription: \"Notes on perfectoid spaces and their applications.\"\norder: 30\nstart-page: \"perfectoid-spaces/first-note.qmd\"\ntoc: false\nlisting:\n  id: topic-pages\n  contents: \"*.qmd\"\n  template: \"../_templates/topic-pages.ejs.md\"\n  fields: [title, description, order]\n  sort: \"order asc\"\n  sort-ui: false\n  filter-ui: false\n---\n\nWrite the introduction to this topic here.\n\n## Contents\n\n::: {#topic-pages}\n:::\n其中 start-page 是首页卡片上 “Start reading” 指向的第一篇笔记。创建主题首页和第一篇笔记后，新主题会自动出现在网站首页与侧边栏中。\n\n\n\n\n\n\nTip最省事的工作方式\n\n\n\n你也可以复制同一主题中的现有 .qmd，只修改文件名、页面信息和正文。只要 title、description 和 order 完整，目录不需要手工维护。",
+    "crumbs": [
+      "How to Edit These Notes"
     ]
   },
   {
     "objectID": "editing.html#本地预览",
     "href": "editing.html#本地预览",
-    "title": "How to edit these notes",
+    "title": "How to Edit These Notes",
     "section": "本地预览",
-    "text": "本地预览\n在英文路径的工作目录 C:\\notes\\p-adic-geometry-note 中打开 VS Code，然后在终端运行：\n.\\preview-local.ps1\n终端会显示一个 http://localhost:... 地址。保持这个终端运行，保存 .qmd 文件后网页会自动刷新；结束预览时按 Ctrl+C。",
+    "text": "本地预览\n在英文路径的工作目录 C:\\notes\\p-adic-geometry-note 中打开 VS Code，然后在终端运行：\n.\\preview-local.ps1\n终端会显示一个 http://localhost:... 地址。保持这个终端运行，保存 .qmd 文件后网页会自动刷新；结束预览时按 Ctrl+C。\n确认预览无误后，把修改 commit 并 push 到 main。GitHub Actions 会重新构建并发布网站。",
     "crumbs": [
-      "How to edit these notes"
+      "How to Edit These Notes"
     ]
   },
   {
@@ -450,8 +469,7 @@
     "section": "",
     "text": "NoteCourse information\n\n\n\nThese notes record the SIMIS course The Jacquet–Langlands Correspondence, taught by Nadir Matringe.",
     "crumbs": [
-      "The Jacquet–Langlands Correspondence",
-      "Overview"
+      "The Jacquet–Langlands Correspondence"
     ]
   },
   {
@@ -459,10 +477,9 @@
     "href": "jacquet-langlands correspondence/index.html#lectures",
     "title": "The Jacquet–Langlands Correspondence",
     "section": "Lectures",
-    "text": "Lectures\n\nHaar Measure and Local Fields\n\nThis is a living set of course notes. Further lectures will be added as the course develops.",
+    "text": "Lectures\n\n\n\nHaar Measure and Local Fields\nRadon and Haar measures, characteristic-zero local fields, valuation theory, change of variables, and the upper-triangular group in \\(\\mathrm{GL}_2\\).\n\n\nNo matching items\n\nThis is a living set of course notes. Further lectures will be added as the course develops.",
     "crumbs": [
-      "The Jacquet–Langlands Correspondence",
-      "Overview"
+      "The Jacquet–Langlands Correspondence"
     ]
   }
 ]

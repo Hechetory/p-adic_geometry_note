@@ -39,6 +39,8 @@ h1.title {
 }
 
 .note-card {
+  display: flex;
+  flex-direction: column;
   padding: 1.25rem 1.35rem;
   border: 1px solid var(--note-border);
   border-radius: 0.6rem;
@@ -50,8 +52,39 @@ h1.title {
   margin-top: 0;
 }
 
+.note-card > p:last-child {
+  margin-top: auto;
+  margin-bottom: 0;
+}
+
 .note-card.coming-soon {
   opacity: 0.78;
+}
+
+.topic-page-list {
+  margin-bottom: 2rem;
+}
+
+.topic-page-item {
+  padding: 1rem 0;
+  border-bottom: 1px solid var(--note-border);
+}
+
+.topic-page-item:first-child {
+  padding-top: 0;
+}
+
+.topic-page-item:last-child {
+  border-bottom: 0;
+}
+
+.topic-page-item h3 {
+  margin: 0 0 0.35rem;
+}
+
+.topic-page-item p:last-child {
+  margin-bottom: 0;
+  color: var(--note-muted);
 }
 
 .callout {
@@ -65,4 +98,3 @@ h1.title {
     --note-border: #3a4650;
   }
 }
-

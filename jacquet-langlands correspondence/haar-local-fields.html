@@ -6,6 +6,7 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="description" content="Radon and Haar measures, characteristic-zero local fields, valuation theory, change of variables, and the upper-triangular group in \mathrm{GL}_2.">
 
 <title>Haar Measure and Local Fields – p-adic geometry notes</title>
 <style>
@@ -338,19 +339,13 @@ window.Quarto = {
 </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
+            <a href="../etale morphism/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Étale Morphisms</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
       <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../etale morphism/index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Overview</span></a>
-  </div>
-</li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../etale morphism/definitions.html" class="sidebar-item-text sidebar-link">
@@ -391,19 +386,13 @@ window.Quarto = {
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true">
+            <a href="../jacquet-langlands correspondence/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">The Jacquet–Langlands Correspondence</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
       <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../jacquet-langlands correspondence/index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Overview</span></a>
-  </div>
-</li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../jacquet-langlands correspondence/haar-local-fields.html" class="sidebar-item-text sidebar-link active">
@@ -415,7 +404,7 @@ window.Quarto = {
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../editing.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">How to edit these notes</span></a>
+ <span class="menu-text">How to Edit These Notes</span></a>
   </div>
 </li>
     </ul>
@@ -467,6 +456,11 @@ window.Quarto = {
 <p class="subtitle lead">From Radon measures to characteristic-zero local fields</p>
 </div>
 
+<div>
+  <div class="description">
+    Radon and Haar measures, characteristic-zero local fields, valuation theory, change of variables, and the upper-triangular group in <span class="math inline">\(\mathrm{GL}_2\)</span>.
+  </div>
+</div>
 
 
 <div class="quarto-title-meta">
@@ -737,7 +731,7 @@ x\longmapsto ax.
 \lVert ab\rVert_F=\lVert a\rVert_F\lVert b\rVert_F.
 \]</span></p>
 </div>
-<p>If <span class="math inline">\(\mu_F\)</span> is additive Haar measure, the defining change-of-variables identities are</p>
+<p>If <span class="math inline">\(\mu_F\)</span> is an additive Haar measure, the defining change-of-variables identities are</p>
 <p><span class="math display">\[
 \mu_F(aE)=\lVert a\rVert_F\mu_F(E)
 \]</span></p>
@@ -960,7 +954,9 @@ x\in\mu_{q-1}(F)
 \quad\Longleftrightarrow\quad
 x\text{ has finite order relatively prime to }p.
 \]</span></p>
-<p>Indeed, reduction is injective on prime-to-<span class="math inline">\(p\)</span> torsion, while <span class="math inline">\(k_F^\times\)</span> is cyclic of order <span class="math inline">\(q-1\)</span>.</p>
+<p>We will use Hensel’s lemma. It suffices to show that the RHS implies the LHS.</p>
+<p>Let <span class="math inline">\(x\in F^\times\)</span> satisfy <span class="math inline">\(x^d=1\)</span> for some <span class="math inline">\(d\)</span> prime to <span class="math inline">\(p\)</span>. Then <span class="math inline">\(x\in\mathcal O_F^\times\)</span>, and <span class="math inline">\(\bar x^d=1\)</span> in <span class="math inline">\(k_F^\times\)</span>. Since <span class="math inline">\(k_F^\times\)</span> is cyclic of order <span class="math inline">\(q-1\)</span>, the order of <span class="math inline">\(\bar x\)</span> divides <span class="math inline">\(d'=\gcd(d,q-1)\)</span>. Hence <span class="math inline">\(\bar x^{d'}=1\)</span>.</p>
+<p>Set <span class="math inline">\(y=x^{d'}\)</span>. Then <span class="math inline">\(\bar y=1\)</span> and <span class="math inline">\(y^{d/d'}=1\)</span>. Since <span class="math inline">\(d/d'\)</span> is prime to <span class="math inline">\(p\)</span>, <span class="math inline">\(1\)</span> is a simple root of <span class="math inline">\(X^{d/d'}-1\)</span> modulo <span class="math inline">\(\mathfrak p_F\)</span>. By the uniqueness part of Hensel’s lemma, <span class="math inline">\(1\)</span> is the unique root congruent to <span class="math inline">\(1\)</span> modulo <span class="math inline">\(\mathfrak p_F\)</span>. Therefore <span class="math inline">\(y=1\)</span>, and hence <span class="math inline">\(x^{d'}=1\)</span>.</p>
 </div>
 </section>
 </section>
@@ -1087,7 +1083,9 @@ a&amp;0\\
 \int_T\int_U f(ut)\,d\mu_U(u)\,d\mu_T(t),
 \qquad f\in C_c(B).
 \]</span></p>
-<p>Indeed, right multiplication changes the <span class="math inline">\(U\)</span>-coordinate by a translation (for each fixed <span class="math inline">\(t\)</span>) and changes the <span class="math inline">\(T\)</span>-coordinate by a right translation. Both operations preserve the corresponding factors of the product measure.</p>
+<p>By the uniqueness of Haar measure, it suffices to show that <span class="math inline">\(d\mu_U\otimes d\mu_T\)</span> is right invariant. Indeed, for <span class="math inline">\(u'\in U\)</span> and <span class="math inline">\(t'\in T\)</span>, <span class="math display">\[
+(ut)(u't')=u(tu't^{-1})(tt').
+\]</span> Writing <span class="math inline">\(u''=tu't^{-1}\in U\)</span>, right translation by <span class="math inline">\(u't'\)</span> sends <span class="math inline">\((u,t)\)</span> to <span class="math inline">\((uu'',tt')\)</span>. Since <span class="math inline">\(d\mu_U\)</span> is translation invariant and <span class="math inline">\(d\mu_T\)</span> is right invariant, the product measure <span class="math inline">\(d\mu_U\otimes d\mu_T\)</span> is right invariant.</p>
 <p>Take</p>
 <p><span class="math display">\[
 g=
@@ -1555,13 +1553,13 @@ x&amp;y\\
   </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="../jacquet-langlands correspondence/index.html" class="pagination-link" aria-label="Overview">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Overview</span>
+      <a href="../jacquet-langlands correspondence/index.html" class="pagination-link" aria-label="The Jacquet–Langlands Correspondence">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">The Jacquet–Langlands Correspondence</span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../editing.html" class="pagination-link" aria-label="How to edit these notes">
-        <span class="nav-page-text">How to edit these notes</span> <i class="bi bi-arrow-right-short"></i>
+      <a href="../editing.html" class="pagination-link" aria-label="How to Edit These Notes">
+        <span class="nav-page-text">How to Edit These Notes</span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
