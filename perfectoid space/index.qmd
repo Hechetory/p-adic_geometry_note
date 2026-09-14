@@ -1,0 +1,25 @@
+---
+title: "Perfectoid Spaces"
+description: "An introduction and guide to the notes on perfectoid spaces."
+order: 30
+toc: false
+listing:
+  id: topic-pages
+  contents: "*.qmd"
+  template: "../_templates/topic-pages.ejs.md"
+  fields: [title, description, order]
+  sort: "order asc"
+  sort-ui: false
+  filter-ui: false
+---
+
+::: {.callout-note title="About this chapter"}
+This chapter collects notes on perfectoid spaces, beginning with the basic definitions and motivations and gradually developing the main constructions and results.
+:::
+
+The main reference for this chapter is **Peter Scholze's notes on p-adic geometry**.
+
+## Contents
+
+::: {#topic-pages}
+:::
