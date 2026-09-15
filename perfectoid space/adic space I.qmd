@@ -24,7 +24,7 @@ Let $k$ be a field. The basic algebraic-geometric model is the correspondence be
 的范畴等价”。严格说，函数域函子会反转箭头，并且需要说明态射。
 -->
 
-::: {.callout-important title="Theorem: the curve--function field correspondence"}
+::: {#thm-curve-function-field-correspondence name="The curve--function field correspondence"}
 The functor $C\mapsto K(C)$ gives a contravariant correspondence between nonsingular proper integral curves over $k$ and finitely generated field extensions $K/k$ of transcendence degree one.
 
 After choosing a transcendental element $t\in K$, such a field $K$ is a finite extension of $k(t)$.
@@ -36,7 +36,7 @@ For a closed point $x$, the local ring $\mathcal O_{C,x}$ is a discrete valuatio
 
 For every open subset $U\subseteq C$, one has $\mathcal O_C(U)=\bigcap_{x\in U}\mathcal O_{C,x}\subseteq K$. Thus regularity on $U$ is detected pointwise by valuation rings.
 
-::: {.callout-note title="Definition: valuation ring"}
+::: {#def-valuation-ring name="Valuation ring"}
 Let $K$ be a field. A subring $R\subseteq K$ is a **valuation ring** if, for every $a\in K^\times$, either $a\in R$ or $a^{-1}\in R$.
 
 Its group of units is $R^\times$, and the quotient $\Gamma_R=K^\times/R^\times$ is naturally a totally ordered abelian group.
@@ -44,11 +44,11 @@ Its group of units is $R^\times$, and the quotient $\Gamma_R=K^\times/R^\times$ 
 
 The associated valuation may be written additively as $v:K^\times\to\Gamma_R$, or multiplicatively as $|\cdot|:K\to\Gamma_R\cup\{0\}$.
 
-::: {.callout-note title="Definition: rank of a valuation"}
+::: {#def-valuation-rank name="Rank of a valuation"}
 The **rank** of a totally ordered abelian group $\Gamma$ is the length of the chain of its proper convex subgroups. The rank of a valuation is the rank of its value group.
 :::
 
-::: {.callout-tip title="Examples: ordered value groups"}
+::: {#exm-ordered-value-groups name=""}
 1. If $\Gamma=\mathbb Z$, then the corresponding valuation ring is a discrete valuation ring.
 
 2. Every nonzero ordered subgroup $\Gamma\subseteq\mathbb R$ is archimedean and has rank one. Examples include $\mathbb Z$, $\mathbb Q$, and $\mathbb R$.
@@ -72,7 +72,7 @@ Let $K$ be a complete nonarchimedean field. Important examples are finite extens
 
 Consider the rigid closed unit disc $\mathbb D=\operatorname{Sp}(K\langle T\rangle)$.
 
-::: {.callout-tip title="Example: a classical rigid point"}
+::: {#exm-classical-rigid-point name=""}
 A classical point $x$ is represented by a maximal ideal $\mathfrak m_x\subseteq K\langle T\rangle$. Its residue field $K(x)=K\langle T\rangle/\mathfrak m_x$ is a finite extension of $K$.
 
 The absolute value of $K$ induces uniquely $|f|_x=|\overline f|_{K(x)}$, where $\overline f$ denotes the image of $f$ in $K(x)$.
@@ -90,7 +90,7 @@ In this way, a classical point produces a multiplicative seminorm $|\cdot|_x:K\l
 
 #### Berkovich points
 
-::: {.callout-note title="Definition: Berkovich spectrum"}
+::: {#def-berkovich-spectrum name="Berkovich spectrum"}
 Let $A$ be a Banach $K$-algebra. Its Berkovich spectrum $\mathcal M(A)$ consists of bounded multiplicative seminorms $|\cdot|_x:A\to\mathbb R_{\geq0}$ whose restriction to $K$ is the given absolute value.
 :::
 
@@ -130,7 +130,7 @@ $$
 
 In particular, $\gamma>1$, while $\gamma$ is infinitesimally close to $1$ relative to the ordinary real scale.
 
-::: {.callout-tip title="Example: the point $x^-$"}
+::: {#exm-point-x-minus name="The point $x^-$"}
 For $f=\sum_{n=0}^{\infty}a_nT^n\in K\langle T\rangle$, define
 
 $$
@@ -150,7 +150,7 @@ Let $\mathbb D(a,r)\subseteq\mathbb D$ be a closed ball. If $f(T)=\sum_{n\geq0}b
 
 When the points of the ball are sufficiently rich, this is also $|f|_{x_{a,r}}=\sup_{z\in\mathbb D(a,r)}|f(z)|$.
 
-::: {.callout-tip title="Example: a smaller closed disc"}
+::: {#exm-smaller-closed-disc name=""}
 The inclusion $\mathbb D(0,|\pi|)\hookrightarrow\mathbb D$ corresponds contravariantly to
 
 $$
@@ -166,7 +166,7 @@ The Gauss point of this smaller disc records the supremum norm on the entire dis
 
 The point $x_{0,1}$ is the usual Tate norm. One can also refine a radius infinitesimally and obtain points customarily denoted $x_{r^-}$ and $x_{r^+}$; for example, $x_{1^+}$ lies outside the closed unit disc.
 
-::: {.callout-note title="Why Gauss points are useful"}
+::: {#rem-gauss-points-useful name="Why Gauss points are useful"}
 A Gauss point behaves like the generic point of a closed ball. It simultaneously records all inequalities valid on that ball, makes nested families of discs visible topologically, and turns many admissibility questions into ordinary questions about whether every point is covered.
 :::
 
@@ -174,7 +174,7 @@ A Gauss point behaves like the generic point of a closed ball. It simultaneously
 
 ### Huber rings
 
-::: {.callout-note title="Definition: Huber ring"}
+::: {#def-huber-ring name="Huber ring"}
 A **Huber ring** is a topological ring $A$ admitting an open subring $A_0\subseteq A$ and a finitely generated ideal $I\subseteq A_0$ such that the $I$-adic topology on $A_0$ induces the topology of $A$.
 
 The ring $A_0$ is called a **ring of definition**, and $I$ is called an **ideal of definition**.
@@ -184,7 +184,7 @@ An element $a\in A$ is **power-bounded** if the set $\{a^n:n\geq0\}$ is bounded.
 
 The ideal of topologically nilpotent elements is denoted $A^{\circ\circ}$.
 
-::: {.callout-note title="Definition: Huber pair"}
+::: {#def-huber-pair name="Huber pair"}
 A **ring of integral elements** is an open subring $A^+\subseteq A^\circ$ that is integrally closed in $A$.
 
 A **Huber pair** is a pair $(A,A^+)$ consisting of a Huber ring and a ring of integral elements.
@@ -196,19 +196,19 @@ A **Huber pair** is a pair $(A,A^+)$ consisting of a Huber ring and a ring of in
 下面补入 A^+⊆A°、估值等价类及 |A^+|≤1。
 -->
 
-::: {.callout-note title="Definition: adic spectrum"}
+::: {#def-adic-spectrum name="Adic spectrum"}
 For a Huber pair $(A,A^+)$, the adic spectrum $\operatorname{Spa}(A,A^+)$ is the set of equivalence classes of continuous valuations $|\cdot|_x:A\to\Gamma_x\cup\{0\}$ such that $|a(x)|\leq1$ for every $a\in A^+$.
 :::
 
 Two valuations are equivalent if they induce the same ordering on the elements of $A$.
 
-::: {.callout-note title="Definition: Tate ring"}
+::: {#def-tate-ring name="Tate ring"}
 A Huber ring $A$ is a **Tate ring** if it contains a topologically nilpotent unit. Such a unit is called a pseudo-uniformizer.
 :::
 
 ### Basic examples
 
-::: {.callout-tip title="Example: Tate algebras"}
+::: {#exm-tate-algebras name=""}
 Let $A=K\langle T_1,\ldots,T_n\rangle$ be a Tate ring, and a natural Huber pair is
 
 $$
@@ -224,13 +224,14 @@ We can see that $\operatorname{Sp}(A)\subset \operatorname{Spa}(A,A^+)$ as sets.
 In general, let $A$ be an affinoid algebra equipped with the topology induced by one reduced norm $|\cdot|$, then $A^\circ$ is the integral closure in $A$ of the subring consisting of the elements $a\in A$ such that $|a|\leq 1$. Thus, we can take $A^+=A^\circ$.
 :::
 
-::: {.callout-tip title="Example: rings from formal geometry"}
+::: {#exm-formal-geometry-rings name=""}
 Let $R$ be complete and separated for the $I$-adic topology, where $I$ is finitely generated. Then $R$ is a Huber ring with ring of definition $R$, and $(R,R)$ is a Huber pair.
 
 Examples include $\mathbb Z_p$ and $\mathbb Z_p\llbracket X_1,\ldots,X_n\rrbracket$ with their natural adic topologies. These rings are not Tate rings because they contain no topologically nilpotent unit.
 :::
 
 ### Raynaud's formal models
+
 Let $A_0=\mathcal O_K\langle T_1,\ldots,T_n\rangle/\mathfrak a$ be a topologically finite-type $\mathcal O_K$-algebra, complete for the $\pi$-adic topology. Then
 
 $$
@@ -244,8 +245,7 @@ $$
 
 where $\mathfrak a_m$ denotes the image of $\mathfrak a$ modulo $\pi^m$. After inverting $\pi$, we obtain the affinoid $K$-algebra $A=A_0[1/\pi]\simeq K\langle T_1,\ldots,T_n\rangle/\mathfrak a_K$. If $A^+$ denotes the integral closure of the image of $A_0$ in $A$, the analytic generic fiber of $\mathfrak X=\operatorname{Spf}(A_0)$ is the affinoid adic space $X_\eta=\operatorname{Spa}(A,A^+)$. This construction is the local algebraic mechanism underlying the Raynaud formal--rigid correspondence.
 
-
-::: {.callout-note title="Remark: noetherianity"}
+::: {#rem-noetherianity name=""}
 The Tate algebra $K\langle T_1,\ldots,T_n\rangle$ is noetherian. If the valuation of $K$ is not discrete, however, the integral model $\mathcal O_K\langle T_1,\ldots,T_n\rangle$ need not be noetherian.
 :::
 
@@ -253,7 +253,7 @@ The Tate algebra $K\langle T_1,\ldots,T_n\rangle$ is noetherian. If the valuatio
 
 ### Definition and topology
 
-::: {.callout-note title="Definition: rational subset"}
+::: {#def-rational-subset name="Rational subset"}
 Let $X=\operatorname{Spa}(A,A^+)$. Choose $s,t_1,\ldots,t_n\in A$ such that the ideal $(s,t_1,\ldots,t_n)$ is open. The associated rational subset is
 
 $$
@@ -360,7 +360,7 @@ A^+[T_1,\ldots,T_n]/(sT_i-t_i)，因为 s,t_i 未必属于 A^+。
 正确做法是取 A^+[t_1/s,\ldots,t_n/s] 的像，再取闭包与整闭包。
 -->
 
-::: {.callout-tip title="Example: the Tate affinoid case"}
+::: {#exm-tate-affinoid-rational-localization name=""}
 For a Tate affinoid algebra, the underlying rational localization has the familiar presentation
 
 $$
@@ -403,7 +403,7 @@ $$
 
 To imitate the rigid proof, we first need to show that $\varphi^\#(s)$ is invertible. The obvious attempt is to argue using maximal ideals of $B$, exactly as in the affinoid case.
 
-::: {.callout-warning title="Where the rigid argument breaks"}
+::: {#rem-rigid-maximal-ideal-obstruction name="Where the rigid argument breaks"}
 A maximal ideal $\mathfrak m\subseteq B$ defines an algebraic valuation
 
 $$
@@ -428,7 +428,7 @@ The failure of the maximal-ideal argument does not mean that pointwise nonvanish
 
 #### Repairing the argument
 
-::: {.callout-important title="Lemma: nonvanishing detects units"}
+::: {#lem-nonvanishing-detects-units name="Nonvanishing detects units"}
 Let $(B,B^+)$ be a separated complete Huber pair. For $f\in B$, the following conditions are equivalent:
 
 1. $f$ is invertible in $B$;
@@ -457,7 +457,7 @@ is a nonzero separated complete Huber ring. Let $C^+$ be a ring of integral elem
 
 Pulling $z$ back along $B\to C$ gives a point $y\in\operatorname{Spa}(B,B^+)$ at which $f$ vanishes, because the image of $f$ in $C$ is zero. This contradicts the assumption that $|f(y)|\neq0$ for every $y$. Therefore $f$ is invertible. $\square$
 
-::: {.callout-note title="Why completeness is essential"}
+::: {#exm-completeness-essential name="Why completeness is essential"}
 The completeness assumption cannot be omitted. Give $K[T]$ the Huber topology with ring of definition $\mathcal O_K[T]$ and ideal of definition $\pi\mathcal O_K[T]$.
 
 The element $1+\pi T$ is not invertible in $K[T]$, but every $x\in\operatorname{Spa}(K[T],\mathcal O_K[T])$ satisfies $|\pi T(x)|<1$, and hence $|1+\pi T|_x=1$.
@@ -526,7 +526,7 @@ The first arrow is unique because its effect on the dense subring $A[1/s]$ is fo
 
 Finally, every $x\in U$ extends uniquely to a valuation on $A[1/s]$ satisfying $|t_i/s|_x\leq1$, and then uniquely to its completion $A_U$. Conversely, every point of $\operatorname{Spa}(A_U,A_U^+)$ restricts to a point of $U$. Thus the rational localization has precisely the required underlying set of points.
 
-::: {.callout-important title="Proposition: universal property of a rational localization"}
+::: {#prp-rational-localization-universal-property name="Universal property of a rational localization"}
 The natural morphism
 
 $$
@@ -608,7 +608,7 @@ Whenever $V\subseteq U$ are rational subsets, the universal property of rational
 
 The first question is whether $\mathcal O_X^{\mathrm{rat}}$ is a sheaf on the rational site. In the rigid-analytic situation, this is precisely where Tate acyclicity enters.
 
-::: {.callout-important title="Theorem: Tate acyclicity on rational coverings"}
+::: {#thm-tate-acyclicity-rational-coverings name="Tate acyclicity on rational coverings"}
 Suppose that $A$ is a strongly noetherian Tate ring. Let $U\subseteq X$ be rational and let $U=U_1\cup\cdots\cup U_r$ be a finite rational covering. Then the augmented Čech complex
 
 $$
@@ -714,7 +714,7 @@ $$
 
 This construction always produces a presheaf on the ordinary topology of $X$, and it agrees with the original rational-localization presheaf on every rational subset. It need not, however, satisfy the sheaf condition.
 
-::: {.callout-note title="Definition: sheafy Huber pair"}
+::: {#def-sheafy-huber-pair name="Sheafy Huber pair"}
 A Huber pair $(A,A^+)$ is **sheafy** if the presheaf $\mathcal O_X$ defined above is a sheaf on $X=\operatorname{Spa}(A,A^+)$.
 
 Equivalently, $(A,A^+)$ is sheafy if the rational-localization presheaf $\mathcal O_X^{\mathrm{rat}}$ satisfies the sheaf condition for rational coverings.
@@ -734,7 +734,7 @@ $$
 
 #### Standard sheafy classes
 
-::: {.callout-important title="Theorem: standard sheafiness criteria"}
+::: {#thm-standard-sheafiness-criteria name="Standard sheafiness criteria"}
 Let $(A,A^+)$ be a complete Huber pair. Its structure presheaf is a sheaf in each of the following situations:
 
 1. $A$ is discrete;
@@ -742,7 +742,7 @@ Let $(A,A^+)$ be a complete Huber pair. Its structure presheaf is a sheaf in eac
 3. $A$ is a strongly noetherian Tate ring.
 :::
 
-::: {.callout-note title="Definition: strongly noetherian"}
+::: {#def-strongly-noetherian name="Strongly noetherian"}
 A Tate ring $A$ is **strongly noetherian** if $A\langle T_1,\ldots,T_n\rangle$ is noetherian for every $n\geq0$, where
 
 $$
@@ -755,7 +755,7 @@ a_\nu\in A,\ a_\nu\longrightarrow0
 $$
 :::
 
-::: {.callout-tip title="Examples of sheafy Huber pairs"}
+::: {#exm-sheafy-huber-pairs name=""}
 1. A discrete ring gives the adic-space incarnation of an affine scheme.
 
 2. A complete adic ring with a noetherian ring of definition gives the local model arising from a locally noetherian formal scheme.
@@ -799,7 +799,7 @@ $$
 
 Finite admissible rational coverings on the rigid side correspond to ordinary finite open coverings by rational subsets on the adic side. Since rational subsets form a basis, the sheaf theory of the rigid rational $G$-site is thereby realized as the ordinary sheaf theory of the topological space $\operatorname{Spa}(A,A^\circ)$.
 
-::: {.callout-important title="Conceptual meaning of the additional adic points"}
+::: {#rem-conceptual-meaning-adic-points name="Conceptual meaning of the additional adic points"}
 The passage from rigid spaces to adic spaces accomplishes two logically distinct tasks:
 
 1. **Tate acyclicity** proves that the prescribed rings of analytic functions satisfy the sheaf condition.
@@ -815,7 +815,7 @@ Thus adic geometry does not discard rigid geometry. It retains its analytic func
 
 The definition of an adic space is now natural: we may glue affinoid spectra precisely when their structure presheaves are sheaves.
 
-::: {.callout-note title="Definition: affinoid adic space"}
+::: {#def-affinoid-adic-space name="Affinoid adic space"}
 Let $(A,A^+)$ be a complete sheafy Huber pair. The associated **affinoid adic space** is the triple
 
 $$
@@ -829,7 +829,7 @@ $$
 consisting of the topological space $\operatorname{Spa}(A,A^+)$, its structure sheaf of complete topological rings, and the compatible valuation carried by every point.
 :::
 
-::: {.callout-note title="Definition: adic space"}
+::: {#def-adic-space name="Adic space"}
 An **adic space** is a locally $v$-ringed space which admits an open covering by affinoid adic spaces.
 
 Concretely, it consists of a topological space $X$, a sheaf $\mathcal O_X$ of complete topological rings, and a compatible valuation on every stalk $\mathcal O_{X,x}$, such that every point has an open neighborhood isomorphic to $\operatorname{Spa}(A,A^+)$ for some complete sheafy Huber pair $(A,A^+)$.
@@ -841,7 +841,7 @@ Morphisms of adic spaces are morphisms of locally and topologically ringed space
 
 Let $\operatorname{Cont}(A)$ be the space of continuous valuations on a Huber ring $A$.
 
-::: {.callout-important title="Proposition: recovering $A^+$ from inequalities"}
+::: {#prp-recovering-positive-part-from-inequalities name="Recovering $A^+$ from inequalities"}
 The space $\operatorname{Cont}(A)$ is spectral. Moreover, the following data are equivalent:
 
 1. A subset of the form
@@ -883,7 +883,7 @@ $$
 
 Thus $A^+$ records precisely which inequalities have been imposed on the continuous valuations.
 
-::: {.callout-tip title="Example: rational localization without the positive part"}
+::: {#exm-rational-localization-without-positive-part name="Rational localization without the positive part"}
 Let $A\to B$ be the rational localization associated with a rational subset $U\subseteq\operatorname{Cont}(A)$.
 
 In general, $\operatorname{Cont}(B)$ is larger than $U$. The positive subring $B^+$ cuts out $U$ by remembering the additional inequalities $|b(x)|\leq1$ for $b\in B^+$.
