@@ -1,12 +1,17 @@
+@import url("https://fonts.googleapis.com/css2?family=STIX+Two+Text:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&display=swap");
+
 :root {
+  --note-serif: "STIX Two Text", "Noto Serif CJK SC", "Source Han Serif SC",
+    "Songti SC", SimSun, "Times New Roman", serif;
   --note-muted: #5d6975;
   --note-accent: #315b7d;
   --note-paper: #fbfaf7;
   --note-border: #dce2e7;
+  --bs-body-font-family: var(--note-serif);
 }
 
 body {
-  letter-spacing: 0.005em;
+  letter-spacing: 0;
 }
 
 .content {
