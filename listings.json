@@ -11,10 +11,17 @@
     ]
   },
   {
+    "listing": "/perfectoid space/index.html",
+    "items": [
+      "/perfectoid space/adic space I.html"
+    ]
+  },
+  {
     "listing": "/index.html",
     "items": [
       "/etale morphism/index.html",
-      "/jacquet-langlands correspondence/index.html"
+      "/jacquet-langlands correspondence/index.html",
+      "/perfectoid space/index.html"
     ]
   },
   {

@@ -1,0 +1,1994 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.10.18">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="description" content="From valuation-theoretic points to affinoid adic spaces and their structure sheaves.">
+
+<title>Adic Space I – p-adic geometry notes</title>
+<style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: 1.5em;}
+div.column{flex: auto;}
+@media screen {
+div.columns{gap: min(4vw, 1.5em);}
+div.column{overflow-x: auto;}
+}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<link href="../editing.html" rel="next">
+<link href="../perfectoid space/index.html" rel="prev">
+<script src="../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark-b85bc7c33db8c58e0ec93c3465666fed.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap-4135fc327bf2835b2ef38f6e520f46b7.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-dark-072fe720cdfc8dbd8d45003ad61e038e.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../site_libs/bootstrap/bootstrap-4135fc327bf2835b2ef38f6e520f46b7.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-chtml.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+<link rel="stylesheet" href="../styles.css">
+</head>
+
+<body class="nav-sidebar docked nav-fixed quarto-light"><script id="quarto-html-before-body" type="application/javascript">
+    const toggleBodyColorMode = (bsSheetEl) => {
+      const mode = bsSheetEl.getAttribute("data-mode");
+      const bodyEl = window.document.querySelector("body");
+      if (mode === "dark") {
+        bodyEl.classList.add("quarto-dark");
+        bodyEl.classList.remove("quarto-light");
+      } else {
+        bodyEl.classList.add("quarto-light");
+        bodyEl.classList.remove("quarto-dark");
+      }
+    }
+    const toggleBodyColorPrimary = () => {
+      const bsSheetEl = window.document.querySelector("link#quarto-bootstrap:not([rel=disabled-stylesheet])");
+      if (bsSheetEl) {
+        toggleBodyColorMode(bsSheetEl);
+      }
+    }
+    const setColorSchemeToggle = (alternate) => {
+      const toggles = window.document.querySelectorAll('.quarto-color-scheme-toggle');
+      for (let i=0; i < toggles.length; i++) {
+        const toggle = toggles[i];
+        if (toggle) {
+          if (alternate) {
+            toggle.classList.add("alternate");
+          } else {
+            toggle.classList.remove("alternate");
+          }
+        }
+      }
+    };
+    const toggleColorMode = (alternate) => {
+      // Switch the stylesheets
+      const primaryStylesheets = window.document.querySelectorAll('link.quarto-color-scheme:not(.quarto-color-alternate)');
+      const alternateStylesheets = window.document.querySelectorAll('link.quarto-color-scheme.quarto-color-alternate');
+      manageTransitions('#quarto-margin-sidebar .nav-link', false);
+      if (alternate) {
+        // note: dark is layered on light, we don't disable primary!
+        enableStylesheet(alternateStylesheets);
+        for (const sheetNode of alternateStylesheets) {
+          if (sheetNode.id === "quarto-bootstrap") {
+            toggleBodyColorMode(sheetNode);
+          }
+        }
+      } else {
+        disableStylesheet(alternateStylesheets);
+        enableStylesheet(primaryStylesheets)
+        toggleBodyColorPrimary();
+      }
+      manageTransitions('#quarto-margin-sidebar .nav-link', true);
+      // Switch the toggles
+      setColorSchemeToggle(alternate)
+      // Hack to workaround the fact that safari doesn't
+      // properly recolor the scrollbar when toggling (#1455)
+      if (navigator.userAgent.indexOf('Safari') > 0 && navigator.userAgent.indexOf('Chrome') == -1) {
+        manageTransitions("body", false);
+        window.scrollTo(0, 1);
+        setTimeout(() => {
+          window.scrollTo(0, 0);
+          manageTransitions("body", true);
+        }, 40);
+      }
+    }
+    const disableStylesheet = (stylesheets) => {
+      for (let i=0; i < stylesheets.length; i++) {
+        const stylesheet = stylesheets[i];
+        stylesheet.rel = 'disabled-stylesheet';
+      }
+    }
+    const enableStylesheet = (stylesheets) => {
+      for (let i=0; i < stylesheets.length; i++) {
+        const stylesheet = stylesheets[i];
+        if(stylesheet.rel !== 'stylesheet') { // for Chrome, which will still FOUC without this check
+          stylesheet.rel = 'stylesheet';
+        }
+      }
+    }
+    const manageTransitions = (selector, allowTransitions) => {
+      const els = window.document.querySelectorAll(selector);
+      for (let i=0; i < els.length; i++) {
+        const el = els[i];
+        if (allowTransitions) {
+          el.classList.remove('notransition');
+        } else {
+          el.classList.add('notransition');
+        }
+      }
+    }
+    const isFileUrl = () => {
+      return window.location.protocol === 'file:';
+    }
+    const hasAlternateSentinel = () => {
+      let styleSentinel = getColorSchemeSentinel();
+      if (styleSentinel !== null) {
+        return styleSentinel === "alternate";
+      } else {
+        return false;
+      }
+    }
+    const setStyleSentinel = (alternate) => {
+      const value = alternate ? "alternate" : "default";
+      if (!isFileUrl()) {
+        window.localStorage.setItem("quarto-color-scheme", value);
+      } else {
+        localAlternateSentinel = value;
+      }
+    }
+    const getColorSchemeSentinel = () => {
+      if (!isFileUrl()) {
+        const storageValue = window.localStorage.getItem("quarto-color-scheme");
+        return storageValue != null ? storageValue : localAlternateSentinel;
+      } else {
+        return localAlternateSentinel;
+      }
+    }
+    const toggleGiscusIfUsed = (isAlternate, darkModeDefault) => {
+      const baseTheme = document.querySelector('#giscus-base-theme')?.value ?? 'light';
+      const alternateTheme = document.querySelector('#giscus-alt-theme')?.value ?? 'dark';
+      let newTheme = '';
+      if(authorPrefersDark) {
+        newTheme = isAlternate ? baseTheme : alternateTheme;
+      } else {
+        newTheme = isAlternate ? alternateTheme : baseTheme;
+      }
+      const changeGiscusTheme = () => {
+        // From: https://github.com/giscus/giscus/issues/336
+        const sendMessage = (message) => {
+          const iframe = document.querySelector('iframe.giscus-frame');
+          if (!iframe) return;
+          iframe.contentWindow.postMessage({ giscus: message }, 'https://giscus.app');
+        }
+        sendMessage({
+          setConfig: {
+            theme: newTheme
+          }
+        });
+      }
+      const isGiscussLoaded = window.document.querySelector('iframe.giscus-frame') !== null;
+      if (isGiscussLoaded) {
+        changeGiscusTheme();
+      }
+    };
+    const authorPrefersDark = false;
+    const darkModeDefault = authorPrefersDark;
+      document.querySelector('link#quarto-text-highlighting-styles.quarto-color-scheme-extra').rel = 'disabled-stylesheet';
+      document.querySelector('link#quarto-bootstrap.quarto-color-scheme-extra').rel = 'disabled-stylesheet';
+    let localAlternateSentinel = darkModeDefault ? 'alternate' : 'default';
+    // Dark / light mode switch
+    window.quartoToggleColorScheme = () => {
+      // Read the current dark / light value
+      let toAlternate = !hasAlternateSentinel();
+      toggleColorMode(toAlternate);
+      setStyleSentinel(toAlternate);
+      toggleGiscusIfUsed(toAlternate, darkModeDefault);
+      window.dispatchEvent(new Event('resize'));
+    };
+    // Switch to dark mode if need be
+    if (hasAlternateSentinel()) {
+      toggleColorMode(true);
+    } else {
+      toggleColorMode(false);
+    }
+  </script>
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="../index.html">
+    <span class="navbar-title">p-adic geometry notes</span>
+    </a>
+  </div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://github.com/Hechetory/p-adic_geometry_note"> <i class="bi bi-github" role="img" aria-label="GitHub">
+</i> 
+<span class="menu-text"></span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+  <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
+  <a href="" class="quarto-reader-toggle quarto-navigation-tool px-1" onclick="window.quartoToggleReader(); return false;" title="Toggle reader mode">
+  <div class="quarto-reader-toggle-btn">
+  <i class="bi"></i>
+  </div>
+</a>
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../perfectoid space/index.html">Perfectoid Spaces</a></li><li class="breadcrumb-item"><a href="../perfectoid space/adic space I.html">Adic Space I</a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
+        <div class="sidebar-tools-main">
+    <div id="quarto-search" class="quarto-navigation-tool px-1" title="Search"></div>
+</div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Home</span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../etale morphism/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Étale Morphisms</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../etale morphism/definitions.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Definitions</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../etale morphism/unramified-morphisms.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">The Sheaf of Differentials and Unramified Morphisms</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../etale morphism/smooth-morphisms.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Smooth Morphisms</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../etale morphism/flat-morphisms.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Flat Morphisms</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../etale morphism/smooth-morphisms-again.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Smooth Morphisms Again</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../etale morphism/etale-morphisms.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Étale Morphisms</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../jacquet-langlands correspondence/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">The Jacquet–Langlands Correspondence</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../jacquet-langlands correspondence/haar-local-fields.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Haar Measure and Local Fields</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../perfectoid space/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Perfectoid Spaces</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../perfectoid space/adic space I.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">Adic Space I</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../editing.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">How to Edit These Notes</span></a>
+  </div>
+</li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#valuations" id="toc-valuations" class="nav-link active" data-scroll-target="#valuations"><span class="header-section-number">1</span> Valuations</a>
+  <ul>
+  <li><a href="#curves-and-valuation-rings" id="toc-curves-and-valuation-rings" class="nav-link" data-scroll-target="#curves-and-valuation-rings"><span class="header-section-number">1.1</span> Curves and valuation rings</a></li>
+  <li><a href="#classical-points-in-rigid-geometry" id="toc-classical-points-in-rigid-geometry" class="nav-link" data-scroll-target="#classical-points-in-rigid-geometry"><span class="header-section-number">1.2</span> Classical points in rigid geometry</a></li>
+  <li><a href="#two-enlargements-of-the-set-of-points" id="toc-two-enlargements-of-the-set-of-points" class="nav-link" data-scroll-target="#two-enlargements-of-the-set-of-points"><span class="header-section-number">1.3</span> Two enlargements of the set of points</a>
+  <ul class="collapse">
+  <li><a href="#berkovich-points" id="toc-berkovich-points" class="nav-link" data-scroll-target="#berkovich-points"><span class="header-section-number">1.3.1</span> Berkovich points</a></li>
+  <li><a href="#adic-points" id="toc-adic-points" class="nav-link" data-scroll-target="#adic-points"><span class="header-section-number">1.3.2</span> Adic points</a></li>
+  </ul></li>
+  <li><a href="#new-points-on-the-closed-disc" id="toc-new-points-on-the-closed-disc" class="nav-link" data-scroll-target="#new-points-on-the-closed-disc"><span class="header-section-number">1.4</span> New points on the closed disc</a>
+  <ul class="collapse">
+  <li><a href="#a-higher-rank-boundary-point" id="toc-a-higher-rank-boundary-point" class="nav-link" data-scroll-target="#a-higher-rank-boundary-point"><span class="header-section-number">1.4.1</span> A higher-rank boundary point</a></li>
+  <li><a href="#rank-one-gauss-points" id="toc-rank-one-gauss-points" class="nav-link" data-scroll-target="#rank-one-gauss-points"><span class="header-section-number">1.4.2</span> Rank-one Gauss points</a></li>
+  </ul></li>
+  </ul></li>
+  <li><a href="#huber-pairs-and-adic-spectra" id="toc-huber-pairs-and-adic-spectra" class="nav-link" data-scroll-target="#huber-pairs-and-adic-spectra"><span class="header-section-number">2</span> Huber pairs and adic spectra</a>
+  <ul>
+  <li><a href="#huber-rings" id="toc-huber-rings" class="nav-link" data-scroll-target="#huber-rings"><span class="header-section-number">2.1</span> Huber rings</a></li>
+  <li><a href="#basic-examples" id="toc-basic-examples" class="nav-link" data-scroll-target="#basic-examples"><span class="header-section-number">2.2</span> Basic examples</a></li>
+  <li><a href="#raynauds-formal-models" id="toc-raynauds-formal-models" class="nav-link" data-scroll-target="#raynauds-formal-models"><span class="header-section-number">2.3</span> Raynaud’s formal models</a></li>
+  </ul></li>
+  <li><a href="#rational-subsets" id="toc-rational-subsets" class="nav-link" data-scroll-target="#rational-subsets"><span class="header-section-number">3</span> Rational subsets</a>
+  <ul>
+  <li><a href="#definition-and-topology" id="toc-definition-and-topology" class="nav-link" data-scroll-target="#definition-and-topology"><span class="header-section-number">3.1</span> Definition and topology</a></li>
+  <li><a href="#rational-localization" id="toc-rational-localization" class="nav-link" data-scroll-target="#rational-localization"><span class="header-section-number">3.2</span> Rational localization</a>
+  <ul class="collapse">
+  <li><a href="#the-rigid-geometric-model" id="toc-the-rigid-geometric-model" class="nav-link" data-scroll-target="#the-rigid-geometric-model"><span class="header-section-number">3.2.1</span> The rigid-geometric model</a></li>
+  <li><a href="#the-adic-construction" id="toc-the-adic-construction" class="nav-link" data-scroll-target="#the-adic-construction"><span class="header-section-number">3.2.2</span> The adic construction</a></li>
+  <li><a href="#attempting-the-rigid-proof" id="toc-attempting-the-rigid-proof" class="nav-link" data-scroll-target="#attempting-the-rigid-proof"><span class="header-section-number">3.2.3</span> Attempting the rigid proof</a></li>
+  <li><a href="#repairing-the-argument" id="toc-repairing-the-argument" class="nav-link" data-scroll-target="#repairing-the-argument"><span class="header-section-number">3.2.4</span> Repairing the argument</a></li>
+  <li><a href="#completing-the-factorization" id="toc-completing-the-factorization" class="nav-link" data-scroll-target="#completing-the-factorization"><span class="header-section-number">3.2.5</span> Completing the factorization</a></li>
+  </ul></li>
+  </ul></li>
+  <li><a href="#the-structure-presheaf" id="toc-the-structure-presheaf" class="nav-link" data-scroll-target="#the-structure-presheaf"><span class="header-section-number">4</span> The structure presheaf</a>
+  <ul>
+  <li><a href="#definition-on-rational-subsets" id="toc-definition-on-rational-subsets" class="nav-link" data-scroll-target="#definition-on-rational-subsets"><span class="header-section-number">4.1</span> Definition on rational subsets</a></li>
+  <li><a href="#sheafiness" id="toc-sheafiness" class="nav-link" data-scroll-target="#sheafiness"><span class="header-section-number">4.2</span> Sheafiness</a>
+  <ul class="collapse">
+  <li><a href="#the-presheaf-on-the-rational-site" id="toc-the-presheaf-on-the-rational-site" class="nav-link" data-scroll-target="#the-presheaf-on-the-rational-site"><span class="header-section-number">4.2.1</span> The presheaf on the rational site</a></li>
+  <li><a href="#tate-acyclicity-and-the-sheaf-condition" id="toc-tate-acyclicity-and-the-sheaf-condition" class="nav-link" data-scroll-target="#tate-acyclicity-and-the-sheaf-condition"><span class="header-section-number">4.2.2</span> Tate acyclicity and the sheaf condition</a></li>
+  <li><a href="#extension-from-the-rational-basis" id="toc-extension-from-the-rational-basis" class="nav-link" data-scroll-target="#extension-from-the-rational-basis"><span class="header-section-number">4.2.3</span> Extension from the rational basis</a></li>
+  <li><a href="#the-general-definition" id="toc-the-general-definition" class="nav-link" data-scroll-target="#the-general-definition"><span class="header-section-number">4.2.4</span> The general definition</a></li>
+  <li><a href="#standard-sheafy-classes" id="toc-standard-sheafy-classes" class="nav-link" data-scroll-target="#standard-sheafy-classes"><span class="header-section-number">4.2.5</span> Standard sheafy classes</a></li>
+  <li><a href="#from-the-rigid-g-topology-to-a-genuine-topology" id="toc-from-the-rigid-g-topology-to-a-genuine-topology" class="nav-link" data-scroll-target="#from-the-rigid-g-topology-to-a-genuine-topology"><span class="header-section-number">4.2.6</span> From the rigid <span class="math inline">\(G\)</span>-topology to a genuine topology</a></li>
+  </ul></li>
+  <li><a href="#adic-spaces" id="toc-adic-spaces" class="nav-link" data-scroll-target="#adic-spaces"><span class="header-section-number">4.3</span> Adic spaces</a></li>
+  </ul></li>
+  <li><a href="#why-a-is-necessary" id="toc-why-a-is-necessary" class="nav-link" data-scroll-target="#why-a-is-necessary"><span class="header-section-number">5</span> Why <span class="math inline">\(A^+\)</span> is necessary</a></li>
+  </ul>
+<div class="toc-actions"><ul><li><a href="https://github.com/Hechetory/p-adic_geometry_note/edit/main/perfectoid space/adic space I.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/Hechetory/p-adic_geometry_note/blob/main/perfectoid space/adic space I.qmd" class="toc-action"><i class="bi empty"></i>View source</a></li><li><a href="https://github.com/Hechetory/p-adic_geometry_note/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../perfectoid space/index.html">Perfectoid Spaces</a></li><li class="breadcrumb-item"><a href="../perfectoid space/adic space I.html">Adic Space I</a></li></ol></nav>
+<div class="quarto-title">
+<h1 class="title">Adic Space I</h1>
+<p class="subtitle lead">Valuations, Huber pairs, and rational subsets</p>
+</div>
+
+<div>
+  <div class="description">
+    From valuation-theoretic points to affinoid adic spaces and their structure sheaves.
+  </div>
+</div>
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<section id="valuations" class="level2" data-number="1">
+<h2 data-number="1" class="anchored" data-anchor-id="valuations"><span class="header-section-number">1</span> Valuations</h2>
+<section id="curves-and-valuation-rings" class="level3" data-number="1.1">
+<h3 data-number="1.1" class="anchored" data-anchor-id="curves-and-valuation-rings"><span class="header-section-number">1.1</span> Curves and valuation rings</h3>
+<p>Let <span class="math inline">\(k\)</span> be a field. The basic algebraic-geometric model is the correspondence between curves over <span class="math inline">\(k\)</span> and function fields of one variable over <span class="math inline">\(k\)</span>.</p>
+<!--
+数学核对：
+草稿中写成了“proper nonsingular curves over k 与 finite extensions of k(t)
+的范畴等价”。严格说，函数域函子会反转箭头，并且需要说明态射。
+-->
+<div class="callout callout-style-default callout-important callout-titled" title="Theorem: the curve--function field correspondence">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Important</span>Theorem: the curve–function field correspondence
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>The functor <span class="math inline">\(C\mapsto K(C)\)</span> gives a contravariant correspondence between nonsingular proper integral curves over <span class="math inline">\(k\)</span> and finitely generated field extensions <span class="math inline">\(K/k\)</span> of transcendence degree one.</p>
+<p>After choosing a transcendental element <span class="math inline">\(t\in K\)</span>, such a field <span class="math inline">\(K\)</span> is a finite extension of <span class="math inline">\(k(t)\)</span>.</p>
+</div>
+</div>
+<p>Let <span class="math inline">\(C\)</span> be such a curve and put <span class="math inline">\(K=K(C)\)</span>. A point <span class="math inline">\(x\in C\)</span> determines the local ring <span class="math inline">\(\mathcal O_{C,x}\subseteq K\)</span>.</p>
+<p>For a closed point <span class="math inline">\(x\)</span>, the local ring <span class="math inline">\(\mathcal O_{C,x}\)</span> is a discrete valuation ring, and <span class="math inline">\(\mathcal O_{C,x}=\{f\in K\mid \operatorname{ord}_x(f)\geq0\}\)</span>.</p>
+<p>For every open subset <span class="math inline">\(U\subseteq C\)</span>, one has <span class="math inline">\(\mathcal O_C(U)=\bigcap_{x\in U}\mathcal O_{C,x}\subseteq K\)</span>. Thus regularity on <span class="math inline">\(U\)</span> is detected pointwise by valuation rings.</p>
+<div class="callout callout-style-default callout-note callout-titled" title="Definition: valuation ring">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Definition: valuation ring
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Let <span class="math inline">\(K\)</span> be a field. A subring <span class="math inline">\(R\subseteq K\)</span> is a <strong>valuation ring</strong> if, for every <span class="math inline">\(a\in K^\times\)</span>, either <span class="math inline">\(a\in R\)</span> or <span class="math inline">\(a^{-1}\in R\)</span>.</p>
+<p>Its group of units is <span class="math inline">\(R^\times\)</span>, and the quotient <span class="math inline">\(\Gamma_R=K^\times/R^\times\)</span> is naturally a totally ordered abelian group.</p>
+</div>
+</div>
+<p>The associated valuation may be written additively as <span class="math inline">\(v:K^\times\to\Gamma_R\)</span>, or multiplicatively as <span class="math inline">\(|\cdot|:K\to\Gamma_R\cup\{0\}\)</span>.</p>
+<div class="callout callout-style-default callout-note callout-titled" title="Definition: rank of a valuation">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Definition: rank of a valuation
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>The <strong>rank</strong> of a totally ordered abelian group <span class="math inline">\(\Gamma\)</span> is the length of the chain of its proper convex subgroups. The rank of a valuation is the rank of its value group.</p>
+</div>
+</div>
+<div class="callout callout-style-default callout-tip callout-titled" title="Examples: ordered value groups">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Examples: ordered value groups
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ol type="1">
+<li><p>If <span class="math inline">\(\Gamma=\mathbb Z\)</span>, then the corresponding valuation ring is a discrete valuation ring.</p></li>
+<li><p>Every nonzero ordered subgroup <span class="math inline">\(\Gamma\subseteq\mathbb R\)</span> is archimedean and has rank one. Examples include <span class="math inline">\(\mathbb Z\)</span>, <span class="math inline">\(\mathbb Q\)</span>, and <span class="math inline">\(\mathbb R\)</span>.</p></li>
+<li><p>Give <span class="math inline">\(\mathbb R\oplus\mathbb R\varepsilon\)</span> the lexicographic order: <span class="math inline">\((a,b)&lt;(a',b')\)</span> if <span class="math inline">\(a&lt;a'\)</span>, or if <span class="math inline">\(a=a'\)</span> and <span class="math inline">\(b&lt;b'\)</span>. The subgroup <span class="math inline">\(\mathbb R\varepsilon\)</span> is convex, so this group has rank two.</p></li>
+<li><p>Similarly, <span class="math inline">\(\mathbb Z\oplus\mathbb Z\varepsilon\)</span> with the lexicographic order is a discrete ordered group of rank two.</p></li>
+</ol>
+</div>
+</div>
+<!--
+数学核对：
+“Γ⊆R，因此 Γ≅R_{>0}”并不成立。Γ 只能说是秩一有序群；
+例如 Z、Q 都是 R 的有序子群，但不等于整个 R。
+-->
+<p>In multiplicative notation, a lexicographically ordered rank-two group can be written using symbols <span class="math inline">\(r\gamma^n\)</span>, where the ordinary real scale <span class="math inline">\(r\)</span> is compared first and the power of <span class="math inline">\(\gamma\)</span> breaks ties.</p>
+</section>
+<section id="classical-points-in-rigid-geometry" class="level3" data-number="1.2">
+<h3 data-number="1.2" class="anchored" data-anchor-id="classical-points-in-rigid-geometry"><span class="header-section-number">1.2</span> Classical points in rigid geometry</h3>
+<p>Let <span class="math inline">\(K\)</span> be a complete nonarchimedean field. Important examples are finite extensions of <span class="math inline">\(\mathbb Q_p\)</span> and the completed algebraic closure <span class="math inline">\(\mathbb C_p\)</span>.</p>
+<p>Consider the rigid closed unit disc <span class="math inline">\(\mathbb D=\operatorname{Sp}(K\langle T\rangle)\)</span>.</p>
+<div class="callout callout-style-default callout-tip callout-titled" title="Example: a classical rigid point">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Example: a classical rigid point
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>A classical point <span class="math inline">\(x\)</span> is represented by a maximal ideal <span class="math inline">\(\mathfrak m_x\subseteq K\langle T\rangle\)</span>. Its residue field <span class="math inline">\(K(x)=K\langle T\rangle/\mathfrak m_x\)</span> is a finite extension of <span class="math inline">\(K\)</span>.</p>
+<p>The absolute value of <span class="math inline">\(K\)</span> induces uniquely <span class="math inline">\(|f|_x=|\overline f|_{K(x)}\)</span>, where <span class="math inline">\(\overline f\)</span> denotes the image of <span class="math inline">\(f\)</span> in <span class="math inline">\(K(x)\)</span>.</p>
+</div>
+</div>
+<!--
+数学核对：
+草稿中的 K⟨T⟩ ↠ \bar K 通常不是满射。
+规范的满射是 K⟨T⟩ ↠ K⟨T⟩/m_x，之后再嵌入 \bar K。
+-->
+<p>In this way, a classical point produces a multiplicative seminorm <span class="math inline">\(|\cdot|_x:K\langle T\rangle\to\mathbb R_{\geq0}\)</span>.</p>
+</section>
+<section id="two-enlargements-of-the-set-of-points" class="level3" data-number="1.3">
+<h3 data-number="1.3" class="anchored" data-anchor-id="two-enlargements-of-the-set-of-points"><span class="header-section-number">1.3</span> Two enlargements of the set of points</h3>
+<section id="berkovich-points" class="level4" data-number="1.3.1">
+<h4 data-number="1.3.1" class="anchored" data-anchor-id="berkovich-points"><span class="header-section-number">1.3.1</span> Berkovich points</h4>
+<div class="callout callout-style-default callout-note callout-titled" title="Definition: Berkovich spectrum">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Definition: Berkovich spectrum
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Let <span class="math inline">\(A\)</span> be a Banach <span class="math inline">\(K\)</span>-algebra. Its Berkovich spectrum <span class="math inline">\(\mathcal M(A)\)</span> consists of bounded multiplicative seminorms <span class="math inline">\(|\cdot|_x:A\to\mathbb R_{\geq0}\)</span> whose restriction to <span class="math inline">\(K\)</span> is the given absolute value.</p>
+</div>
+</div>
+<p>Thus Berkovich geometry enlarges the classical points by allowing arbitrary real-valued continuous seminorms.</p>
+</section>
+<section id="adic-points" class="level4" data-number="1.3.2">
+<h4 data-number="1.3.2" class="anchored" data-anchor-id="adic-points"><span class="header-section-number">1.3.2</span> Adic points</h4>
+<p>Adic geometry makes a different enlargement: the points are (multiplicative) continuous valuations of arbitrary rank.</p>
+<p>Let <span class="math inline">\(\varphi:B\to A\)</span> be a continuous morphism of affinoid algebras. A valuation <span class="math inline">\(|\cdot|_x:A\to\Gamma_x\cup\{0\}\)</span> pulls back to <span class="math inline">\(|\cdot|_y=|\cdot|_x\circ\varphi:B\to\Gamma_x\cup\{0\}\)</span>.</p>
+<p>The support of the pulled-back valuation is <span class="math inline">\(\operatorname{supp}(y)=\varphi^{-1}(\operatorname{supp}(x))\)</span>. Notice that the support prime alone does not determine an adic point: the valuation itself is part of the data.</p>
+</section>
+</section>
+<section id="new-points-on-the-closed-disc" class="level3" data-number="1.4">
+<h3 data-number="1.4" class="anchored" data-anchor-id="new-points-on-the-closed-disc"><span class="header-section-number">1.4</span> New points on the closed disc</h3>
+<section id="a-higher-rank-boundary-point" class="level4" data-number="1.4.1">
+<h4 data-number="1.4.1" class="anchored" data-anchor-id="a-higher-rank-boundary-point"><span class="header-section-number">1.4.1</span> A higher-rank boundary point</h4>
+<p>Let <span class="math inline">\(\pi\in K\)</span> be a pseudo-uniformizer. At the level of classical rigid points, write</p>
+<p><span class="math display">\[
+\mathbb D^-=\bigcup_{n\geq1}\mathbb D(0,|\pi|^{1/n}),
+\qquad
+\partial\mathbb D=\operatorname{Sp}K\langle T,T^{-1}\rangle.
+\]</span></p>
+<p>Then <span class="math inline">\(\mathbb D=\mathbb D^-\sqcup\partial\mathbb D\)</span> as a set of classical points, but this is not an admissible rigid covering.</p>
+<p>To see the obstruction pointwise, introduce the ordered group <span class="math inline">\(\Gamma=\mathbb R_{&gt;0}\oplus\gamma^{\mathbb Z}\)</span> with lexicographic order</p>
+<p><span class="math display">\[
+r\gamma^n&lt;r'\gamma^{n'}
+\quad\Longleftrightarrow\quad
+r&lt;r'
+\ \text{or}\
+(r=r'\text{ and }n&lt;n').
+\]</span></p>
+<p>In particular, <span class="math inline">\(\gamma&gt;1\)</span>, while <span class="math inline">\(\gamma\)</span> is infinitesimally close to <span class="math inline">\(1\)</span> relative to the ordinary real scale.</p>
+<div class="callout callout-style-default callout-tip callout-titled" title="Example: the point $x^-$">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Example: the point <span class="math inline">\(x^-\)</span>
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>For <span class="math inline">\(f=\sum_{n=0}^{\infty}a_nT^n\in K\langle T\rangle\)</span>, define</p>
+<p><span class="math display">\[
+|f|_{x^-}=\max_n\bigl(|a_n|\gamma^{-n}\bigr).
+\]</span></p>
+<p>Then <span class="math inline">\(|T|_{x^-}=\gamma^{-1}&lt;1\)</span>, but <span class="math inline">\(|T|_{x^-}=\gamma^{-1}&gt;|\pi|^{1/n}\)</span> for every <span class="math inline">\(n\geq1\)</span>. Hence <span class="math inline">\(x^-\)</span> does not belong to any disc <span class="math inline">\(\mathbb D(0,|\pi|^{1/n})\)</span>.</p>
+<p>Moreover, <span class="math inline">\(|T^{-1}|_{x^-}=\gamma&gt;1\)</span>, so <span class="math inline">\(x^-\)</span> does not belong to <span class="math inline">\(\partial\mathbb D\)</span> either.</p>
+</div>
+</div>
+<p>After adjoining <span class="math inline">\(x^-\)</span>, the failure of <span class="math inline">\(\mathbb D^-\cup\partial\mathbb D\)</span> to cover <span class="math inline">\(\mathbb D\)</span> is visible on the underlying set of points.</p>
+</section>
+<section id="rank-one-gauss-points" class="level4" data-number="1.4.2">
+<h4 data-number="1.4.2" class="anchored" data-anchor-id="rank-one-gauss-points"><span class="header-section-number">1.4.2</span> Rank-one Gauss points</h4>
+<p>Let <span class="math inline">\(\mathbb D(a,r)\subseteq\mathbb D\)</span> be a closed ball. If <span class="math inline">\(f(T)=\sum_{n\geq0}b_n(T-a)^n\)</span>, define the associated Gauss point <span class="math inline">\(x_{a,r}\)</span> by <span class="math inline">\(|f|_{x_{a,r}}=\max_n|b_n|r^n\)</span>.</p>
+<p>When the points of the ball are sufficiently rich, this is also <span class="math inline">\(|f|_{x_{a,r}}=\sup_{z\in\mathbb D(a,r)}|f(z)|\)</span>.</p>
+<div class="callout callout-style-default callout-tip callout-titled" title="Example: a smaller closed disc">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Example: a smaller closed disc
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>The inclusion <span class="math inline">\(\mathbb D(0,|\pi|)\hookrightarrow\mathbb D\)</span> corresponds contravariantly to</p>
+<p><span class="math display">\[
+K\langle T\rangle
+\longrightarrow
+K\langle T,T'\rangle/(T'-\pi^{-1}T)
+\simeq
+K\langle T,T'\rangle/(T-\pi T').
+\]</span></p>
+<p>The Gauss point of this smaller disc records the supremum norm on the entire disc, not evaluation at a single classical point.</p>
+</div>
+</div>
+<p>The point <span class="math inline">\(x_{0,1}\)</span> is the usual Tate norm. One can also refine a radius infinitesimally and obtain points customarily denoted <span class="math inline">\(x_{r^-}\)</span> and <span class="math inline">\(x_{r^+}\)</span>; for example, <span class="math inline">\(x_{1^+}\)</span> lies outside the closed unit disc.</p>
+<div class="callout callout-style-default callout-note callout-titled" title="Why Gauss points are useful">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Why Gauss points are useful
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>A Gauss point behaves like the generic point of a closed ball. It simultaneously records all inequalities valid on that ball, makes nested families of discs visible topologically, and turns many admissibility questions into ordinary questions about whether every point is covered.</p>
+</div>
+</div>
+</section>
+</section>
+</section>
+<section id="huber-pairs-and-adic-spectra" class="level2" data-number="2">
+<h2 data-number="2" class="anchored" data-anchor-id="huber-pairs-and-adic-spectra"><span class="header-section-number">2</span> Huber pairs and adic spectra</h2>
+<section id="huber-rings" class="level3" data-number="2.1">
+<h3 data-number="2.1" class="anchored" data-anchor-id="huber-rings"><span class="header-section-number">2.1</span> Huber rings</h3>
+<div class="callout callout-style-default callout-note callout-titled" title="Definition: Huber ring">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Definition: Huber ring
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>A <strong>Huber ring</strong> is a topological ring <span class="math inline">\(A\)</span> admitting an open subring <span class="math inline">\(A_0\subseteq A\)</span> and a finitely generated ideal <span class="math inline">\(I\subseteq A_0\)</span> such that the <span class="math inline">\(I\)</span>-adic topology on <span class="math inline">\(A_0\)</span> induces the topology of <span class="math inline">\(A\)</span>.</p>
+<p>The ring <span class="math inline">\(A_0\)</span> is called a <strong>ring of definition</strong>, and <span class="math inline">\(I\)</span> is called an <strong>ideal of definition</strong>.</p>
+</div>
+</div>
+<p>An element <span class="math inline">\(a\in A\)</span> is <strong>power-bounded</strong> if the set <span class="math inline">\(\{a^n:n\geq0\}\)</span> is bounded. The subring of power-bounded elements is denoted <span class="math inline">\(A^\circ\)</span>.</p>
+<p>The ideal of topologically nilpotent elements is denoted <span class="math inline">\(A^{\circ\circ}\)</span>.</p>
+<div class="callout callout-style-default callout-note callout-titled" title="Definition: Huber pair">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Definition: Huber pair
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>A <strong>ring of integral elements</strong> is an open subring <span class="math inline">\(A^+\subseteq A^\circ\)</span> that is integrally closed in <span class="math inline">\(A\)</span>.</p>
+<p>A <strong>Huber pair</strong> is a pair <span class="math inline">\((A,A^+)\)</span> consisting of a Huber ring and a ring of integral elements.</p>
+</div>
+</div>
+<!--
+定义补全：
+草稿在这里留出了“such that ...”，并没有写完 Spa(A,A+) 的条件。
+下面补入 A^+⊆A°、估值等价类及 |A^+|≤1。
+-->
+<div class="callout callout-style-default callout-note callout-titled" title="Definition: adic spectrum">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Definition: adic spectrum
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>For a Huber pair <span class="math inline">\((A,A^+)\)</span>, the adic spectrum <span class="math inline">\(\operatorname{Spa}(A,A^+)\)</span> is the set of equivalence classes of continuous valuations <span class="math inline">\(|\cdot|_x:A\to\Gamma_x\cup\{0\}\)</span> such that <span class="math inline">\(|a(x)|\leq1\)</span> for every <span class="math inline">\(a\in A^+\)</span>.</p>
+</div>
+</div>
+<p>Two valuations are equivalent if they induce the same ordering on the elements of <span class="math inline">\(A\)</span>.</p>
+<div class="callout callout-style-default callout-note callout-titled" title="Definition: Tate ring">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Definition: Tate ring
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>A Huber ring <span class="math inline">\(A\)</span> is a <strong>Tate ring</strong> if it contains a topologically nilpotent unit. Such a unit is called a pseudo-uniformizer.</p>
+</div>
+</div>
+</section>
+<section id="basic-examples" class="level3" data-number="2.2">
+<h3 data-number="2.2" class="anchored" data-anchor-id="basic-examples"><span class="header-section-number">2.2</span> Basic examples</h3>
+<div class="callout callout-style-default callout-tip callout-titled" title="Example: Tate algebras">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Example: Tate algebras
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Let <span class="math inline">\(A=K\langle T_1,\ldots,T_n\rangle\)</span> be a Tate ring, and a natural Huber pair is</p>
+<p><span class="math display">\[
+(A,A^+)=
+\bigl(
+K\langle T_1,\ldots,T_n\rangle,
+\mathcal O_K\langle T_1,\ldots,T_n\rangle
+\bigr).
+\]</span></p>
+<p>We can see that <span class="math inline">\(\operatorname{Sp}(A)\subset \operatorname{Spa}(A,A^+)\)</span> as sets.</p>
+<p>In general, let <span class="math inline">\(A\)</span> be an affinoid algebra equipped with the topology induced by one reduced norm <span class="math inline">\(|\cdot|\)</span>, then <span class="math inline">\(A^\circ\)</span> is the integral closure in <span class="math inline">\(A\)</span> of the subring consisting of the elements <span class="math inline">\(a\in A\)</span> such that <span class="math inline">\(|a|\leq 1\)</span>. Thus, we can take <span class="math inline">\(A^+=A^\circ\)</span>.</p>
+</div>
+</div>
+<div class="callout callout-style-default callout-tip callout-titled" title="Example: rings from formal geometry">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Example: rings from formal geometry
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Let <span class="math inline">\(R\)</span> be complete and separated for the <span class="math inline">\(I\)</span>-adic topology, where <span class="math inline">\(I\)</span> is finitely generated. Then <span class="math inline">\(R\)</span> is a Huber ring with ring of definition <span class="math inline">\(R\)</span>, and <span class="math inline">\((R,R)\)</span> is a Huber pair.</p>
+<p>Examples include <span class="math inline">\(\mathbb Z_p\)</span> and <span class="math inline">\(\mathbb Z_p\llbracket X_1,\ldots,X_n\rrbracket\)</span> with their natural adic topologies. These rings are not Tate rings because they contain no topologically nilpotent unit.</p>
+</div>
+</div>
+</section>
+<section id="raynauds-formal-models" class="level3" data-number="2.3">
+<h3 data-number="2.3" class="anchored" data-anchor-id="raynauds-formal-models"><span class="header-section-number">2.3</span> Raynaud’s formal models</h3>
+<p>Let <span class="math inline">\(A_0=\mathcal O_K\langle T_1,\ldots,T_n\rangle/\mathfrak a\)</span> be a topologically finite-type <span class="math inline">\(\mathcal O_K\)</span>-algebra, complete for the <span class="math inline">\(\pi\)</span>-adic topology. Then</p>
+<p><span class="math display">\[
+A_0
+\simeq
+\varprojlim_m A_0/\pi^mA_0
+\simeq
+\varprojlim_m
+\mathcal O_K[T_1,\ldots,T_n]/(\pi^m,\mathfrak a_m),
+\]</span></p>
+<p>where <span class="math inline">\(\mathfrak a_m\)</span> denotes the image of <span class="math inline">\(\mathfrak a\)</span> modulo <span class="math inline">\(\pi^m\)</span>. After inverting <span class="math inline">\(\pi\)</span>, we obtain the affinoid <span class="math inline">\(K\)</span>-algebra <span class="math inline">\(A=A_0[1/\pi]\simeq K\langle T_1,\ldots,T_n\rangle/\mathfrak a_K\)</span>. If <span class="math inline">\(A^+\)</span> denotes the integral closure of the image of <span class="math inline">\(A_0\)</span> in <span class="math inline">\(A\)</span>, the analytic generic fiber of <span class="math inline">\(\mathfrak X=\operatorname{Spf}(A_0)\)</span> is the affinoid adic space <span class="math inline">\(X_\eta=\operatorname{Spa}(A,A^+)\)</span>. This construction is the local algebraic mechanism underlying the Raynaud formal–rigid correspondence.</p>
+<div class="callout callout-style-default callout-note callout-titled" title="Remark: noetherianity">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Remark: noetherianity
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>The Tate algebra <span class="math inline">\(K\langle T_1,\ldots,T_n\rangle\)</span> is noetherian. If the valuation of <span class="math inline">\(K\)</span> is not discrete, however, the integral model <span class="math inline">\(\mathcal O_K\langle T_1,\ldots,T_n\rangle\)</span> need not be noetherian.</p>
+</div>
+</div>
+</section>
+</section>
+<section id="rational-subsets" class="level2" data-number="3">
+<h2 data-number="3" class="anchored" data-anchor-id="rational-subsets"><span class="header-section-number">3</span> Rational subsets</h2>
+<section id="definition-and-topology" class="level3" data-number="3.1">
+<h3 data-number="3.1" class="anchored" data-anchor-id="definition-and-topology"><span class="header-section-number">3.1</span> Definition and topology</h3>
+<div class="callout callout-style-default callout-note callout-titled" title="Definition: rational subset">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Definition: rational subset
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Let <span class="math inline">\(X=\operatorname{Spa}(A,A^+)\)</span>. Choose <span class="math inline">\(s,t_1,\ldots,t_n\in A\)</span> such that the ideal <span class="math inline">\((s,t_1,\ldots,t_n)\)</span> is open. The associated rational subset is</p>
+<p><span class="math display">\[
+U\left(\frac{t_1,\ldots,t_n}{s}\right)
+=
+\left\{
+x\in X:
+|t_i(x)|\leq|s(x)|\neq0
+\text{ for }1\leq i\leq n
+\right\}.
+\]</span></p>
+</div>
+</div>
+<p>Rational subsets form a basis for the topology of <span class="math inline">\(\operatorname{Spa}(A,A^+)\)</span> and are stable under finite intersection.</p>
+</section>
+<section id="rational-localization" class="level3" data-number="3.2">
+<h3 data-number="3.2" class="anchored" data-anchor-id="rational-localization"><span class="header-section-number">3.2</span> Rational localization</h3>
+<section id="the-rigid-geometric-model" class="level4" data-number="3.2.1">
+<h4 data-number="3.2.1" class="anchored" data-anchor-id="the-rigid-geometric-model"><span class="header-section-number">3.2.1</span> The rigid-geometric model</h4>
+<p>The universal property of a rational localization is modeled on the corresponding argument for an affinoid subdomain in rigid geometry.</p>
+<p>Let <span class="math inline">\(X=\operatorname{Sp}(A)\)</span> and consider the rational affinoid subdomain</p>
+<p><span class="math display">\[
+U=
+U\left(\frac{t_1,\ldots,t_n}{s}\right)
+=
+\operatorname{Sp}
+A\left\langle\frac{t_1,\ldots,t_n}{s}\right\rangle,
+\]</span></p>
+<p>where</p>
+<p><span class="math display">\[
+A\left\langle\frac{t_1,\ldots,t_n}{s}\right\rangle
+=
+\frac{A\langle T_1,\ldots,T_n\rangle}
+     {(sT_1-t_1,\ldots,sT_n-t_n)}.
+\]</span></p>
+<p>Suppose that <span class="math inline">\(\varphi:Y=\operatorname{Sp}(B)\to X\)</span> is a morphism whose image is contained in <span class="math inline">\(U\)</span>. For every maximal ideal <span class="math inline">\(\mathfrak m\subseteq B\)</span>, the associated rigid point <span class="math inline">\(y\in Y\)</span> satisfies</p>
+<p><span class="math display">\[
+|\varphi^\#(t_i)(y)|
+\leq
+|\varphi^\#(s)(y)|
+\neq0.
+\]</span></p>
+<p>If <span class="math inline">\(\varphi^\#(s)\)</span> were not invertible, it would belong to some maximal ideal <span class="math inline">\(\mathfrak m\subseteq B\)</span>. The corresponding rigid point would then satisfy <span class="math inline">\(|\varphi^\#(s)(y)|=0\)</span>, contradicting the assumption that <span class="math inline">\(\varphi(y)\in U\)</span>. Hence <span class="math inline">\(\varphi^\#(s)\in B^\times\)</span>.</p>
+<p>We may therefore define <span class="math inline">\(b_i=\varphi^\#(t_i)/\varphi^\#(s)\)</span>. The inequalities above imply that <span class="math inline">\(b_i\)</span> is power-bounded. By the universal property of the Tate algebra, there is a unique continuous homomorphism</p>
+<p><span class="math display">\[
+A\langle T_1,\ldots,T_n\rangle
+\longrightarrow B,
+\qquad
+T_i\longmapsto
+\frac{\varphi^\#(t_i)}{\varphi^\#(s)}.
+\]</span></p>
+<p>Since <span class="math inline">\(sT_i-t_i\)</span> maps to zero, this homomorphism factors uniquely through <span class="math inline">\(A\langle t_1/s,\ldots,t_n/s\rangle\)</span>. This is the classical proof of the universal property of a rational affinoid subdomain.</p>
+</section>
+<section id="the-adic-construction" class="level4" data-number="3.2.2">
+<h4 data-number="3.2.2" class="anchored" data-anchor-id="the-adic-construction"><span class="header-section-number">3.2.2</span> The adic construction</h4>
+<p>Now let <span class="math inline">\(X=\operatorname{Spa}(A,A^+)\)</span> and let</p>
+<p><span class="math display">\[
+U=
+U\left(\frac{t_1,\ldots,t_n}{s}\right)
+=
+\left\{
+x\in X:
+|t_i(x)|\leq|s(x)|\neq0
+\text{ for every }i
+\right\}.
+\]</span></p>
+<p>Fix a ring of definition <span class="math inline">\(A_0\subseteq A\)</span> and an ideal of definition <span class="math inline">\(I\subseteq A_0\)</span>. Inside <span class="math inline">\(A[1/s]\)</span>, put</p>
+<p><span class="math display">\[
+A_{0,U}
+=
+A_0\left[\frac{t_1}{s},\ldots,\frac{t_n}{s}\right].
+\]</span></p>
+<p>Equip <span class="math inline">\(A[1/s]\)</span> with the adic topology for which <span class="math inline">\(A_{0,U}\)</span> is a ring of definition and <span class="math inline">\(IA_{0,U}\)</span> is an ideal of definition. Its separated completion is denoted</p>
+<p><span class="math display">\[
+A_U
+=
+A\left\langle\frac{t_1,\ldots,t_n}{s}\right\rangle.
+\]</span></p>
+<p>Before completion, define <span class="math inline">\(A(T/s)^+\)</span> to be the integral closure of <span class="math inline">\(A^+[t_1/s,\ldots,t_n/s]\)</span> in <span class="math inline">\(A[1/s]\)</span>. The completed positive part <span class="math inline">\(A_U^+\)</span> is obtained by taking the closure of its image in <span class="math inline">\(A_U\)</span> and then its integral closure in <span class="math inline">\(A_U\)</span>.</p>
+<!--
+定义核对：
+这里完成的是带有 rational topology 的 A[1/s]，而不只是
+A_0[t_1/s,\ldots,t_n/s]。只完成后一个环可能丢失 A 中不属于 A_0 的元素。
+
+此外，不能直接把正部写成
+A^+[T_1,\ldots,T_n]/(sT_i-t_i)，因为 s,t_i 未必属于 A^+。
+正确做法是取 A^+[t_1/s,\ldots,t_n/s] 的像，再取闭包与整闭包。
+-->
+<div class="callout callout-style-default callout-tip callout-titled" title="Example: the Tate affinoid case">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Example: the Tate affinoid case
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>For a Tate affinoid algebra, the underlying rational localization has the familiar presentation</p>
+<p><span class="math display">\[
+A\left\langle\frac{t_1,\ldots,t_n}{s}\right\rangle
+=
+\frac{A\langle T_1,\ldots,T_n\rangle}
+     {(sT_1-t_1,\ldots,sT_n-t_n)}.
+\]</span></p>
+</div>
+</div>
+<p>The point of first considering the algebraic construction is that completion does not change the adic spectrum:</p>
+<p><span class="math display">\[
+\operatorname{Spa}(A,A^+)
+\simeq
+\operatorname{Spa}(\widehat A,\widehat{A}^+).
+\]</span></p>
+<p>Thus the desired factorization can first be constructed algebraically and only then extended by completion.</p>
+</section>
+<section id="attempting-the-rigid-proof" class="level4" data-number="3.2.3">
+<h4 data-number="3.2.3" class="anchored" data-anchor-id="attempting-the-rigid-proof"><span class="header-section-number">3.2.3</span> Attempting the rigid proof</h4>
+<p>Let <span class="math inline">\((B,B^+)\)</span> be a separated complete Huber pair, and let <span class="math inline">\(\varphi:(A,A^+)\to(B,B^+)\)</span> be a continuous morphism such that the image of</p>
+<p><span class="math display">\[
+\operatorname{Spa}(\varphi):
+\operatorname{Spa}(B,B^+)
+\longrightarrow
+\operatorname{Spa}(A,A^+)
+\]</span></p>
+<p>is contained in <span class="math inline">\(U\)</span>. Then, for every <span class="math inline">\(y\in\operatorname{Spa}(B,B^+)\)</span>,</p>
+<p><span class="math display">\[
+|\varphi^\#(t_i)(y)|
+\leq
+|\varphi^\#(s)(y)|
+\neq0.
+\]</span></p>
+<p>To imitate the rigid proof, we first need to show that <span class="math inline">\(\varphi^\#(s)\)</span> is invertible. The obvious attempt is to argue using maximal ideals of <span class="math inline">\(B\)</span>, exactly as in the affinoid case.</p>
+<div class="callout callout-style-default callout-warning callout-titled" title="Where the rigid argument breaks">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Warning</span>Where the rigid argument breaks
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>A maximal ideal <span class="math inline">\(\mathfrak m\subseteq B\)</span> defines an algebraic valuation</p>
+<p><span class="math display">\[
+B\longrightarrow B/\mathfrak m
+\longrightarrow\{0,1\}.
+\]</span></p>
+<p>However, this valuation is continuous only when <span class="math inline">\(\mathfrak m\)</span> is open. Consequently, one does not have an inclusion <span class="math inline">\(\operatorname{Max}(B)\subseteq\operatorname{Spa}(B,B^+)\)</span> in general.</p>
+<p>Therefore, the classical argument</p>
+<p><span class="math display">\[
+|f(y)|\neq0\text{ for every }y
+\quad\Longrightarrow\quad
+f\notin\mathfrak m\text{ for every maximal ideal }\mathfrak m
+\]</span></p>
+<p>cannot simply be repeated in the adic setting.</p>
+</div>
+</div>
+<p>The failure of the maximal-ideal argument does not mean that pointwise nonvanishing fails to detect units. It means that a different proof, using the topology and completeness of <span class="math inline">\(B\)</span>, is required.</p>
+</section>
+<section id="repairing-the-argument" class="level4" data-number="3.2.4">
+<h4 data-number="3.2.4" class="anchored" data-anchor-id="repairing-the-argument"><span class="header-section-number">3.2.4</span> Repairing the argument</h4>
+<div class="callout callout-style-default callout-important callout-titled" title="Lemma: nonvanishing detects units">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Important</span>Lemma: nonvanishing detects units
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Let <span class="math inline">\((B,B^+)\)</span> be a separated complete Huber pair. For <span class="math inline">\(f\in B\)</span>, the following conditions are equivalent:</p>
+<ol type="1">
+<li><span class="math inline">\(f\)</span> is invertible in <span class="math inline">\(B\)</span>;</li>
+<li><span class="math inline">\(|f(y)|\neq0\)</span> for every <span class="math inline">\(y\in\operatorname{Spa}(B,B^+)\)</span>.</li>
+</ol>
+</div>
+</div>
+<p><strong>Proof.</strong> If <span class="math inline">\(f\)</span> is invertible, then it cannot vanish at any valuation, so only the converse requires proof.</p>
+<p>Assume that <span class="math inline">\(f\)</span> is not invertible. We first claim that the principal ideal <span class="math inline">\(fB\)</span> is not dense in <span class="math inline">\(B\)</span>. Indeed, if <span class="math inline">\(fB\)</span> were dense, then for a ring of definition <span class="math inline">\(B_0\)</span> and an ideal of definition <span class="math inline">\(J\subseteq B_0\)</span>, one could choose <span class="math inline">\(g\in B\)</span> such that <span class="math inline">\(1-fg\in J\)</span>. Since <span class="math inline">\(J\)</span> is topologically nilpotent and <span class="math inline">\(B\)</span> is complete, the geometric series</p>
+<p><span class="math display">\[
+(fg)^{-1}
+=
+\sum_{n=0}^{\infty}(1-fg)^n
+\]</span></p>
+<p>converges in <span class="math inline">\(B\)</span>. Thus <span class="math inline">\(fg\)</span> would be invertible, forcing <span class="math inline">\(f\)</span> itself to be invertible, a contradiction.</p>
+<p>It follows that <span class="math inline">\(\overline{fB}\)</span> is a proper closed ideal. Hence</p>
+<p><span class="math display">\[
+C=B/\overline{fB}
+\]</span></p>
+<p>is a nonzero separated complete Huber ring. Let <span class="math inline">\(C^+\)</span> be a ring of integral elements obtained from the image of <span class="math inline">\(B^+\)</span> in <span class="math inline">\(C\)</span>. Since a nonzero complete Huber pair has a nonempty adic spectrum, there exists <span class="math inline">\(z\in\operatorname{Spa}(C,C^+)\)</span>.</p>
+<p>Pulling <span class="math inline">\(z\)</span> back along <span class="math inline">\(B\to C\)</span> gives a point <span class="math inline">\(y\in\operatorname{Spa}(B,B^+)\)</span> at which <span class="math inline">\(f\)</span> vanishes, because the image of <span class="math inline">\(f\)</span> in <span class="math inline">\(C\)</span> is zero. This contradicts the assumption that <span class="math inline">\(|f(y)|\neq0\)</span> for every <span class="math inline">\(y\)</span>. Therefore <span class="math inline">\(f\)</span> is invertible. <span class="math inline">\(\square\)</span></p>
+<div class="callout callout-style-default callout-note callout-titled" title="Why completeness is essential">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Why completeness is essential
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>The completeness assumption cannot be omitted. Give <span class="math inline">\(K[T]\)</span> the Huber topology with ring of definition <span class="math inline">\(\mathcal O_K[T]\)</span> and ideal of definition <span class="math inline">\(\pi\mathcal O_K[T]\)</span>.</p>
+<p>The element <span class="math inline">\(1+\pi T\)</span> is not invertible in <span class="math inline">\(K[T]\)</span>, but every <span class="math inline">\(x\in\operatorname{Spa}(K[T],\mathcal O_K[T])\)</span> satisfies <span class="math inline">\(|\pi T(x)|&lt;1\)</span>, and hence <span class="math inline">\(|1+\pi T|_x=1\)</span>.</p>
+<p>Its inverse <span class="math inline">\(\sum_{n\geq0}(-\pi T)^n\)</span> appears only after passing to the completion <span class="math inline">\(K\langle T\rangle\)</span>.</p>
+</div>
+</div>
+</section>
+<section id="completing-the-factorization" class="level4" data-number="3.2.5">
+<h4 data-number="3.2.5" class="anchored" data-anchor-id="completing-the-factorization"><span class="header-section-number">3.2.5</span> Completing the factorization</h4>
+<p>Apply the lemma to <span class="math inline">\(f=\varphi^\#(s)\)</span>. Since <span class="math inline">\(|\varphi^\#(s)(y)|\neq0\)</span> for every <span class="math inline">\(y\in\operatorname{Spa}(B,B^+)\)</span>, we obtain <span class="math inline">\(\varphi^\#(s)\in B^\times\)</span>.</p>
+<p>Define <span class="math inline">\(b_i=\varphi^\#(t_i)/\varphi^\#(s)\)</span>. The assumption that the image lies in <span class="math inline">\(U\)</span> gives <span class="math inline">\(|b_i(y)|\leq1\)</span> for every <span class="math inline">\(y\in\operatorname{Spa}(B,B^+)\)</span>.</p>
+<p>For a complete Huber pair, the positive subring can be recovered from its adic points:</p>
+<p><span class="math display">\[
+B^+
+=
+\left\{
+b\in B:
+|b(y)|\leq1
+\text{ for every }y\in\operatorname{Spa}(B,B^+)
+\right\}.
+\]</span></p>
+<p>Consequently, <span class="math inline">\(b_i\in B^+\)</span>. At the algebraic level, we now have</p>
+<p><span class="math display">\[
+A[T_1,\ldots,T_n]\longrightarrow B,
+\qquad
+T_i\longmapsto b_i,
+\]</span></p>
+<p>and this map annihilates every relation <span class="math inline">\(sT_i-t_i\)</span>. Equivalently, the original map <span class="math inline">\(A\to B\)</span> extends uniquely to</p>
+<p><span class="math display">\[
+A[1/s]\longrightarrow B,
+\qquad
+\frac{t_i}{s}\longmapsto b_i.
+\]</span></p>
+<p>Because only finitely many elements <span class="math inline">\(b_i\)</span> occur and each <span class="math inline">\(b_i\)</span> is power-bounded, we may choose a ring of definition <span class="math inline">\(B_0\subseteq B\)</span> such that <span class="math inline">\(\varphi^\#(A_0)\subseteq B_0\)</span> and <span class="math inline">\(b_i\in B_0\)</span> for every <span class="math inline">\(i\)</span>. We then obtain a continuous map of rings of definition</p>
+<p><span class="math display">\[
+A_0\left[\frac{t_1}{s},\ldots,\frac{t_n}{s}\right]
+\longrightarrow B_0.
+\]</span></p>
+<p>Since <span class="math inline">\(B\)</span> is complete, this map extends uniquely across the separated completion to a continuous homomorphism <span class="math inline">\(A_U\to B\)</span>. Moreover, the map sends <span class="math inline">\(A^+[t_1/s,\ldots,t_n/s]\)</span> into <span class="math inline">\(B^+\)</span>; because <span class="math inline">\(B^+\)</span> is integrally closed, it also sends <span class="math inline">\(A_U^+\)</span> into <span class="math inline">\(B^+\)</span>. We therefore obtain a morphism of Huber pairs</p>
+<p><span class="math display">\[
+(A_U,A_U^+)\longrightarrow(B,B^+).
+\]</span></p>
+<p>Passing to adic spectra gives the desired factorization</p>
+<p><span class="math display">\[
+\operatorname{Spa}(B,B^+)
+\longrightarrow
+\operatorname{Spa}(A_U,A_U^+)
+\longrightarrow
+\operatorname{Spa}(A,A^+).
+\]</span></p>
+<p>The first arrow is unique because its effect on the dense subring <span class="math inline">\(A[1/s]\)</span> is forced by the assignments <span class="math inline">\(t_i/s\mapsto b_i\)</span>.</p>
+<p>Finally, every <span class="math inline">\(x\in U\)</span> extends uniquely to a valuation on <span class="math inline">\(A[1/s]\)</span> satisfying <span class="math inline">\(|t_i/s|_x\leq1\)</span>, and then uniquely to its completion <span class="math inline">\(A_U\)</span>. Conversely, every point of <span class="math inline">\(\operatorname{Spa}(A_U,A_U^+)\)</span> restricts to a point of <span class="math inline">\(U\)</span>. Thus the rational localization has precisely the required underlying set of points.</p>
+<div class="callout callout-style-default callout-important callout-titled" title="Proposition: universal property of a rational localization">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Important</span>Proposition: universal property of a rational localization
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>The natural morphism</p>
+<p><span class="math display">\[
+\operatorname{Spa}(A_U,A_U^+)
+\longrightarrow
+\operatorname{Spa}(A,A^+)
+\]</span></p>
+<p>identifies <span class="math inline">\(\operatorname{Spa}(A_U,A_U^+)\)</span> with the rational subset <span class="math inline">\(U\)</span>.</p>
+<p>For every separated complete Huber pair <span class="math inline">\((B,B^+)\)</span> and every continuous morphism <span class="math inline">\(\varphi:(A,A^+)\to(B,B^+)\)</span> whose induced map on adic spectra has image contained in <span class="math inline">\(U\)</span>, there is a unique factorization</p>
+<p><span class="math display">\[
+(A,A^+)
+\longrightarrow
+(A_U,A_U^+)
+\longrightarrow
+(B,B^+).
+\]</span></p>
+</div>
+</div>
+<!--
+数学核对：
+证明的关键顺序是：
+
+1. 先回忆 rigid affinoid subdomain 的因子分解；
+2. 尝试用极大理想证明分母可逆；
+3. 发现一般极大理想不一定给出连续的 adic 点；
+4. 改用闭主理想、完备商环以及 Spa 的非空性；
+5. 得到分母可逆后，再处理正部、定义环和完成化。
+
+这里不能把第三步直接省略成一个现成的“adic Nullstellensatz”，
+否则会丢失整个证明的动机以及完备性真正出现的位置。
+-->
+</section>
+</section>
+</section>
+<section id="the-structure-presheaf" class="level2" data-number="4">
+<h2 data-number="4" class="anchored" data-anchor-id="the-structure-presheaf"><span class="header-section-number">4</span> The structure presheaf</h2>
+<section id="definition-on-rational-subsets" class="level3" data-number="4.1">
+<h3 data-number="4.1" class="anchored" data-anchor-id="definition-on-rational-subsets"><span class="header-section-number">4.1</span> Definition on rational subsets</h3>
+<p>Let <span class="math inline">\(X=\operatorname{Spa}(A,A^+)\)</span>. For a rational subset <span class="math inline">\(U=U(t_1,\ldots,t_n/s)\)</span>, define <span class="math inline">\(\mathcal O_X(U)=A\langle t_1/s,\ldots,t_n/s\rangle\)</span>. The corresponding ring of integral elements is denoted <span class="math inline">\(\mathcal O_X^+(U)\)</span>.</p>
+<p>For an arbitrary open subset <span class="math inline">\(W\subseteq X\)</span>, define the presheaf by</p>
+<p><span class="math display">\[
+\mathcal O_X(W)
+=
+\varprojlim_{\substack{U\subseteq W\\ U\text{ rational}}}
+\mathcal O_X(U).
+\]</span></p>
+</section>
+<section id="sheafiness" class="level3" data-number="4.2">
+<h3 data-number="4.2" class="anchored" data-anchor-id="sheafiness"><span class="header-section-number">4.2</span> Sheafiness</h3>
+<section id="the-presheaf-on-the-rational-site" class="level4" data-number="4.2.1">
+<h4 data-number="4.2.1" class="anchored" data-anchor-id="the-presheaf-on-the-rational-site"><span class="header-section-number">4.2.1</span> The presheaf on the rational site</h4>
+<p>Let <span class="math inline">\(X=\operatorname{Spa}(A,A^+)\)</span>. At this stage, the structure presheaf is first defined only on rational subsets of <span class="math inline">\(X\)</span>.</p>
+<p>Denote by <span class="math inline">\(\operatorname{Rat}(X)\)</span> the category whose objects are rational subsets of <span class="math inline">\(X\)</span> and whose morphisms are inclusions. A family <span class="math inline">\(\{U_i\to U\}\)</span> is declared to be a covering if <span class="math inline">\(U=\bigcup_iU_i\)</span>. In this way, <span class="math inline">\(\operatorname{Rat}(X)\)</span> becomes a Grothendieck site.</p>
+<p>Rational subsets form a basis for the ordinary topology of <span class="math inline">\(X\)</span>, are quasi-compact, and are stable under finite intersections. Consequently, when checking the sheaf condition on <span class="math inline">\(\operatorname{Rat}(X)\)</span>, it is enough to consider finite rational coverings.</p>
+<p>Rational localization gives a presheaf <span class="math inline">\(\mathcal O_X^{\mathrm{rat}}\)</span> on this site: if</p>
+<p><span class="math display">\[
+U=
+U\left(\frac{t_1,\ldots,t_n}{s}\right),
+\]</span></p>
+<p>then</p>
+<p><span class="math display">\[
+\mathcal O_X^{\mathrm{rat}}(U)
+=
+A\left\langle\frac{t_1,\ldots,t_n}{s}\right\rangle.
+\]</span></p>
+<p>Whenever <span class="math inline">\(V\subseteq U\)</span> are rational subsets, the universal property of rational localization produces the restriction map <span class="math inline">\(\mathcal O_X^{\mathrm{rat}}(U)\to\mathcal O_X^{\mathrm{rat}}(V)\)</span>.</p>
+</section>
+<section id="tate-acyclicity-and-the-sheaf-condition" class="level4" data-number="4.2.2">
+<h4 data-number="4.2.2" class="anchored" data-anchor-id="tate-acyclicity-and-the-sheaf-condition"><span class="header-section-number">4.2.2</span> Tate acyclicity and the sheaf condition</h4>
+<p>The first question is whether <span class="math inline">\(\mathcal O_X^{\mathrm{rat}}\)</span> is a sheaf on the rational site. In the rigid-analytic situation, this is precisely where Tate acyclicity enters.</p>
+<div class="callout callout-style-default callout-important callout-titled" title="Theorem: Tate acyclicity on rational coverings">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Important</span>Theorem: Tate acyclicity on rational coverings
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Suppose that <span class="math inline">\(A\)</span> is a strongly noetherian Tate ring. Let <span class="math inline">\(U\subseteq X\)</span> be rational and let <span class="math inline">\(U=U_1\cup\cdots\cup U_r\)</span> be a finite rational covering. Then the augmented Čech complex</p>
+<p><span class="math display">\[
+0
+\longrightarrow
+\mathcal O_X^{\mathrm{rat}}(U)
+\longrightarrow
+\prod_i\mathcal O_X^{\mathrm{rat}}(U_i)
+\longrightarrow
+\prod_{i,j}\mathcal O_X^{\mathrm{rat}}(U_i\cap U_j)
+\longrightarrow
+\prod_{i,j,k}\mathcal O_X^{\mathrm{rat}}(U_i\cap U_j\cap U_k)
+\longrightarrow\cdots
+\]</span></p>
+<p>is exact.</p>
+</div>
+</div>
+<p>In particular, its degree-zero part is the equalizer sequence</p>
+<p><span class="math display">\[
+0
+\longrightarrow
+\mathcal O_X^{\mathrm{rat}}(U)
+\longrightarrow
+\prod_i\mathcal O_X^{\mathrm{rat}}(U_i)
+\rightrightarrows
+\prod_{i,j}\mathcal O_X^{\mathrm{rat}}(U_i\cap U_j).
+\]</span></p>
+<p>This is exactly the sheaf condition on the rational site: sections that agree on pairwise intersections glue uniquely. Thus Tate acyclicity implies that <span class="math inline">\(\mathcal O_X^{\mathrm{rat}}\)</span> is a sheaf on <span class="math inline">\(\operatorname{Rat}(X)\)</span>.</p>
+<!--
+数学核对：
+严格来说，Tate acyclicity 比 sheafiness 更强。
+成为层只需要 Čech 复形在次数 0 处正合，而 Tate acyclicity
+还断言所有更高次数的 Čech 上同调消失。
+这里使用的是 Tate acyclicity 的 degree-zero 部分。
+-->
+</section>
+<section id="extension-from-the-rational-basis" class="level4" data-number="4.2.3">
+<h4 data-number="4.2.3" class="anchored" data-anchor-id="extension-from-the-rational-basis"><span class="header-section-number">4.2.3</span> Extension from the rational basis</h4>
+<p>Once <span class="math inline">\(\mathcal O_X^{\mathrm{rat}}\)</span> is known to be a sheaf on the rational basis, it extends uniquely to a sheaf on the entire topological space <span class="math inline">\(X\)</span>.</p>
+<p>Let <span class="math inline">\(W\subseteq X\)</span> be an arbitrary open subset and write</p>
+<p><span class="math display">\[
+\operatorname{Rat}(W)
+=
+\left\{
+U\subseteq W:
+U\text{ is rational in }X
+\right\}.
+\]</span></p>
+<p>The rational subsets contained in <span class="math inline">\(W\)</span> form a covering of <span class="math inline">\(W\)</span>. Since the intersection of two rational subsets is again rational, the sheaf condition gives the equalizer sequence</p>
+<p><span class="math display">\[
+0
+\longrightarrow
+\mathcal O_X(W)
+\longrightarrow
+\prod_{U\in\operatorname{Rat}(W)}
+\mathcal O_X^{\mathrm{rat}}(U)
+\rightrightarrows
+\prod_{U,V\in\operatorname{Rat}(W)}
+\mathcal O_X^{\mathrm{rat}}(U\cap V).
+\]</span></p>
+<p>An element of this equalizer is precisely a family of sections <span class="math inline">\(f_U\in\mathcal O_X^{\mathrm{rat}}(U)\)</span>, one for every rational <span class="math inline">\(U\subseteq W\)</span>, such that <span class="math inline">\(f_U|_{U\cap V}=f_V|_{U\cap V}\)</span> for all <span class="math inline">\(U,V\)</span>. Equivalently,</p>
+<p><span class="math display">\[
+\mathcal O_X(W)
+\simeq
+\varprojlim_{\substack{U\subseteq W\\U\text{ rational}}}
+\mathcal O_X^{\mathrm{rat}}(U).
+\]</span></p>
+<p>Thus the inverse limit is not an unrelated definition: it is forced by the unique extension of a sheaf from the rational basis to the whole topology.</p>
+<p>If <span class="math inline">\(W\)</span> itself is rational, then <span class="math inline">\(W\)</span> is the largest object in <span class="math inline">\(\operatorname{Rat}(W)\)</span>, so the formula recovers the original rational localization:</p>
+<p><span class="math display">\[
+\mathcal O_X(W)
+\simeq
+\mathcal O_X^{\mathrm{rat}}(W).
+\]</span></p>
+<p>When the rings of sections are regarded as topological rings, <span class="math inline">\(\mathcal O_X(W)\)</span> is equipped with the projective-limit topology.</p>
+</section>
+<section id="the-general-definition" class="level4" data-number="4.2.4">
+<h4 data-number="4.2.4" class="anchored" data-anchor-id="the-general-definition"><span class="header-section-number">4.2.4</span> The general definition</h4>
+<p>The preceding argument suggests what to do for an arbitrary Huber pair, even when Tate acyclicity has not been established.</p>
+<p>Starting from the rational-localization presheaf <span class="math inline">\(\mathcal O_X^{\mathrm{rat}}\)</span>, define, for every open subset <span class="math inline">\(W\subseteq X\)</span>,</p>
+<p><span class="math display">\[
+\mathcal O_X(W)
+:=
+\varprojlim_{\substack{U\subseteq W\\U\text{ rational}}}
+\mathcal O_X^{\mathrm{rat}}(U).
+\]</span></p>
+<p>This construction always produces a presheaf on the ordinary topology of <span class="math inline">\(X\)</span>, and it agrees with the original rational-localization presheaf on every rational subset. It need not, however, satisfy the sheaf condition.</p>
+<div class="callout callout-style-default callout-note callout-titled" title="Definition: sheafy Huber pair">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Definition: sheafy Huber pair
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>A Huber pair <span class="math inline">\((A,A^+)\)</span> is <strong>sheafy</strong> if the presheaf <span class="math inline">\(\mathcal O_X\)</span> defined above is a sheaf on <span class="math inline">\(X=\operatorname{Spa}(A,A^+)\)</span>.</p>
+<p>Equivalently, <span class="math inline">\((A,A^+)\)</span> is sheafy if the rational-localization presheaf <span class="math inline">\(\mathcal O_X^{\mathrm{rat}}\)</span> satisfies the sheaf condition for rational coverings.</p>
+</div>
+</div>
+<p>The same construction applies to the integral structure presheaf. Once <span class="math inline">\(\mathcal O_X\)</span> is a sheaf, one may describe it pointwise by</p>
+<p><span class="math display">\[
+\mathcal O_X^+(W)
+=
+\left\{
+f\in\mathcal O_X(W):
+|f(x)|\leq1
+\text{ for every }x\in W
+\right\}.
+\]</span></p>
+</section>
+<section id="standard-sheafy-classes" class="level4" data-number="4.2.5">
+<h4 data-number="4.2.5" class="anchored" data-anchor-id="standard-sheafy-classes"><span class="header-section-number">4.2.5</span> Standard sheafy classes</h4>
+<div class="callout callout-style-default callout-important callout-titled" title="Theorem: standard sheafiness criteria">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Important</span>Theorem: standard sheafiness criteria
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Let <span class="math inline">\((A,A^+)\)</span> be a complete Huber pair. Its structure presheaf is a sheaf in each of the following situations:</p>
+<ol type="1">
+<li><span class="math inline">\(A\)</span> is discrete;</li>
+<li><span class="math inline">\(A\)</span> has a noetherian ring of definition;</li>
+<li><span class="math inline">\(A\)</span> is a strongly noetherian Tate ring.</li>
+</ol>
+</div>
+</div>
+<div class="callout callout-style-default callout-note callout-titled" title="Definition: strongly noetherian">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Definition: strongly noetherian
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>A Tate ring <span class="math inline">\(A\)</span> is <strong>strongly noetherian</strong> if <span class="math inline">\(A\langle T_1,\ldots,T_n\rangle\)</span> is noetherian for every <span class="math inline">\(n\geq0\)</span>, where</p>
+<p><span class="math display">\[
+A\langle T_1,\ldots,T_n\rangle
+=
+\left\{
+\sum_{\nu\in\mathbb N^n}a_\nu T^\nu:
+a_\nu\in A,\ a_\nu\longrightarrow0
+\right\}.
+\]</span></p>
+</div>
+</div>
+<div class="callout callout-style-default callout-tip callout-titled" title="Examples of sheafy Huber pairs">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Examples of sheafy Huber pairs
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ol type="1">
+<li><p>A discrete ring gives the adic-space incarnation of an affine scheme.</p></li>
+<li><p>A complete adic ring with a noetherian ring of definition gives the local model arising from a locally noetherian formal scheme.</p></li>
+<li><p>Every classical affinoid <span class="math inline">\(K\)</span>-algebra is strongly noetherian. Hence its associated Huber pair <span class="math inline">\((A,A^\circ)\)</span> is sheafy. In this case, the sheaf condition is exactly the degree-zero consequence of the usual Tate acyclicity theorem from rigid geometry.</p></li>
+<li><p>More generally, stably uniform Tate Huber pairs are sheafy. In particular, affinoid perfectoid algebras provide an important class of sheafy Huber pairs beyond the noetherian setting.</p></li>
+</ol>
+</div>
+</div>
+</section>
+<section id="from-the-rigid-g-topology-to-a-genuine-topology" class="level4" data-number="4.2.6">
+<h4 data-number="4.2.6" class="anchored" data-anchor-id="from-the-rigid-g-topology-to-a-genuine-topology"><span class="header-section-number">4.2.6</span> From the rigid <span class="math inline">\(G\)</span>-topology to a genuine topology</h4>
+<p>The sheafiness of classical affinoid algebras explains only one part of the passage from rigid spaces to adic spaces. Tate acyclicity proves that analytic functions satisfy descent, but it does not by itself produce an ordinary topological space on which this descent takes place.</p>
+<p>In classical rigid geometry, the points of <span class="math inline">\(\operatorname{Sp}(A)\)</span> are essentially the maximal ideals of <span class="math inline">\(A\)</span>. Rational subdomains and admissible coverings cannot be recovered from the naive topology on these classical points, so they must instead be organized into a Grothendieck topology, the rigid <span class="math inline">\(G\)</span>-topology.</p>
+<p>The associated adic spectrum</p>
+<p><span class="math display">\[
+X^{\mathrm{ad}}
+=
+\operatorname{Spa}(A,A^\circ)
+\]</span></p>
+<p>contains the classical rigid points but also the additional valuation-theoretic points. Under this enlargement, rigid rational subdomains become genuine rational open subsets:</p>
+<p><span class="math display">\[
+\left\{
+\begin{array}{c}
+\text{rational subdomains}\\
+\text{of }\operatorname{Sp}(A)
+\end{array}
+\right\}
+\longleftrightarrow
+\left\{
+\begin{array}{c}
+\text{rational open subsets}\\
+\text{of }\operatorname{Spa}(A,A^\circ)
+\end{array}
+\right\}.
+\]</span></p>
+<p>Finite admissible rational coverings on the rigid side correspond to ordinary finite open coverings by rational subsets on the adic side. Since rational subsets form a basis, the sheaf theory of the rigid rational <span class="math inline">\(G\)</span>-site is thereby realized as the ordinary sheaf theory of the topological space <span class="math inline">\(\operatorname{Spa}(A,A^\circ)\)</span>.</p>
+<div class="callout callout-style-default callout-important callout-titled" title="Conceptual meaning of the additional adic points">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Important</span>Conceptual meaning of the additional adic points
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>The passage from rigid spaces to adic spaces accomplishes two logically distinct tasks:</p>
+<ol type="1">
+<li><p><strong>Tate acyclicity</strong> proves that the prescribed rings of analytic functions satisfy the sheaf condition.</p></li>
+<li><p><strong>The additional valuation points</strong> turn the rational Grothendieck topology into the basis of a genuine spectral topology.</p></li>
+</ol>
+<p>The second point is essential. A family of rigid subsets may cover every classical point while still failing to be admissible. After passing to the adic spectrum, the missing valuation points make this failure visible as an ordinary failure to cover the underlying topological space.</p>
+<p>Thus adic geometry does not discard rigid geometry. It retains its analytic functions and admissible coverings while providing a richer point set on which the former <span class="math inline">\(G\)</span>-topology becomes an actual topology. In this precise sense, adic spaces give a more genuinely topological language for rigid geometry.</p>
+</div>
+</div>
+</section>
+</section>
+<section id="adic-spaces" class="level3" data-number="4.3">
+<h3 data-number="4.3" class="anchored" data-anchor-id="adic-spaces"><span class="header-section-number">4.3</span> Adic spaces</h3>
+<p>The definition of an adic space is now natural: we may glue affinoid spectra precisely when their structure presheaves are sheaves.</p>
+<div class="callout callout-style-default callout-note callout-titled" title="Definition: affinoid adic space">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Definition: affinoid adic space
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Let <span class="math inline">\((A,A^+)\)</span> be a complete sheafy Huber pair. The associated <strong>affinoid adic space</strong> is the triple</p>
+<p><span class="math display">\[
+\left(
+\operatorname{Spa}(A,A^+),
+\mathcal O_X,
+\{|\cdot|_x\}_{x\in X}
+\right),
+\]</span></p>
+<p>consisting of the topological space <span class="math inline">\(\operatorname{Spa}(A,A^+)\)</span>, its structure sheaf of complete topological rings, and the compatible valuation carried by every point.</p>
+</div>
+</div>
+<div class="callout callout-style-default callout-note callout-titled" title="Definition: adic space">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Definition: adic space
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>An <strong>adic space</strong> is a locally <span class="math inline">\(v\)</span>-ringed space which admits an open covering by affinoid adic spaces.</p>
+<p>Concretely, it consists of a topological space <span class="math inline">\(X\)</span>, a sheaf <span class="math inline">\(\mathcal O_X\)</span> of complete topological rings, and a compatible valuation on every stalk <span class="math inline">\(\mathcal O_{X,x}\)</span>, such that every point has an open neighborhood isomorphic to <span class="math inline">\(\operatorname{Spa}(A,A^+)\)</span> for some complete sheafy Huber pair <span class="math inline">\((A,A^+)\)</span>.</p>
+<p>Morphisms of adic spaces are morphisms of locally and topologically ringed spaces that are compatible with the valuations at all points.</p>
+</div>
+</div>
+</section>
+</section>
+<section id="why-a-is-necessary" class="level2" data-number="5">
+<h2 data-number="5" class="anchored" data-anchor-id="why-a-is-necessary"><span class="header-section-number">5</span> Why <span class="math inline">\(A^+\)</span> is necessary</h2>
+<p>Let <span class="math inline">\(\operatorname{Cont}(A)\)</span> be the space of continuous valuations on a Huber ring <span class="math inline">\(A\)</span>.</p>
+<div class="callout callout-style-default callout-important callout-titled" title="Proposition: recovering $A^+$ from inequalities">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Important</span>Proposition: recovering <span class="math inline">\(A^+\)</span> from inequalities
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>The space <span class="math inline">\(\operatorname{Cont}(A)\)</span> is spectral. Moreover, the following data are equivalent:</p>
+<ol type="1">
+<li><p>A subset of the form</p>
+<p><span class="math display">\[
+F=
+\bigcap_{f\in S}
+\left\{
+x\in\operatorname{Cont}(A):|f(x)|\leq1
+\right\}
+\]</span></p>
+<p>for some <span class="math inline">\(S\subseteq A^\circ\)</span>.</p></li>
+<li><p>An open integrally closed subring <span class="math inline">\(A^+\subseteq A^\circ\)</span>.</p></li>
+</ol>
+<p>The two constructions are</p>
+<p><span class="math display">\[
+F\longmapsto
+\left\{
+f\in A:
+|f(x)|\leq1
+\text{ for every }x\in F
+\right\}
+\]</span></p>
+<p>and</p>
+<p><span class="math display">\[
+A^+\longmapsto
+\left\{
+x\in\operatorname{Cont}(A):
+|f(x)|\leq1
+\text{ for every }f\in A^+
+\right\}.
+\]</span></p>
+</div>
+</div>
+<p>Thus <span class="math inline">\(A^+\)</span> records precisely which inequalities have been imposed on the continuous valuations.</p>
+<div class="callout callout-style-default callout-tip callout-titled" title="Example: rational localization without the positive part">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Example: rational localization without the positive part
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Let <span class="math inline">\(A\to B\)</span> be the rational localization associated with a rational subset <span class="math inline">\(U\subseteq\operatorname{Cont}(A)\)</span>.</p>
+<p>In general, <span class="math inline">\(\operatorname{Cont}(B)\)</span> is larger than <span class="math inline">\(U\)</span>. The positive subring <span class="math inline">\(B^+\)</span> cuts out <span class="math inline">\(U\)</span> by remembering the additional inequalities <span class="math inline">\(|b(x)|\leq1\)</span> for <span class="math inline">\(b\in B^+\)</span>.</p>
+<p>Consequently, the ring <span class="math inline">\(B\)</span> alone does not remember the desired rational subset.</p>
+</div>
+</div>
+<p>One also cannot impose <span class="math inline">\(A^+=A^\circ\)</span> at every stage: this equality is not generally preserved by rational localization.</p>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    // Ensure there is a toggle, if there isn't float one in the top right
+    if (window.document.querySelector('.quarto-color-scheme-toggle') === null) {
+      const a = window.document.createElement('a');
+      a.classList.add('top-right');
+      a.classList.add('quarto-color-scheme-toggle');
+      a.href = "";
+      a.onclick = function() { try { window.quartoToggleColorScheme(); } catch {} return false; };
+      const i = window.document.createElement("i");
+      i.classList.add('bi');
+      a.appendChild(i);
+      window.document.body.appendChild(a);
+    }
+    setColorSchemeToggle(hasAlternateSentinel())
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp("https:\/\/hechetory\.github\.io\/p-adic_geometry_note\/");
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+            // target, if specified
+            link.setAttribute("target", "_blank");
+            if (link.getAttribute("rel") === null) {
+              link.setAttribute("rel", "noopener");
+            }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="../perfectoid space/index.html" class="pagination-link" aria-label="Perfectoid Spaces">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Perfectoid Spaces</span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="../editing.html" class="pagination-link" aria-label="How to Edit These Notes">
+        <span class="nav-page-text">How to Edit These Notes</span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+<p>An evolving notebook on p-adic geometry.</p>
+</div>   
+    <div class="nav-footer-center">
+      &nbsp;
+    <div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/Hechetory/p-adic_geometry_note/edit/main/perfectoid space/adic space I.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/Hechetory/p-adic_geometry_note/blob/main/perfectoid space/adic space I.qmd" class="toc-action"><i class="bi empty"></i>View source</a></li><li><a href="https://github.com/Hechetory/p-adic_geometry_note/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div>
+    <div class="nav-footer-right">
+<p>Built with Quarto and GitHub Pages.</p>
+</div>
+  </div>
+</footer>
+
+
+
+
+</body></html>

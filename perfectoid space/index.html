@@ -6,9 +6,9 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="description" content="Local Jacobian models for smooth morphisms, their basic properties, and their relation to differentials.">
+<meta name="description" content="An introduction and guide to the notes on perfectoid spaces.">
 
-<title>Smooth Morphisms – p-adic geometry notes</title>
+<title>Perfectoid Spaces – p-adic geometry notes</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -37,8 +37,10 @@ ul.task-list li input[type="checkbox"] {
 <script src="../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../">
-<link href="../etale morphism/flat-morphisms.html" rel="next">
-<link href="../etale morphism/unramified-morphisms.html" rel="prev">
+<link href="../perfectoid space/adic space I.html" rel="next">
+<link href="../jacquet-langlands correspondence/haar-local-fields.html" rel="prev">
+<script src="../site_libs/quarto-listing/list.min.js"></script>
+<script src="../site_libs/quarto-listing/quarto-listing.js"></script>
 <script src="../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
@@ -79,6 +81,35 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Search"
   }
 }</script>
+<script>
+
+  window.document.addEventListener("DOMContentLoaded", function (_event) {
+    const listingTargetEl = window.document.querySelector('#listing-topic-pages .list');
+    if (!listingTargetEl) {
+      // No listing discovered, do not attach.
+      return; 
+    }
+
+    const options = {
+      valueNames: ['listing-title','listing-description','listing-order',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-file-modified-sort'] },{ data: ['listing-reading-time-sort'] },{ data: ['listing-word-count-sort'] }],
+      
+      searchColumns: ["listing-project","listing-filters","listing-website","listing-format","listing-execute","listing-engines","listing-language","listing-title","listing-subtitle","listing-description","listing-order","listing-lang","listing-path","listing-outputHref","listing-author","listing-filename","listing-file-modified","listing-reading-time","listing-word-count"],
+    };
+
+    window['quarto-listings'] = window['quarto-listings'] || {};
+    window['quarto-listings']['listing-topic-pages'] = new List('listing-topic-pages', options);
+
+    if (window['quarto-listing-loaded']) {
+      window['quarto-listing-loaded']();
+    }
+  });
+
+  window.addEventListener('hashchange',() => {
+    if (window['quarto-listing-loaded']) {
+      window['quarto-listing-loaded']();
+    }
+  })
+  </script>
 
   <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
   <script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-chtml.js" type="text/javascript"></script>
@@ -113,7 +144,7 @@ window.Quarto = {
 <link rel="stylesheet" href="../styles.css">
 </head>
 
-<body class="nav-sidebar docked nav-fixed quarto-light"><script id="quarto-html-before-body" type="application/javascript">
+<body class="nav-sidebar docked nav-fixed fullcontent quarto-light"><script id="quarto-html-before-body" type="application/javascript">
     const toggleBodyColorMode = (bsSheetEl) => {
       const mode = bsSheetEl.getAttribute("data-mode");
       const bodyEl = window.document.querySelector("body");
@@ -313,7 +344,7 @@ window.Quarto = {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../etale morphism/index.html">Étale Morphisms</a></li><li class="breadcrumb-item"><a href="../etale morphism/smooth-morphisms.html">Smooth Morphisms</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../perfectoid space/index.html">Perfectoid Spaces</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -360,7 +391,7 @@ window.Quarto = {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../etale morphism/smooth-morphisms.html" class="sidebar-item-text sidebar-link active">
+  <a href="../etale morphism/smooth-morphisms.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Smooth Morphisms</span></a>
   </div>
 </li>
@@ -403,7 +434,7 @@ window.Quarto = {
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a href="../perfectoid space/index.html" class="sidebar-item-text sidebar-link">
+            <a href="../perfectoid space/index.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">Perfectoid Spaces</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
@@ -429,31 +460,19 @@ window.Quarto = {
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">On this page</h2>
-   
-  <ul>
-  <li><a href="#defitions" id="toc-defitions" class="nav-link active" data-scroll-target="#defitions">Defitions</a></li>
-  <li><a href="#basic-properties" id="toc-basic-properties" class="nav-link" data-scroll-target="#basic-properties">Basic properties</a>
-  <ul class="collapse">
-  <li><a href="#relation-to-differentials" id="toc-relation-to-differentials" class="nav-link" data-scroll-target="#relation-to-differentials">Relation to differentials</a></li>
-  </ul></li>
-  </ul>
-<div class="toc-actions"><ul><li><a href="https://github.com/Hechetory/p-adic_geometry_note/edit/main/etale morphism/smooth-morphisms.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/Hechetory/p-adic_geometry_note/blob/main/etale morphism/smooth-morphisms.qmd" class="toc-action"><i class="bi empty"></i>View source</a></li><li><a href="https://github.com/Hechetory/p-adic_geometry_note/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
-    </div>
+    
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../etale morphism/index.html">Étale Morphisms</a></li><li class="breadcrumb-item"><a href="../etale morphism/smooth-morphisms.html">Smooth Morphisms</a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Smooth Morphisms</h1>
+<h1 class="title">Perfectoid Spaces</h1>
 </div>
 
 <div>
   <div class="description">
-    Local Jacobian models for smooth morphisms, their basic properties, and their relation to differentials.
+    An introduction and guide to the notes on perfectoid spaces.
   </div>
 </div>
 
@@ -470,179 +489,34 @@ window.Quarto = {
 </header>
 
 
-<p>A smooth morphism is the relative version of a nonsingular variety. Roughly, its fibers are smooth and fit together uniformly over the base.</p>
-<div class="callout callout-style-default callout-tip callout-titled" title="Mental picture">
+<div class="callout callout-style-default callout-note callout-titled" title="About this chapter">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Tip</span>Mental picture
+<span class="screen-reader-only">Note</span>About this chapter
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Think of a smooth morphism as a family of manifolds whose dimension stays constant and whose members do not suddenly acquire singularities.</p>
+<p>This chapter collects notes on perfectoid spaces, beginning with the basic definitions and motivations and gradually developing the main constructions and results.</p>
 </div>
 </div>
-<section id="defitions" class="level2">
-<h2 class="anchored" data-anchor-id="defitions">Defitions</h2>
-<div id="def-standard-smooth-morphism" class="theorem definition">
-<p><span class="theorem-title"><strong>Definition 1 (standard smooth morphism)</strong></span> The projection</p>
-<p><span class="math display">\[
-\operatorname{Spec}(R[x_1,\cdot, \cdot, x_{n+r}]/(f_1,\cdot, f_r)) \longrightarrow \operatorname{Spec}(R)
-\]</span></p>
-<p>is called the standard smooth morphism of relative dimension <span class="math inline">\(n\)</span> if the determinant of the matrix</p>
-<p><span class="math display">\[
-\left(\frac{\partial f_i}{\partial x_j}\right)_{1\leq i,j\leq r}
-\]</span></p>
-<p>is invertible in the ring <span class="math inline">\(R[x_1,\cdot, \cdot, x_{n+r}]/(f_1,\cdot, f_r)\)</span>.</p>
-</div>
-<div id="rem-jacobson" class="proof remark">
-<p><span class="proof-title"><em>Remark 1</em>. </span>The fibers of this morphism are smooth varieties of dimension <span class="math inline">\(n\)</span> by the Jacobian criterion. The condition on the determinant is a relative version of the Jacobian criterion.</p>
-</div>
-<div id="def-smooth-morphism" class="theorem definition">
-<p><span class="theorem-title"><strong>Definition 2 (smooth morphism)</strong></span> A morphism <span class="math inline">\(f\colon X\to Y\)</span> between schemes is <strong>smooth</strong> of relative dimension <span class="math inline">\(n\)</span> if there exist open subsets <span class="math inline">\(\{U_i\}\)</span> of <span class="math inline">\(X\)</span> and <span class="math inline">\(\{V_i\}\)</span> of <span class="math inline">\(Y\)</span> such that <span class="math inline">\(\{U_i\}\)</span> covers <span class="math inline">\(X\)</span> and <span class="math inline">\(f(U_i)\subseteq V_i\)</span> for each <span class="math inline">\(i\)</span>, and the restriction <span class="math inline">\(f|_{U_i}\colon U_i\to V_i\)</span> is a standard smooth morphism of relative dimension <span class="math inline">\(n\)</span>.</p>
-</div>
-<div id="rem-definition-of-smooth-morphism-slight-different" class="proof remark">
-<p><span class="proof-title"><em>Remark 2</em>. </span>There are several equivalent variants of the definition of a standard smooth morphism that lead to the same notion of a smooth morphism.</p>
-<ol type="1">
-<li><p>We may allow a morphism which factors as <span class="math display">\[
-U \hookrightarrow
-\operatorname{Spec}\bigl(R[x_1,\ldots,x_{n+r}]/(f_1,\ldots,f_r)\bigr)
-\longrightarrow
-\operatorname{Spec}(R),
-\]</span> where the first morphism is an open immersion and the second morphism is standard smooth in the sense above.</p></li>
-<li><p>We may replace the prescribed square Jacobian matrix by the full Jacobian matrix <span class="math display">\[
-\left(\frac{\partial f_i}{\partial x_j}\right)_
-{\substack{1\leq i\leq r\\1\leq j\leq n+r}},
-\]</span> and require that some <span class="math inline">\(r\times r\)</span> minor be invertible.</p></li>
-</ol>
-<p>These variants give the same notion of a smooth morphism. If standard smoothness is defined as 1, we may assume <span class="math inline">\(\{Y_i\}\)</span> covers <span class="math inline">\(Y\)</span>. One can combine 1 and 2 to weaken the standard smoothness again.</p>
-</div>
-<div id="rem-euiv-def" class="proof remark">
-<p><span class="proof-title"><em>Remark 3</em>. </span>It is easy to show that we may define a smooth morphism by requiring that, for every <span class="math inline">\(x\in X\)</span>, there exist an open neighborhood <span class="math inline">\(U\)</span> of <span class="math inline">\(x\)</span> and an open neighborhood <span class="math inline">\(V\)</span> of <span class="math inline">\(f(x)\)</span> such that the induced morphism <span class="math inline">\(f\colon U\to V\)</span> is standard smooth. In this formulation, the full-rank condition may be weakened to the requirement that <span class="math inline">\(df_1,\ldots,df_r\)</span> be linearly independent in the fibre of <span class="math inline">\(\Omega_{R[x_1,\ldots,x_{n+r}]/R}\)</span> at <span class="math inline">\(x\)</span>.</p>
-</div>
+<p>The main reference for this chapter is <strong>Peter Scholze’s notes on p-adic geometry</strong>.</p>
+<section id="contents" class="level2">
+<h2 class="anchored" data-anchor-id="contents">Contents</h2>
+<div id="listing-topic-pages" class="quarto-listing quarto-listing-container-custom">
+<div class="topic-page-list">
+<section id="adic-space-i" class="level3 topic-page-item">
+<h3 class="anchored" data-anchor-id="adic-space-i"><a href="../perfectoid space/adic space I.html">Adic Space I</a></h3>
+<p>From valuation-theoretic points to affinoid adic spaces and their structure sheaves.</p>
 </section>
-<section id="basic-properties" class="level2">
-<h2 class="anchored" data-anchor-id="basic-properties">Basic properties</h2>
-<div id="prp-equivdef" class="theorem proposition">
-<p><span class="theorem-title"><strong>Proposition 1</strong></span> A <span class="math inline">\(k\)</span>-scheme is smooth of relative dimension <span class="math inline">\(d\)</span> over <span class="math inline">\(k\)</span>, if it is of pure dimension <span class="math inline">\(d\)</span>, and there exists a cover by affine open sets <span class="math inline">\(\operatorname{Spec} k[x_1,\ldots,x_n]/(f_1,\ldots,f_r)\)</span> where the Jacobian matrix has corank <span class="math inline">\(d\)</span> at all points (not just closed points).</p>
 </div>
-<div id="prp-smooth-morphism-composition" class="theorem proposition">
-<p><span class="theorem-title"><strong>Proposition 2</strong></span> If <span class="math inline">\(f\colon X\to Y\)</span> and <span class="math inline">\(g\colon Y\to Z\)</span> are smooth morphisms of relative dimension <span class="math inline">\(n\)</span> and <span class="math inline">\(m\)</span> respectively, then the composition <span class="math inline">\(g\circ f\colon X\to Z\)</span> is also smooth of relative dimension <span class="math inline">\(n+m\)</span>.</p>
-</div>
-<div class="proof">
-<p><span class="proof-title"><em>Proof</em>. </span>This is a local property, so we can assume that <span class="math inline">\(f\)</span> and <span class="math inline">\(g\)</span> are standard smooth morphisms of relative dimension <span class="math inline">\(n\)</span> and <span class="math inline">\(m\)</span> respectively. Then, by the chain rule, the corresponding Jacobian matrix of the composition <span class="math inline">\(g\circ f\)</span> is a block-upper-triangular matrix with the Jacobian matrices of <span class="math inline">\(f\)</span> and <span class="math inline">\(g\)</span> on the diagonal. Therefore, the determinant of the corresponding square matrix of <span class="math inline">\(g\circ f\)</span> is the product of determinants of the square matrices of <span class="math inline">\(f\)</span> and <span class="math inline">\(g\)</span>, which are both invertible. So <span class="math inline">\(g\circ f\)</span> is a standard smooth morphism of relative dimension <span class="math inline">\(n+m\)</span>.</p>
-</div>
-<section id="relation-to-differentials" class="level3">
-<h3 class="anchored" data-anchor-id="relation-to-differentials">Relation to differentials</h3>
-<p>We recall the definition and properties of the sheaf of differentials in <a href="../etale morphism/unramified-morphisms.html">The Sheaf of Differentials and Unramified Morphisms</a>. The sheaf of differentials can be used to characterize smooth morphisms and smooth varieties.</p>
-<div id="prp-differentials-of-smooth-varieties" class="theorem proposition">
-<p><span class="theorem-title"><strong>Proposition 3</strong></span> A scheme <span class="math inline">\(X\)</span> is smooth of relative dimension <span class="math inline">\(n\)</span> over <span class="math inline">\(k\)</span> if and only if the sheaf of differentials <span class="math inline">\(\Omega_{X/k}\)</span> is locally free of rank <span class="math inline">\(n\)</span> and <span class="math inline">\(X\)</span> is locally of finite type and of pure dimension <span class="math inline">\(n\)</span>.</p>
-</div>
-<div class="proof">
-<p><span class="proof-title"><em>Proof</em>. </span>Assume <span class="math inline">\(X\)</span> is smooth of relative dimension <span class="math inline">\(n\)</span>. Then, by the relation between smoothness and regualrness, one can show that <span class="math inline">\(X\)</span> is reduced. Since <span class="math inline">\(X\)</span> is locally of finite type, the sheaf of differentials <span class="math inline">\(\Omega_{X/k}\)</span> is of finite type. By defineion, <span class="math inline">\(X\)</span> is locally standard smooth over <span class="math inline">\(k\)</span> of relative dimension <span class="math inline">\(n\)</span>, we conclude that <span class="math inline">\(\Omega_{X/k}|_x\)</span> is free of rank <span class="math inline">\(n\)</span> for all <span class="math inline">\(x\in X\)</span>. Thus, <span class="math inline">\(\Omega_{X/k}\)</span> is locally free of rank <span class="math inline">\(n\)</span>. The other two conditions follow immediately from the definition of the smoothness.</p>
-<p>Conversely, if <span class="math inline">\(X\)</span> satisfies the conditions, then since <span class="math inline">\(\Omega_{X/k}\)</span> is characterized by the cokernel of the Jacobian, the corank of the Jacobian must be <span class="math inline">\(n\)</span>, which implies that <span class="math inline">\(X\)</span> is smooth of relative dimension <span class="math inline">\(n\)</span> by <a href="#prp-equivdef" class="quarto-xref">Proposition&nbsp;1</a>.</p>
-</div>
-<div class="callout callout-style-default callout-caution callout-titled" title="Caution">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Caution</span>Caution
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>It is not easy to show that a smooth variety is reduced. The proof is not included here, but it can be found in the textbook “The Rising Sea”. And the last statement in the proof above is a corollary of Nakayama’s lemma, which is a fundamental result in alegbraic geometry, and both reducedness, finiteness and the constantness of the dimension of fibre matter. See 14.3.J in “The Rising Sea” for details.</p>
-</div>
-</div>
-<div id="rem-smooth-free-differentials" class="proof remark">
-<p><span class="proof-title"><em>Remark 4</em>. </span>When <span class="math inline">\(f:X\to Y\)</span> is a smooth morphism of relative dimension <span class="math inline">\(n\)</span>, <span class="math inline">\(\Omega_{X/Y}\)</span> is locally free of rank <span class="math inline">\(n\)</span>, since this is naturally true if <span class="math inline">\(f\)</span> is standard.</p>
-</div>
-<div id="prp-smooth-and-transitive-exact-sequence" class="theorem proposition">
-<p><span class="theorem-title"><strong>Proposition 4</strong></span> Let <span class="math inline">\(\pi\colon X\to Y\)</span> and <span class="math inline">\(\rho\colon Y\to Z\)</span> be morphisms of schemes. If <span class="math inline">\(\pi\)</span> and <span class="math inline">\(\rho\)</span> are smooth, then the transitive exact sequence is also exact on the left, which means that the sequence <span class="math display">\[
-0\to \pi^*\Omega_{Y/Z}\to \Omega_{X/Z}\to \Omega_{X/Y}\to 0
-\]</span></p>
-<p>is exact.</p>
-</div>
-<div class="proof">
-<p><span class="proof-title"><em>Proof</em>. </span>This is a local property, so we can assume that <span class="math inline">\(\pi\)</span> and <span class="math inline">\(\rho\)</span> are standard smooth morphisms of relative dimension <span class="math inline">\(n\)</span> and <span class="math inline">\(m\)</span> respectively. In <a href="../etale morphism/unramified-morphisms.html">The Sheaf of Differentials and Unramified Morphisms</a>, we know the module of differentials is the cokernel of the Jacobian matrix. The injectivity of the left follows from the fact that the Jacobian matrix of <span class="math inline">\(\rho\circ \pi\)</span> is a block-upper-triangular matrix with the Jacobian matrices of <span class="math inline">\(\pi\)</span> and <span class="math inline">\(\rho\)</span> on the diagonal.</p>
-</div>
-<p>In the following, we will discuss the conormal exact sequence.</p>
-<div id="thm-conormal" class="theorem">
-<p><span class="theorem-title"><strong>Theorem 1</strong></span> Let <span class="math inline">\(i:X\hookrightarrow Y\)</span> be a closed immersion of smooth varieties over a field <span class="math inline">\(k\)</span>, with ideal sheaf <span class="math inline">\(\mathcal I\)</span>. Then the conormal sheaf <span class="math display">\[
-\mathcal N^\vee_{X/Y}:=\mathcal I/\mathcal I^2
-\]</span> is locally free, and the conormal sequence is a locally split short exact sequence <span class="math display">\[
-0\longrightarrow \mathcal N^\vee_{X/Y}
-\xrightarrow{\delta}i^*\Omega_{Y/k}
-\longrightarrow\Omega_{X/k}
-\longrightarrow 0,
-\]</span> where <span class="math inline">\(\delta(\overline f)=df|_X\)</span>.</p>
-<p>Dualizing gives the normal exact sequence <span class="math display">\[
-0\longrightarrow\mathcal T_{X/k}
-\longrightarrow i^*\mathcal T_{Y/k}
-\longrightarrow\mathcal N_{X/Y}
-\longrightarrow 0,
-\]</span> where <span class="math inline">\(\mathcal N_{X/Y}:=(\mathcal N^\vee_{X/Y})^\vee\)</span>.</p>
-</div>
-<div class="proof">
-<p><span class="proof-title"><em>Proof</em>. </span>Differentials and the conormal sheaf commute with field extension, while exactness and finite local freeness descend under faithfully flat base change. We may therefore assume that <span class="math inline">\(k\)</span> is algebraically closed.</p>
-<p>Since <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> are smooth over <span class="math inline">\(k\)</span>, they are regular, and the closed immersion <span class="math inline">\(i\)</span> is a regular immersion. Thus <span class="math inline">\(\mathcal I/\mathcal I^2\)</span> is locally free of rank equal to the codimension of <span class="math inline">\(X\)</span> in <span class="math inline">\(Y\)</span>.</p>
-<p>The conormal sequence is always right exact: <span class="math display">\[
-\mathcal I/\mathcal I^2
-\xrightarrow{\delta}i^*\Omega_{Y/k}
-\longrightarrow\Omega_{X/k}
-\longrightarrow 0.
-\]</span> Set <span class="math inline">\(\mathcal K=\ker\delta\)</span>. Since <span class="math inline">\(\mathcal K\)</span> is a subsheaf of the locally free sheaf <span class="math inline">\(\mathcal I/\mathcal I^2\)</span>, we have <span class="math display">\[
-\operatorname{Ass}(\mathcal K)
-\subseteq\operatorname{Ass}(\mathcal I/\mathcal I^2)
-\subseteq\operatorname{Ass}(\mathcal O_X).
-\]</span> As <span class="math inline">\(X\)</span> is reduced, its associated points are precisely the generic points of its irreducible components. Moreover, every nonzero coherent sheaf has an associated point. Hence it suffices to show that <span class="math inline">\(\mathcal K_\eta=0\)</span> at every generic point <span class="math inline">\(\eta\)</span> of <span class="math inline">\(X\)</span>.</p>
-<p>Fix such a point <span class="math inline">\(\eta\)</span>, and work locally where <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> have dimensions <span class="math inline">\(m\)</span> and <span class="math inline">\(n\)</span>, respectively. Since <span class="math inline">\(X\)</span> is reduced, <span class="math inline">\(\mathcal O_{X,\eta}=\kappa(\eta)\)</span> is a field. Taking stalks gives a right-exact sequence of vector spaces <span class="math display">\[
-(\mathcal I/\mathcal I^2)_\eta
-\xrightarrow{\delta_\eta}(i^*\Omega_{Y/k})_\eta
-\longrightarrow(\Omega_{X/k})_\eta
-\longrightarrow 0.
-\]</span> The dimensions of these three vector spaces are <span class="math inline">\(n-m\)</span>, <span class="math inline">\(n\)</span>, and <span class="math inline">\(m\)</span>, respectively. Right exactness therefore gives <span class="math display">\[
-\dim_{\kappa(\eta)}\operatorname{im}\delta_\eta=n-m
-=\dim_{\kappa(\eta)}(\mathcal I/\mathcal I^2)_\eta.
-\]</span> Thus <span class="math inline">\(\delta_\eta\)</span> is injective. It follows that <span class="math inline">\(\mathcal K=0\)</span>, proving left exactness.</p>
-<p>Since <span class="math inline">\(\Omega_{X/k}\)</span> is locally free, the resulting short exact sequence splits locally. Dualizing a locally split short exact sequence preserves exactness, giving the normal sequence.</p>
-</div>
-<div id="cor-cotangent-separable-closed-point" class="theorem corollary">
-<p><span class="theorem-title"><strong>Corollary 1</strong></span> Let <span class="math inline">\(Y\)</span> be a smooth variety over a field <span class="math inline">\(k\)</span>, and let <span class="math inline">\(q\in Y\)</span> be a closed point such that <span class="math inline">\(\kappa(q)/k\)</span> is separable. Write <span class="math inline">\(\mathfrak m_q\)</span> for the maximal ideal of <span class="math inline">\(\mathcal O_{Y,q}\)</span>. Then the map <span class="math display">\[
-\mathfrak m_q/\mathfrak m_q^2
-\xrightarrow{\sim}
-\Omega_{Y/k}\otimes_{\mathcal O_Y}\kappa(q),
-\qquad
-\overline f\longmapsto df\otimes 1,
-\]</span> is a canonical isomorphism.</p>
-</div>
-<div class="proof">
-<p><span class="proof-title"><em>Proof</em>. </span>The extension <span class="math inline">\(\kappa(q)/k\)</span> is finite separable, so <span class="math inline">\(\operatorname{Spec}\kappa(q)\)</span> is smooth over <span class="math inline">\(k\)</span> and <span class="math inline">\(\Omega_{\kappa(q)/k}=0\)</span>. Applying the preceding theorem to the closed immersion <span class="math inline">\(\operatorname{Spec}\kappa(q)\hookrightarrow Y\)</span> gives <span class="math display">\[
-0\longrightarrow\mathfrak m_q/\mathfrak m_q^2
-\longrightarrow\Omega_{Y/k}\otimes_{\mathcal O_Y}\kappa(q)
-\longrightarrow\Omega_{\kappa(q)/k}
-\longrightarrow 0.
-\]</span> The last term vanishes, proving the first assertion.</p>
-</div>
-<div class="callout callout-style-default callout-note callout-titled" name="">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Note
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>The separability hypothesis is automatic when <span class="math inline">\(k\)</span> is perfect, in particular when <span class="math inline">\(\operatorname{char}k=0\)</span> or <span class="math inline">\(k\)</span> is finite. And the statement still holds when we do not require the smoothness of <span class="math inline">\(Y\)</span>.</p>
-</div>
+<div class="listing-no-matching d-none">No matching items</div>
 </div>
 
 
-</section>
+
 </section>
 
 </main> <!-- /main -->
@@ -1066,13 +940,13 @@ Note
   </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="../etale morphism/unramified-morphisms.html" class="pagination-link" aria-label="The Sheaf of Differentials and Unramified Morphisms">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">The Sheaf of Differentials and Unramified Morphisms</span>
+      <a href="../jacquet-langlands correspondence/haar-local-fields.html" class="pagination-link" aria-label="Haar Measure and Local Fields">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Haar Measure and Local Fields</span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../etale morphism/flat-morphisms.html" class="pagination-link" aria-label="Flat Morphisms">
-        <span class="nav-page-text">Flat Morphisms</span> <i class="bi bi-arrow-right-short"></i>
+      <a href="../perfectoid space/adic space I.html" class="pagination-link" aria-label="Adic Space I">
+        <span class="nav-page-text">Adic Space I</span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
@@ -1084,7 +958,7 @@ Note
 </div>   
     <div class="nav-footer-center">
       &nbsp;
-    <div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/Hechetory/p-adic_geometry_note/edit/main/etale morphism/smooth-morphisms.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/Hechetory/p-adic_geometry_note/blob/main/etale morphism/smooth-morphisms.qmd" class="toc-action"><i class="bi empty"></i>View source</a></li><li><a href="https://github.com/Hechetory/p-adic_geometry_note/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div>
+    <div class="toc-actions"><ul><li><a href="https://github.com/Hechetory/p-adic_geometry_note/edit/main/perfectoid space/index.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/Hechetory/p-adic_geometry_note/blob/main/perfectoid space/index.qmd" class="toc-action"><i class="bi empty"></i>View source</a></li><li><a href="https://github.com/Hechetory/p-adic_geometry_note/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div>
     <div class="nav-footer-right">
 <p>Built with Quarto and GitHub Pages.</p>
 </div>
